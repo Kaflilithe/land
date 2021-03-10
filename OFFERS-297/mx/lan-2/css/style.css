@@ -1078,7 +1078,7 @@ margin: 0 auto;
     font-family: Open Sans;
 font-style: normal;
 font-weight: 800;
-font-size: 32px;
+font-size: 23px;
 line-height: 110%;
 /* identical to box height, or 44px */
 color: #FFFFFF;
@@ -1091,8 +1091,7 @@ display: block;
     font-family: Open Sans;
 font-style: normal;
 font-weight: 800;
-font-size: 18px;
-line-height: 46px;
+font-size: 15px;
 /* identical to box height, or 20px */
 text-decoration-line: line-through;
 color: #FFFFFF;
@@ -1373,12 +1372,11 @@ line-height: 90%;
 }
 
 .price .price--new {
-        font-size: 32px;
+        font-size: 20px;
 }
 
 .price .price--old {
-        font-size: 16px;
-    line-height: 42px;
+        font-size: 13px;
 }
 
 .form__price-block {
