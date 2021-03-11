@@ -53,8 +53,8 @@
 
 #order_form label {
 
-	width:230px;
-
+	max-width:230px;
+width: 100%;
 	display:block;
 
 	padding:5px 0 5px 0;
