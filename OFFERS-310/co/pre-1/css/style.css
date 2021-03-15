@@ -462,7 +462,7 @@ p.txt_content.fl_right {
 }
 .img_dis_none_blok, .three {
     max-width: 500px;
-
+width: 100%;
     display: block;
     float: left; 
     margin: 10px;
