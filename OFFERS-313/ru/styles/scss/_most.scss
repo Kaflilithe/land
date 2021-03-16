@@ -13,7 +13,10 @@ body {
 * {
   box-sizing: border-box;
 }
-
+a{
+  color: #000;
+  text-decoration: none
+}
 .container {
   @include content();
   @media (max-width: 400px) {
