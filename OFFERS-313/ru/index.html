@@ -13,20 +13,25 @@
 
   <header class="header">
     <div class="header__top">
-      <div class="header__wrapper">
+      <div class="header__wrapper"> 
+         <a href="" class="header__mob-menu">
+          <img src="img/menu.svg" alt="">
+        </a>
         <div class="header__logo">
           <img src="img/logo.svg" alt="">
       
         </div>
         <nav class="header__menu">
 
-          <a href="" class="header__link">Пациентам</a>
-          <a href="" class="header__link">Врачам</a>
-          <a href="" class="header__link">Статьи</a>
-          <a href="" class="header__link"><img src="img/auth.svg" alt=""> Вход/Авторизация</a>
+          <a href="" class="header__top--link">НОВОСТИ</a>
+          <a href="" class="header__top--link">СВЕЖЕЕ</a>
+          <a href="" class="header__top--link">ВРЕМЯ ЕСТЬ</a>
+          <a href="" class="header__top--link">ТЕСТЫ</a>
+          <a href="" class="header__top--link">ПРОДКАСТЫ</a>
         </nav>
-        <a href="" class="header__mob-menu">
-          <img src="img/menu.svg" alt="">
+      
+        <a href="" class="header__magnifier">
+          <img src="img/magnifier.svg" alt="">
         </a>
       </div>
     </div>
@@ -36,13 +41,15 @@
           <img src="img/chat.svg" alt="">
            <p>Задать вопрос</p>
         </div>
-        <nav class="header__menu">
-          <a href="" class="header__link">Главная</a>
-          <a href="" class="header__link">Пациентам</a>
-          <a href="" class="header__link">Врачам</a>
-          <a href="" class="header__link">Статьи</a>
-          <a href="" class="header__link"><img src="img/auth.svg" alt=""> Вход/Авторизация</a>
-        </nav>
+        <div class="header__menu">
+          <a href="" class="header__bottom--link">Тренды</a>
+          <a href="" class="header__bottom--link">Ответы</a>
+          <a href="" class="header__bottom--link">Жизнь</a>
+          <a href="" class="header__bottom--link">Интернет</a>
+          <a href="" class="header__bottom--link">Кино</a>
+          <a href="" class="header__bottom--link">Финансы</a>
+          <a href="" class="header__bottom--link">Промокоды</a>
+        </div>
       </div>
     </div>
   </header>
@@ -420,14 +427,6 @@
   </main>
 
 </body>
-
-<script>
-  const currentLink = 'https://google.com'
-  const link = document.querySelectorAll('a');
-  link.forEach(link => {
-    link.setAttribute('href', currentLink)
-  })
-</script>
 <script src="js/common.js"></script>
 
 </html>
