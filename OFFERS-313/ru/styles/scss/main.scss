@@ -43,6 +43,7 @@
     .select {
       @include flex(row, center, center);
       position: relative;
+      box-sizing: border-box;
       p {
         position: absolute;
         top: auto;
