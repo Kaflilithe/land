@@ -433,7 +433,6 @@ header .logo { padding-top:3px; padding-right:45px; }
 header .icon-box .desc { line-height:1.25; }
 header .button { margin-top:5px; }
 .block-main { background-image:url(../img/bg-1.jpg); text-align:center; padding-bottom:80px; }
-.block-main.block-7,.block-main.block-20 { background-image:url(../img/bg-7.jpg); }
 .block-main .main { position:relative; z-index:2; }
 .block-main .title { padding-top:30px; padding-bottom:10px; line-height:.9; }
 .block-main .desc { font-size:1.25rem; line-height:1.1; padding-right:140px; padding-left:140px; }
