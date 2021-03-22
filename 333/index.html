@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<script src="js/jquery.min.js"></script>
+
+    <script>
+    function set_validator_errors(){
+        orderValidator.errorTitle = 'Per favore correggere i seguenti errori'; 
+
+        orderValidator.errorNameField = 'Nome'; 
+        orderValidator.errorNameMess = 'Inserisci il tuo nome'; 
+        
+        orderValidator.errorPhoneField = 'Telefono per la comunicazione'; 
+        orderValidator.errorPhoneMess = 'Inserisci il numero di telefono corretto'; 
+        
+        orderValidator.errorAddress = 'Inserisci l\'indirizzo corretto'; 
+        orderValidator.errorRequired = 'campo obbligatorio'; 
+        orderValidator.errorMaxLength = 'carattere massimo {1} valido'; 
+        orderValidator.errorMinLength = 'carattere minimo valido {1}'; 
+        orderValidator.errorEmailField = 'E-mail';
+        orderValidator.errorEmail = 'Email specificata non valida';
+        }
+    </script>
+    
+<script>
+
+
+window.app = {
+    timestamp: parseInt((new Date()).getTime() / 1000),
+    jq: jQuery,
+    formAction: window.location.href,
+    leadToken: '60587d60edc804.81664845',
+    offers: {"19543":{"price2":"298","product_sku":"","prepaid_info_html":"","country":{"code":"SA","name":"\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f"},"currency":{"code":"SAR","name":"SAR"},"delivery_price":"","id":19543,"link":"","discount":"50","price":"149"}},
+    currentOffer: {"price2":"298","product_sku":"","prepaid_info_html":"","country":{"code":"SA","name":"\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f"},"currency":{"code":"SAR","name":"SAR"},"delivery_price":"","id":19543,"link":"","discount":"50","price":"149"},
+    allowedCountries: ["SA"],
+    _setOfferId: false,
+    
+    setOffer: function (offerId) {
+        if (offerId == this._setOfferId) {
+            return ;
+        }
+        this._setOfferId = offerId;
+        if (offerId) {
+            var offer = app.offers[offerId];
+            var previousOffer = app.currentOffer;
+            app.currentOffer = offer;
+            var event = this.jq.Event("offerchange");
+            event.previousOffer = previousOffer;
+            event.currentOffer = app.currentOffer;
+            this.jq(document).trigger(event);
+            this.updatePage(offer);
+        } else {
+            $('input[name=country]').val('');
+        }
+    },
+    
+    updatePage: function(offer) {
+        $('x-newprice').html(offer.price);
+        $('x-oldprice').html(offer.price2);
+        $('x-currency').html(offer.currency.name);
+        $('input[name=offer], select[name=offer]').val(offer.id);
+        $('input[name=country]').val(offer.country.code);
+    },
+
+    blockForm: function() {
+        // Блокируем кнопки при отправке формы
+        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        app.incompleteOrder.lock = true;
+        clearTimeout(app.incompleteOrder.timer);
+    },
+
+    unblockForm: function() {
+        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        app.incompleteOrder.lock = false;
+        clearTimeout(app.incompleteOrder.timer);
+    }
+
+};
+
+
+</script><script src="js/form.validate.js"></script>
+<script src="js/form.incomplete.js"></script>
+<script src="js/main2.js"></script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Timbro per sopracciglia Beauty Stamp</title>
+<!-- Favicon -->
+<link rel="icon" href="img/2248.png" type="image/png">
+<link rel="shortcut icon" href="img/2248.png" type="image/png">
+
+<!-- OG -->
+<meta property="og:url" content=".">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Timbro per sopracciglia Beauty Stamp">
+<meta property="og:image" content="img/2248.png">
+<meta property="og:image:width" content="150">
+<meta property="og:image:height" content="150">
+<meta property="og:site_name" content="Timbro per sopracciglia Beauty Stamp">
+<meta property="og:description" content="Timbro per sopracciglia Beauty Stamp">
+<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+<link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css">
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>
+<script type="text/javascript" src="js/lastpack.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/script.js"></script>
+
+</head>
+<body>
+
+
+<div class="main_wrapper"> 
+  <!-- offer -->
+  <header class="offer_section offer_top">
+    <div class="info">
+      <p class="subtitle">Timbro per sopracciglia</p>
+      <h1 class="main_title">Eyebrow <span>Beauty Stamp</span></h1>
+      <p class="description"> <span>Sopracciglia</span> <span>perfette in</span> <span>pochi</span> <span>secondi</span> </p>
+      <div class="discount_wrapper">
+        <div class="discount">Offerta! <span>50%</span> sconto</div>
+      </div>
+    </div>
+    <div class="price_block">
+      <div class="price_item old">
+        <div class="text">Prezzo normale:</div>
+        <div class="value oldproductsum"><span class="price_land_s2 oldproductsum"><x-oldprice>298</x-oldprice></span></div>
+      </div>
+      <div class="price_item new productsum"><span class="price_land_s1 productsum"><x-newprice>149</x-newprice> <x-currency>SAR</x-currency></span></div>
+    </div>
+    <a href="#order_form" class="button">Ordina con uno sconto</a> </header>
+  <!-- /offer --> 
+  <!-- about -->
+  <section class="about_section">
+    <h2>Che cos'è Eyebrow Beauty Stamp?</h2>
+    <img src="img/about__image1.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+    <p>Timbro per sopracciglia Eyebrow Beauty Stamp è un beauty-device che rammenta un timbro di 
+	vecchio stile: al supporto plastico, dotato con la maniglia, è attacato un materiale morbido sotto forma di un sopracciglio femminile. Questo materiale è impregnato di un colorante. Per effettuare il trucco delle sopracciglia utilizzando il timbro, bisogna attaccarlo  al proprio sopracciglio e premere. Dopo un paio di secondi, il timbro si può togliere. Fatto ciò, vedremo che i peli si si sono sdraiati, ripetendo i contorni del timbro e hanno acquisito il colore.
+	</p>
+    <img src="img/about__image2.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+    <p>Timbro per sopracciglia Eyebrow Beauty Stamp
+	Il timbro è adatto a tutti, ad eccezione del tipo di viso specifico o delle sopracciglia troppo tirate. Le sopracciglia “timbrate” non richiedono l'uso di gel di fissaggio. Il colore su di loro si mantiene così fino alla sera. La tinta dalle sopracciglie si può rimuovere usando una acqua micellare normale o qualsiasi altro struccante.
+	</p>
+  </section>
+  <!-- /about --> 
+  <!-- video -->
+  <div class="video-container">
+    <!--<div class="youtube" data-our-video="1" data-our-url="c6cf5d475e69eac5a09bf3b46836bb7c1528880224"></div>-->
+	<video class="youtube" width="100%" height="auto" controls><source src="video.mp4" type="video/mp4">Your browser does not support the video tag. </video>
+  </div>
+  <!-- /video --> 
+  <!-- colors -->
+  <section class="colors_section">
+    <div class="info">
+      <h2>Timbri disponibili</h2>
+      <div class="colors_list">
+        <div class="color_item one">
+          <div class="title_block">
+            <div class="color_icon"></div>
+            <h4>Completo marrone scuro</h4>
+          </div>
+          <div class="main_type clearfix"> <img class="main_image" src="img/colors__color1_image1.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+            <div class="type_block">
+              <p>Per le sopracciglia dritte</p>
+              <img src="img/colors__color1_image2.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> <img src="img/colors__color1_image3.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+          </div>
+          <div class="other_types">
+            <div class="text_block">
+              <h5>Timbri di un altra forma </h5>
+              <p>(Può essere ordinato a parte)</p>
+            </div>
+            <div class="type_block one">
+              <p>Per le sopracciglia arrotondate</p>
+              <img src="img/colors__color1_image4.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+            <div class="type_block two">
+              <p>Per le sopracciglia curve</p>
+              <img src="img/colors__color1_image5.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+          </div>
+        </div>
+        <div class="color_item two">
+          <div class="title_block">
+            <div class="color_icon"></div>
+            <h4>Completo nero</h4>
+          </div>
+          <div class="main_type clearfix"> <img class="main_image" src="img/colors__color2_image1.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+            <div class="type_block">
+              <p>Per le sopracciglia dritte</p>
+              <img src="img/colors__color2_image2.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> <img src="img/colors__color2_image3.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+          </div>
+          <div class="other_types">
+            <div class="text_block">
+              <h5>Timbri di un altra forma </h5>
+              <p>(Può essere ordinato a parte)</p>
+            </div>
+            <div class="type_block one">
+              <p>Per le sopracciglia arrotondate</p>
+              <img src="img/colors__color2_image4.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+            <div class="type_block two">
+              <p>Per le sopracciglia curve</p>
+              <img src="img/colors__color2_image5.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="price_block">
+      <div class="price_item old">
+        <div class="text">Prezzo normale:</div>
+        <div class="value oldproductsum"><span class="price_land_s2 oldproductsum"><x-oldprice>298</x-oldprice></span></div>
+      </div>
+      <div class="price_item new productsum"><span class="price_land_s1 productsum"><x-newprice>149</x-newprice> <x-currency>SAR</x-currency></span></div>
+    </div>
+    <a href="#order_form" class="button">Ordina con uno sconto</a> </section>
+  <!-- /colors --> 
+  <!-- use steps -->
+  <section class="use_steps_section">
+    <h3> <span>Come</span> <span>timbrare</span> <span>le sopracciglia?</span> </h3>
+    <div class="steps_list">
+      <div class="step_item">
+        <div class="image_block"> <img src="img/use_steps__step1_image.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+        <div class="text_block">
+          <div class="number">1</div>
+          <p>Applica sullo sponge le ombre di sfumatura necessaria</p>
+        </div>
+      </div>
+      <div class="step_item">
+        <div class="text_block">
+          <div class="number">2</div>
+          <p>Attaca lo sponge al sopracciglio ed attendi qualqhi secondi</p>
+        </div>
+        <div class="image_block"> <img src="img/use_steps__step2_image.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+      </div>
+      <div class="step_item">
+        <div class="image_block"> <img src="img/use_steps__step3_image.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp"> </div>
+        <div class="text_block">
+          <div class="number">3</div>
+          <p>Eccoci! Tutto fatto! Velocemente, semplicemente e perfettamente!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /use steps --> 
+  <!-- order steps -->
+  <section class="order_steps_section">
+    <h2>Come ordinare?</h2>
+    <div class="steps_list">
+      <div class="step_item"> <img src="img/order_steps__step1_icon.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="number">01</div>
+        <p>Lascia l’ordine sul sito</p>
+      </div>
+      <div class="step_item"> <img src="img/order_steps__step2_icon.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="number">02</div>
+        <p>Nostro manager precisa i dettagli dell’ordine</p>
+      </div>
+      <div class="step_item"> <img src="img/order_steps__step3_icon.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="number">03</div>
+        <p>Servizio di consegna consegna la tua merce</p>
+      </div>
+      <div class="step_item"> <img src="img/order_steps__step4_icon.png" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="number">04</div>
+        <p>Paga alla consegna</p>
+      </div>
+    </div>
+  </section>
+  <!-- /order steps --> 
+  <!-- reviews -->
+  <section class="reviews_section">
+    <h2>Recensioni dei clienti</h2>
+    <div class="reviews_list owl-carousel">
+      <div class="review_item"> <img src="img/reviews__review1_photo.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="author_info">Giorgina Alfieri, 38 anni</div>
+        <p>Per me, una persona con le sopracciglia problematiche, questo timbro è diventato una vera fortuna. Quanti anni ho lottato con loro, quanto spesso sono andata a correggere-non c'era alcun risultato. Ma Beauty Stamp mi ha aiutato a risolvere questo problema: le sopracciglia sono finalmente diventate uniformi.</p>
+      </div>
+      <div class="review_item"> <img src="img/reviews__review2_photo.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="author_info">Vittoria Giuliano, 29 anni</div>
+        <p>Un opzione idele per coloro, chi non ha tempo di mettersi sedersi tranquillamente e trucarsi come si deve. Per le sopracciglia, ora sono tranquilla - il trucco delle entrambe richiede esattamente un minuto. Dopo ho applicato lo sponge ho aspettato un paio di secondi – e si può andare. Belezza!</p>
+      </div>
+      <div class="review_item"> <img src="img/reviews__review3_photo.jpg" alt="Timbro per sopracciglia Eyebrow Beauty Stamp" title="Timbro per sopracciglia Eyebrow Beauty Stamp">
+        <div class="author_info">Rosalinda Corti, 23 anni</div>
+        <p>Ho sempre avuto la sfiducia allo shopping su Internet, ma il timbro per le sopracciglia ha sorpreso con la sua qualità. Si sdraia meravigliosamente, senza grumi, non cade nulla. E le sopracciglia diventano spesse e vigorose. Sono contenta pazzescamente dell'acquisto!</p>
+      </div>
+    </div>
+  </section>
+  <!-- /reviews --> 
+  <!-- offer -->
+  <section class="offer_section offer_bottom">
+    <h3>Ordina subito</h3>
+    <div class="info">
+      <p class="subtitle">Timbro per sopracciglia</p>
+      <h4 class="main_title"><span>Eyebrow</span> Beauty Stamp</h4>
+      <p class="description"> <span>Sopracciglia</span> <span>perfette in</span> <span>pochi</span> <span>secondi</span> </p>
+      <div class="discount_wrapper">
+        <div class="discount">Offerta! <span>50%</span> sconto</div>
+      </div>
+    </div>
+    <form id="order_form" class="order_form orderformcdn" action method="post">
+      <div class="timer_block clearfix">
+        <p>Fino alla fine <span>dell’offerta</span></p>
+        <div class="timer clearfix" id="timer">
+          <div class="timer_item hours">00</div>
+          <div class="timer_item minutes">00</div>
+          <div class="timer_item seconds">00</div>
+        </div>
+      </div>
+      <div class="price_block">
+        <div class="price_item old">
+          <div class="text">Prezzo normale:</div>
+          <div class="value oldproductsum"><span class="price_land_s2 oldproductsum"><x-oldprice>298</x-oldprice></span></div>
+        </div>
+        <div class="price_item new productsum"><span class="price_land_s1 productsum"><x-newprice>149</x-newprice> <x-currency>SAR</x-currency></span></div>
+      </div>
+     <input name="csrf_token" type="hidden" value="2f38ff0ae60d92d2d3ea6bd96d89a186:1616412001">
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="SA" selected="selected" value="19543">
+            Саудовская Аравия        </option>
+    </select>
+
+          <input class="input" type="text" name="name" value placeholder="Inserisci il tuo nome">
+      <input class="input" type="tel" name="phone" value placeholder="Inserisci il tuo numero di telefono">
+      <div class="reolader">
+        <button type="submit" class="button mm_button">Ordina con uno sconto</button>
+        <div class="ajax_loader_block"><img class="ajax_loader" src="img/ajax-loader.gif" alt="Идет отправка данных"> <span class="ajax_loader">Идет отправка данных</span></div>
+      </div>
+      <p class="products_count">Sono rimast <span class="lastpack">6</span> timbri di offerta</p>
+    </form>
+  </section>
+  <!-- /offer --> 
+  <!-- footer -->
+  <footer class="footer_section">
+    <div class="copyright">
+
+	 <center><p>OOO "OSTROV PRODAZH" OGRN: 1197746695530 VAT: 7708365555</p>
+<p>129090, Moscow, pereulok Zhivarev, house 8, stroenie 3, flat 16 email: ostrov.prodazh@mail.com Skype: ostrov.prodazh@mail.com</p> 
+
+
+    
+            <p class="conf-link doclinks">
+        <a class="nav-link" href onclick="window.open('/policy_en.php'); return false;">Privacy Policy</a>
+          |
+        <a class="nav-link" href onclick="window.open('/terms_en.php'); return false;">Terms & Conditions</a>
+      </p>
+      
+    
+</center>
+
+    </div>
+  </footer>
+  <!-- /footer --> 
+</div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+
+
+$(document).on('click', 'form', function(e) {
+    if ( ! $(this).find('input[name=phone]').length) {
+        return;
+    }
+    
+    if (window['yaCounter46830237'] && e.validator === window.orderValidator) {
+        window['yaCounter46830237'].reachGoal('FORMCLICK');
+    }
+});
+
+
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(46830237, "init", {
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true});
+
+if (yandex_metrika_postinit) {
+    yandex_metrika_postinit(ym);
+}
+</script>
+<noscript><div><img src="1" style="position:absolute; left:-9999px;" alt></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Rating Mail.ru counter -->
+<script type="text/javascript">
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "2925504", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+        if (d.getElementById(id)) return;
+        var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+        ts.src = "https://top-fwz1.mail.ru/js/code.js";
+        var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+        if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "topmailru-code");
+</script><noscript><div>
+        <img src="counter2" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+    </div></noscript>
+<!-- //Rating Mail.ru counter -->
+</body>
+</html>
