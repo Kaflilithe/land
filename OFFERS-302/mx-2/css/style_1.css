@@ -442,7 +442,7 @@ header .button { margin-top:5px; }
 .block-main .buy-counter .buy-number { font-weight:700; }
 .block-main form { padding-top:10px; }
 .block-main form .button, .block-main form input, .block-main form select, .errField { display:block; margin:auto; margin-bottom:10px; width:40%; }
-.block-main form .button { font-size:1rem; background-color:#cb555a; border-color:#cb555a; }
+.block-main form .button { font-size:0.8rem; background-color:#cb555a; border-color:#cb555a; }
 .block-main form .button:focus,.block-main form .button:hover { background-color:#932c31; border-color:#932c31; }
 .block-main .countdown-wrap { padding-top:10px; }
 .block-main .product { position:relative; margin-top:110px; margin-left:-65px; padding:0; }
@@ -488,7 +488,7 @@ header .button { margin-top:5px; }
 .block-12 { background-image:url(../img/bg-12.jpg); }
 .block-12 .desc { font-size:1.1rem; padding-right:10%; padding-left:10%; }
 .block-13 { background-color:#edf3f7; }
-.block-13 img { width:100%; margin-left:-110px; margin-top:-40px; }
+.block-13 img { width:100%; margin-left:-110px; }
 .block-13 .review { text-align:left; vertical-align:top; }
 .block-13 .review .name { margin-left:-70px; padding-top:10px; font-size:1.1rem; font-weight:700; text-transform:uppercase; padding-bottom:5px; }
 .block-13 .review .desc { margin-left:-70px; padding-bottom:0; padding-top:0; padding-right:20px; }
@@ -565,7 +565,7 @@ header .button { margin-top:5px; }
 	.block-6 .desc,.block-9 .desc { font-size:1.1rem; }
 	.block-9 .desc { padding-bottom:23px; }
 	.block-12 .desc { padding-right:7%; padding-left:7%; }
-	.block-13 img { width:100%; margin-left:-60px; margin-top:-95px; }
+	.block-13 img { width:100%; margin-left:-60px; }
 	.block-13 .review .name { margin-left:-30px; padding-top:10px; }
 	.block-13 .review .desc { margin-left:-30px; }
 	.block-14 .scrubber { left:55px; }
@@ -628,7 +628,7 @@ header .button { margin-top:5px; }
 	.block-10 .icon-box .title { padding-top:5px; padding-bottom:5px; letter-spacing:.2px; }
 	.block-10 .icon-box .desc { letter-spacing:.2px; line-height:1.4; }
 	.block-12 .desc { padding-right:0; padding-left:0; }
-	.block-13 img { padding-left:10px; margin-left:-30px; margin-top:-85px; }
+	.block-13 img { padding-left:10px; margin-left:-30px; }
 	.block-13 .review { padding-top:5px; }
 	.block-13 .review .desc { padding-right:0; line-height:1.4; }
 	.block-13 .desc { padding-top:12px; }
@@ -702,7 +702,7 @@ header .button { margin-top:5px; }
 	.block-13 .swiper-button-next,.block-13 .swiper-button-prev { top:108px; }
 	.block-13 .swiper-button-prev { left:15px; }
 	.block-13 .swiper-button-next { right:15px; }
-	.block-13 .review { display:block; text-align:center; vertical-align:top; padding-right:20px; padding-left:20px; }
+	.block-13 .review { display:block; text-align:center; vertical-align:top; padding-right:20px; padding-left:20px; padding-bottom: 30px; }
 	.block-13 .review .desc { margin:0; padding:0; }
 	.block-14 .audio-1,.block-14 .audio-2 { margin-bottom:20px; }
 	.block-14 .audiojs { margin:auto; position:relative; width:300px; height:90px; }
