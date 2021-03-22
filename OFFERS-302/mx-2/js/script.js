@@ -66,21 +66,4 @@ $(document).ready(function() {
     initializeClock('timer4', deadline);
 
 
-    var swiper = new Swiper(".swiper-container", {
-            pagination: ".swiper-pagination",
-            paginationClickable: !0,
-            nextButton: ".swiper-button-next",
-            prevButton: ".swiper-button-prev",
-            spaceBetween: 30
-        }),
-        swiper = new Swiper(".swiper-container-phone", {
-            nextButton: ".swiper-button-next-phone",
-            prevButton: ".swiper-button-prev-phone",
-            spaceBetween: 30
-        });
-
-    audiojs.events.ready(function() {
-        var as = audiojs.createAll();
-    });
-
 });
