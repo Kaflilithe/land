@@ -1,0 +1,15 @@
+@import "var";
+@import "most";
+@import "timer";
+// components
+@import "components/header";
+@import "components/intro";
+@import "components/sidebar";
+
+.main {
+  width: 100%;
+  position: relative;
+  @media (max-width: 900px) {
+    display: block;
+  }
+}
