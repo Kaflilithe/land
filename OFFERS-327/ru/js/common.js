@@ -76,8 +76,8 @@ $(document).ready(function () {
   var rev = $(".reviews").owlCarousel({
     margin: 20,
     items: 4,
-    dots: true,
-    nav: false,
+    dots: false,
+    nav: true,
     autoHeight: true,
 
     responsive: {
@@ -101,9 +101,8 @@ $(document).ready(function () {
   var rev = $(".reviews2").owlCarousel({
     margin: 20,
     items: 1,
-    dots: false,
-    nav: true,
-    navText: ['<img src="img/arl.svg"></img>', '<img src="img/arr.svg"></img>'],
+    dots: true,
+    nav: false,
     autoHeight: true,
 
     responsive: {
