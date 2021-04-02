@@ -16,9 +16,6 @@
             flex-direction: column;
             min-height: 395px;
         }
-        @include media-phone-med {
-            align-items: flex-end;
-        }
     }
     .text {
         background-image: url(./../../img/sect2-text-bg.svg);
@@ -76,8 +73,8 @@
             margin-top: 30px;
         }
         @include media-phone-med {
-            max-width: 140px;
-            margin-right: 20px;
+            max-width: 160px;
+            margin-left: 20px;
         }
     }
     .prod {

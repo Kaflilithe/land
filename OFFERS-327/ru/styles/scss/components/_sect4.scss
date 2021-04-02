@@ -73,25 +73,24 @@
                 }
             }
         }
-       
-    } 
+    }
     .owl-drag .owl-dots {
-            padding: 4px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            button {
-              width: 13px;
-              height: 13px;
-              border-radius: 100%;
-              border: none;
-              background: #fff;
-              box-sizing: border-box;
-              outline: none;
-              margin: 0 0.1rem;
-              &.active {
-                background: #FFD704;
-              }
+        padding: 4px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+            width: 13px;
+            height: 13px;
+            border-radius: 100%;
+            border: none;
+            background: #fff;
+            box-sizing: border-box;
+            outline: none;
+            margin: 0 0.1rem;
+            &.active {
+                background: #ffd704;
             }
-          }
+        }
+    }
 }

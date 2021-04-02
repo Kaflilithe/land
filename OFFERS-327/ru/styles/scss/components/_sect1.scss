@@ -1,13 +1,13 @@
-.sect1{
+.sect1 {
     background-image: url(./../../img/sect1_bg_dc.jpg);
-    &__main{
+    &__main {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 82px 0;
         color: #fff;
-        img{
+        img {
             width: 100%;
         }
         @include media-lg-tablet {
@@ -16,10 +16,10 @@
             padding-bottom: 30px;
         }
     }
-   &__triger{
-    background: #FFD704;
-    border-radius: 20px;
-    padding: 20px 30px;
-    color: #000;
-   }
+    &__triger {
+        background: #ffd704;
+        border-radius: 20px;
+        padding: 20px 30px;
+        color: #000;
+    }
 }
