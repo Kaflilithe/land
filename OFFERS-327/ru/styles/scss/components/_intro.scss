@@ -2,11 +2,11 @@
 
 .intro {
     background: #001127;
-    background-image: url(../../../img/intro-bg.jpg);
+    background-image: url(./../../img/intro-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     @include media-big {
-        background-image: url(../../../img/intro-bg-mb.jpg);
+        background-image: url(./../../img/intro-bg-mb.jpg);
     }
     &__main {
         display: grid;
@@ -144,7 +144,7 @@
             }
             &::before {
                 content: "";
-                background-image: url(../../../img/builets.svg);
+                background-image: url(./../../img/builets.svg);
                 width: 40px;
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -185,7 +185,7 @@
     }
     &__trigger {
         grid-area: box-4;
-        background-image: url(../../../img/intro__trigger--bg.png);
+        background-image: url(./../../img/intro__trigger--bg.png);
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: contain;
