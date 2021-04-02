@@ -42,7 +42,7 @@
 
         }
         .comment{
-            background-image: url(./../../../img/doc-comment.png);
+            background-image: url(./../../img/doc-comment.png);
             background-size: contain;
             background-position: -2px center;
             background-repeat: no-repeat;
@@ -54,7 +54,7 @@
             width: 100%;
             margin-left: 30px;
             @include media-lg-tablet{
-                background-image: url(./../../../img/doc-comment-mob.png); 
+                background-image: url(./../../img/doc-comment-mob.png); 
                 min-height: 573px; 
                 background-position:center; 
                 padding: 50px;
