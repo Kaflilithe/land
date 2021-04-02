@@ -39,6 +39,16 @@
        @include media-phone {
            padding: 20px 30px;
        }
+       &--bottom{
+        @include media-lg-tablet {
+            .intro__builets{
+                display: none;
+            }
+            .intro__warning{
+                display: none;
+            }
+        }
+       }
     }
     &__title {
         grid-area: box-1;
@@ -291,6 +301,27 @@
             @include media-phone-med {
                 font-size: 12px;
             }
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        width: 100%;
+        margin-right: 50px;
+        margin-left: auto;
+        input{
+            background: #F9F9F9;
+
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50px;
+max-width: 372px;
+width: 100%;
+height: 72px;
+margin: 0 auto;
+margin-bottom: 20px;
+padding-left: 20px;
         }
     }
 }
