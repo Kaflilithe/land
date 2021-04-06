@@ -59,7 +59,7 @@
         }
         .top {
             color: #e6c100;
-            font-size: 25px;
+            font-size: 23px;
             font-weight: bold;
             b {
                 background: #3aa09f;
@@ -79,16 +79,16 @@
         p {
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 35px;
+            font-size: 30px;
             padding-top: 4px;
             padding-bottom: 11px;
             margin: 0;
             color: #ffffff;
             @include media-big {
-                font-size: 30px;
+                font-size: 26px;
             }
             @include media-large {
-                font-size: 26px;
+                font-size: 22px;
             }
             @include media-lg-tablet {
                 margin-left: 30px;
@@ -228,6 +228,7 @@
                 margin: 0;
                 b {
                     text-transform: uppercase;
+                    display: block;
                 }
                 @include media-large {
                     font-size: 13px;
@@ -243,7 +244,7 @@
                     width: 170px;
                 }
                 p {
-                    font-size: 7px;
+                    font-size: 12px;
                     bottom: 7px;
                 }
             }
@@ -269,16 +270,16 @@
             b,
             s {
                 position: absolute;
-                bottom: 4%;
-                font-size: 36px;
+                bottom: 5%;
+                font-size: 29px;
                 @include media-big {
-                    font-size: 30px;
+                    font-size: 27px;
                 }
                 @include media-large {
-                    font-size: 26px;
+                    font-size: 21px;
                 }
                 @include media-phone-med {
-                    font-size: 20px;
+                    font-size: 17px;
                 }
             }
             b {
@@ -312,7 +313,7 @@
         margin-left: auto;
         input {
             background: #f9f9f9;
-
+outline: none;
             box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 50px;
             max-width: 372px;

@@ -271,15 +271,15 @@
             s {
                 position: absolute;
                 bottom: 5%;
-                font-size: 30px;
+                font-size: 29px;
                 @include media-big {
-                    font-size: 30px;
+                    font-size: 27px;
                 }
                 @include media-large {
-                    font-size: 26px;
+                    font-size: 24px;
                 }
                 @include media-phone-med {
-                    font-size: 20px;
+                    font-size: 17px;
                 }
             }
             b {
