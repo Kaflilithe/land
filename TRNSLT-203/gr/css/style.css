@@ -220,7 +220,6 @@ header {
     width: 100px;
     right: -5px;
     top: -35px;
-    font-size: 22px;
     line-height: 1;
     text-align: center;
     color: #ffffff;
@@ -624,7 +623,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 .customForm .saleBox {
     width: 120px;
-    font-size: 24px;
     margin: -50px auto 10px;
     padding: 20px 10px 45px;
 }
