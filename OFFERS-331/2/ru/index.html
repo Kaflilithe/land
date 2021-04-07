@@ -125,25 +125,21 @@ window.app = {
 <div class="old-cost">
 <span>Старая цена:</span>
 <p><span>
-<price class="price_old5859"><x-oldprice></x-oldprice></price>
-<price class="price_currency"><x-currency></x-currency></price>
+<price class="price_old5859"><x-oldprice>150</x-oldprice></price>
+<price class="price_currency"><x-currency>руб.</x-currency></price>
 </span></p>
 </div>
 <div class="new-cost">
 <span>Новая цена:</span>
 <p>
-<price class="price_only5859"><x-newprice></x-newprice></price>
-<price class="price_currency"><x-currency></x-currency></price>
+<price class="price_only5859"><x-newprice>75</x-newprice></price>
+<price class="price_currency"><x-currency>руб.</x-currency></price>
 </p>
 </div>
 </div>
 </section>
 
 <section class="b4">
-<p class="my_timer_text">До конца акции осталось</p>
-<div class="my_timer">
-<script src="js/megatimer.js"></script>
-</div>
 <a href="#buy" class="button-m" style="margin: 0 auto;">Заказать со скидкой</a>
 </section>
 <section class="b5">
@@ -239,29 +235,25 @@ window.app = {
 </section>
 
 <section class="b3">
-<div class="price clearfix">
-<div class="old-cost">
-<span>Старая цена:</span>
-<p><span>
-<price class="price_old5859"><x-oldprice></x-oldprice></price>
-<price class="price_currency"><x-currency></x-currency></price>
-</span></p>
-</div>
-<div class="new-cost">
-<span>Новая цена:</span>
-<p>
-<price class="price_only5859"><x-newprice></x-newprice></price>
-<price class="price_currency"><x-currency></x-currency></price>
-</p>
-</div>
-</div>
-</section>
-
-<section class="b4 end">
-<p class="my_timer_text">До конца акции осталось</p>
-<div class="my_timer">
-<script src="js/megatimer.js"></script>
-</div>
+    <div class="price clearfix">
+    <div class="old-cost">
+    <span>Старая цена:</span>
+    <p><span>
+    <price class="price_old5859"><x-oldprice>150</x-oldprice></price>
+    <price class="price_currency"><x-currency>руб.</x-currency></price>
+    </span></p>
+    </div>
+    <div class="new-cost">
+    <span>Новая цена:</span>
+    <p>
+    <price class="price_only5859"><x-newprice>75</x-newprice></price>
+    <price class="price_currency"><x-currency>руб.</x-currency></price>
+    </p>
+    </div>
+    </div>
+    </section>
+    
+    <section class="b4 end">
 <form id="buy" class="m1-form" action method="post">
         <input name="csrf_token" type="hidden" value="5ef9b0e528377390c209430e3cb4d4b7:1617781448">
     <select name="offer" class="form-control country_chang">
