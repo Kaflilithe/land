@@ -59,7 +59,7 @@
         }
         .top {
             color: #e6c100;
-            font-size: 25px;
+            font-size: 23px;
             font-weight: bold;
             b {
                 background: #3aa09f;
@@ -79,16 +79,16 @@
         p {
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 35px;
+            font-size: 30px;
             padding-top: 4px;
             padding-bottom: 11px;
             margin: 0;
             color: #ffffff;
             @include media-big {
-                font-size: 30px;
+                font-size: 26px;
             }
             @include media-large {
-                font-size: 26px;
+                font-size: 22px;
             }
             @include media-lg-tablet {
                 margin-left: 30px;
@@ -105,22 +105,23 @@
         .bottom {
             background: #3aa09f;
             color: #fff;
-            font-size: 20px;
+            font-size: 14px;
             width: max-content;
             border-radius: 5px;
             padding: 8px;
             @include media-large {
-                font-size: 16px;
+                font-size: 12px;
             }
             @include media-lg-tablet {
-                font-size: 20px;
+                font-size: 14px;
                 border-radius: 0 5px 5px 0;
             }
             @include media-phone {
-                font-size: 17px;
+                font-size: 12px;
             }
             @include media-phone-med {
-                font-size: 13px;
+                font-size: 10px;
+
             }
         }
     }
@@ -228,6 +229,7 @@
                 margin: 0;
                 b {
                     text-transform: uppercase;
+                    display: block;
                 }
                 @include media-large {
                     font-size: 13px;
@@ -243,7 +245,7 @@
                     width: 170px;
                 }
                 p {
-                    font-size: 7px;
+                    font-size: 12px;
                     bottom: 7px;
                 }
             }
@@ -269,16 +271,16 @@
             b,
             s {
                 position: absolute;
-                bottom: 4%;
-                font-size: 36px;
+                bottom: 5%;
+                font-size: 26px;
                 @include media-big {
-                    font-size: 30px;
+                    font-size: 24px;
                 }
                 @include media-large {
-                    font-size: 26px;
+                    font-size: 25px;
                 }
                 @include media-phone-med {
-                    font-size: 20px;
+                    font-size: 18px;
                 }
             }
             b {
@@ -312,7 +314,7 @@
         margin-left: auto;
         input {
             background: #f9f9f9;
-
+outline: none;
             box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 50px;
             max-width: 372px;
