@@ -9,11 +9,14 @@
     font-family: "Black Ops One", cursive;
   }
   &__main {
+    background-color: #000;
     background-image: url(../../img/back__intro.png);
     height: 6.04rem;
     position: relative;
     box-sizing: border-box;
-    background-size: cover;
+    background-position: 0.05rem 0.30rem;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
   &__top {
     text-align: center;
@@ -227,15 +230,14 @@
     text-align: center;
     padding: 0 0.14rem;
     grid-gap: 0.3rem;
-    img{
+    img {
       width: 1.16rem;
     }
-    p{
+    p {
       margin-top: 0;
       color: #fff;
-    
     }
-    b{
+    b {
       text-transform: uppercase;
       display: block;
     }
