@@ -195,7 +195,36 @@
     height: 3.26rem;
   }
 }
+.sect2{
+  padding: 0.4rem 0;
+  padding-top: 0;
+  p{
+    width: 4.22rem ;
+    margin: 0 auto;
+  }
+}
+.sect3{
+  padding: 0.3rem 0;
+  padding-top: 0;
+  background: #A67EFF;
+  img{
+    width: 1.16rem;
+  }
+  &__main{
+    letter-spacing: 0.03em;
 
+color: #FFFFFF;
+P{
+  width: 1.6rem;
+  margin: 0 auto;
+}
+
+  }
+  &__item{
+    padding: 0.2rem;
+    padding-top:0.05rem ;
+  }
+}
 
 .sect5 {
   padding: 0.6rem 0;

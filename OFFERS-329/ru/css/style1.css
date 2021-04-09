@@ -64,7 +64,7 @@ h3{font-size:42px;line-height:90px;font-weight:normal;margin:0;}
 .box{display:block;position:relative;top:107px;}
 .box2{position:relative;top:70px;}
 p{font-family:'Oswald', sans-serif;font-size:22px;line-height:32px;font-weight:normal;}
-.block_pink_gradient{background-image:-moz-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);background-image:-webkit-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);background-image:-ms-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);height:803px;padding:40px;}
+.block_pink_gradient{background-image:-moz-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);background-image:-webkit-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);background-image:-ms-linear-gradient(90deg, rgb(242,163,184) 0%, rgb(255,255,255) 100%);padding:40px;}
 .clear{clear:both;}
 :before, *:after{-webkit-box-sizing:border-box;box-sizing:border-box;}
 .block1{height:600px;}
@@ -111,7 +111,7 @@ header{background-position:-400px;height:750px;}
 h1{font-size:38px;line-height:42px;}
 h3{font-size:27px;line-height:79px;}
 .box{width:110%;}
-.block_pink_gradient{padding:0px;height:736px;}
+.block_pink_gradient{padding:0px;}
 .boxes{width:236px;margin:0px 20px 0px 20px;padding:10px;}
 .wraper{padding:20px 0 10px 0;}
 .step-img{margin-right:0;width:31%;}
@@ -126,7 +126,7 @@ h3{font-size:27px;line-height:79px;}
 .before-after{width:100%;}
 p{line-height:28px;}
 }
-@media only screen and (max-width:768px){.container{display:block;padding-left:10px;padding-right:10px;height:100%;}
+@media only screen and (max-width:900px){.container{display:block;padding-left:10px;padding-right:10px;height:100%;}
 header{display:block;background-image:url(../img/header-bg-mob.jpg);background-color:#fdf1f5;background-position:top left;height:auto;}
 .row .col.m6{display:block;width:100%;padding:0;}
 .top-col{width:100%;display:block;}
@@ -141,7 +141,7 @@ h3{font-size:28px;line-height:32px;}
 #product-img1{display:none;}
 .order-form input[type=text]{width:90%;height:40px;padding:0px 10px 0px 10px;margin:16px 0 0 0;font-size:20px;}
 .order-form input[class=button]{width:100%;height:50px;font-size:33px;}
-.block_pink_gradient{padding:0px;height:auto;}
+.block_pink_gradient{padding:0px;}
 .boxes{width:90%;margin:0 auto;padding:0;}
 .wraper{padding:20px 0 10px 0;}
 .step-img{display:block;margin:0 auto;width:60%;}
