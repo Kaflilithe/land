@@ -1,36 +1,45 @@
 .reviews {
-  margin-top: 0.45rem;
   &__item {
-    background: #ffffff;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    width: 4.2rem;
-    box-sizing: border-box;
+    width: 4.13rem;
     margin: 0 auto;
-    padding: 0.3rem 0.2rem;
-    margin-bottom: 0.1rem;
   }
   &__top {
-    @include flex(row, space-between, center);
-    padding-bottom: 0.25rem;
+    margin-top: 0.2rem;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 0.22rem;
+    line-height: 1.6;
+    color: #000000;
+    font-weight: normal;
+    box-sizing: border-box;
+    padding: 0.3rem 0.3rem;
+    padding-bottom: 0.7rem;
+  }
+  &__text {
+    font-weight: 500;
+  }
+  &__bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
     p {
-      width: 2.99rem;
       margin: 0;
-      font-size: 0.18rem;
-      color: #acacac;
-      b {
-        display: block;
-        font-size: 0.16rem;
-       color: #151515;
-      }
+      margin-left: 0.2rem;
+    }
+    b {
+      display: block;
+    }
+    span {
+      font-size: 0.16rem;
     }
   }
-&__text{
-  font-weight: 500;
-}
 }
 .owl-carousel .owl-item .ava {
-  width: 0.6rem;
+  width: 0.7rem;
 }
-.owl-carousel .owl-item  .rating{
-   width: 1.23rem;
+.owl-carousel .owl-item .rating {
+  width: 1.23rem;
 }
