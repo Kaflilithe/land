@@ -47,14 +47,14 @@ header{width:100%;background-image:url(../img/header-bg-desktop.jpg);background-
 .btn span:hover,.btn span:focus{color:#f2a3b8;border:solid 1px #fff;}
 .float-box{display:inline-block;}
 .order-form input[class=button]:hover{color:#f2a3b8;border:solid 1px #fff;}
-::-webkit-input-placeholder{font-family:'Lobster', cursive;font-size:22px;color:#fff;line-height:22px;}
-::-moz-placeholder{font-family:'Lobster', cursive;font-size:22px;color:#fff;line-height:22px;}
-:-ms-input-placeholder{font-family:'Lobster', cursive;font-size:22px;color:#fff;line-height:22px;}
-:-moz-placeholder{font-family:'Lobster', cursive;font-size:22px;color:#fff;line-height:22px;}
-.testimonials-form ::-webkit-input-placeholder{font-family:'Oswald', sans-serif;font-size:22px;color:#cecece;line-height:22px;}
-.testimonials-form ::-moz-placeholder{font-family:'Oswald', sans-serif;font-size:22px;color:#cecece;line-height:22px;}
-.testimonials-form :-ms-input-placeholder{font-family:'Oswald', sans-serif;font-size:22px;color:#cecece;line-height:22px;}
-.testimonials-form :-moz-placeholder{font-family:'Oswald', sans-serif;font-size:22px;color:#cecece;line-height:22px;}
+::-webkit-input-placeholder{font-family:'Lobster', cursive;font-size:16px;color:#fff;line-height:22px;}
+::-moz-placeholder{font-family:'Lobster', cursive;font-size:16px;color:#fff;line-height:22px;}
+:-ms-input-placeholder{font-family:'Lobster', cursive;font-size:16px;color:#fff;line-height:22px;}
+:-moz-placeholder{font-family:'Lobster', cursive;font-size:16px;color:#fff;line-height:22px;}
+.testimonials-form ::-webkit-input-placeholder{font-family:'Oswald', sans-serif;font-size:16px;color:#cecece;line-height:22px;}
+.testimonials-form ::-moz-placeholder{font-family:'Oswald', sans-serif;font-size:16px;color:#cecece;line-height:22px;}
+.testimonials-form :-ms-input-placeholder{font-family:'Oswald', sans-serif;font-size:15px;color:#cecece;line-height:22px;}
+.testimonials-form :-moz-placeholder{font-family:'Oswald', sans-serif;font-size:16px;color:#cecece;line-height:22px;}
 h2, h1,h3,.price, .order-form input[class=button],.order-form input[type=text], .top-text-big, .top-text-black, .btn{font-family:'Lobster', cursive;}
 h1{font-weight:normal;font-size:48px;line-height:52px;margin:0 0 20px 0;}
 h2{font-size:32px;line-height:48px;font-weight:normal;margin:0;}
@@ -139,7 +139,7 @@ h2{font-size:28px;line-height:38px;}
 h3{font-size:28px;line-height:32px;}
 .product-img{display:block;width:100%;}
 #product-img1{display:none;}
-.order-form input[type=text]{width:90%;height:40px;padding:0px 10px 0px 10px;margin:16px 0 0 0;font-size:20px;}
+.order-form input[type=text]{width:90%;height:40px;padding:0px 10px 0px 10px;margin:16px 0 0 0;font-size:16px;}
 .order-form input[class=button]{width:100%;height:50px;font-size:33px;}
 .block_pink_gradient{padding:0px;}
 .boxes{width:90%;margin:0 auto;padding:0;}
