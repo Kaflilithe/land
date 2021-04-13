@@ -1,0 +1,567 @@
+<!DOCTYPE html><html><head>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        function set_validator_errors() {
+            orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки';
+
+            orderValidator.errorNameField = 'Имя';
+            orderValidator.errorNameMess = 'Укажите своё имя';
+
+            orderValidator.errorPhoneField = 'Телефон для связи';
+            orderValidator.errorPhoneMess = 'Введите правильный телефон';
+
+            orderValidator.errorAddress = 'Введите правильный адрес';
+            orderValidator.errorRequired = 'обязательное поле';
+            orderValidator.errorMaxLength = 'допустимо максимум {1} символа';
+            orderValidator.errorMinLength = 'допустимо минимум {1} символа';
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'указан не корректный email';
+        }
+    </script>
+
+    <script>
+
+
+        window.app = {
+            timestamp: parseInt((new Date()).getTime() / 1000),
+            jq: jQuery,
+            formAction: window.location.href,
+            leadToken: '606ab9ad5a1822.23197968',
+            offers: { "19543": { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" } },
+            currentOffer: { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" },
+            allowedCountries: ["SA"],
+            _setOfferId: false,
+
+            setOffer: function (offerId) {
+                if (offerId == this._setOfferId) {
+                    return;
+                }
+                this._setOfferId = offerId;
+                if (offerId) {
+                    var offer = app.offers[offerId];
+                    var previousOffer = app.currentOffer;
+                    app.currentOffer = offer;
+                    var event = this.jq.Event("offerchange");
+                    event.previousOffer = previousOffer;
+                    event.currentOffer = app.currentOffer;
+                    this.jq(document).trigger(event);
+                    this.updatePage(offer);
+                } else {
+                    $('input[name=country]').val('');
+                }
+            },
+
+            updatePage: function (offer) {
+                $('x-newprice').html(offer.price);
+                $('x-oldprice').html(offer.price2);
+                $('x-currency').html(offer.currency.name);
+                $('input[name=offer], select[name=offer]').val(offer.id);
+                $('input[name=country]').val(offer.country.code);
+            },
+
+            blockForm: function () {
+                // Блокируем кнопки при отправке формы
+                $('input[type=submit]', $(this)).prop('disabled', true).attr('disabled', true);
+                $('button', $(this)).prop('disabled', true).attr('disabled', true);
+                app.incompleteOrder.lock = true;
+                clearTimeout(app.incompleteOrder.timer);
+            },
+
+            unblockForm: function () {
+                $('input[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                $('button[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                app.incompleteOrder.lock = false;
+                clearTimeout(app.incompleteOrder.timer);
+            }
+
+        };
+
+
+    </script>
+    <script src="js/form.validate.js"></script>
+    <script src="js/form.incomplete.js"></script>
+    <script src="js/main2.js"></script>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="Sun, 01 Jan 2019 07:01:00 GMT">
+    <title>Eyebrow Beauty Stamp</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="css/css.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modal-close,.modal-overlay").click(function () {
+                $(".modal-overlay").css({ display: 'none' });
+                $(".modal").css({ display: 'none', opacity: '0', top: '4%' });
+            });
+
+            $(".order").click(function () {
+                $(".modal-overlay").css({ display: 'block' });
+                $(".modal").animate({ top: '10%', opacity: '1' });
+                $(".modal").css({ display: 'block', });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div class="modal-close">x</div>
+        <div class="form-container">
+            <div>
+                <h2> ΠΑΡΑΓΓΕΙΛΕΤΕ ΑΜΕΣΩΣ ΤΩΡΑ!</h2>
+                <div class="price"><span class="old-price">
+                        <x-oldprice> 76</x-oldprice>
+                        <x-currency> €</x-currency> undefined</span>
+                    <x-newprice> 38</x-newprice>
+                    <x-currency> €</x-currency> undefined</div>
+            </div>
+            <form action method="post" class="order-form">
+                <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                <input type="text" name="name" id="name" placeholder="Ονοματεπώνυμο ">
+                <input type="text" name="phone" id="phone" placeholder="Τηλέφωνο ">
+                <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="top-col">
+                <div class="top-text-black"> Τα ιδανικά σας φρύδια </div>
+                <div class="top-text-big text-pink"> σε τρία δευτερόλεπτα!</div>
+                <div class="top-text-p"> Έχετε κουραστεί να καταπολεμάτε την ατέλεια των φρυδιών σας κάθε μέρα; Έχετε κουραστεί να σχεδιάζετε ακόμη και γωνίες κάθε πρωί ξανά και ξανά; Δεν χρειάζεται πλέον να ξοδεύετε πολύ χρόνο σε αυτό:<strong> τρία δευτερόλεπτα και είναι έτοιμα!</strong></div> <br>
+                <div class="product-img"><img src="img/product-img-mob.jpg"></div>
+                <br><br>
+
+                <div class="form-container" align="center">
+                    <div>
+                        <h2> ΠΑΡΑΓΓΕΙΛΕΤΕ ΑΜΕΣΩΣ ΤΩΡΑ!</h2>
+                        <div class="price"><span class="old-price">
+                                <x-oldprice> 76</x-oldprice>
+                                <x-currency> €</x-currency> undefined</span>
+                            <x-newprice> 38</x-newprice>
+                            <x-currency> €</x-currency> undefined</div>
+                    </div>
+                    <form action method="post" class="order-form">
+                        <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                        <input type="text" name="name" id="name" placeholder="Ονοματεπώνυμο ">
+                        <input type="text" name="phone" id="phone" placeholder="Τηλέφωνο ">
+                        <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                    </form>
+                </div>
+
+                <p>
+                    <strong> ΠΡΟΣΟΧΗ!</strong> Περιορισμένη προσφορά! Αυτό το προϊόν δεν πουλιέται στα καταστήματα: μπορείτε να το παραγγείλετε μόνο στον ιστότοπο.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <div class="block1">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="space1">
+                        <h1> Σας παρουσιάζουμε τις στάμπες φρυδιών:</h1>
+                        <p> Συμπαγές σετ που αποτελείται από πούδρα και εύχρηστες στάμπες.</p>
+                        <img src="img/product-img1.jpg" id="product-img1">
+                    </div>
+                </div>
+                <div class="col m6">
+                    <img src="img/box.png" class="box">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block_pink_gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <h1> Γιατί οι στάμπες <br><span class="text-pink"> «Eyebrow Beauty Stamp»</span> <br> Είναι τόσο δημοφιλές;</h1>
+                        <p> Έχουν ακριβώς αυτό που χρειάζεστε:</p>
+                    </center>
+                </div>
+                <center>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-shade"></i></div>
+                        <p class="circle-title"> Ιδανική απόχρωση της πούδρας</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-closed-eyes-with-lashes-and-brows"></i></div>
+                        <p class="circle-title"> Φυσικό αποτέλεσμα καλοσχεδιασμένων φρυδιών</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-raindrop"></i></div>
+                        <p class="circle-title"> Αδιάβροχο<br> Πούδρα </p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-time"></i></div>
+                        <p class="circle-title"> Κρατάει 24 ώρες <br> Το 24-ωρο</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-good"></i></div>
+                        <p class="circle-title"> Ανώδυνη και απλή εφαρμογή</p>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <div class="float-box">
+                            <h3> Αγοράστε τις στάμπες "Eyebrow Beauty Stamp" κερδοφόρα τώρα</h3>
+                        </div>
+                        <div class="float-box">
+                            <div class="btn order"><span> ΠΑΡΑΓΓΕΙΛΕΤΕ </span></div>
+                        </div>
+                    </center>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Πώς χρησιμοποιούνται;</h1>
+                    </center>
+                </div>
+
+                <div class="col m6">
+                    <img src="img/step1.jpg" class="step-img">
+                    <img src="img/step2.jpg" class="step-img">
+                    <img src="img/step3.jpg" class="step-img">
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> Ακόμα κι αν δεν το έχετε κάνει ποτέ, θα χρειαστείτε μόνο μια στιγμή για να μάθετε.</p>
+                    <p class="text-pink"> 1. Απλά επιλέξτε την σωστή απόχρωση, πιέστε τη στάμπα στην πούδρα.<br> 2. Εφαρμόστε το επάνω στα φρύδια σας.<br> 3. Απολαύστε το τέλειο αποτέλεσμα!</p>
+                </div>
+
+                <div class="col m6">
+                    <p class="text-white"><span class="text-pink"> Υπάρχουν σε δύο αποχρώσεις:</span> Σκούρο - για μελαχρινές γυναίκες  και ανοιχτόχρωμο - για τα ξανθά μαλλιά. Ταιριάζει τέλεια με οποιονδήποτε τόνο δέρματος, οι αποχρώσεις φαίνονται απίστευτα φυσικές, σαν να σας έδωσε η φύση αυτά τα πολυτελή φρύδια!</p>
+                </div>
+                <div class="col m6">
+                    <img src="img/product-img2.jpg" class="product-img2">
+                </div>
+
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Πώς λειτουργεί <span class="text-pink"> «Eyebrow Beauty Stamp»?</span>
+                        </h1>
+                    </center>
+                </div>
+                <div class="col m6"><br><br>
+                    <img src="img/girl1.jpg" class="how-work-img">
+                    <img src="img/girl3.jpg" class="how-work-img girl3">
+                    <img src="img/girl2.jpg" class="how-work-img girl2">
+
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> • γεμίζει τέλεια όλα τα κενά μεταξύ των τριχών.<br> • σας δίνει αμέσως απόλυτα συμμετρικά φρύδια.<br> • δίνει αποτελέσματα για όλη την ημέρα.</p>
+                    <p class="text-white">
+                        <span class="text-pink"> Ανησυχείτε ότι το σετ δεν θα ταιριάξει σε σάς;</span> Ειδικά για εσάς, έχουν σχεδιαστεί στάμπες σε δύο διαφορετικές μορφές: στρογγυλές και πιο γραφικές, με έντονη γωνία. Απλώς χρησιμοποιήστε όποιο σχήμα σας ταιριάζει καλύτερα και αποκτήστε το τέλειο αποτέλεσμα!</p>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+
+            <div class="col s12">
+                <center>
+                    <div class="float-box">
+                        <h3> Αγοράστε «Eyebrow Beauty Stamp»</h3>
+                    </div>
+                    <div class="float-box">
+                        <div class="btn order"><span> ΠΑΡΑΓΓΕΙΛΕΤΕ </span></div>
+                    </div>
+                </center>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="wraper">
+        <div class="container">
+            <div class="row"><br><br>
+                <div class="col m6" align="center">
+                    <br><img src="img/logo.jpg" class="logo">
+                    <p> Τι περιλαμβάνει<span class="text-pink"> «Eyebrow Beauty Stamp»</span></p>
+                    <img src="img/product-img3.jpg" class="product-img3">
+                    <p align="left"><span class="text-pink"> Τι πρέπει να ξέρετε «Eyebrow Beauty Stamp»:</span><br><br> • Η πούδρα  εφαρμόζεται με ελαφρές λεπτές πινελιές.<br><br> • Το προϊόν δεν βλάπτει τα φυσικά φρύδια ή το δέρμα σας.<br><br> • Οι στάμπες έχουν ειδικά σημάδια,  ώστε να μπορείτε εύκολα να ξεχωρίσετε μεταξύ αριστερού  και δεξιού φρυδιών.<br><br> • Η πούδρα είναι εξοπλισμένη με έναν συμπαγή πρακτικό καθρέφτη.<br> <br> • Οι σπόγγοι καθαρίζονται εύκολα και στεγνώνουν γρήγορα.</p>
+                </div>
+
+                <div class="col m6">
+                    <p align="left"><span class="text-pink"> Χρήσιμα μυστικά ομορφιάς:</span><br><br> • μπορείτε εύκολα να κάνετε τα φρύδια σας ακόμα πιο περιποιημένα βελτιώνοντας το τελικό σχήμα με μια μπατονέτα.<br><br> • με τη βοήθεια της στάμπας, μπορείτε επίσης να συμπληρώσετε τα ενοχλητικά κενά μεταξύ των τριχών χωρίς να επηρεάσετε το σχήμα τους. Για να το κάνετε αυτό, απλώς εκτελέστε το σε όλο το μήκος του φυσικού φρυδιού.<br><br> • Μπορείτε να κάνετε το χρώμα πιο κορεσμένο χρησιμοποιώντας τη στάμπα σε πολλαπλά βήματα - απλώς συνεχίστε να τοποθετείτε τις εκτυπώσεις μέχρι να πετύχετε το τέλειο αποτέλεσμα!</p><br><br>
+                    <img src="img/before-after.jpg" class="before-after"><br><br>
+                    <p align="left"><span class="text-pink"> Πώς να αφαιρέσετε τη πούδρα;</span> Απλώς χρησιμοποιήστε το αγαπημένο σας προϊόν για την αφαίρεση του μακιγιάζ: θα χρειαστούν λίγα δευτερόλεπτα.</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wraper bg-black">
+        <div class="container">
+
+            <center>
+                <h1 class="text-pink"> Κριτικές Πελατών:</h1>
+            </center> <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> BeautyStamp</strong>
+                                <span class="views"> Προβολές: 1 717</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> BeautyStamp</strong> Μαθαίνουμε από <span class="text-pink"> @makeup_bymadison</span> Πώς να αποκτήσετε ιδανικά φρύδια μόλις σε λίγα δευτερόλεπτα. </p>
+                                <p><strong> Kristi.mua.h</strong> Ω Θεέ μου, πόσο καιρό το ονειρευόμουν και έψαχνα να βρω. Το έχω ήδη παραγγείλει, κουράστηκα να χάνω μισή ώρα κάθε πρωί για να φτιάχνω το σχήμα των φρυδιών μου.</p>
+                                <p><strong> Ana_Paris01</strong> Παρέλαβα την παραγγελία χθες, υπάρχουν πολλά χρήσιμα προϊόντα στο ηλεκτρονικό κατάστημα και με καταπληκτικές εκπτώσεις τώρα. Εκτός από τις στάμπες, παρήγγειλα μια συσκευή αποτρίχωσης προσώπου και ένα σετ σφυρηλάτησης βλεφαρίδων και φρυδιών!<img src="img/img1.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt>
+                                </p>
+
+                                <p><strong> Maa0950</strong> <span class="text-pink"> @ana.mua.h</span> Άρα δεν είμαι μοναδική που έχω θέμα, λόγω των φρυδιών συνεχώς καθυστερούσα στην δουλειά, με τις στάμπες χρειάζονται μόνο 2 δευτερόλεπτα και τελειώσατε! Και παρεμπιπτόντως, πήρα ένα άλλο σετ για επέκταση νυχιών με χρώμα από αυτό το κατάστημα.</p>
+                                <p><strong> Kari_99</strong> Κορίτσια τι φανταστικό προϊόν είναι αυτές οι στάμπες, πόσο κοστίζει; Υπάρχει απόθεμα στο κατάστημα;</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @Kari_99</span> Δυστυχώς δεν θα υπάρξουν παραδόσεις σε καταστήματα για εγγύς μέλλον, αλλά μπορείτε να αγοράσετε τα προϊόντα μας στον επίσημο ιστότοπο.</p>
+                                <p><strong> AnaSixty</strong> Θέλωωωω!!! </p>
+                                <p><strong> Makeupmaster77</strong> Μια φίλη το είχε φέρει από την Αμερική, δεν μου άρεσε, δεν κατάλαβα τα κόλπα, ίσως αξίζει να το δοκιμάσω μόνη μου.</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Makeupmaster77</span> Εννοείτε, πρέπει ξαναδοκιμάσετε μόνη σας, είμαστε σίγουροι ότι δεν θα απογοητευτείτε από το αποτέλεσμα </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> marywallerx3</strong>
+                                <span class="views"> Προβολές: 13 854</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> marywallerx3</strong> Να φτιάξω τα φρύδια μου σε λίγα δευτερόλεπτα; Αδύνατον! Ο σχεδιασμός των φρυδιών είναι αρκετά χρονοβόρα διαδικασία, και τελικά είναι πια στο παρελθόν. Αγόρασα επίσης ένα ρολό από νεφρίτη για το πρόσωπο, σε πολύ γελοία τιμή, σε άλλα καταστήματα έβρισκα από 100 ευρώ και άνω, και μια μάσκα επιδιόρθωσης για το πηγούνι Slimming Strap! Είμαι πολύ ικανοποιημένη με όλες τις αγορές! Σας ευχαριστώ.<span class="text-pink"> @BeautyStamp</span>     <img src="img/img2.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> veronika_chachyna</strong> Mary, Φανταστικό...Θα κάνω την παραγγελία τώρα. </p>
+
+                                <p><strong> buket_online_com</strong> Υπέροχα!</p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> Δεν ξέρω...μου δημιουργεί αμφιβολίες σχετικά με την ευκολία χρήσης. Έχω δοκιμάσει περιγράμματα φρυδιών, απολύτως δεν μου άρεσαν. Τι είδους μάσκα είναι αυτή; </p>
+                                <p><strong> marywallerx3</strong> <span class="text-pink"> @zayasolga</span> Αυτά είναι εντελώς διαφορετικά πράγματα, είχα δοκιμάσει και εγώ τα περιγράμματα φρυδιών, δεν είναι πολύ βολικά στη χρήση, αλλά εδώ το εφάρμοσα μία φορά και ήμουν ευτυχής όλη την ημέρα)) συν είναι υψηλής ποιότητας πούδρα, βρίσκεις μια δέσμη λύσεων σε ένα σετ ))) Η μάσκα είναι για να αφαιρέσετε τα επιπλέον από το πηγούνι σας, εδώ είναι μια φωτογραφία<img src="img/img3.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> Φαίνεται ότι θα είναι καλό να δοκιμάσω, σας ευχαριστώ, γνωρίζοντας ότι σπάνια συμβουλεύεται αντάξια πράγματα, θα αγοράσω και μια μάσκα</p>
+                                <p><strong> ami_mama</strong> Πολύ ωραία φρύδια γίνονται...χρησιμοποιώ τις στάμπες εδώ και ένα μήνα. Είμαι πολύ ικανοποιημένη.  </p>
+                                <p><strong> teta_alex</strong> Τέλεια γίναν!</p>
+                                <p><strong> leg_spt</strong> Πόσο ενδιαφέρον ακούγεται, πρώτη φορά βλέπω τέτοιο προϊόν, πρέπει οπωσδήποτε να δοκιμάσω!</p>
+                                <p><strong> foxbeauty38</strong> Δεν φαίνεται πολύ καλό! Μιλάω για το τατουάζ</p>
+                                <p> <strong> zhansaya_permanent</strong> <span class="text-pink"> @foxbeauty38</span> Συμφωνώ απόλυτα. Το τατουάζ </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> Mariya_schastie99</strong>
+                                <span class="views"> Προβολές: 12 595</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> Mariya_schastie99</strong> Μόλις παρέλαβα και βιάζομαι να μοιραστώ μαζί σας!<span class="text-pink"> @BeautyStamp</span> Είναι σίγουρα η τέλεια λύση για καθημερινή χρήση, ειδικά όταν ο χρόνος είναι περιορισμένος. Είμαι σίγουρα εντυπωσιασμένη. Παρακολουθήστε το βίντεό μου, τοποθετήστε το και μην χάνετε χρόνο, παραγγείλετε όσο υπάρχει προσφορά! </p>
+                                <p><strong> mariia0684</strong> <span class="text-pink"> @Mariya_schastie99</span> Ομορφιά! Είσαι όπως πάντα στην κορυφή, και όπως πάντα βρίσκεις εξαιρετικές προσφορές</p>
+                                <p><strong> dariondraten1</strong> Photoshop</p>
+                                <p><strong> kris0301</strong> Mariya Είσαι η βασίλισσα των φρυδιών. Καταπληκτικό προϊόν. </p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @kris0301</span> Παρήγγειλα από επίσημο ηλεκτρονικό κατάστημα. Κοίταξα στο σύνδεσμο..αυτή την στιγμή υπάρχει προσφορά. </p>
+                                <p><strong> aniatkach</strong>  Σούπερ προϊόν αυτές οι στάμπες! Mariya πήρα επίσης Epilag δίνει τέλεια αποτρίχωση και χωρίς ερεθισμούς, συμβουλεύω.<img src="img/img5.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p> <strong> polina17_11</strong> όπως πάντα θεά, στείλε και σε μένα τον σύνδεσμο, πολύ ενδιαφέρον πράγμα</p>
+                                <p><strong> bajes_h73</strong> Beautiful </p>
+                                <p><strong> solomina.lesya</strong> Κουκλάρα. Τέλεια φρύδια. </p>
+                                <p><strong> silkforyou</strong> Ανεπανάληπτο! Τέλειο βίντεο.</p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @silkforyou</span> Ευχαριστώ </p>
+                                <p> <strong> fetia_mariya</strong> Πραγματικά, κουράστηκα να ξοδεύω συνεχώς πολύ χρόνο στα φρύδια μου, αλλά αμφιβάλλω επίσης για αυτό το προϊόν.</p>
+
+                                <p><strong> zhanna5569</strong> Γιατί όχι, είναι καιρός να κάνουμε τη ζωή μιας γυναίκας πιο εύκολη! Με κάτι τέτοιο τουλάχιστον. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="wraper bg-gradient-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <img src="img/box.png" class="box2">
+                </div>
+                <div class="col m6" align="center">
+                    <p> Αυτό το σετ θα σας δώσει απεριόριστη δημιουργικότητα: πειραματιστείτε για να μάθετε ποιο σχήμα είναι ιδανικό για τα φρύδια σας.<strong> Είμαστε σίγουροι ότι θα σας αρέσει το αποτέλεσμα: τόσο απλό όσο το ένα-δύο-τρία!</strong>
+                    </p>
+                    <div class="form-container">
+                        <div>
+                            <h2> ΠΑΡΑΓΓΕΙΛΕΤΕ ΑΜΕΣΩΣ ΤΩΡΑ!</h2>
+                            <div class="price">
+                                <span class="old-price">
+                                    <x-oldprice> 76</x-oldprice>
+                                    <x-currency> €</x-currency> undefined</span>
+                                <x-newprice> 38</x-newprice>
+                                <x-currency> €</x-currency> undefined</div>
+                        </div>
+                        <form action method="post" class="order-form">
+                            <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                            <input type="text" name="name" id="name" placeholder="Ονοματεπώνυμο ">
+                            <input type="text" name="phone" id="phone" placeholder="Τηλέφωνο ">
+                            <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <center>
+            <p> BEAUT-E SHOP,</p>
+            <p> Leof. Stratou, 56533, Thessaloniki, Greece</p>
+            <a href="/privacypolicy" target="_blank"> Privacy policy</a>  <br>
+            <a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>  <br>
+            <a href="/legal-warning" target="_blank"> Legal warning</a>
+        </center>
+    </div>
+    <style>
+        .form-control {
+            width: 355px;
+            height: 50px;
+            padding: 0px 20px 0px 20px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: #E89395;
+            border: none;
+            margin: 20px 0 0 0;
+            font-size: 22px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+
+
+        $(document).on('click', 'form', function (e) {
+            if (!$(this).find('input[name=phone]').length) {
+                return;
+            }
+
+            if (window['yaCounter46830237'] && e.validator === window.orderValidator) {
+                window['yaCounter46830237'].reachGoal('FORMCLICK');
+            }
+        });
+
+
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(46830237, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+        if (yandex_metrika_postinit) {
+            yandex_metrika_postinit(ym);
+        }
+    </script>
+    <noscript><span data-translate="163"><span data-translate="174">
+            <div><img src="1" style="position:absolute; left:-9999px;" alt></div>
+        </span></span></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Rating Mail.ru counter -->
+    <script type="text/javascript">
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({ id: "2925504", type: "pageView", start: (new Date()).getTime() });
+        (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = "https://top-fwz1.mail.ru/js/code.js";
+            var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
+    </script><noscript><span data-translate="164"><span data-translate="175">
+            <div>
+                <img src="counter2" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+            </div>
+        </span></span></noscript>
+    <!-- //Rating Mail.ru counter -->
+
+
+
+</body></html>
