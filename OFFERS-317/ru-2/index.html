@@ -1,0 +1,927 @@
+<!DOCTYPE html><html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>FortuMax </title>
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="shortcut icon" href="favicon_1.ico" type="image/x-icon">
+	<style>
+		html {
+			font-family: sans-serif;
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%
+		}
+
+		body {
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		h1 {
+			margin: .67em 0;
+			font-size: 2em
+		}
+
+		b,
+		strong {
+			font-weight: bold
+		}
+
+		img {
+			border: 0
+		}
+
+		button,
+		input {
+			margin: 0;
+			font-family: inherit;
+			font-size: 100%
+		}
+
+		button,
+		input {
+			line-height: normal
+		}
+
+		button {
+			text-transform: none
+		}
+
+		button {
+			cursor: pointer;
+			-webkit-appearance: button
+		}
+
+		button::-moz-focus-inner,
+		input::-moz-focus-inner {
+			padding: 0;
+			border: 0
+		}
+
+		@media print {
+			* {
+				color: #000!important;
+				text-shadow: none!important;
+				background: transparent!important;
+				box-shadow: none!important
+			}
+
+			img {
+				page-break-inside: avoid
+			}
+
+			img {
+				max-width: 100%!important
+			}
+
+			@page {
+				margin: 2cm .5cm
+			}
+
+			p,
+			h2 {
+				orphans: 3;
+				widows: 3
+			}
+
+			h2 {
+				page-break-after: avoid
+			}
+		}
+
+		*,
+		*:before,
+		*:after {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box
+		}
+
+		html {
+			font-size: 62.5%;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+		}
+
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.42857142;
+			color: #333;
+			background-color: #fff
+		}
+
+		input,
+		button {
+			font-family: inherit;
+			font-size: inherit;
+			line-height: inherit
+		}
+
+		img {
+			vertical-align: middle
+		}
+
+		p {
+			margin: 0 0 10px
+		}
+
+		h1,
+		h2,
+		h5 {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: 500;
+			line-height: 1.1;
+			color: inherit
+		}
+
+		h1,
+		h2 {
+			margin-top: 20px;
+			margin-bottom: 10px
+		}
+
+		h5 {
+			margin-top: 10px;
+			margin-bottom: 10px
+		}
+
+		h1 {
+			font-size: 36px
+		}
+
+		h2 {
+			font-size: 30px
+		}
+
+		h5 {
+			font-size: 14px
+		}
+
+		ul {
+			margin-top: 0;
+			margin-bottom: 10px
+		}
+
+		label {
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: bold
+		}
+
+		@-ms-viewport {
+			width: device-width
+		}
+
+		.hidden-xs {
+			display: block!important
+		}
+
+		@media(max-width:767px) {
+			.hidden-xs {
+				display: none!important
+			}
+		}
+
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		body {
+			background: #EBEBEB
+		}
+
+		p {
+			margin: 10px 0
+		}
+
+		h1,
+		h2 {
+			margin: 1em 0;
+			color: #820000;
+			text-align: left;
+			font-weight: normal
+		}
+
+		h1 {
+			font-size: 40px;
+			line-height: 1em
+		}
+
+		h2 {
+			font-size: 28px;
+			line-height: 140%
+		}
+
+		#wrapper {
+			margin: 0 auto;
+			padding: 20px 10px;
+			min-height: 500px;
+			width: 960px;
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			background: #fff;
+			color: #3d3d3d;
+			font-size: 16px;
+			font-family: georgia;
+			line-height: 25px;
+			max-width: 980px;
+			width: 100%
+		}
+
+		@media (min-width:769px) {
+			#post {
+				width: 70%!important;
+				display: inline-block!important
+			}
+		}
+
+		@media (max-width: 768px) {
+			#post {
+				width: 100%
+			}
+		}
+
+		#post {
+			margin: 20px;
+			max-width: 630px
+		}
+
+		h1.a1 {
+			margin-bottom: 30px;
+			font-weight: bold
+		}
+
+		.redo {
+			color: #CC0000;
+			font-weight: bold;
+			font-size: 20px;
+			margin-top: 25px;
+			margin-bottom: 20px;
+			margin-left: 10px
+		}
+
+		.redoyel {
+			font-family: arial;
+			color: #CC0000;
+			font-weight: bold;
+			font-size: 18px;
+			margin-top: 25px;
+			margin-bottom: 25px;
+			margin-left: 10px
+		}
+
+		#bottle {
+			margin: 20px auto;
+			width: 220px;
+			text-align: center;
+			position: relative
+		}
+
+		#bottle_g {
+			position: absolute;
+			top: 0;
+			right: 20px;
+			width: 80px
+		}
+
+		#bottle img {
+			display: block;
+			margin: 0 auto 20px auto
+		}
+
+		.libo li {
+			margin-bottom: 15px
+		}
+
+		@media (min-width: 769px) {
+			#post {
+				width: 67%!important
+			}
+		}
+
+		.infograph {
+			display: flex;
+			flex-direction: row;
+			margin: 0;
+			padding: 0;
+			align-items: center;
+			margin-top: 50px;
+			margin-bottom: 50px
+		}
+
+		.infograph-column {
+			align-items: center;
+			justify-items: center;
+			margin: 0;
+			padding: 0;
+			width: 33%;
+			display: flex;
+			flex-direction: column
+		}
+
+		.infograph-prod {
+			width: 100%;
+			justify-self: center
+		}
+
+		.infograph-img {
+			width: 28%;
+			margin: 0 auto;
+			display: block
+		}
+
+		.infograph-row {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center
+		}
+
+		.infograph-text {
+			color: green;
+			font-size: bold;
+			text-transform: uppercase;
+			text-shadow: 1px 0 grey;
+			text-align: center!important
+		}
+
+		@media only screen and (max-width: 768px) {
+			.infograph-arrow {
+				display: none
+			}
+
+			.infograph {
+				flex-direction: column
+			}
+
+			.infograph-column {
+				width: 100%!important
+			}
+
+			.infograph-rewerse {
+				flex-direction: row-reverse!important;
+				justify-content: flex-end!important
+			}
+
+			.infograph-prod {
+				display: none
+			}
+
+			.infograph-row {
+				flex-direction: row;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: nowrap;
+				margin-bottom: 15px;
+				width: 100%
+			}
+
+			.infograph-img {
+				width: 60px;
+				margin: 0 20px 0 0
+			}
+
+			.infograph-text {
+				text-align: left!important
+			}
+		}
+
+		.our-form {
+			font-family: Arial, Helvetica, sans-serif;
+			border: 2px solid #6c6c6c;
+			background: #EBEBEB;
+			position: relative;
+			box-sizing: border-box;
+			padding: 8px;
+			margin-top: 24px
+		}
+
+		#our-main-form label {
+			position: relative
+		}
+
+		.our-form-header {
+			margin: 0;
+			display: inline-block;
+			transform: translateY(-76%);
+			color: #0083B2;
+			font-size: 26px;
+			font-weight: bolder;
+			background: rgba(255, 255, 255, 1);
+			background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 51%, rgba(235, 235, 235, 1) 52%, rgba(235, 235, 235, 1) 71%, rgba(235, 235, 235, 1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(51%, rgba(255, 255, 255, 1)), color-stop(52%, rgba(235, 235, 235, 1)), color-stop(71%, rgba(235, 235, 235, 1)), color-stop(100%, rgba(235, 235, 235, 1)));
+			background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 51%, rgba(235, 235, 235, 1) 52%, rgba(235, 235, 235, 1) 71%, rgba(235, 235, 235, 1) 100%);
+			background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 51%, rgba(235, 235, 235, 1) 52%, rgba(235, 235, 235, 1) 71%, rgba(235, 235, 235, 1) 100%);
+			background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 51%, rgba(235, 235, 235, 1) 52%, rgba(235, 235, 235, 1) 71%, rgba(235, 235, 235, 1) 100%);
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 51%, rgba(235, 235, 235, 1) 52%, rgba(235, 235, 235, 1) 71%, rgba(235, 235, 235, 1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebeb', GradientType=0)
+		}
+
+		.our-form-description {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-size: 14px
+		}
+
+		.our-form-itemInput {
+			display: flex;
+			align-items: center;
+			margin-bottom: 8px
+		}
+
+		.itemInput-label {
+			width: 25%;
+			text-align: right;
+			padding-right: 12px
+		}
+
+		.our-form-txtInput {
+			width: 45%;
+			padding: 4px;
+			outline: none
+		}
+
+		.our-order-btn {
+			transition: 0.4s;
+			display: block;
+			margin: 20px auto;
+			padding: 10px 50px;
+			outline: none;
+			border-radius: 8px;
+			border: 1px solid #ccc;
+			background: green;
+			color: #ffffff;
+			font-size: 24px
+		}
+
+		.our-order-btn:hover {
+			transform: scale(1.1)
+		}
+
+		.form-choice-container < input[type=radio]:checked {
+			background: red!important
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none
+		}
+
+		@media screen and (max-width: 762px) {
+			.our-form-itemInput {
+				flex-direction: column
+			}
+
+			.itemInput-label {
+				width: 100%;
+				text-align: left;
+				padding-right: 12px
+			}
+
+			.our-form-txtInput {
+				width: 100%;
+				padding: 4px;
+				outline: none
+			}
+		}
+
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box
+		}
+
+		html {
+			font-family: 'Barlow', sans-serif
+		}
+
+		.redoyel {
+			line-height: 32px
+		}
+
+		@media (max-width: 480px) {
+			h1 {
+				font-size: 2em
+			}
+		}
+
+		.redoyel {
+			color: #CC0000;
+			font-weight: bold;
+			width: 100%
+		}
+
+		.redoyel span {
+			background: yellow
+		}
+
+		@media (max-width: 768px) {
+			#post {
+				margin: 0!important
+			}
+
+			#licznikProduktow {
+				float: none!important;
+				margin: 0 auto
+			}
+
+			#licznikProduktow span:nth-child(1) {
+				margin: 0 auto;
+				display: block
+			}
+		}
+
+		.ileProduktow {
+			background: url('images/licznik-bg.png') repeat-x;
+			background-size: 100% 115%;
+			background-position: 0
+		}
+
+		.ileProduktow {
+			font-size: 45px;
+			color: #000;
+			padding: 0 5px;
+			border: 1px solid black;
+			border-radius: 5px
+		}
+
+		#licznikProduktow {
+			text-align: center;
+			float: right;
+			margin-top: 10%;
+			margin-right: 20px
+		}
+	</style>
+
+	<link href="favicon_1.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<div id="wrapper">
+		<img style="width:100%;margin-bottom: 15px;" src="images/logotypes-es.jpg" alt class="top_banner">
+		<div id="post" style="width: 96%!important;max-width: 100%">
+			<h1 class="a1" style="color: #820000;"> За 1 месяц вы восстановите мужскую силу, физическую выносливость и наберете 10 кг крепких мышц, без упражнений и диет, эффект подтвержден независимыми медицинскими тестами.</h1>
+			<img style="width:50%;float:right;margin: 40px 0 0 10px;max-width: 245px;" class src="images/prof-prolesanpure.jpg"><br>
+			<p> Даниэль</p>
+			<p> Я профессор Карлос Ортис Торрес, ученый, специалист в области генной инженерии. На этой странице я хочу представить вам величайшее достижение в моей жизни, за которое я только что был номинирован на азиатский эквивалент Нобелевской премии: премию Конфуция. Я разработал натуральную формулу, стимулирующую естественному повышению уровня тестостерона, без которого невозможно нарастить мышцы и восстановить мужскую силу и выносливость. Благодаря моей методике каждый мужчина может автоматически и на постоянной основе набрать до 10 кг чистой мышечной массы за 1 месяц, а также повысить физическую и сексуальную выносливость.</p>
+			<h2 class="redo" style="margin-top: 50px;"> Итак, если вы хотите:</h2>
+			<ul class="libo" style="margin-left: 20px;">
+				<li>
+					<strong> набрать 10 кг мышечной массы</strong> за 1 месяц автоматически, без тренажерного зала и диет;</li>
+				<li>
+					<strong> Приобрести красивое подтянутое тела,</strong> не поднимая тяжести  и не получая травм;</li>
+				<li>
+					<strong> Восстановить все мужские функции</strong> - в любом возрасте, даже если в данный момент они снижены;</li>
+				<li>
+					<strong> Превратить дряблые мышцы и жир в сильные, твердые мышцы,</strong> даже если вы боретесь с лишним весом или ожирением.</li>
+				<li> получить в 4 раза больше энергии и в 5 раз больше силы и, таким образом, снова почувствовать себя настоящим мужчиной...</li>
+			</ul>
+			<p> ... и если вы хотите достичь всего этого без чрезмерных тренировок, опасных пищевых добавок, изнурительных диет и, следовательно, сэкономить десятки тысяч евро - прочтите то, что я хочу вам рассказать.</p>
+			<p> Неважно, сколько вам лет или сколько времени вы пытаетесь добиться восстановления былой силы и крепких мышц. Даже если вы слышали, что в вашем возрасте добиться результатов невозможно, потому что это естественный процесс и вам надо просто смириться...<strong> Знайте, что через месяц вы сможете наслаждаться твердых мышц и силой не ходя в спортзали и не принимая гормоны!</strong></p>
+			<h2 class="redo"> Здесь я объясняю, почему моя формула является отличной альтернативой диетам, добавкам, гормонам, химией и невыносимым упражнениям в тренажерном зале:</h2>
+			<ul class="libo" style="margin-left: 20px;">
+				<li>
+					<strong> вы наберете 10 кг мышц за 1 месяц,</strong> достижение большего эффекта, чем за 3 года интенсивных тренировок;</li>
+				<li>
+					<strong> вы автоматически повысите мужскую выносливость,</strong> без усилий и без жертв, естественно восстанавливается тестостерон</li>
+				<li>
+					<strong> не нужно придерживаться какой-либо диеты,</strong> - потому что усиленный рост мышечной ткани и повышение силы происходит на уровне ДНК;</li>
+				<li>
+					<strong> вы избежите последствий травм или травм мышц,</strong> вы избежите последствий травм, суставов и позвоночника;</li>
+				<li>
+					<strong> вы защитите свое здоровье,</strong> вместо того, чтобы травить организм опасными пищевыми добавками и стимуляторами;</li>
+				<li>
+					<strong> вы сэкономите время,</strong> вместо того, чтобы проводить половину жизни в тренажерном зале и у врачей;</li>
+				<li>
+					<strong> Вы сэкономите деньги,</strong> вместо того, чтобы тратить их на тренажерные залы, диетологов и различные препараты.</li>
+			</ul>
+			<h2 class="redo"> Я разработал внутригенный метод, который автоматически повышает мужскую силу и создает 10 кг чистой мышечной массы за 1 месяц.</h2>
+			<p> Благодаря этому вам не придется заниматься спортом, соблюдать диету или травить себя подозрительными добавками, гормонами и  химией. Вы забудете все проблемы и унижения, которые волновали вас из-за потере фигуры, мужской силы и выносливости. Вы начнете восстанавливать все мужские функции, наращивать чистую мышечную массу, занимаясь повседневными делами: идя на работу, выпивая чашку кофе, отвечая на телефонные звонки. Каждое движение активирует регенеративные процессы мышечных волокон и стимулирует выработку тестостерона, который автоматически восстанавливает силы и постоянно строит чистую мышечную массу.</p>
+			<p> И все потому, что я разработал внутригенную формулу, которая автоматически повышает мужскую силу и создает 10 кг чистой мышечной массы за 1 месяц. Как я это сделал?</p>
+			<h2 class="redo"> Я хотел помочь своему брату, который начал терять мужскую силу и былую рельефность тела, из-за чего начал впадать в депрессию.</h2>
+			<p> Последние исследования Института Спорта показывают, что у 62% мужчин после 45 в Испании есть проблема низкой самооценки, из-за отсутствия рельефной мускулатуры и потере выносливости в то время как 4 из 10 из них воспринимают себя уже как не-мужчин. К сожалению, эта проблема затронула и старшего брата-Хуана.</p>
+			<p> Мой брат всегда был очень мужественным и привлекательным мужчиной, с рельефным телом. Пользовался популярностью у женщин, я ему даже завидовал.</p>
+			<p> При этом он никогда даже не заходил в зал. Но с возрастом это стало меняться. Из-за сидячего образа жизни он прибавил в весе, и конечно произошли возрастные изменения, такие как естественное снижение тестостерона. Но Хуан не придавал этому значения, до одного случая.</p>
+			<p> У него даже начались проблемы со сном. И вот на одном из корпоративов, Хуан спросил у неё на прямую, почему она не обращает на него внимание. Женщина ответила честно, что он выглядит на несколько лет старше чем он есть, и абсолютно ничего не делает с этим. Это был шок! </p>
+			<p> Хуан сначала впал в депрессию, ни с кем не общался, даже со мной. Затем вроде всё наладилось, он пошел в спортзал, даже похудел. Но мы тогда даже не подозревали, чем это обернется. Со временем, накаченная фигура стала для него навязчивой идеей, он не вылезал из тренажерки, стал пить всякую химию, тратя на всё это кучу денег. Вся семья страшно переживала за него. Он убивал не только свой организм, но и свою психику в погоне за красивым телом и былой молодостью.</p>
+			<p> Он поднимал все больше и больше веса, принимал всё больше и больше стероидов, изнашивая свое тело.</p>
+			<h2 class="redo"> Хуан сделал все, что мог, чтобы повернуть время вспять.</h2>
+			<p> Он думал, что делает хорошее дело, наращивая мускулы, но на самом деле лишь изнашивал свои суставы и свое тело в целом. Я много раз пытался с ним поговорить, предупредить его, остановить, но всё безрезультатно.</p>
+			<p> Однажды его организм не выдержал и отказался подчиняться изнурительным тренировкам. Он потерял сознание, и на него упала штанга, которую он поднимал. Он попал в реанимацию. </p>
+			<p> Я чуть не потерял брата ...</p>
+			<h2 class="redo"> Как я изобрел и запатентовал формулу для роста мышц и восстановления мужской силы?</h2>
+			<p> Я должен был помочь своему брату в стремлении вернуть себе мужскую силу и уверенность в себе: без тренажерного зала, без диет и без опасных добавок. Я хотел, чтобы у него было тело, в котором он чувствовал бы себя на 100% сильным мужчиной мужчиной. Когда я пошел в больницу и посмотрел на Хуана, мне пришла в голову мысль: я ведь ученый! Я принимал участие в открытии множества веществ, которые эффективно борются с различными заболеваниями, влияют на ткани и гены. Почему бы не разработать безопасную и эффективную формулу для стимуляции выработки собственного тестостерона? И тут я начал поиски ...</p>
+			<p> В течение шести месяцев я проводил интенсивные лабораторные исследования. Я пробовал разные комбинации активных веществ на моем брате. Отмечу лишь, что все они были на 100% натуральными и безопасными для организма. Научные знания и небольшая удача быстро привели к такому результату: я разработал уникальную формулу, которая стимулирует выработку собственного тестостерона, синтез белка, и сразу же подверг ее масштабным исследованиям. Эффективность 98% подтверждена крупнейшими исследовательскими центрами Европы и США! Во время тестирования моя внутригенная формула уже помогла 7000 мужчинам восстановить мужскую силу, увеличить выносливость и набрать 10 кг чистой мышечной массы.</p>
+			<p> Хуан, после всего лишь 1 недели применения этой формулы, активировал выработку собственного тестостерона, синтез белка и начал набирать мышечную массу в 8 раз быстрее, чем когда он совершал самоистязание в тренажерном зале и травился всякими добавками. И это было только начало. На следующей неделе его дряблые мышцы взорвались! Появились бицепсы, как у спортсмена UFC! Все мужские функции начали восстанавливаться, даже сексуальное желание возросло.</p>
+			<p> Всего через 3 недели мой брат, глядя на себя в зеркало, закричал: «Брат, ты изобрел машину времени! Я чувствую себя на 20 лет моложе, а выгляжу лучше, чем тогда. Ты гений! "</p>
+			<img style="width: 100%;" src="images/imgimg-prolesanpure.jpg">
+			<p style="text-align: center; font-size: 14px; margin: 0; background-color: #ddd; padding: 2px 5px"> Мой брат восстановил свои силы и набрал 10 кг мышечной массы и достиг желаемого, атлетической мужской фигуры, которой теперь гордится.</p>
+			<p> Он набрал в общей сложности 10 кг чистой мышечной массы всего за месяц. Полный энергии, он вернулся к жизни, и, ...всё таки завоевал ту красавицу! Сейчас она ждет от него ребенка.</p>
+			<p> Это гормон, который вырабатывается в организме мужчины или женщины. У мужчин его больше, если сравнивать с женщинами, и это определяет поведение и внешность. Это основной плюс, который дает повышение тестостерона. Высокое или низкое количество тестостерона, присутствующего в крови, влияет на количество сперматозоидов, мышцы и силу. Уровень этого гормона уменьшается с возрастом как у мужчин, так и у женщин. Связь между тестостероном и мышцами известна практически всем.</p>
+			<p> Знайте, что мускулистая фигура не всегда результат ежедневных тренировок. Мышцы тела реагирует на количество тестостерона в организме, гормон в свою очередь помогает росту и развитию мышц. Тестостерон запускает процесс связывания мышечных клеток, он соединяет мышечную ткань и регулирует синтез белка. А чем сильнее синтез белка, тем больше рост мышц и силы.</p>
+			<p> Вот почему моя задача состояла в том, чтобы создать формулу, которая имела бы радикальный эффект. Стимулировать естественную выработку тестостерона и синтез белка, тем самым активировать рост мышечной массы и восстановить все мужские функции. Я сделал это! Я разработал свою собственную внутригенную формулу. </p>
+			<h2 class="redo"> Я назвал ее FortuMax.</h2>
+			<h2 class="redoyel"><span> ЭФФЕКТИВНОСТЬ В СТРОИТЕЛЬСТВЕ МЫШЕЧНОЙ ТКАНИ БОЛЕЕ 98%</span>
+			</h2>
+			<img style="width: 100%;" src="images/ba.png">
+			<div style="display: flex; margin-top: 2%">
+				<div style="width: 50%;">
+					<h2 style="text-align: center; margin: 0;"> ДО</h2>
+					<p style="padding:0 5px; text-align: center;"></p>
+				</div>
+				<div style="width: 50%;">
+					<h2 style="text-align: center; margin: 0;"> ПОСЛЕ</h2>
+					<p style="padding:0 5px; text-align: center;"></p>
+				</div>
+			</div>
+			<br>
+			<p> Пока все это может показаться чудом. Но это факт, подтвержденный случаем моего брата и 7000 других мужчин 45+, которые уже набрали восстановили все функции и набрали 10 кг мышечной массы за 1 месяц. Кроме того, эффективность внутригенной формулы была доказана испанским исследовательским центром в Барселоне. Это глобальное открытие, которое заслужило признание и восхищение ведущих специалистов в области генетики, диетологии, урологии и профессиональных бодибилдеров.</p>
+			<h2 class="redoyel"><span> ФОРМУЛА 100% БЕЗОПАСНА И ПРОСТА В ПРИМЕНЕНИИ</span></h2>
+			<div style>
+				<p> Натуральные ингредиенты творят чудеса - науке просто нужно разработать идеальный состав! Это девиз, которым я руководствовался при создании внутригенной формулы. Формула содержит только натуральные, безопасные и суперэффективные вещества. Капли FortuMax - это пищевая добавка, которая содержит комплекс специально подобранных активных ингредиентов, которые поддерживают процессы регенерации мышечных волокон, стимулируют выработку своего тестостерона и синтез белка, способствуя максимальному восстановлению мужских функций. Экстракты растений, витамины и микроэлементы активно ускоряют обменные процессы, в результате повышается работоспособность всего организма и повышается эффективность во время тренировок. В основе препарата исключительно натуральные ингредиенты, легко усваиваются и безопасны в применении. Уникальная формула ускоряет развитие мышечной массы, регулирует гормональный фон и активно поддерживает физическую работоспособность. Кроме того, вы получите дополнительные 10 кг твердых и сильных мышц! Для достижения наилучших результатов рекомендуется принимать 60 капель в день.</p>
+			</div>
+			<h2 class="redo"> Каждый, кто привык к вашему образу стареющего мужчины, будет удивлен, увидев на 10 кг твердых мышц на вашем теле!</h2>
+			<div class="infograph">
+				<div class="infograph-column">
+					<div class="infograph-row">
+						<img src="images/icon1.png" alt class="infograph-img">
+						<p class="infograph-text"> ВОССТАНОВЛЕНИЕ МУЖСКИХ ФУНКЦИЙ</p>
+						<img src="images/arrow-315.png" alt class="infograph-arrow">
+					</div>
+					<div class="infograph-row infograph-rewerse">
+						<img src="images/arrow-225.png" alt class="infograph-arrow">
+						<p class="infograph-text"> ПРИРОСТ МЫШЦ НА 10 КГ ЗА 1 МЕСЯЦ</p>
+						<img src="images/icon4.png" alt class="infograph-img">
+					</div>
+				</div>
+				<div class="infograph-column">
+					<div class="infograph-row">
+						<img src="images/icon2.png" alt class="infograph-img">
+						<p class="infograph-text"> НА 70% БОЛЬШЕ СИЛЫ</p>
+						<img src="images/arrow-0.png" alt class="infograph-arrow">
+					</div>
+					<div class="infograph-row"><img src="images/prolesanpure-small.png" alt class="infograph-prod">
+					</div>
+					<div class="infograph-row infograph-rewerse">
+						<img src="images/arrow-180.png" alt class="infograph-arrow">
+						<p class="infograph-text"> УСКОРЕННЫЙ МЕТАБОЛИЗМ</p>
+						<img src="images/icon5.png" alt class="infograph-img">
+					</div>
+				</div>
+				<div class="infograph-column">
+					<div class="infograph-row">
+						<img src="images/icon3.png" alt class="infograph-img">
+						<p class="infograph-text"> ПРОСТОТА В ИСПОЛЬЗОВАНИИ</p>
+						<img src="images/arrow-45.png" alt class="infograph-arrow">
+					</div>
+					<div class="infograph-row infograph-rewerse">
+						<img src="images/arrow-135.png" alt class="infograph-arrow">
+						<p class="infograph-text"> ЭКОНОМИЯ ДЕНЕГ</p>
+						<img src="images/icon6.png" alt class="infograph-img">
+					</div>
+				</div>
+			</div>
+			<p> Вы можете продолжать изнурять себя в тренажерном зале и травить свой организм гормона и химией. Но почему, когда я гарантирую вам быстрый, легкий и недорогой способ стать снова настоящим мужчиной? Требуется всего 1 месяц, чтобы присоединиться к 7000 довольным пользователям капель FortuMax, которые уже наслаждаются своей новой жизнью.</p>
+			<h2 class="redo"> Вы ничем не рискуете!</h2>
+			<p> С каплями FortuMax вы наберете 10 кг мышц и восстановите силы и сексуальное желание за 1 месяц. Кроме того, вы ничем не рискуете! Подтверждая свой успех, моя формула получила престижную гарантию качества за оригинальность, качество и результат.</p>
+			<h2 style="text-align: center; margin-top: 50px; font-weight: bold;"> Гарантия тройного качества </h2>
+			<p> 1. Гарантированная оригинальность капель FortuMax в внутригенной формуле, основанной на сильных веществах, которые стимулируют выроботку своего тестостерона. Эффективность подтверждена клиническими испытаниями. Это единственная формула, столь инновационная и эффективная. По этой причине вы можете быть уверены, что получите оригинальный продукт, доступный только на этом веб-сайте.</p>
+			<p> 2. Гарантированное качество: благодаря передовому процессу производства внутригенной формулы капли FortuMax соответствуют высочайшим стандартам качества. Ради вашего здоровья и хорошего самочувствия концентрация активных веществ подобрана таким образом, чтобы формула была полностью безопасной. Все это для того, чтобы эффект на 100% оправдал ваши ожидания.</p>
+			<p> 3. Результат гарантирован: многочисленные лабораторные и потребительские тесты подтверждают максимальную эффективность капель FortuMax. Основываясь на этих результатах, формула получила признание специалистов по всему миру, которые рекомендуют ее своим клиентам.</p>
+		</div>
+		<br><br><br>
+		<div class="our-form">
+			<h2 class="redo"> Восстановить мужскую силу и набрать 10 кг мышц за 1 месяц быстро, легко и экономично</h2>
+			<p style="text-align: center; margin-top: 30px; font-weight: bold;"> Получите капли FortuMax со<span style="color: #ff0000;"> скидкой 50%</span></p>
+			<div id="licznikProduktow">
+				<span style="font-weight: bold;font-size: 14px;display: block; margin-bottom: 30px; width: 130px"> Количество товара в наличии:</span><span class="ileProduktow" id="setne">0</span><span class="ileProduktow" id="dziesietne">0</span><span class="ileProduktow" id="jednosci">9</span>
+			</div>
+			<div id="bottle">
+				<img src="images/product-1.png" style="max-height: 300px; margin-bottom: 0;max-width: 100%;">
+				<div class="hidden-xs" id="bottle_g"><img src="images/hr-satisfaction.png" width="80" height="80"></div>
+			</div>
+
+			<form method="post" id="our-main-form" geo="es" action="api.php" onsubmit="return validate_form(this, 'Por favor ingrese un número de teléfono válido');">
+				<h2 class="our-form-header" style="background: #fff;margin-top: 95px;text-align: center;display: block;"> ФОРМА ЗАКАЗА</h2>
+				<p class="our-form-description"> Да! Я хочу получить капли FortuMax. Это означает, что мой выбор полностью безопасен, так как продукт имеет тройную гарантию качества. Товар будет доставлен курьером в ближайшие дни.</p>
+				<center><strong>
+						<center>
+							<span style="text-decoration: line-through;"><span class="price_land_s4"> 99.90 </span><span class="price_land_curr"> Euros</span></span><br><span class="price_land_s1" style="color:red;font-size:24px"> 49.95 </span><span class="price_land_curr"> Euros</span>
+						</center>
+					</strong></center>
+				<div class="our-form-itemInput">
+					<label class="itemInput-label" for><span>*</span> Имя:</label><input class="our-form-txtInput" name="name" type="text" id required>
+				</div>
+				<div class="our-form-itemInput">
+					<label class="itemInput-label" for><span>*</span> Телефон:</label><input id="phone" class="our-form-txtInput" type="tel" name="phone" required>
+				</div>
+				<button type="submit" class="our-order-btn"> ЗАКАЗАТЬ СЕЙЧАС</button>
+<input name="subid" type="hidden" value="{subid}">
+<input name="px" type="hidden" value="{px}">
+			</form>
+
+		</div>
+	</div>
+	<br><br>
+	<h5>
+		<center><span style="color: silver"> Продукт представляет собой пищевую добавку. Продукт не отвечает за диагностику и лечение каких-либо заболеваний и не является лекарственным средством. Продукт не должен использоваться в качестве замены полноценного питания. Продукт может проявлять поддерживающие и полезные функции для организма, а эффекты от использования продукта являются результатом индивидуальных предрасположенностей организма.</span></center>
+	</h5>
+	<style>
+		.lang-list {
+			position: fixed;
+			left: 0;
+			top: 20%;
+			text-align: center;
+			min-width: 34px;
+			width: 5%;
+			padding: 10px 5px;
+			background-color: rgba(0, 0, 0, .6);
+			border: 1px solid;
+			border-color: rgba(0, 0, 0, .3);
+			z-index: 100
+		}
+
+		.lang-list img {
+			opacity: 0.5;
+			display: inline-block
+		}
+
+		.lang-list img.active-lang,
+		.lang-list img:hover {
+			opacity: 1;
+			cursor: pointer
+		}
+	</style>
+
+
+
+
+	<script>
+		const anchors = document.querySelectorAll('a[href*="#"]')
+
+		for (let anchor of anchors) {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault()
+
+				const blockID = anchor.getAttribute('href')
+
+				document.querySelector('' + blockID).scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				})
+			})
+		}
+	</script>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function () {
+			let anchors = document.getElementsByTagName("a");
+			for (let i = 0; i < anchors.length; i++) {
+				anchors[i].setAttribute("target", "_parent");
+			}
+		});
+	</script>
+
+	<script type="text/javascript" src="/libs/js/gdpr.js"></script>
+	<link rel="stylesheet" href="/libs/js/gdpr.css">
+	<script>
+		var phonePattern = {
+			'ru': '+7 (___) ___-__-__',
+			'ua': '+38-___-___-__-__',
+			'by': '+375 ___ ___ ___',
+			'kz': '+7 ___ ___ ____',
+			'kg': '+___ ___ __ __ __',
+			'md': '0 ___ _____',
+			'az': '+___-__-___-__-__',
+			'ge': '+995 ___ __ __ __',
+			'es': '+34 ___ __ __ __',
+			'pe': '+51 ___ ___ _?_',
+			'cl': '+56 _ ____ ____',
+			'ar': '+54 __ ____ ____',
+			'co': '+57 _______??_',
+			'mx': '+52 __ ____ ____',
+			'it': '+39-___-___-____',
+			'esp': '+34 ___ __ __ __',
+			'pt': '+351 ___ ___ ___',
+			'prt': '+351 ___ ___ ___',
+			'id': '+62 ___ ___ ___',
+			'gr': '+30 ___ _______',
+			'cy': '+357 __ ______',
+			'ro': '+40 ___ ___ __? _',
+			'bg': '+359 ___ __ __? _',
+			'cz': '+420 ___ ___ ___',
+			'sk': '+421 ___ ___ ___',
+			'si': '+386 _ ___ __ __',
+			'pl': '+48 ___ ___ ___',
+			'al': '+355 __ ___ ____',
+			'rs': '+381 __ _____?_',
+			'ph': '+63 _ ____ __?_',
+			'hu': '+36 _ ___ ____',
+			'hr': '+385 _ ____ __?_',
+			'ba': '+387 __ ______',
+			/* --- */
+		}
+
+		const inputs = document.querySelectorAll('form input[name="phone"]')
+
+
+		//функция на проверку соответствия количества введенных в инпут символов, количеству необходимых в маске
+		function validate_form(form, alert_text = "Please enter valid phone number") {
+			var input_ln = form.querySelector('input[name="phone"]').value.replace(/ /g, '').length,
+				pattern_ln = phonePattern[form.getAttribute('geo')].replace(/\?| /g, '').length;
+			if (input_ln >= pattern_ln) return true;
+			else { alert(alert_text); return false; }
+		}
+
+		//сама маска, срабатывающая от ивентов ввода, фокуса, потери фокуса и нажатия кнопки мыши
+		document.addEventListener("DOMContentLoaded", function () {
+
+			var isTimeoutSeted = false;
+			var inputInterval;
+
+			function createInterval(input) {
+				if (!isTimeoutSeted) {
+					isTimeoutSeted = true;
+
+					inputInterval = setInterval(() => {
+						input.selectionStart = input.value.length
+						input.setSelectionRange(input.value.length, input.value.length);
+					}, 15)
+				}
+			}
+
+			function deleteInterval() {
+				clearInterval(inputInterval)
+				isTimeoutSeted = false;
+			}
+
+			function setSelectionStart(input) {
+				input.selectionStart = input.value.length
+			}
+
+			function mask(event) {
+				var input = event.currentTarget;
+				var geo = input.form.getAttribute('geo');
+				var matrix = phonePattern[geo];
+				var i = 0;
+				var def = matrix.replace(/\D/g, "");
+				var val = input.value.replace(/\D/g, "");
+
+				if (!event.type == "blur") {
+					setSelectionStart(input)
+				}
+
+				// Ставим интервал для инпута
+				createInterval(input)
+
+				if (event.type == "blur") {
+					// Сбрасываем интервал для инпута
+					deleteInterval()
+					if (input.value.length == 2) {
+						input.value = ""
+					}
+				}
+
+				if (def.length >= val.length) {
+					val = def
+				};
+
+				input.value = matrix.replace(/./g, function (a) {
+					return /[_|?\d]/.test(a) && i < val.length? val.charAt(i++): i >= val.length? "": a
+				});
+
+
+			};
+
+			inputs.forEach(input => {
+				input.addEventListener("input", mask, false);
+				input.addEventListener("blur", mask, false);
+				input.addEventListener("focus", mask, false);
+			})
+		});
+
+		$(document).ready(function () {
+			// Load GDPR
+			$(document).gdprCookieLaw({
+				moreLinkHref: '/privacypolicy',
+				theme: 'theme-1',
+				position: 'bottom-right',
+				width: '760px',
+				margin: '15px',
+				animation: 'fade-slide',
+				btnAcceptText: 'Ok'
+			});
+		});
+
+	</script>
+
+
+
+
+
+</body></html>
