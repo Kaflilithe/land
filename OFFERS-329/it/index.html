@@ -1,0 +1,567 @@
+<!DOCTYPE html><html><head>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        function set_validator_errors() {
+            orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки';
+
+            orderValidator.errorNameField = 'Имя';
+            orderValidator.errorNameMess = 'Укажите своё имя';
+
+            orderValidator.errorPhoneField = 'Телефон для связи';
+            orderValidator.errorPhoneMess = 'Введите правильный телефон';
+
+            orderValidator.errorAddress = 'Введите правильный адрес';
+            orderValidator.errorRequired = 'обязательное поле';
+            orderValidator.errorMaxLength = 'допустимо максимум {1} символа';
+            orderValidator.errorMinLength = 'допустимо минимум {1} символа';
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'указан не корректный email';
+        }
+    </script>
+
+    <script>
+
+
+        window.app = {
+            timestamp: parseInt((new Date()).getTime() / 1000),
+            jq: jQuery,
+            formAction: window.location.href,
+            leadToken: '606ab9ad5a1822.23197968',
+            offers: { "19543": { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" } },
+            currentOffer: { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" },
+            allowedCountries: ["SA"],
+            _setOfferId: false,
+
+            setOffer: function (offerId) {
+                if (offerId == this._setOfferId) {
+                    return;
+                }
+                this._setOfferId = offerId;
+                if (offerId) {
+                    var offer = app.offers[offerId];
+                    var previousOffer = app.currentOffer;
+                    app.currentOffer = offer;
+                    var event = this.jq.Event("offerchange");
+                    event.previousOffer = previousOffer;
+                    event.currentOffer = app.currentOffer;
+                    this.jq(document).trigger(event);
+                    this.updatePage(offer);
+                } else {
+                    $('input[name=country]').val('');
+                }
+            },
+
+            updatePage: function (offer) {
+                $('x-newprice').html(offer.price);
+                $('x-oldprice').html(offer.price2);
+                $('x-currency').html(offer.currency.name);
+                $('input[name=offer], select[name=offer]').val(offer.id);
+                $('input[name=country]').val(offer.country.code);
+            },
+
+            blockForm: function () {
+                // Блокируем кнопки при отправке формы
+                $('input[type=submit]', $(this)).prop('disabled', true).attr('disabled', true);
+                $('button', $(this)).prop('disabled', true).attr('disabled', true);
+                app.incompleteOrder.lock = true;
+                clearTimeout(app.incompleteOrder.timer);
+            },
+
+            unblockForm: function () {
+                $('input[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                $('button[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                app.incompleteOrder.lock = false;
+                clearTimeout(app.incompleteOrder.timer);
+            }
+
+        };
+
+
+    </script>
+    <script src="js/form.validate.js"></script>
+    <script src="js/form.incomplete.js"></script>
+    <script src="js/main2.js"></script>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="Sun, 01 Jan 2019 07:01:00 GMT">
+    <title>Eyebrow Beauty Stamp</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="css/css.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modal-close,.modal-overlay").click(function () {
+                $(".modal-overlay").css({ display: 'none' });
+                $(".modal").css({ display: 'none', opacity: '0', top: '4%' });
+            });
+
+            $(".order").click(function () {
+                $(".modal-overlay").css({ display: 'block' });
+                $(".modal").animate({ top: '10%', opacity: '1' });
+                $(".modal").css({ display: 'block', });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div class="modal-close">x</div>
+        <div class="form-container">
+            <div>
+                <h2> Ordina ora!</h2>
+                <div class="price"><span class="old-price">
+                        <x-oldprice> 76</x-oldprice>
+                        <x-currency> €</x-currency> undefined</span>
+                    <x-newprice> 38</x-newprice>
+                    <x-currency> €</x-currency> undefined</div>
+            </div>
+            <form action method="post" class="order-form">
+                <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                <input type="text" name="name" id="name" placeholder="Nome">
+                <input type="text" name="phone" id="phone" placeholder="Telefono">
+                <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="top-col">
+                <div class="top-text-black"> Sopracciglia perfette</div>
+                <div class="top-text-big text-pink"> in tre secondi!</div>
+                <div class="top-text-p"> Siete stanchi di lottare ogni giorno con le imperfezioni delle vostre sopracciglia? Stanchi della necessità di disegnare ogni mattina le curve dritte? Niente più sprechi di tempo:<strong> Basta tre secondi ed è fatto!</strong></div> <br>
+                <div class="product-img"><img src="img/product-img-mob.jpg"></div>
+                <br><br>
+
+                <div class="form-container" align="center">
+                    <div>
+                        <h2> Ordina ora!</h2>
+                        <div class="price"><span class="old-price">
+                                <x-oldprice> 76</x-oldprice>
+                                <x-currency> €</x-currency> undefined</span>
+                            <x-newprice> 38</x-newprice>
+                            <x-currency> €</x-currency> undefined</div>
+                    </div>
+                    <form action method="post" class="order-form">
+                        <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                        <input type="text" name="name" id="name" placeholder="Nome">
+                        <input type="text" name="phone" id="phone" placeholder="Telefono">
+                        <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                    </form>
+                </div>
+
+                <p>
+                    <strong> Attenzione!</strong> L'offerta è limitata! Questo prodotto non è disponibile nei negozi: è possibile ordinarlo solo sul sito web. </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <div class="block1">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="space1">
+                        <h1> Presentiamo Eyebrow Beauty Stamp</h1>
+                        <p> Un set compatto composto da trucchi in polvere pigmentata e pratici stampi.</p>
+                        <img src="img/product-img1.jpg" id="product-img1">
+                    </div>
+                </div>
+                <div class="col m6">
+                    <img src="img/box.png" class="box">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block_pink_gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <h1> Perché<br><span class="text-pink"> «Eyebrow Beauty Stamp»</span> <br> è così apprezzato? </h1>
+                        <p> Ha tutto quello che state cercando:</p>
+                    </center>
+                </div>
+                <center>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-shade"></i></div>
+                        <p class="circle-title"> tonalità perfetta</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-closed-eyes-with-lashes-and-brows"></i></div>
+                        <p class="circle-title"> effetto ''naturale'' delle sopracciglia</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-raindrop"></i></div>
+                        <p class="circle-title"> resistente all'acqua <br> cipria</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-time"></i></div>
+                        <p class="circle-title"> Durata <br> per tutto il giorno</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-good"></i></div>
+                        <p class="circle-title"> applicazione semplice e indolore</p>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <div class="float-box">
+                            <h3> Acquista ora «Eyebrow Beauty Stamp» a un buon prezzo</h3>
+                        </div>
+                        <div class="float-box">
+                            <div class="btn order"><span> Ordina</span></div>
+                        </div>
+                    </center>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Come si usa?</h1>
+                    </center>
+                </div>
+
+                <div class="col m6">
+                    <img src="img/step1.jpg" class="step-img">
+                    <img src="img/step2.jpg" class="step-img">
+                    <img src="img/step3.jpg" class="step-img">
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> Anche se non l'avete mai fatto, vi ci vorrà solo un attimo per imparare. </p>
+                    <p class="text-pink"> 1. Imprimere il timbro in cipria;<br> 2. Posizionare il stampo sul sopracciglio; <br> 3. Godetevi il risultato perfetto!</p>
+                </div>
+
+                <div class="col m6">
+                    <p class="text-white"><span class="text-pink"> Vi aspettano due opzioni di cipria:</span> Scura per le brune e più chiara per i capelli biondi. Le tonalità sono perfettamente abbinate a qualsiasi tonalità di pelle: sembrano incredibilmente naturali, come se la natura stessa ti avesse dato quelle splendide sopracciglia!</p>
+                </div>
+                <div class="col m6">
+                    <img src="img/product-img2.jpg" class="product-img2">
+                </div>
+
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Come funziona <span class="text-pink"> «Eyebrow Beauty Stamp»?</span>
+                        </h1>
+                    </center>
+                </div>
+                <div class="col m6"><br><br>
+                    <img src="img/girl1.jpg" class="how-work-img">
+                    <img src="img/girl3.jpg" class="how-work-img girl3">
+                    <img src="img/girl2.jpg" class="how-work-img girl2">
+
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> - riempie perfettamente tutti gli spazi tra i capelli;<br> - permette di ottenere sopracciglia perfettamente simmetriche in un attimo;<br> - ti garantisce un risultato per tutto il giorno. </p>
+                    <p class="text-white">
+                        <span class="text-pink"> È preoccupata che non le vada bene?</span> Sono state sviluppate due diverse forme di stampo appositamente per voi: arrotondata e più grafica, con un angolo pronunciato. Usa semplicemente la forma che ti piace di più e apprezza l'effetto eccellente! </p>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+
+            <div class="col s12">
+                <center>
+                    <div class="float-box">
+                        <h3> Acquista ora «Eyebrow Beauty Stamp» </h3>
+                    </div>
+                    <div class="float-box">
+                        <div class="btn order"><span> Ordina</span></div>
+                    </div>
+                </center>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="wraper">
+        <div class="container">
+            <div class="row"><br><br>
+                <div class="col m6" align="center">
+                    <br><img src="img/logo.jpg" class="logo">
+                    <p> Cosa è incluso nel kit<span class="text-pink"> «Eyebrow Beauty Stamp»</span></p>
+                    <img src="img/product-img3.jpg" class="product-img3">
+                    <p align="left"><span class="text-pink"> Cosa c'è da sapere sul «Eyebrow Beauty Stamp»:</span><br><br> - La cipria si applica senza sforzo con un tocco leggero e delicato;<br><br> - il prodotto non è dannoso per le sopracciglia o per la pelle;<br><br> - I stampi sono etichettati in modo che si possa facilmente distinguere tra quello di sinistra e quello di destra;<br><br> - La cipria è dotata di uno specchio compatto e pratico;<br> <br> - le spugne sono facili da pulire e si asciugano rapidamente. </p>
+                </div>
+
+                <div class="col m6">
+                    <p align="left"><span class="text-pink"> Segreti utili:</span><br><br> - Puoi facilmente rendere le tue sopracciglia ancora più ordinate semplicemente ritoccando la forma finale con un cotton fioc;<br><br> - Puoi anche usare il timbro per riempire fastidiosi spazi tra i peli senza alterarne la forma; per farlo, basta farlo scorrere lungo la lunghezza del sopracciglio;<br><br> - Puoi rendere il colore più saturo usando il timbro in diversi passaggi - basta continuare a stratificare finché non lo trovi perfetto!</p><br><br>
+                    <img src="img/before-after.jpg" class="before-after"><br><br>
+                    <p align="left"><span class="text-pink"> Come si rimuove?</span> È sufficiente usare il vostro struccante preferito: ci vogliono pochi secondi. </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wraper bg-black">
+        <div class="container">
+
+            <center>
+                <h1 class="text-pink"> Feedback dei clienti</h1>
+            </center> <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> BeautyStamp</strong>
+                                <span class="views"> Visualizzazioni: 1 717</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> BeautyStamp</strong> Imparando da<span class="text-pink"> @makeup_bymadison</span> come ottenere sopracciglia impeccabili in pochissimo tempo. </p>
+                                <p><strong> Kristi.mua.h</strong> Oh mio Dio, è da tanto che lo sogno, l'ho già ordinata. Sono così stanca di dipingere ogni mattina per mezz'ora</p>
+                                <p><strong> Ana_Paris01</strong> Ho ricevuto il mio ordine ieri, il negozio ha tonnellate di aggeggi utili. Oltre ai stampi, ho ordinato un epilatore con uno sconto enorme!<img src="img/img1.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt>
+                                </p>
+
+                                <p><strong> Maa0950</strong> <span class="text-pink"> @ana.mua.h</span> Non solo tu amica, per colpa delle sopracciglia costantemente sono in ritardo, e con i timbri ora 2 secondi e fatto! E a proposito, ho anche preso un kit di estensione delle unghie con colori in questo negozio.</p>
+                                <p><strong> Kari_99</strong> Ragazze, che bella cosa, quanto costa? Si troverà nel negozio?</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @Kari_99</span> Purtroppo non ci saranno consegne nei negozi nel prossimo futuro, ma è possibile acquistare i nostri prodotti sul sito ufficiale</p>
+                                <p><strong> AnaSixty</strong> LO VOGLIO!!!</p>
+                                <p><strong> Makeupmaster77</strong> Sopracciglia molto belle, potresti dirmi come si fa ad avere una pelle così bella?</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Makeupmaster77</span> Per il trucco abbiamo usato il fondotinta Dermacol, è disponibile nel nostro negozio e tra l'altro è in promozione ora.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> marywallerx3</strong>
+                                <span class="views"> Visualizzazioni: 13 854</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> marywallerx3</strong> Farsi le sopracciglia in pochi secondi?! Questa è la parte più lunga della mia routine quotidiana di trucco, finalmente è una cosa del passato. Ho anche comprato il super fondotinta Dermacol da voi, toglie tutte le imperfezioni del mio viso, @BeautyStamp grazie<span class="text-pink"> @BeautyStamp</span></p>
+                                <p><strong> veronika_chachyna</strong> Mary, fantastico, ordinerò</p>
+
+                                <p><strong> buket_online_com</strong> Bellissima!</p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> Ho provato, non mi è piaciuta assolutamente.</p>
+                                <p><strong> marywallerx3</strong> <span class="text-pink"> @zayasolga</span> È assolutamente diverso. Anche io ho provato contorni, molto scomodi da usare. Qua una volta applicato vai tutto il giorno felice, in più la cipria è di altissima qualità.</p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> A quanto pare è da provare, grazie, conoscendoti, raramente consigli cose brutte</p>
+                                <p><strong> ami_mama</strong> Il risultato è molto bello, lo sto usando da un mese ormai! E voglio anche raccomandare un epilatore per il viso in forte sconto e il tonico Dermacol, lo raccomando! <img src="img/img3.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> teta_alex</strong> È fantastico!</p>
+                                <p><strong> leg_spt</strong> Molto interessante, è la prima volta che vedo una cosa del genere, dovrò provarla!</p>
+                                <p><strong> foxbeauty38</strong> Non è bello! Sono a favore di un tatuaggio.</p>
+                                <p> <strong> zhansaya_permanent</strong> <span class="text-pink"> @foxbeauty38</span> Sono d'accordo, i tatuaggi non hanno rivali.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> Mariya_schastie99</strong>
+                                <span class="views"> Visualizzazioni: 12 595</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> Mariya_schastie99</strong> Pazzesco, l'ho appena ricevuto e ho fretta di condividerlo con voi, anche il Dermacol è super!<span class="text-pink"> @BeautyStamp</span> Queste sono sicuramente le cose perfette, da usare ogni giorno, soprattutto quando il tempo è poco. Sono decisamente impressionata. Date un'occhiata al mio video e non perdete tempo, ordinate finché c'è una promozione! </p>
+                                <p><strong> mariia0684</strong> <span class="text-pink"> @Mariya_schastie99</span> Bellissima come sempre, e come sempre trovi grandi offerte</p>
+                                <p><strong> dariondraten1</strong> Photoshop</p>
+                                <p><strong> kris0301</strong> Mariya sei proprio Fantastica!</p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @kris0301</span> Comandata nel negozio online ufficiale, ora è in promozione.</p>
+                                <p><strong> aniatkach</strong> Una cosa super questo kit! Mariya anche io ho Epilag, è un ottimo depilatorio e nessuna irritazione, lo consiglio! <img src="img/img5.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p> <strong> polina17_11</strong> Bellissima come sempre, mandami per favore il link, è una cosa molto interessante.</p>
+                                <p><strong> bajes_h73</strong> peauteful</p>
+                                <p><strong> solomina.lesya</strong> Bellissima. Le sopracciglia sono super.</p>
+                                <p><strong> silkforyou</strong> Inimitabile! Ottimo video</p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @silkforyou</span> grazie</p>
+                                <p> <strong> fetia_mariya</strong> In realtà molto stanca di spendere costantemente un sacco di tempo per le sopracciglia, però ho molto dubbio su questo prodotto miracoloso</p>
+
+                                <p><strong> zhanna5569</strong> Perché no, è da tempo che dobbiamo rendere la vita più facile alle donne con queste cose.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="wraper bg-gradient-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <img src="img/box.png" class="box2">
+                </div>
+                <div class="col m6" align="center">
+                    <p> Con questo set, hai uno spazio illimitato per la creatività: sperimenta per vedere quale forma è perfetta per le tue sopracciglia. <strong> Siamo sicuri che il risultato vi piacerà: semplice come uno-due-tre!</strong>
+                    </p>
+                    <div class="form-container">
+                        <div>
+                            <h2> Ordina ora!</h2>
+                            <div class="price">
+                                <span class="old-price">
+                                    <x-oldprice> 76</x-oldprice>
+                                    <x-currency> €</x-currency> undefined</span>
+                                <x-newprice> 38</x-newprice>
+                                <x-currency> €</x-currency> undefined</div>
+                        </div>
+                        <form action method="post" class="order-form">
+                            <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                            <input type="text" name="name" id="name" placeholder="Nome">
+                            <input type="text" name="phone" id="phone" placeholder="Telefono">
+                            <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <center>
+            <p> BEAUT-E SHOP,</p>
+            <p> Calle Virgen del Espino, 17, 28027 Madrid, Spain</p>
+            <a href="/privacypolicy" target="_blank"> Privacy policy</a>  <br>
+            <a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>  <br>
+            <a href="/legal-warning" target="_blank"> Legal warning</a>
+        </center>
+    </div>
+    <style>
+        .form-control {
+            width: 355px;
+            height: 50px;
+            padding: 0px 20px 0px 20px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: #E89395;
+            border: none;
+            margin: 20px 0 0 0;
+            font-size: 22px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+
+
+        $(document).on('click', 'form', function (e) {
+            if (!$(this).find('input[name=phone]').length) {
+                return;
+            }
+
+            if (window['yaCounter46830237'] && e.validator === window.orderValidator) {
+                window['yaCounter46830237'].reachGoal('FORMCLICK');
+            }
+        });
+
+
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(46830237, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+        if (yandex_metrika_postinit) {
+            yandex_metrika_postinit(ym);
+        }
+    </script>
+    <noscript><span data-translate="163"><span data-translate="174">
+            <div><img src="1" style="position:absolute; left:-9999px;" alt></div>
+        </span></span></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Rating Mail.ru counter -->
+    <script type="text/javascript">
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({ id: "2925504", type: "pageView", start: (new Date()).getTime() });
+        (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = "https://top-fwz1.mail.ru/js/code.js";
+            var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
+    </script><noscript><span data-translate="164"><span data-translate="175">
+            <div>
+                <img src="counter2" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+            </div>
+        </span></span></noscript>
+    <!-- //Rating Mail.ru counter -->
+
+
+
+</body></html>
