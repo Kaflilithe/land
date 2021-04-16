@@ -12,16 +12,17 @@
     p {
       margin-top: 0;
     }
-    .title{
-      color: #5C8285;
+    .title {
+      color: #5c8285;
       font-size: 0.5rem;
       font-weight: 900;
-      width: auto; 
+      width: auto;
       text-align: left;
+      margin-top: 0;
     }
-   .subtitle{
-     margin-bottom: 0;
-   }
+    .subtitle {
+      margin-bottom: 0;
+    }
   }
   .prod {
     min-height: 4.86rem;
@@ -107,91 +108,86 @@
       margin: 0;
     }
   }
-  .trigger{
+  .trigger {
     margin: 0 auto;
-    background: #FFFFFF;
-border-radius: 30px;
-max-width: 3.6rem;
-width: 100%;
-padding: 0.11rem 0;
-text-align: center;
-b{
-  color: #3DB39E;
-  font-weight: 900;
-}
+    background: #ffffff;
+    border-radius: 30px;
+    max-width: 3.6rem;
+    width: 100%;
+    padding: 0.11rem 0;
+    text-align: center;
+    b {
+      color: #3db39e;
+      font-weight: 900;
+    }
   }
 }
 .sect1 {
-  
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.2rem 0;
+    img {
+      width: 1.53rem;
+    }
+    p {
+      margin: 0;
+      margin-left: 0.2rem;
+      font-size: 0.17rem;
+    }
+    b {
+      display: block;
+      color: #37a18e;
+      font-size: 0.22rem;
+      font-weight: 900;
+    }
+  }
 }
 .sect2 {
-  padding: 3.25rem 0.22rem;
-  padding-bottom: 0;
-  background-image: url(../../img/sect2.png);
-  background-size: contain;
+  padding: 0.4rem 0.22rem;
+  background-image: url(../../img/sect2.jpg);
+  background-size: cover;
   min-height: 7.5rem;
   box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: top;
-
-  p {
-    width: 4.37rem;
-    border-left: 5px solid #ff3062;
-    padding-left: 0.2rem;
-    margin: 0.3rem 0;
-    color: #1f1f1f;
-    font-weight: 600;
-    box-sizing: border-box;
-    font-size: 0.2rem;
-    width: 4.02rem;
+  img {
+    width: 1.32rem;
+    display: block;
+    margin: 0 auto;
+  }
+  &__item {
+    b {
+      font-size: 0.2rem;
+      width: 1.68rem;
+      display: inline-block;
+      margin: 0 auto;
+    }
   }
 }
 .sect3 {
-  padding-top: 0.54rem;
-
-  background: #2c2c2c;
-  padding-bottom: 0.6rem;
   &__main {
-    padding: 0 0.18rem;
-  }
-  &__box {
-    .item {
-      @include flex(column, flex-start, flex-start);
-      margin-bottom: 0.32rem;
-      font-size: 0.2rem;
-      img {
-        margin-right: 0.22rem;
-        width: 0.79rem;
-        margin-bottom: 0.12rem;
-      }
-      b {
-        font-weight: 800;
-        color: white;
-        margin-bottom: 0.08rem;
-      }
-      p {
-        color: white;
-        margin: 0;
-      }
+    padding-top: 0.3rem;
+    padding-left: 0.76rem;
+    box-sizing: border-box;
+    background-image: url(../../img/sect3.png);
+    display: grid;
+    min-height: 5.4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    grid-template-rows: 1.1rem 1.1rem 0.85rem 1.39rem;
+    p {
+      width: 2.6rem;
+      margin: 0;
     }
-  }
-  &__prod {
-    width: 0.61rem;
-  }
-  &__subtitle {
-    width: 4.27rem;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 0.43rem;
-    margin-top: 0.06rem;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: "Oswald", sans-serif;
   }
 }
 .sect4 {
-  h2 {
-    margin-bottom: 0.3rem;
+  background: #e1f6f8;
+  img {
+    width: 4rem;
+    margin: 0 0.4rem;
   }
   .text {
     margin: 0 auto;
@@ -202,30 +198,43 @@ b{
   }
 }
 .sect5 {
-  padding-bottom: 0.7rem;
-  background-color: #d7d2d6;
-  background-image: url(../../img/sect5.png);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  h2 {
-    margin-right: 0.24rem;
-    width: 2.68rem;
-    margin-left: auto;
-    margin-bottom: 2.7rem;
+  &__main {
+    counter-reset: section;
+    padding: 0.3rem 0.2rem;
   }
-  .text {
-    width: 4.4rem;
-    margin: auto;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-    color: #000000;
-    font-size: 0.2rem;
-  }
-  iframe {
-    box-sizing: border-box;
-    width: 4.8rem;
-    height: 3.21rem;
+  &__item {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    flex-direction: row;
+    padding: 0.2rem 0;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 1.38rem;
+    }
+    p {
+      width: 2.67rem;
+      margin: 0 ;
+    }
+    &::before {
+      counter-increment: section;
+      content: counter(section);
+      position: absolute;
+      line-height: 0.75;
+      font-size: 2rem;
+      z-index: -1;
+      color: #E4F8F4;
+      top: auto;
+      right: 0.96rem;
+      font-weight: 900;
+    }
+    &:nth-child(even){
+      flex-direction: row-reverse;
+      &::before{
+        left: 0.7rem;
+      }
+    }
   }
 }
 .sect6 {
