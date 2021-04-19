@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Hairstim</title>
+      <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <link href="css/css.css" rel="stylesheet">
+   <script type="text/javascript" src="js/script_land.js" defer></script></head>
+   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+         <div class="container">
+            <div class="navbar-header page-scroll">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand page-scroll" href="#home"><img src="img/logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+               <ul class="nav navbar-nav">
+                  <li data-text="Opinie">
+                     <a class="page-scroll" href="#opinie">Opinie</a>
+                  </li>
+                  <li data-text="Informacje">
+                     <a class="page-scroll" href="#informacje">Informacje</a>
+                  </li>
+                  <li data-text="Zamów">
+                     <a class="page-scroll" href="#zamow">Zamów</a>
+                  </li>
+                  <li data-text="Efekty">
+                     <a class="page-scroll" href="#efekty">Efekty</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div id="popupout">
+         <div id="popup">
+            <img class="close" src="img/close.png">
+            <form method="POST" action="/land/order" class="al-form">
+               <select class="al-country" name="country" style="display: none;"></select>
+               <div class="h"><span>Wypełnij formularz zamówieniowy</span></div>
+               <div class="l">
+                  <div class="item1">
+                     <div class="h2"><span>1. PRODUKT</span></div>
+                     <img src="img/form.png">
+                     <div class="txt1"><span class="al-cost">zł</span> <span class="old-cost al-cost-promo"></span>/ opakowanie 30 ml</div>
+                     <div class="txt2">Razem: <span class="al-cost">zł</span> <span class="old-cost al-cost-promo">zł</span></div>
+                  </div>
+                  <div class="item2">
+                     <div class="h2"><span>2. WPROWADŹ ADRES DOSTAWY</span></div>
+                     <div class="col-lg-6 input-wrapper"><input name="name" type="text" placeholder="Imię..." required class="form-control"></div>
+                     <div class="clearfix"></div>
+                     <div class="col-lg-6 input-wrapper"><input name="phone" type="tel" placeholder="Telefon..." required class="form-control"></div>
+                     <div class="clearfix"></div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="col-lg-12">
+                  <button name="send" type="submit" value="Zamów i wyślij!"><span>Zamów i wyślij!</span></button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <section id="home">
+         <div class="in">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-2 l">
+                     <img src="img/header_img1.png">
+                  </div>
+                  <div class="col-lg-10 r">
+                     <h1>Hairstim</h1>
+                     <ul>
+                        <li>Zagęszcza włosy</li>
+                        <li>Pobudza procesy regeneracji cebulek</li>
+                        <li>Eliminuje łysienie</li>
+                        <li>Zwalcza łupież</li>
+                        <li>Pobudza wzrost nowych włosów</li>
+                     </ul>
+                     <a class="btn-order">Zamawiam</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="opinie">
+         <div class="container">
+            <div class="row">
+               <div class="items">
+                  <div class="col-lg-4 item">
+                     <img src="img/opinie1.png">
+                     <div class="name">Aleksandra Feliks, 54 lata</div>
+                     <div class="txt">
+                        <div class="in">Miałam wiele problemów z włosami, które były rzadkie i cieniutkie.
+                           Nałożyłam po raz pierwszy Hairstim i poczułam silne mrowienie na
+                           głowie. Po stosowaniu 8 dni mrowienia już nie było i zaczęłam
+                           zauważać że włosy, które były wcześniej stały się silne, ale jeszcze
+                           nie gęste. Gdy minęło 14 dni spojrzałam w lustro i nie mogłam
+                           uwierzyć swoim oczom, dosłownie. Setki jak nie tysiące młodych
+                           gęstych mikrowłosków pięło się do góry. To było niesamowiteuczucie.
+                           Stosuje już 30 dni i pielęgnuję nowe włosy które mi odrastają.
+                           Za 2 miesiące będę miała znowu piekne i silne włosy.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 item">
+                     <img src="img/opinie2.png">
+                     <div class="name">Robert, 58 lat</div>
+                     <div class="txt">
+                        <div class="in">
+                           Powiem krótko i bez przedłużania - Efekty są niesamowite i zarówno ja,
+                           moje dzieci oraz moja żona widzimy nowe włosy, które wyrastają.
+                           Profesjonalny produkt, profesjonalna kuracja.
+                           Widać, że spray jest bardzo jakości i dzięki Wam zamówiłem jeszcze więcej Hairstim. POLECAM!
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 item">
+                     <img src="img/opinie3.png">
+                     <div class="name">Natalia, 35 lat</div>
+                     <div class="txt">
+                        <div class="in">
+                           Hairstim zobaczyłam w gazecie. Początkowo nie  wierzyłam w efekty ale mąż
+                           postanowił przetestować na własnej głowie ten cudowny spray.
+                           Okazało się, że reklama nie kłamała. Może efekty u mnie nie były aż tak
+                           spektakularne jak u męża ale pozbyłam się wstydu,
+                           moja mała łysina na czubku głowy zniknęła!
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+               </div>
+               <p>61 % mężczyzn i 47% kobiet łysieje! Ta nieestetyczna przypadłość atakuje bez litości.  Przedstawiamy kuracje która rewolucjonizuje walkę z łysieniem i daje nadzieje na skuteczne pozbycie się problemu!<span class="br"></span>Kuracja jest wielopłaszczyznowa i bezpieczna. Dokładne badania wykazały, że cebulki włosa regenerują się, a mieszki włosowe się zagęszczają! Kuracja Hairstim zbiera same pozytywne opinie.</p>
+               <a class="btn-order"><span>Zamawiam!</span></a>
+            </div>
+         </div>
+      </section>
+      <section id="informacje">
+         <div class="container">
+            <div class="row">
+               <div class="items">
+                  <div class="col-lg-5 item">
+                     <div class="txt1">Kompleksowe działanie</div>
+                     <div class="txt2">Nie tylko stymuluje cebulki do wzrostu włosów
+                        lecz także zapobiega powstawaniu łupieżu!
+                     </div>
+                  </div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-5 item">
+                     <div class="txt1">Wysoka skuteczność</div>
+                     <div class="txt2">Tysiące zadowolonych kobiet i mężczyzn
+                        z całej Europy potwierdza działanie Hairstim
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-lg-5 item">
+                     <div class="txt1">Brak efektów ubocznych</div>
+                     <div class="txt2">Produkt jest całkowicie bezpieczny zarówno w przypadku
+                        jednorazowego użycia jak i stosowania długotrwałego
+                     </div>
+                  </div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-5 item">
+                     <div class="txt1">Potwierdzona badaniami</div>
+                     <div class="txt2">Produkt posiada certyfikację oraz spełnia
+                        wszelkie standardy produktu kosmetycznego
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+               </div>
+               <h6><span>Eksperci zalecają hairstim</span></h6>
+               <p><strong>Udało nam sie dotrzec do eksperta i zapytac, czy jest metoda na kompleksowy proces odrastania włosów.</strong>
+                  Za chwilę opowiem jak rzeczywiście sprawić by włosy odrosły jednak najpierw wyjaśnię cały proces. Technolodzy postanowili zaatakowac przyczynę, a nie skutek i skoncentrowali
+                  sie na pytaniu: "Jak ożywić nieaktywne mieszki włosowe". I rzeczywiscie po latach badań przy użyciu nanotechnologii biochemicznej odkryto oraz wyizolowano kompleks Cambozil. Kompleks Cambozil
+                  dociera w głąb mieszka włosowego i otwiera jego błonę fosfolipidowa dostarczając kompleks aminokwasowy aby odbudować strukturę mieszka i rozpoczać produkcję nowych włosów.
+                  Dodatkowo Cambozil zapobiega dalszej degradacji i odbudowuje włosy które sa obecne.
+                  Stworzono kurację Hairstim, która gwarantuje, że w ciagu 18 dni zaczną rosnąć nowe
+                  mikrowłoski na Twojej głowie. 
+               </p>
+               <a class="btn-order"><span>Zamów i wyślij</span></a>
+            </div>
+         </div>
+      </section>
+      <section id="informacje2">
+         <div class="container">
+            <div class="row">
+               <h6>Jak działa hairstim mezoterapia włosów:</h6>
+               <div class="items">
+                  <div class="item">Receptura Hairstim aktywuje cebulkę włosa (Matrice germinatriva) do produkcji substancji odżywczych.</div>
+                  <div class="item">Cebulka włosa aktywnie pracuje nad wytworem nowej tkanki włosa.<br>
+                     Widzimy pierwsze efekty w postaci gęstych jednak o wiele słabszych włosów.
+                  </div>
+                  <div class="item">Stosowanie Hairstim rewitalizuje cały kompleks wzrostowy przez co<br>
+                     zauważamy coraz silniejsze, nowe i zdrowe włosy.
+                  </div>
+                  <div class="item">Włosy stają się silniejsze, błyszczące i grubsze. Pełna kuracja Hairstim<br>
+                     umożliwia spektakularny rezultat dzięki biotechnologicznej precyzji.
+                  </div>
+               </div>
+               <p>WYOBRAŹ SOBIE, PIĘKNE, GĘSTE I ULTRA SILNE WŁOSY – TO<br>
+                  ONE OD DZISIAJ BĘDĄ TOWARZYSZYĆ CI W TWOIM ŻYCIU.<br>
+                  ZASŁUGUJESZ NA HAIRSTIM!
+               </p>
+               <div class="btn-order">Zamawiam!</div>
+            </div>
+         </div>
+      </section>
+      <section id="zamow">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 l">
+                  <img src="img/zamow1.png">
+               </div>
+               <div class="col-lg-6 r">
+                  <img src="img/zamow2.png">
+                  <h6>Wysyłka i płatność!</h6>
+                  <p>Przesyłka ze sprayem Hairstim dostarczona zostanie w ciągu 2-3 dni od momentu zamówienia.<br>Płatność przy odbiorze!</p>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+            <div class="row btn-order-o">
+               <a class="btn-order">Zamów teraz!</a>
+            </div>
+         </div>
+      </section>
+      <section id="efekty">
+         <div class="container">
+            <div class="row text-center">
+               <div class="col-lg-12 mainimg">
+                  <img src="img/efekty1.png">
+               </div>
+               <div class="col-lg-4">
+                  <img src="img/efekty2.png">
+               </div>
+               <div class="col-lg-4">
+                  <a class="btn-order"><span>Zamawiam!</span></a>
+               </div>
+               <div class="col-lg-4">
+                  <img src="img/efekty3.png">
+               </div>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </section>
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.easing.min.js"></script>
+      <script src="js/scrolling-nav.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/tl-validator.js"></script>
+   </body>
+</html>
