@@ -1,0 +1,981 @@
+#home .r h1,
+#informacje .items .item .txt1,
+#informacje h6,
+#informacje2 h6,
+#informacje2 p,
+#zamow .r h6 {
+    text-transform: uppercase
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+        transition: background .5s ease-in-out, padding .5s ease-in-out
+    }
+    .top-nav-collapse {
+        padding: 0
+    }
+}
+
+.about-section,
+.contact-section,
+.intro-section,
+.services-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center
+}
+
+.intro-section {
+    background: #fff
+}
+
+.about-section {
+    background: #eee
+}
+
+.services-section {
+    background: #fff
+}
+
+.contact-section {
+    background: #eee
+}
+
+#home .in,
+#home .r ul li,
+#informacje .items .item,
+#informacje2,
+#opinie,
+#opinie .items .item .txt {
+    background-repeat: no-repeat
+}
+
+* {
+    font-family: Lato, sans-serif !important
+}
+
+#home {
+    background-image: url(../img/header_bg.png);
+    background-position: center center;
+    background-size: 100% auto
+}
+
+#home .row {
+    height: 673px
+}
+
+#home .in {
+    background-image: url(../img/header_img3.png);
+    background-position: right bottom
+}
+
+#home .l img {
+    margin-left: -39px;
+    margin-top: 80px
+}
+
+#home .r {
+    letter-spacing: -1px;
+    padding-left: 55px;
+    padding-top: 113px
+}
+
+#home .r h1 {
+    color: #22358E;
+    font-size: 71px;
+    font-weight: 900;
+    margin-bottom: 0
+}
+
+#home .r ul {
+    list-style: none;
+    margin-left: 4px;
+    margin-top: 17px;
+    padding: 0
+}
+
+#home .r ul li {
+    background-image: url(../img/dot.png);
+    background-position: left center;
+    color: #22358E;
+    font-size: 29px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 10px;
+    padding-left: 33px
+}
+
+#home .r .btn-order {
+    background-image: url(../img/btn1.png);
+    background-size: 100% 100%;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 53px;
+    font-weight: 300;
+    height: 96px;
+    line-height: 1;
+    margin-top: 30px;
+    padding: 19px 11px 24px;
+    text-align: center;
+    text-decoration: none !important;
+    width: 399px
+}
+
+.navbar {
+    padding: 22px 0
+}
+
+.navbar-brand {
+    margin-bottom: 1px;
+    margin-top: -4px;
+    padding: 0
+}
+
+.navbar-default {
+    background-color: #22358E;
+    border-color: #22358E
+}
+
+.navbar>.container .navbar-brand,
+.navbar>.container-fluid .navbar-brand {
+    margin-left: 28px
+}
+
+.navbar-nav {
+    float: right;
+    margin-right: -9px;
+    margin-top: 9px
+}
+
+.navbar-default .navbar-nav>li {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    padding: 10px 9px;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+}
+
+.navbar-default .navbar-nav>li.active>a,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    font-weight: 800 !important;
+    color: #fff !important;
+    background-color: transparent !important;
+    font-size: 21px !important
+}
+
+#informacje2,
+#opinie {
+    background-image: url(../img/opinions_bg.png);
+    background-position: center top;
+    background-size: 105% auto;
+    color: #fff;
+    padding-bottom: 35px;
+    padding-top: 99px;
+    text-align: center
+}
+
+#opinie .items .item {
+    padding: 0 6px
+}
+
+#opinie .items .item .name {
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: 20px
+}
+
+#opinie .items .item .txt {
+    background-image: url(../img/q1.png);
+    background-position: left top;
+    font-size: 13px;
+    line-height: 1.2;
+    padding-left: 21px;
+    padding-top: 8px
+}
+
+#opinie .items .item .txt .in {
+    background-image: url(../img/q2.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 8px;
+    padding-right: 13px
+}
+
+#opinie p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 50px
+}
+
+#opinie p .br {
+    display: block;
+    height: 20px
+}
+
+#informacje2 .btn-order,
+#opinie .btn-order {
+    background-color: #fff;
+    border: 4px solid #fff;
+    border-radius: 9px;
+    color: #22358e;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1;
+    margin-top: 30px;
+    padding: 10px 42px 13px;
+    text-decoration: none
+}
+
+#informacje {
+    color: #22358E;
+    padding-top: 98px;
+    padding-bottom: 40px;
+    text-align: center
+}
+
+#informacje .items .item {
+    background-image: url(../img/dot.png);
+    background-position: center top;
+    margin-bottom: 35px;
+    padding-top: 23px
+}
+
+#informacje .items .item .txt1 {
+    font-size: 23px;
+    font-weight: 600
+}
+
+#informacje .items .item .txt2 {
+    font-size: 18px;
+    line-height: 1.2
+}
+
+#informacje h6 {
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    margin-top: 16px
+}
+
+#informacje p {
+    font-size: 22px;
+    line-height: 1.2
+}
+
+#informacje .btn-order {
+    background-image: url(../img/btn2.png);
+    background-size: 100% 100%;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 300;
+    height: 57px;
+    margin-top: 32px;
+    padding-top: 9.5px;
+    text-decoration: none;
+    width: 227px
+}
+
+/*#efekty .btn-order span,#informacje .btn-order span,#informacje h6 span,#opinie .btn-order span,#popup button[type=submit] span{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background:gradient(linear,left top,right top,from(#6AC8D3),to(#22358E));background-clip:text;text-fill-color:transparent}*/
+
+#informacje2 .items .item,
+#kontakt,
+#kontakt .item,
+#zamow {
+    background-repeat: no-repeat
+}
+
+#informacje2 {
+    padding-top: 60px
+}
+
+#informacje2 h6 {
+    font-size: 34px;
+    font-weight: 900;
+    margin-bottom: 38px
+}
+
+#informacje2 .items .item {
+    background-image: url(../img/dot2.png);
+    background-position: center top;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    padding-top: 23px
+}
+
+#informacje2 p {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 34px
+}
+
+#informacje2 .btn-order {
+    background-color: transparent;
+    color: #fff;
+    margin-top: 20px
+}
+
+#zamow {
+    padding-top: 99px;
+    padding-bottom: 20px;
+    background-image: url(../img/zamow_bg.png);
+    background-position: center top;
+    background-size: 117% auto
+}
+
+#zamow .l img {
+    margin-left: -101px
+}
+
+#zamow .r {
+    color: #22358E;
+    padding-left: 108px;
+    padding-top: 125px;
+    text-align: center
+}
+
+#zamow .r h6 {
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 23px 0 8px
+}
+
+#zamow .r p {
+    font-size: 22px;
+    letter-spacing: -1px;
+    line-height: 1.2
+}
+
+#efekty .btn-order,
+#zamow .btn-order {
+    background-image: url(../img/btn3.png);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 300;
+    height: 64px;
+    margin: auto auto auto -137px;
+    padding-top: 6px;
+    text-align: center;
+    text-decoration: none;
+    width: 257px;
+    position: relative;
+    z-index: 10;
+    background-size: 100% 100%
+}
+
+#zamow .btn-order-o {
+    margin-top: -86px
+}
+
+#efekty .btn-order {
+    margin: auto;
+    display: inline-block;
+    background-image: url(../img/btn2.png);
+    color: #22358E
+}
+
+#efekty {
+    color: #22358E;
+    font-size: 63px;
+    font-weight: 900;
+    padding: 99px 0 50px
+}
+
+#efekty .mainimg {
+    margin-bottom: -53px
+}
+
+#efekty .mainimg img {
+    max-width: 100%
+}
+
+#kontakt {
+    background-image: url(../img/footer_bg.png);
+    background-position: center center;
+    background-size: 103% auto;
+    padding-top: 185px;
+    color: #fff;
+    font-size: 22px
+}
+
+#kontakt ul {
+    padding: 0;
+    list-style: none
+}
+
+#kontakt .h,
+#kontakt .item {
+    padding-left: 44px;
+    text-transform: uppercase
+}
+
+#kontakt ul li a {
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin-bottom: 50px;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+#kontakt .item {
+    background-position: left 1px;
+    background-size: auto 28px;
+    font-size: 21px;
+    line-height: 1.1;
+    min-height: 30px
+}
+
+#kontakt .item.address {
+    background-image: url(../img/contact1.png);
+    margin-top: 41px
+}
+
+#kontakt .item.email {
+    background-image: url(../img/contact2.png);
+    margin-top: 74px;
+    padding-top: 4px
+}
+
+#kontakt .item.email a {
+    color: #fff;
+    text-decoration: none
+}
+
+#kontakt .slogan1 {
+    font-size: 74px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase
+}
+
+#kontakt .slogan2 {
+    font-size: 37px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 52px;
+    margin-top: 23px
+}
+
+#kontakt .imgs img {
+    margin-right: 13px
+}
+
+#kontakt .imgs img:last-child {
+    margin-right: 0
+}
+
+#kontakt .up {
+    padding-bottom: 60px;
+    padding-top: 30px
+}
+
+#kontakt .copy {
+    font-size: 21px;
+    padding-bottom: 30px
+}
+
+#kontakt .copy a {
+    color: #fff;
+    text-decoration: none
+}
+
+#popupout {
+    background-color: rgba(34, 53, 142, .7);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none
+}
+
+#popup {
+    background-color: #fff;
+    border: 5px solid #fff;
+    max-height: 90%;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    -webkit-transform: translate(50%,-50%);
+            transform: translate(50%,-50%);
+    margin-left: -30%;
+    overflow-y: auto;
+    padding: 35px 40px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#popup .alert {
+    text-align: center;
+    display: none
+}
+
+#popup .close {
+    height: 26px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 26px
+}
+
+#popup input::-webkit-input-placeholder {
+    color: #23378F;
+    font-family: Lato, sans-serif
+}
+
+#popup input::-moz-placeholder {
+    color: #23378F;
+    font-family: Lato, sans-serif
+}
+
+#popup input:-ms-input-placeholder {
+    color: #23378F;
+    font-family: Lato, sans-serif
+}
+
+#popup input:-moz-placeholder {
+    color: #23378F;
+    font-family: Lato, sans-serif
+}
+
+#popup .h {
+    color: #23378F;
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase
+}
+
+#popup .h2 {
+    color: #243890;
+    font-size: 17px;
+    font-weight: 900;
+    margin: 0
+}
+
+#popup .l .item1 .txt1,
+#popup .l .item1 .txt2 {
+    font-size: 13px;
+    line-height: 1
+}
+
+/*#popup .h span,#popup .h2 span{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background:gradient(linear,left top,right top,from(#6AC8D3),to(#243890));background-clip:text;text-fill-color:transparent}*/
+
+#popup .l .item1 {
+    text-align: center;
+    color: #243890
+}
+
+#popup .l .item1 .txt2 {
+    padding-top: 3px;
+    font-weight: 600
+}
+
+#popup .l .item2 {
+    margin-top: 47px
+}
+
+#popup .l .item2 .h2 {
+    margin-bottom: 15px;
+    text-align: center
+}
+
+#popup .l .item2 input {
+    border-radius: 5px;
+    color: #23378F;
+    font-size: 12px;
+    height: 36px;
+    line-height: 1;
+    margin-bottom: 10px;
+    padding: 8px 10px 9px;
+    text-align: center;
+    width: 100%
+}
+
+#popup .r .cb {
+    color: #23378F;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 48px
+}
+
+#popup .r .cb input {
+    margin-right: 15px
+}
+
+#popup .r .item4 table {
+    margin-top: 16px;
+    width: 100%
+}
+
+#popup .r .item4 table td {
+    color: #22358E;
+    font-size: 17px;
+    padding-bottom: 15px;
+    padding-left: 16px
+}
+
+#popup .r .item4 table tr td:last-child {
+    text-align: right
+}
+
+#popup .r .item4 .cb {
+    margin-left: -16px;
+    margin-top: 5px
+}
+
+#popup .r .item4 .cb a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline
+}
+
+#popup button[type=submit] {
+    background-color: transparent;
+    background-image: url(../img/btn2.png);
+    background-size: 100% 100%;
+    border: none;
+    border-radius: 5px;
+    color: #243890;
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    margin: 15px auto;
+    padding: 9px 21px 12px
+}
+
+#thanks {
+    padding-bottom: 0;
+    padding-top: 146px
+}
+
+#thanks img {
+    display: block;
+    margin: 40px auto auto
+}
+
+#thanks h1 {
+    color: #22358E;
+    font-weight: 900
+}
+
+#thanks h1.err {
+    color: red
+}
+
+@media (max-width:1550px) {
+    #home .in {
+        background-position: 133% bottom
+    }
+}
+
+@media (max-width:1496px) {
+    #popup .h2,
+    #popup .r .cb {
+        font-size: 13px
+    }
+    #popup .l .item2 input {
+        font-size: 11px;
+        padding: 8px 3px 9px
+    }
+    #informacje2,
+    #opinie {
+        background-size: 130% auto
+    }
+}
+
+@media (max-width:1300px) {
+    #zamow .l img {
+        margin-left: -45px
+    }
+    #zamow {
+        background-size: 130% auto
+    }
+    #popup .col-lg-2,
+    #popup .col-lg-5 {
+        width: 100%;
+        float: none;
+        text-align: center
+    }
+    popup .h2 {
+        margin: 29px 0 0
+    }
+    #popup .r .cb {
+        margin-top: 13px
+    }
+    #popup .r .item4 {
+        padding-top: 0
+    }
+    #popup .r .item4 table td {
+        padding-left: 0;
+        text-align: left
+    }
+    #popup .r .item3 {
+        margin-top: 27px
+    }
+    #home .in {
+        background: 0 0
+    }
+}
+
+@media (max-width:1199px) {
+    #home .row,
+    #kontakt,
+    #zamow .r {
+        text-align: center
+    }
+    #home {
+        background-size: auto 100%
+    }
+    #home .row {
+        height: auto;
+        padding-bottom: 30px
+    }
+    #home .l img {
+        margin-left: auto;
+        margin-top: 45px
+    }
+    #home .r {
+        padding-left: 15px;
+        padding-top: 14px
+    }
+    #home .r ul li {
+        background: 0 0;
+        padding: 0
+    }
+    #informacje2,
+    #kontakt,
+    #opinie,
+    #zamow {
+        background-size: auto 100%
+    }
+    #home .r .btn-order {
+        margin: 25px auto auto
+    }
+    #home .row {
+        background-image: none
+    }
+    #zamow {
+        padding-bottom: 40px
+    }
+    #zamow .l img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+    #zamow .btn-order {
+        margin: auto;
+        display: block
+    }
+    #zamow .btn-order-o {
+        margin-top: 15px
+    }
+    #zamow .r {
+        color: #22358E;
+        padding-left: 15px;
+        padding-top: 15px
+    }
+    #kontakt {
+        padding-top: 134px
+    }
+    #kontakt .h,
+    #kontakt .item {
+        background-image: none !important;
+        padding-left: 0
+    }
+    #kontakt .item.email {
+        margin-bottom: 30px;
+        margin-top: 10px
+    }
+    #kontakt .item.address {
+        margin-top: 10px
+    }
+}
+
+@media (max-width:991px) {
+    .navbar-default .navbar-nav>li>a {
+        font-size: 18px
+    }
+    .navbar-nav {
+        margin-top: 8px
+    }
+}
+
+@media (max-width:767px) {
+    .navbar-default .navbar-toggle {
+        background-color: #fff !important;
+        border-color: #fff
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #22358E
+    }
+    .navbar-nav {
+        float: none !important;
+        margin: 18px 0 0 !important;
+        padding: 0 !important;
+        text-align: center;
+        width: 100%
+    }
+    .navbar {
+        padding: 10px 0
+    }
+    .navbar-brand>img {
+        max-height: 88%
+    }
+    #efekty .mainimg img,
+    #home .l img,
+    #zamow .l img {
+        max-width: 100%
+    }
+    #informacje2 .items,
+    #informacje2 h6,
+    #informacje2 p,
+    #opinie p {
+        padding: 0 15px
+    }
+}
+
+@media (max-width:680px) {
+    #popup {
+        margin-left: -47%;
+        padding: 35px 11px;
+        width: 94%
+    }
+    #popup .close {
+        top: 7px
+    }
+}
+
+@media (max-width:499px) {
+    #home .r h1 {
+        font-size: 42px
+    }
+    #home .r ul li {
+        font-size: 20px
+    }
+    #home .r .btn-order {
+        height: 66px;
+        padding: 14px 11px 24px;
+        width: 259px;
+        font-size: 38px
+    }
+    #opinie .items .item {
+        margin-bottom: 30px
+    }
+    #informacje h6,
+    #informacje p,
+    #opinie p {
+        padding: 0 15px;
+        font-size: 16px
+    }
+    #informacje2 .items,
+    #informacje2 h6,
+    #informacje2 p {
+        padding: 0 15px
+    }
+    #informacje2 h6 {
+        font-size: 21px
+    }
+    #informacje2 .items .item,
+    #informacje2 p {
+        font-size: 16px
+    }
+    #informacje2 .btn-order,
+    #opinie .btn-order {
+        font-size: 30px
+    }
+    #zamow .r h6 {
+        font-size: 20px
+    }
+    #kontakt,
+    #kontakt .item {
+        font-size: 16px
+    }
+    #kontakt {
+        padding-top: 90px
+    }
+    #kontakt .h {
+        margin-top: 50px
+    }
+    #kontakt ul li a {
+        margin-bottom: 10px
+    }
+    #kontakt .slogan1 {
+        font-size: 35px
+    }
+    #kontakt .slogan2 {
+        font-size: 19px;
+        margin-bottom: 52px
+    }
+    #kontakt .imgs img {
+        margin: auto
+    }
+    #kontakt .copy {
+        font-size: 14px
+    }
+}
+
+@media (max-width:400px) {
+    #popup .h,
+    #popup button[type=submit] {
+        font-size: 21px
+    }
+}
+
+@media (max-width:375px) {
+    #kontakt .imgs img {
+        margin: auto;
+        max-width: 40px
+    }
+}
+
+.input-wrapper {
+    width: 100%;
+}
+
+.old-cost {
+    text-decoration: line-through;
+    opacity: 0.7
+}
+
+.navbar-default .navbar-nav>li::before {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    content: attr(data-text);
+    font-weight: 800;
+}
