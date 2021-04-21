@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Derol Lip Maximizer</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<meta name="description" content="Обогащенный блеск с натуральными ингредиентами для ухода за кожей губ">
+<meta property="og:title" content="Derol Lip Maximizer"/>
+<meta property="og:description" content="Обогащенный блеск с натуральными ингредиентами для ухода за кожей губ"/>
+<meta property="og:image" content="https://i.imgur.com/iI2Pxsm.jpg"/>
+<meta property="og:type" content="website"/>
+	<link rel="icon" type="image/png" href="img/favicon/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/AvenirNextCyr.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles_1.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.panorama.js"></script>
+    <script>$(document).ready(function() {
+            $('img.panorama').panorama();
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="menu-hid">
+    <div class="header-menu-wrp">
+        <div class="wrp">
+            <div class="header-menu">
+                <ul>
+
+                    <li><a href="#use_section">Причины выбрать</a></li>
+                    <li><a href="#video_section">Видео обзор</a></li>
+                    <li><a href="#func">Состав</a></li>
+                    <li><a href="#otzv">Отзывы</a></li>
+                    <li><a href="#order-form">Заказать</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style type="text/css">
+    /* Стили блоков */
+    .wrp {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .header {
+        text-align: center;
+        border: 1px dashed #ddd;
+        padding: 50px 0;
+        margin: 20px 0;
+        font-size: 18px;
+    }
+    .block {
+        text-align: center;
+        border: 1px dashed #ddd;
+        padding: 100px 0;
+        margin-bottom: 20px;
+        font-size: 18px;
+        background: #eeeeee;
+    }
+
+    /* Фиксированное меню */
+    .header-menu-wrp {
+        height:40px;
+        line-height:40px;
+        width:100%;
+        background: #e94745;
+        color: white;
+
+    }
+    .header-menu-wrp.cloned {
+        position: fixed;
+        top: 0;
+        margin-top: 0;
+        z-index: 9999;
+        display: none;
+    }
+
+    /* Растягивание меню на всю ширину */
+    .header-menu {
+        width: 100%;
+        display: table;
+        border-left: 1px solid #ffa44c;
+    }
+    .header-menu ul {
+        display: table-row;
+    }
+    .header-menu li {
+        display: table-cell;
+        float: none;
+        border-right: 1px solid #e94745;
+    }
+    .header-menu li.active {
+        background: #c12a28;
+    }
+    .header-menu li a {
+        display: block;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function(){
+        /* Фиксация меню при прокрутке */
+        $('.header-menu-wrp')
+            .addClass('original')
+            .clone()
+            .insertAfter('.header-menu-wrp')
+            .addClass('cloned')
+            .removeClass('original');
+
+        function resizeMenu(){
+            var $original = $('.header-menu-wrp.original');
+            var $cloned = $('.header-menu-wrp.cloned');
+
+            if ($(window).scrollTop() >= ($original.offset().top)){
+                $cloned.css({
+                    'top': 0,
+                    'width': $original.css('width'),
+                    'display': 'block',
+                    'left': $original.offset().left+'px'
+                });
+                $original.css('visibility', 'hidden');
+            } else {
+                $cloned.css('display', 'none');
+                $original.css('visibility', 'visible');
+            }
+        }
+
+        $(window).scroll(function(){
+            resizeMenu();
+        });
+
+        $(window).resize(function(){
+            resizeMenu();
+        });
+
+        /* Выделение активных пунктов меню */
+        var last_id;
+        var $top_menu = $('.header-menu-wrp.cloned');
+        var menu_height = $top_menu.outerHeight(true);
+        var $menu_items = $top_menu.find('a');
+        var $scroll_items = $menu_items.map(function(){
+            var item = $($(this).attr('href'));
+            if (item.length){
+                return item;
+            }
+        });
+
+        $menu_items.click(function(e){
+            var href = $(this).attr('href'),
+                offset_top = href === '#' ? 0 : $(href).offset().top - menu_height;
+            $('html, body').stop().animate({
+                scrollTop: offset_top
+            }, 300);
+            e.preventDefault();
+        });
+
+        $(window).scroll(function(){
+            var from_top = $(this).scrollTop() + menu_height;
+            var mar = parseInt($top_menu.css('margin-bottom'));
+            var cur = $scroll_items.map(function(){
+                if ($(this).offset().top < from_top + mar){
+                    return this;
+                }
+            });
+            cur = cur[cur.length - 1];
+            var id = cur && cur.length ? cur[0].id : '';
+            if (last_id !== id){
+                last_id = id;
+                $menu_items.parent()
+                    .removeClass('active')
+                    .end()
+                    .filter("[href='#" + id + "']")
+                    .parent()
+                    .addClass('active');
+            }
+        });
+    });
+</script>
+	<header class="offer_section">
+		<div class="triggers_block">
+
+		</div>
+
+
+
+
+
+
+		<div class="content_block" id="content_block">
+			<div class="wrapper">
+				<div class="title_block">
+                    <h3 class="main_title">Derol Lip Maximizer<br>блеск для увеличения губ</h3>
+                    <p class="subtitle">Мгновенно придает губам дополнительный<br>  объем, сочность и  нежность</p>
+				</div>
+				<div class="discount"></div>
+				<ul>
+                    <li>Смягчает и питает кожу губ</li>
+                    <li>Дарит ощущение комфорта</li>
+                    <li>Придает губам дополнительный объем, сочность, нежность</li>
+                    <li>Защищает губы от воздействия негативных факторов внешней среды</li>
+
+
+				</ul>
+				<div class="price_block clearfix">
+					<div class="price_item old">
+						<div class="text">Обычная цена:</div>
+						<div class="value"><x-oldprice>98</x-oldprice> <x-currency>€</x-currency> </div>
+					</div>
+					<div class="price_item new">
+						<div class="text">Цена сегодня:</div>
+						<div class="value"><x-newprice>49</x-newprice> <x-currency>€</x-currency> </div>
+					</div>
+				</div>
+				<a href="#order_form" class="button">Заказать сейчас</a>
+				<div class="deadline_text">Количество товара ограничено</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- /offer -->
+
+	<!-- results -->
+
+	<section class="results_section">
+		<div class="wrapper">
+			<h2 style="color:#e94745"></h2>
+            <div class="box-osob" id="os">
+                <div class="img-toptop"> <!--left-img-->
+                    <img src="img/ver1.jpg" class="top">
+                </div>
+                <div class="img-toptop">
+                    <div class="main-text" style="margin: 10px 20px 20px 20px;"><h3 class="box__body-title">Обогащенный блеск с натуральными ингредиентами для ухода за кожей губ </h3>
+                        <div class="box__body-text" style="font-size: 19px">Мгновенное увеличение объема губ до 50% за несколько секунд. Благодаря экстракту имбиря губы становятся более пухлыми, яркими и соблазнительными. Высокоэффективная формула обеспечивает длительный   результат.  
+Витаминный комплекс с коллагеном увлажняет губы, сохраняя их природную красоту и молодость. </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+		</div>
+	</section>
+
+<section class="gallery_sect" style="padding-top: 5px;">
+    <img src="img/gallery.jpg" alt class="panorama" height="323" width="1968">
+</section>
+
+<section id="use_section" style="margin: 40px auto">
+
+    <div class="box-osob">
+        <div class="img-toptop"> <!--left-img-->
+            <img src="img/box-1_ver1.jpg">
+        </div>
+        <div class="img-toptop">
+            <div class="main-text"><h3 class="box__body-title">Идеальное сочетание натуральных компонентов</h3>
+                <div class="box__body-text">Формула блеска обеспечивает необходимую влажность для более здоровых губ. Обогащенный природными ингредиентами для ухода за кожей, он питает, освежает и купает ваши губы в «ванне» с морским коллагеном, пока блеск у вас на губах.
+
+                </div></div>
+        </div>
+    </div>
+
+
+</section>
+
+  <section id="use_section" style="margin: 40px auto">
+
+
+
+    <div class="box-osob-2">
+        <div class="img-toptop">
+            <div class="main-text">  <h3 class="box__body-title">Derol Lip Maximizer не только увеличивает Ваши губки</h3>
+                <div class="box__body-text">Тонизирующий коллагеновый блеск великолепно ухаживает за кожей губ: устраняет сухость, заживляет небольшие трещинки, делает кожу мягкой и гладкой.</div> </div>
+        </div>
+        <div class="img-toptop flex-left">
+            <img src="img/box-2_ver1.jpg" class="img-my-top">
+
+        </div>
+    </div>
+
+
+</section>
+
+<section id="use_section" style="margin: 40px auto">
+
+    <div class="box-osob">
+        <div class="img-toptop"> <!--left-img-->
+            <img src="img/box-3_ver1.jpg">
+        </div>
+        <div class="img-toptop">
+            <div class="main-text"><h3 class="box__body-title">Забудьте о болезненных и дорогостоящих уколах</h3>
+                <div class="box__body-text">С Derol Lip Maximizer Ваши губы выглядят ухоженными и объемными. Это революционное средство основано на натуральных ингредиентах.
+                    Откройте для себя мгновенный тонизирующий коллагеновый блеск для губ
+                    с ультралегкой и нелипкой текстурой. Этот блеск наполняет объемом Ваши губы изнутри!
+
+
+                </div></div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<section class="video_section" id="video_section">
+    <div class="wrapper">
+        <h2 style="color:#e94745">Посмотрите, какой Derol Lip Maximizer компактный и эффективный</h2>
+        <div class="video_wrapper">
+            <div class="video_block">
+                <video width="100%" height="100%" controls="controls" poster="img/poster.jpg">
+
+                    <source src="Volume.mp4" type="video/mp4; codecs="avc1.42E01E, mp4a.40.2"">
+
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="use_section" id="func">
+    <div class="wrapper">
+        <h2 style="color: #e94745;">В состав блеска входит:</h2>
+        <div class="use_list">
+            <div class="use_item">
+                <img src="img/use__use1_image.jpg" alt="Kelvin Safety Tool">
+                <h4>экстракт перечной мяты </h4>
+<p>придает объем</p>
+            </div>
+
+            <div class="use_item">
+                <img src="img/use__use3_image.jpg" alt="Kelvin Safety Tool">
+                <h4>кокосовое масло  </h4>
+<p>питает и смягчает</p>
+            </div>
+            <div class="use_item">
+                <img src="img/use__use4_image.jpg" alt="Kelvin Safety Tool">
+                <h4>морской коллаген </h4>
+<p>увлажняет и сглаживает поверхность губ</p>
+            </div>
+
+            <div class="use_item">
+                <img src="img/use__use6_image.jpg" alt="Kelvin Safety Tool">
+                <h4>ЭКСТРАКТ имбиря </h4>
+<p>губы становятся более пухлыми, яркими и соблазнительными</p>
+
+
+
+        </div>
+        <a href="#order_form" class="button">Заказать сейчас</a>
+    </div>
+</div></section>
+
+
+
+
+
+
+
+	<section class="reviews_section" id="otzv">
+		<div class="wrapper">
+			<h2 style="color:#e94745">Отзывы покупателей</h2>
+
+			<div class="reviews_list owl-carousel">
+				<div class="review_item">
+					<img src="img/reviews__review1_photo.jpg" alt="спиннер">
+					<div class="author_name">Екатерина, 27 лет</div>
+					<p>«Мне очень понравился аромат. Он приятный, сладенький. Напоминает аромат фруктов немного. Также, блеск сладкий на вкус. Для тех, кто любит кусать губы – это очень хорошо)) Я перепробовала всю прошлую коллекцию блесков для губ от этого бренда и с нетерпением ждала новинку. И вот она попала ко мне в руки.»</p>
+				</div>
+				<div class="review_item">
+					<img src="img/reviews__review2_photo.jpg" alt="спиннер">
+					<div class="author_name">Елена, 21 год</div>
+					<p>«Блеск мне очень понравился. Он совсем нелипкий. На губах смотрится очень красиво. Я пробовала наносить его по-разному и эффект меня радует. Блеск шикарно смотрится и как соло продукт, и как дополнение к карандашу или помаде. Если я хочу увеличить губы, то я использую этот блеск.»</p>
+				</div>
+				<div class="review_item">
+					<img src="img/reviews__review3_photo.jpg" alt="спиннер">
+					<div class="author_name">Яна, 35 лет</div>
+					<p>«Я заметила, что губы после блеска очень мягкие и напитанные. Это очень приятное ощущение. Derol Lip Maximizer не растекается за контур губ, даже если я очень много нанесу его. Для меня самое главное, что мои волосы не прилипают к нему. Обычно, когда я использую блески, все волосы у меня на губах. Derol Lip Maximizer мне понравился, советую вам его попробовать).»</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- /reviews -->
+
+	<!-- order steps -->
+
+	<section class="order_steps_section">
+		<div class="wrapper">
+			<h2 style="color:#e94745">Как сделать заказ?</h2>
+			<div class="steps_list">
+				<div class="step_item">
+					<div class="image_block">
+						<img src="img/order_steps__step1_image.jpg" alt="Гамак для отдыха">
+						<div class="number">1</div>
+					</div>
+					<p>Вы оставляете заявку на&nbsp;нашем сайте</p>
+				</div>
+				<div class="step_item">
+					<div class="image_block">
+						<img src="img/order_steps__step2_image.jpg" alt="Гамак для отдыха">
+						<div class="number">2</div>
+					</div>
+					<p>Оператор свяжется с Вами для уточнения заказа.</p>
+				</div>
+				<div class="step_item">
+					<div class="image_block">
+						<img src="img/order_steps__step3_image.jpg" alt="Гамак для отдыха">
+						<div class="number">3</div>
+					</div>
+					<p>Быстрая доставка в течение 3-7 дней</p>
+				</div>
+				<div class="step_item">
+					<div class="image_block">
+						<img src="img/order_steps__step4_image.jpg" alt="Гамак для отдыха">
+						<div class="number">4</div>
+					</div>
+					<p>Вы оплачиваете заказ при&nbsp;получении</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- /order steps -->
+
+	<!-- order -->
+
+	<section class="order_section" id="order-form">
+		<div class="top_title_block">
+			<div class="wrapper">
+				<h3>Закажите сейчас <span>со скидкой 50%</span></h3>
+			</div>
+		</div>
+		<div class="content_block">
+			<div class="wrapper">
+				<div class="title_block">
+					<h3 class="main_title">Derol Lip Maximizer<br>блеск для увеличения губ</h3>
+					<p class="subtitle">Мгновенно придает губам дополнительный<br>  объем, сочность и  нежность</p>
+				</div>
+				<div class="discount"> </div>
+				<div class="form_block">
+					<div class="timer_block clearfix">
+						<p>Конец акции через:</p>
+						<div class="timer clearfix">
+							<div class="timer_item">
+								<div class="count hours"></div>
+								<div class="text">часов</div>
+							</div>
+							<div class="timer_item">
+								<div class="count minutes"></div>
+								<div class="text">минут</div>
+							</div>
+							<div class="timer_item">
+								<div class="count seconds"></div>
+								<div class="text">секунд</div>
+							</div>
+						</div>
+					</div>
+					<div class="price_block clearfix">
+						<div class="price_item old">
+							<div class="text">Обычная цена:</div>
+							<div class="value"><x-oldprice>98</x-oldprice> <x-currency>€</x-currency> </div>
+						</div>
+						<div class="price_item new">
+							<div class="text">Цена сегодня:</div>
+							<div class="value"><x-newprice>49</x-newprice> <x-currency>€</x-currency> </div>
+						</div>
+					</div>
+					<form id="order_form" class="order_form" method="post">
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value="">
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+    						<input class="field" type="text" name="name" placeholder="Введите Ваше имя" required>
+						<input class="field" type="tel" name="phone" placeholder="Введите Ваш телефон" required>
+						<button class="button" type="submit">Заказать сейчас</button>
+					</form>
+					<div class="deadline_text">Количество товара ограничено</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+<center>
+ <p>BEAUT-E SHOP</p> 
+            <p class="conf-link doclinks">
+        <a class="nav-link" href="/privacypolicy" target="_blank">Privacy policy</a>
+        <a class="nav-link" href="/general-conditions-of-sale" target="_blank">General conditions of sale</a>
+        <a class="nav-link" href="/legal-warning" target="_blank">Legal warning</a>
+      </p>
+      
+
+
+    
+</center>
+
+
+<style>
+@media  (min-width: 640px) and (max-width: 659px){
+	.order_section .discount{
+		display: none;
+	}
+	.offer_section .triggers_block {
+		display: none;
+	}
+ .use_steps_section ul{
+	     width: 300px;
+ }
+ 
+.order_section .main_title  { 
+    font-size: 16px;
+    line-height: 32px;
+}
+.offer_section .main_title{
+	  font-size: 16px;
+    line-height: 32px;
+}
+.order_section .subtitle {
+    font-size: 20px;
+    line-height: 23px;
+}
+}
+
+@media  (min-width: 1000px){
+    .top{
+        margin-top: 60px;
+    }
+}
+
+</style>
+
+
+
+	<script src="js/previewYouTube.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/scripts.js"></script>
+
+<script type="text/javascript" src="/libs/js/common.js"></script>
+<script>
+    $(document).ready(function() {
+        $.init({
+
+            priceSelector: ".new-cost",
+            oldPriceSelector: ".old-cost",
+            reportFormSelector: ".report-abuse__form",
+            reportCallback: function (data) {
+                console.log('ReportCallback:', data);
+            },
+            callback: function() {
+                console.log("Do something after prices changing");
+
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
