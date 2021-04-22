@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Корректор мочки уха</title>
+    <link rel="icon" href="img/favicon/fav.ico" type="image/vnd.microsoft.icon">
+    <script src="js/autvrk.js" type="text/javascript"> </script>
+
+</head><body> <style> 
+  .menulog {
+    display: none
+}
+  .menu {
+    text-align: center;padding: 8px 0;background: #ececec;
+	
+}
+
+.menu__links-item img {
+    vertical-align: middle;
+}
+
+.menu__icon {
+   display: none;
+   width: 45px;
+   height: 35px;
+   position: relative;
+   cursor: pointer;
+}
+
+.menu__icon span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: #333333;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.menu__icon span:nth-child(1) {
+  top: 0px;
+}
+
+.menu__icon span:nth-child(2), .menu__icon span:nth-child(3) {
+  top: 13px;
+}
+
+.menu__icon span:nth-child(4) {
+  top: 26px;
+ }
+
+.menu__links-item {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu__links-item:hover {
+    text-decoration: underline;
+}
+
+.menu.menu_state_open .menu__icon span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu.menu_state_open .menu__icon span:nth-child(2) {
+  transform: rotate(45deg);    background: #fff;
+}
+
+.menu.menu_state_open  .menu__icon span:nth-child(3) {
+  transform: rotate(-45deg);    background: #fff;
+}
+
+.menu.menu_state_open  .menu__icon span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu.menu_state_open .menu__links {
+  display: block;  
+}
+
+@media screen and (max-width: 999px) {
+	  .menulog {
+		  width: 100%; max-width: 55px; margin-left: 8px;margin-top: 0px;
+    display: block
+}
+  .menu {
+    text-align: right;
+padding-top: 10px;
+padding-right: 15px;
+display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  .menu__icon{
+    display: inline-block; z-index: 900;
+  }
+  
+  .menu__links {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    left: 0;
+	    height: 100%;
+        padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+    overflow: auto;
+  }
+  
+  .menu__links-item {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    color: #ffffff;font-size: 24px;
+    line-height: 45px;
+  }  
+  
+  .menu__links-item-mob {
+    display: none;
+  }
+  
+}
+  </style> 
+  
+<!-- partial:index.partial.html -->
+<div class="menu"><img class="menulog" src="img/logo11.png">
+    <div class="menu__icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    <div class="menu__links">
+        <a class="menu__links-item menu__links-item-mob" href="../"><img class src="img/logo11.png" style=" width: 100%; max-width: 60px;"></a>
+        <!--a class="menu__links-item" href="../">Главная</a-->
+        <a class="menu__links-item" href="../household.php">Для Дома</a>
+        <a class="menu__links-item" href="../auto.php">Авто</a>
+        <a class="menu__links-item" href="../kids.php">Детские Товары</a>
+        <a class="menu__links-item" href="../clothes.php">Одежда и Аксессуары</a>
+        <a class="menu__links-item" href="../health.php">Красота и здоровье</a>
+        <a class="menu__links-item" href="../gadget.php">Электроника и Гаджеты</a>
+        <a class="menu__links-item" href="../sport.php">Спорт</a>
+         
+    </div>
+</div>
+<!-- partial -->
+  <script src="js/jquery.min.js"></script><script>(function($){
+  $(function() {
+    $('.menu__icon').on('click', function() {
+      $(this).closest('.menu').toggleClass('menu_state_open');
+    });
+  });
+})(jQuery);</script>
+
+
+
+ 
+ 
+
+    <header>
+      <div class="header-cont"><img class="logo" src="img/logo.png" alt><a class="header__link" href="#form-link">Заказать</a></div>
+    </header>
+    <main>
+      <section class="wellcome">
+        <h1><span>Корректор мочки уха</span><br><span>из ювелирной стали     </span></h1>
+        <div class="content-center">
+          <p class="two-colors">~ <span>2</span> цвета ~  </p>
+        </div>
+        <ul class="check">
+          <li> <span>Восстановит естественный <br>вид растянутой мочки уха</span></li>
+          <li><span>Предотвратит растяжение<br>мочек от массивных украшений</span></li>
+          <li><span>Подойдёт ко всем видам <br>сережек</span></li>
+        </ul>
+      </section>
+      <div class="price-cont">
+        <div class="old-price-cont">
+          <p class="old-price__desc">Обычная цена</p>
+          <div class="old-price-wrapper"><span class="price-value">1980</span>Р</div>
+        </div>
+        <div class="new-price-cont">
+          <p class="new-price__desc">Цена по акции</p>
+          <div class="price-wrapper"><span class="price-value">990</span>Р</div>
+        </div>
+      </div>
+      <section class="form">
+        <h2 class="form__title">Оформи сейчас<br>и получи <b>скидку 50%</b></h2>
+        <p class="limited">Товар по акции ограничен</p>
+        <form method="post" action>          
+		<input type="hidden" name="task" value="process"><input type="hidden" name="country" value="ru">
+ 
+          <div class="ico-cont-name">
+            <input class="form__input" required type="text" name="name" placeholder="Введите Ваше Имя">
+          </div>
+          <div class="ico-cont-tel">
+            <input class="form__input input-tel" autocomplete="off" required type="tel" name="phone" placeholder="Введите Ваш номер телефона">
+          </div>
+          <button class="link-button" type="submit">Заказать со скидкой</button>
+          <div class="agree__count">           
+            <input class="agree__input" required type="checkbox" checked>
+            <p class="agree__desc">Я ознакомился с  условиями <span class="agree myBtn">политики конфиденциальности</span> и согласен с ними</p>
+          </div>
+          <div class="agree__count--sms">
+            <input class="agree__input" type="checkbox" checked>
+            <p class="agree__desc">Я выражаю <span class="agree myBtn2">согласие на получение уведомлений о статусе заказа</span></p>
+          </div>
+        </form>
+      </section>
+      <div class="gray"></div>
+      <div class="header-line">       </div>
+      <div class="video">
+         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline controls autoplay="autoplay">
+<source src="1.mp4" type="video/mp4">
+<source src="1.webm" type="video/webm">
+</video>
+      </div>
+      <div class="header-line"></div>
+      <div class="pic-and-text">
+        <p>Представляет собой пару <br>специальных насадок на серьги </p>
+      </div>
+      <section class="big-check">
+        <ul class="big-check__ul">
+          <li>
+            <h3>Мочки ушей будут <br>выглядеть естественно</h3>
+            <p>Корректор мочек способен удержать в правильном положении самые тяжелые серьги</p>
+          </li>
+          <li>
+            <h3>Восстановит внешний вид<br>порванных, повреждённых<br>и растянутых мочек</h3>
+            <p>Благодаря особой форме<br>он плотно прилегает <br>к мочке, приподнимая <br>её и возвращая<br>естественный вид</p>
+          </li>
+          <li>
+            <h3>Предотвратит<br>провисание мочек</h3>
+            <p>Обеспечивает правильное <br>распределение веса <br>украшения, защищая <br>кожу от неэстетического <br>провисания</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <div class="pic-and-text pic-and-text-2">
+        <p>Представляет собой пару <br>специальных насадок на серьги </p>
+      </div>
+      <section class="small-check">
+        <ul class="small-check__ul">
+          <li><img src="img/min-chk.png" alt>
+            <p>Помогает выглядеть эффектно <br>и привлекательно</p>
+          </li>
+          <li><img src="img/min-chk.png" alt>
+            <p>Является отличной профилактикой болевых ощущений от использования крупной бижутерии</p>
+          </li>
+          <li><img src="img/min-chk.png" alt>
+            <p>Корректор мочки уха абсолютно универсален и подходит всем возростам</p>
+          </li>
+          <li><img src="img/min-chk.png" alt>
+            <p>Подходит для ежедневной носки, может использоваться в любой ситуации</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <h2 class="pic-block__title">Ваш незаменимый<br>аксессуар</h2><img src="img/pic-1.jpg" alt>
+      <section class="nat">
+        <ul class="nat__ul">
+          <li><img src="img/nat-1.png" alt>
+            <h3>Изготовлен<br> из ювелирной<br>стали</h3>
+            <p>Из этого металла (медицинского золота) делают медицинские инструменты. Он почти не подвергается физическому воздействию и коррозии </p>
+          </li>
+          <li><img src="img/nat-2.png" alt>
+            <h3>Имеет<br>изысканный<br>дизайн</h3>
+            <p>Позволяет даже с самыми объёмными серьгами создать красивый и опрятный вид</p>
+          </li>
+          <li><img src="img/nat-3.png" alt>
+            <h3>Практически незаметен</h3>
+            <p>Фиксатор лёгкий, компактный и удобный в использовании</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <h2 class="pic-block__title title-line">Подходит тем, у кого</h2>
+      <div class="colors">
+        <div class="color"><img src="img/white.png" alt>
+          <p>Плохой<br>пирсинг</p>
+        </div>
+        <div class="color"><img src="img/blue.png" alt>
+          <p>Тяжёлые<br>серьги</p>
+        </div>
+        <div class="color"><img src="img/gray.png" alt>
+          <p>Растянутые<br>мочки уха</p>
+        </div>
+        <div class="color"><img src="img/pink.png" alt>
+          <p>Дискомфорт<br>от тяжёлых серёг</p>
+        </div>
+      </div>
+      <div class="gray"></div>
+      <h2 class="pic-block__title">Ваш незаменимый<br>аксессуар</h2><img src="img/pic-2.jpg" alt>
+      <section class="small-check">
+        <ul class="small-check__ul">
+          <li><img src="img/min-chk.png" alt>
+            <p>Различная цветовая гамма делает фиксатор универсальным вариантом</p>
+          </li>
+          <li><img src="img/min-chk.png" alt>
+            <p>Отлично подойдёт в качестве подарка</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="img/per-1.png" alt></div>
+      <div class="header-line"></div>
+      <div class="video">
+         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline autoplay="autoplay" controls>
+<source src="2.mp4" type="video/mp4">
+<source src="2.webm" type="video/webm">
+</video>
+      </div>
+      <div class="header-line"></div>
+      <section class="post"> <img src="img/post-top.png" alt>
+        <div class="post__like">Нравится: <b>2 511</b></div>
+        <div class="post__desc">Стильный корректор — удачный выбор для женщины в любом возрасте</div>
+        <ul class="post__ul no-padding">
+          <li><img class="emoji-first" src="img/diamond.jpg" alt><span>Он выглядит лаконично и дорого, прекрасно гармонирует с ювелирными украшениями из драгоценных металлов, бижутерией разных типов </span></li>
+          <li><img class="emoji-first" src="img/post-heart.png" alt><span>Хозяйка инновационного аксессуара приобретёт уверенность в себе </span></li>
+          <li><img class="emoji-first" src="img/diamond.jpg" alt><span><b>Надёжное крепление фиксатора препятствует потере дорогих серёг</b></span></li>
+          <li><img class="emoji-first" src="img/post-check.png" alt><span>Аксессуар исключит потерю и утрату презентабельности серёг от внезапного падения</span></li>
+        </ul>
+        <p class="post-time">19 часов назад</p>
+      </section>
+      <div class="line-gray"></div>
+      <div class="gray"></div>
+      <div class="per"><img src="img/per-2.png" alt></div><img src="img/pic-3.jpg" alt>
+      <section class="post"><img src="img/post-top.png" alt>
+        <div class="post__like no-pb">Нравится: <b>4 952</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span><b>Любите массивные серьги,<br> как и я? Для вас мой маленький бьюти-секретик</b></span><img src="img/post-smile.png" alt><br></li>
+          <li><span>Очень удивлена, что некоторые до сих пор не знают о корректоре мочки уха, поэтому делюсь с вами своим опытом!</span><img src="img/post-heart.png" alt><span>Выглядит это неопрятно, заставляет чувствовать себя дискомфорно и неуверенно.</span></li>
+          <li> <span>Настоящим спасением для меня стал аксессуар-фиксатор! Он возвращает серьги в нужное положение в одно движение!</span><img src="img/post-like.png" alt></li>
+          <li> <span>Теперь ношу любые украшения, не испытывая дискомфорта</span><img src="img/magic.png" alt><span>Кроме того, больше не боюсь, что потеряю свои любимые серьги. Это маст-хэв для любой жещины!</span></li>
+        </ul>
+        <p class="post-time">2 дня назад</p>
+      </section>
+      <div class="line-gray"></div>
+      <section class="mini-rev">
+        <p class="mini-rev__desc"><b>Fidal_36</b> Мне о них подруга рассказала, ношу уже давно. Согласна с вами, классные</p>
+        <div class="mini-rev__tech-cont">
+          <p class="mini-rev__time">2 дн.</p>
+          <p class="mini-rev__like">3 отметка “Нравится”</p>
+        </div><span class="mini-rev__desc"><b>Kirochkatt</b>  Какие интересные штучки, надо заказать</span><img src="img/post-heart.png" alt><img src="img/post-heart.png" alt><img src="img/post-heart.png" alt>
+        <div class="mini-rev__tech-cont">
+          <p class="mini-rev__time">23 ч.</p>
+          <p class="mini-rev__like">6 отметка “Нравится”</p>
+        </div>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="img/per-3.png" alt></div><img src="img/pic-4.jpg" alt>
+      <section class="post"><img src="img/post-top.png" alt>
+        <div class="post__like no-pb">Нравится: <b>361</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span>Получила посылку пару месяцев назад, очень довольна! </span><img src="img/sml.png" alt><br><span>На покупку решилась после того, как потеряла дорогие золотые серьги. Теперь ношу любые серьги и не боюсь за них. Фиксатор стоит недорого, а польза от него огромная! Да и уши теперь смотрятся опрятно. Пять звёзд! Советую!</span><img src="img/sml.png" alt></li>
+        </ul>
+        <p class="post-time">3 дня назад</p>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="img/per-4.png" alt></div>
+      <div class="reviews__slick-2"><img src="img/sl-1.jpg" alt><img src="img/sl-2.jpg" alt></div>
+      <section class="post"><img src="img/post-top.png" alt>
+        <div class="post__like no-pb">Нравится: <b>986</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span>Хочу поделиться! Может, кому-то поможет, как и мне! </span><br><br><span>Я очень долго носила большие серьги и со временем мочка уха растянулась и любые серьги на ухе стали свисать и некрасиво смотреться... Думала, что нужна операция по коррекции мочки! Оказалось, эту проблему решает корректор для мочки уха.</span><br><br><span>Теперь могу носить изделия с крупными камнями, серьги из тяжёлых металлов и выглядеть при этом неотразимо! Берите, не пожалеете!</span></li>
+        </ul>
+        <p class="post-time">4 дня назад</p>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="img/per-5.png" alt></div>
+      <div class="reviews__slick-2"><img src="img/sl-3.jpg" alt><img src="img/sl-4.jpg" alt><img src="img/sl-5.jpg" alt><img src="img/sl-6.jpg" alt></div>
+      <section class="post"><img src="img/post-top.png" alt>
+        <div class="post__like no-pb">Нравится: <b>2 334</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span>Я долгое время не могла носить одни из любимых моих серёжек, они очень тяжелые и уши от них быстро начинают болеть и неметь </span><br><br><span>Проблему решил чудо-фиксатор!</span><br><br><span>Он представляет собой уникальную конструкцию, которая распределяет нагрузку по всей площади мочки, поэтому даже стограммовые серьги не ощущаются на ушах! Эврика!</span><img src="img/sml.png" alt></li>
+        </ul>
+        <p class="post-time">4 дня назад</p>
+      </section>
+      <div class="gray"></div>
+      <section class="delivery">
+        <h2>Доставка и оплата</h2>
+        <div class="delivery__item"><img src="img/deliv-1.png" alt>
+          <h3>Доставка</h3>
+          <p>Доставляем курьером на следующий день
+</p>
+        </div>
+        <div class="delivery__item"><img src="img/deliv-3.png" alt>
+          <h3>Оплата по факту</h3>
+          <p>Оплата осуществляется<br>при получении товара</p>
+        </div>
+      </section>
+      <section class="wellcome">
+        <h1><span>Корректор мочки уха</span><br><span>из ювелирной стали     </span></h1>
+        <div class="content-center">
+          <p class="two-colors">~ <span>2</span> цвета ~  </p>
+        </div>
+        <ul class="check">
+          <li> <span>Восстановит естественный <br>вид растянутой мочки уха</span></li>
+          <li><span>Предотвратит растяжение<br>мочек от массивных украшений</span></li>
+          <li><span>Подойдёт ко всем видам <br>сережек</span></li>
+        </ul>
+      </section>
+      <div class="price-cont">
+        <div class="old-price-cont" id="form-link">
+          <p class="old-price__desc">Обычная цена</p>
+          <div class="old-price-wrapper"><span class="price-value">1980</span>Р</div>
+        </div>
+        <div class="new-price-cont">
+          <p class="new-price__desc">Цена по акции</p>
+          <div class="price-wrapper"><span class="price-value">990</span>Р</div>
+        </div>
+      </div>
+      <section class="form">
+        <h2 class="form__title">Оформи сейчас<br>и получи <b>скидку 50%</b></h2>
+        <p class="limited">Товар по акции ограничен</p>
+        <form method="post" action>     
+<input type="hidden" name="task" value="process"><input type="hidden" name="country" value="ru">
+ 
+          <div class="ico-cont-name">
+            <input class="form__input" required type="text" name="name" placeholder="Введите Ваше Имя">
+          </div>
+          <div class="ico-cont-tel">
+            <input class="form__input input-tel" autocomplete="off" required type="tel" name="phone" placeholder="Введите Ваш номер телефона">
+          </div>
+          <button class="link-button" type="submit">Заказать со скидкой</button>
+          <div class="agree__count">           
+            <input class="agree__input" required type="checkbox" checked>
+            <p class="agree__desc">Я ознакомился с  условиями <span class="agree myBtn">политики конфиденциальности</span> и согласен с ними</p>
+          </div>
+          <div class="agree__count--sms">
+            <input class="agree__input" type="checkbox" checked>
+            <p class="agree__desc">Я выражаю <span class="agree myBtn2">согласие на получение уведомлений о статусе заказа</span></p>
+          </div>
+        </form>
+      </section>
+      <div class="gray"></div> 
+ 
+    </main>
+    <footer id="footer-link">
+  <div style="text-align: center;margin: 10px auto;display: block;font-size: 14px;line-height: 26px;">
+<strong> ALLTRENDO</strong>  - ИНТЕРНЕТ МАГАЗИН ПОПУЛЯРНЫХ ТОВАРОВ<br> 
+ИНН 330640485495 ОГРНИП 315332600000462<br> 
+"Официальный Дистрибьютор на территории РФ"<br> 
+Для связи - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="71121d18141f050231101d1d0503141f151e5f0304">[email&#160;protected]</a><br> 
+<a href="polit.html" target="_blank" style="cursor: pointer;color: initial;">Политика конфиденциальности</a><br> 
+*На данном сайте действует <br> <a href="https://www.facebook.com/about/privacy/update" target="_blank" style="cursor: pointer;color: initial;">'Политика использования данных Facebook'</a><br> 
+ВСЕ ПРАВА ЗАЩИЩЕНЫ © 2021</div>    </footer>
+    <div id="details-wrapper"></div>
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jQuery3.3.1.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+  
+
+
+ 
+
+ 
+   
+</body>
+</html>
