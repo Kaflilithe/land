@@ -507,10 +507,12 @@ left">
 
                   <div class="text"><strong> ¡SÍ!</strong> Quiero recibir el tratamiento HairForte por participar en el club de descuentos. Esto significa que mi decisión es totalmente segura, porque el producto esta cubierto por la garantía triple de satisfacción. El envío me llegará por correos o por mensajero en los próximos días sin gastos adicionales.</div>
 
-
-                  <div class="row row_save row_save__button">
-                      <a type="submit" id="save" name="save"> Haz clic aquí para recibir HairForte</a>
-                  </div>
+                  <form id="order-form" action method="POST">
+                    <input type="text" name="name" id="name" required placeholder="Tu nombre">
+    
+                    <input type="tel" name="phone" id="phone" required placeholder="Tu teléfono">
+                    <button type="submit" class="button"> Ordena</button>
+                  </form>
 
                 </div>
 
