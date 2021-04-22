@@ -1,0 +1,567 @@
+<!DOCTYPE html><html><head>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        function set_validator_errors() {
+            orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки';
+
+            orderValidator.errorNameField = 'Имя';
+            orderValidator.errorNameMess = 'Укажите своё имя';
+
+            orderValidator.errorPhoneField = 'Телефон для связи';
+            orderValidator.errorPhoneMess = 'Введите правильный телефон';
+
+            orderValidator.errorAddress = 'Введите правильный адрес';
+            orderValidator.errorRequired = 'обязательное поле';
+            orderValidator.errorMaxLength = 'допустимо максимум {1} символа';
+            orderValidator.errorMinLength = 'допустимо минимум {1} символа';
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'указан не корректный email';
+        }
+    </script>
+
+    <script>
+
+
+        window.app = {
+            timestamp: parseInt((new Date()).getTime() / 1000),
+            jq: jQuery,
+            formAction: window.location.href,
+            leadToken: '606ab9ad5a1822.23197968',
+            offers: { "19543": { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" } },
+            currentOffer: { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" },
+            allowedCountries: ["SA"],
+            _setOfferId: false,
+
+            setOffer: function (offerId) {
+                if (offerId == this._setOfferId) {
+                    return;
+                }
+                this._setOfferId = offerId;
+                if (offerId) {
+                    var offer = app.offers[offerId];
+                    var previousOffer = app.currentOffer;
+                    app.currentOffer = offer;
+                    var event = this.jq.Event("offerchange");
+                    event.previousOffer = previousOffer;
+                    event.currentOffer = app.currentOffer;
+                    this.jq(document).trigger(event);
+                    this.updatePage(offer);
+                } else {
+                    $('input[name=country]').val('');
+                }
+            },
+
+            updatePage: function (offer) {
+                $('x-newprice').html(offer.price);
+                $('x-oldprice').html(offer.price2);
+                $('x-currency').html(offer.currency.name);
+                $('input[name=offer], select[name=offer]').val(offer.id);
+                $('input[name=country]').val(offer.country.code);
+            },
+
+            blockForm: function () {
+                // Блокируем кнопки при отправке формы
+                $('input[type=submit]', $(this)).prop('disabled', true).attr('disabled', true);
+                $('button', $(this)).prop('disabled', true).attr('disabled', true);
+                app.incompleteOrder.lock = true;
+                clearTimeout(app.incompleteOrder.timer);
+            },
+
+            unblockForm: function () {
+                $('input[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                $('button[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                app.incompleteOrder.lock = false;
+                clearTimeout(app.incompleteOrder.timer);
+            }
+
+        };
+
+
+    </script>
+    <script src="js/form.validate.js"></script>
+    <script src="js/form.incomplete.js"></script>
+    <script src="js/main2.js"></script>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="Sun, 01 Jan 2019 07:01:00 GMT">
+    <title>Eyebrow Beauty Stamp</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="css/css.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modal-close,.modal-overlay").click(function () {
+                $(".modal-overlay").css({ display: 'none' });
+                $(".modal").css({ display: 'none', opacity: '0', top: '4%' });
+            });
+
+            $(".order").click(function () {
+                $(".modal-overlay").css({ display: 'block' });
+                $(".modal").animate({ top: '10%', opacity: '1' });
+                $(".modal").css({ display: 'block', });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div class="modal-close">x</div>
+        <div class="form-container">
+            <div>
+                <h2> Поръчайте сега!</h2>
+                <div class="price"><span class="old-price">
+                        <x-oldprice> 158</x-oldprice>
+                        <x-currency> €</x-currency> лева</span>
+                    <x-newprice> 79</x-newprice>
+                    <x-currency> €</x-currency> лева</div>
+            </div>
+            <form action method="post" class="order-form">
+                <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                <input type="text" name="name" id="name" placeholder="Вашето име">
+                <input type="text" name="phone" id="phone" placeholder="Вашия телефон">
+                <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="top-col">
+                <div class="top-text-black"> Вашите перфектни вежди</div>
+                <div class="top-text-big text-pink"> за три секунди!</div>
+                <div class="top-text-p"> Омръзна ли ви да се борите с несъвършенството на своите вежди всеки ден? Писна ли ви всяка сутрин отново и отново да рисувате равномерни ъгли? Вече не е нужно да отделяте много време за това:<strong> 3 секунди и готово!</strong></div> <br>
+                <div class="product-img"><img src="img/product-img-mob.jpg"></div>
+                <br><br>
+
+                <div class="form-container" align="center">
+                    <div>
+                        <h2> Поръчайте сега!</h2>
+                        <div class="price"><span class="old-price">
+                                <x-oldprice> 158</x-oldprice>
+                                <x-currency> €</x-currency> лева</span>
+                            <x-newprice> 79</x-newprice>
+                            <x-currency> €</x-currency> лева</div>
+                    </div>
+                    <form action method="post" class="order-form">
+                        <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                        <input type="text" name="name" id="name" placeholder="Вашето име">
+                        <input type="text" name="phone" id="phone" placeholder="Вашия телефон">
+                        <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                    </form>
+                </div>
+
+                <p>
+                    <strong> Внимание!</strong> Офертата е ограничена! Този продукт не може да бъде намерен в магазина: можете да го поръчате само на сайта.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <div class="block1">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="space1">
+                        <h1> Представяме на вашето внимание печати за вежди:</h1>
+                        <p> компактен комплект, състоящ се от пигментирана пудра и удобни печати.</p>
+                        <img src="img/product-img1.jpg" id="product-img1">
+                    </div>
+                </div>
+                <div class="col m6">
+                    <img src="img/box.png" class="box">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block_pink_gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <h1> Защо<br><span class="text-pink"> «Eyebrow Beauty Stamp»</span> <br> са толкова популярни?</h1>
+                        <p> В тях има всичко, което търсите:</p>
+                    </center>
+                </div>
+                <center>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-shade"></i></div>
+                        <p class="circle-title"> идеален нюанс</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-closed-eyes-with-lashes-and-brows"></i></div>
+                        <p class="circle-title"> ефект на естествени вежди</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-raindrop"></i></div>
+                        <p class="circle-title"> водоустойчива<br> пудра</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-time"></i></div>
+                        <p class="circle-title"> издръжливост през целия <br> ден</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-good"></i></div>
+                        <p class="circle-title"> безболезнено и елементарно нанасяне</p>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <div class="float-box">
+                            <h3> Купете  изгодно «Eyebrow Beauty Stamp» сега</h3>
+                        </div>
+                        <div class="float-box">
+                            <div class="btn order"><span> Поръчайте</span></div>
+                        </div>
+                    </center>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Как се използва?</h1>
+                    </center>
+                </div>
+
+                <div class="col m6">
+                    <img src="img/step1.jpg" class="step-img">
+                    <img src="img/step2.jpg" class="step-img">
+                    <img src="img/step3.jpg" class="step-img">
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> Дори никога да не сте го правили, ще ви отнеме само миг, за да се научите. </p>
+                    <p class="text-pink"> 1. Отпечатайте печата в пудрата;<br> 2. Поставете печата върху веждата си; <br> 3. Наслаждавайте се на перфектния резултат!</p>
+                </div>
+
+                <div class="col m6">
+                    <p class="text-white"><span class="text-pink"> Очакват ви два варианта пудра:</span> тъмна за брюнетките и по-светла за дамите с русите коси. Нюансите са перфектно подбрани, за да подхождат на всеки тон на кожата: изглеждат невероятно естествено, сякаш самата природа ви е дала тези прекрасни вежди!</p>
+                </div>
+                <div class="col m6">
+                    <img src="img/product-img2.jpg" class="product-img2">
+                </div>
+
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Как работи <span class="text-pink"> «Eyebrow Beauty Stamp»?</span>
+                        </h1>
+                    </center>
+                </div>
+                <div class="col m6"><br><br>
+                    <img src="img/girl1.jpg" class="how-work-img">
+                    <img src="img/girl3.jpg" class="how-work-img girl3">
+                    <img src="img/girl2.jpg" class="how-work-img girl2">
+
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> • идеально запълва пространството между косъмчетата;<br> • позволява незабавно да получите абсолютно симетрични вежди;<br> • результатът се запазва през цялия ден. </p>
+                    <p class="text-white">
+                        <span class="text-pink"> Притеснявате се, че комплектът няма да ви свърши работа?</span> Специално за вас са разработени две различни форми на печати: закръглена и по-графична, с ясно изразен ъгъл. Просто използвайте формата, която ви подхожда най-добре, и оценете отличния ефект!</p>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+
+            <div class="col s12">
+                <center>
+                    <div class="float-box">
+                        <h3> Купете «Eyebrow Beauty Stamp»</h3>
+                    </div>
+                    <div class="float-box">
+                        <div class="btn order"><span> Поръчайте</span></div>
+                    </div>
+                </center>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="wraper">
+        <div class="container">
+            <div class="row"><br><br>
+                <div class="col m6" align="center">
+                    <br><img src="img/logo.jpg" class="logo">
+                    <p> Какво съдържа<span class="text-pink"> «Eyebrow Beauty Stamp»</span></p>
+                    <img src="img/product-img3.jpg" class="product-img3">
+                    <p align="left"><span class="text-pink"> Какво трябва да знаете за «Eyebrow Beauty Stamp»:</span><br><br> • пудрата може да се нанася без усилие, само с леко и деликатно докосване;<br><br> • продуктът не вреди на естествените ви вежди или кожа;<br><br> • печатите са обозначени така, че лесно да може да различите ляв и десен;<br><br> • пудрата е снабдена с компактно удобно огледало;<br> <br> • гъбичките се почистват лесно и изсъхват бързо. </p>
+                </div>
+
+                <div class="col m6">
+                    <p align="left"><span class="text-pink"> Полезни тайни за красотата:</span><br><br> • лесно ще направите веждите си още по-прецизни, като просто коригирате финалната форма с памучно тампонче;<br><br> • можете да използвате печата и за запълване на дразнещи празнини между косъмчетата, без да нарушавате формата им; за целта просто го прокарайте по дължината на естествената вежда;<br><br> • можете да направите цвета по-наситен, като използвате печата на няколко етапа - просто продължавайте да наслоявате отпечатъка, докато не постигнете идеала!</p><br><br>
+                    <img src="img/before-after.jpg" class="before-after"><br><br>
+                    <p align="left"><span class="text-pink"> Как да свалите пудрата?</span> Просто използвайте любимото си средство за отстраняване на грим: отнема секунди. </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wraper bg-black">
+        <div class="container">
+
+            <center>
+                <h1 class="text-pink"> Отзиви от потребители</h1>
+            </center> <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> BeautyStamp</strong>
+                                <span class="views"> Преглеждания: 1 717</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> BeautyStamp</strong> Учим се от<span class="text-pink"> @makeup_bymadison</span> как да получим безупречни вежди за нула време. </p>
+                                <p><strong> Kristi.mua.h</strong> О, Боже, откога мечтая за това, вече го поръчах, толкова ми омръзна да рисувам всяка сутрин по половин час.</p>
+                                <p><strong> Ana_Paris01</strong> Вчера получих поръчката си, в магазина има много полезни неща. Освен печатите, поръчах супер удължаваща миглите спирала с огромна отстъпка!<img src="img/img1.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt>
+                                </p>
+
+                                <p><strong> Maa0950</strong> <span class="text-pink"> @ana.mua.h</span> приятелко, не си единствената, заради веждите  постоянно ми се налага да закъснявам, а с печатите сега 2 секунди и готово! От тях също си купих и спирала, ефектът е невероятен! Вижте...</p>
+                                <p><strong> Kari_99</strong> Момичета, какво страхотно нещо, колко струва? Ще се появи ли в магазините?</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @Kari_99</span> за съжаление няма да има скоро доставки в магазините, но можете да закупите нашите продукти на официалния сайт.</p>
+                                <p><strong> AnaSixty</strong> ИСКАААМ!!!</p>
+                                <p><strong> Makeupmaster77</strong> Една приятелка донесе такъв комплект от Щатите, не ми хареса, не разбрах как става номера, може би си струва да го опитам сама</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Makeupmaster77</span> Задължително опитате сами, ние сме сигурни, че няма да се разочаровате.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> marywallerx3</strong>
+                                <span class="views"> Преглеждания: 13 854</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> marywallerx3</strong> Гримиране на веждите за секунди?! Това е най-дългата част от ежедневния ми грим, която  най-накрая остана в миналото. Също така купих подарък за любимата ми сестра с огромна отстъпка, @ BeautyStamp, благодаря. Подаръкът много ѝ хареса, аз нося медальона с ключ, а тя - гривната.<span class="text-pink"> @BeautyStamp</span>     <img src="img/img2.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> veronika_chachyna</strong> Мери, фантастично, ще поръчам.</p>
+
+                                <p><strong> buket_online_com</strong> красотаа!</p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> нещо ме съмнява, че е удобно за използване, пробвах контури за вежди, абсолютно не ми хареса?</p>
+                                <p><strong> marywallerx3</strong> <span class="text-pink"> @zayasolga</span> това са абсолютно различни неща, аз също опитах контурите, много са неудобни, а тук веднъж прилагам и цял ден съм щастлива))) плюс пудрата е с много високо качество, може да се каже много решения в един флакон))))<img src="img/img3.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> изглежда, че ще трябва да опитам, благодаря ви. Зная, че няма да съветвате лоши неща, и маската също ще купя.</p>
+                                <p><strong> ami_mama</strong> Много красиви вежди се получават, вече месец използвам комплекта!</p>
+                                <p><strong> teta_alex</strong> Това е страхотно!</p>
+                                <p><strong> leg_spt</strong> Колко интересно, за първи път виждам такова нещо, трябва да опитам!</p>
+                                <p><strong> foxbeauty38</strong> не изглежда добре! Аз съм за татуировка.</p>
+                                <p> <strong> zhansaya_permanent</strong> <span class="text-pink"> @foxbeauty38</span> Подкрепям, татуировките са върхът.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> Mariya_schastie99</strong>
+                                <span class="views"> Преглеждания: 12 595</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> Mariya_schastie99</strong> Страхотно е това, което току-що получих и бързам да го споделя с вас!<span class="text-pink"> @BeautyStamp</span> определено това е идеален продукт за използване всеки ден, особено когато нямате време. Впечатлена съм. Гледайте видеоклипа ми, харесайте го и не губете време, а поръчайте, докато има промоция! Поръчах още и прекрасен комплект бижута с отстъпка, ако насочите лъч светлината към камъка, ще се появят думите "Обичам те" на 100 езика. Супер готино!<img src="img/img4.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt> </p>
+                                <p><strong> mariia0684</strong> <span class="text-pink"> @Mariya_schastie99</span> красавица, както винаги на върха, и както винаги намераш много изгодни оферти</p>
+                                <p><strong> dariondraten1</strong> Фотошоп</p>
+                                <p><strong> kris0301</strong> Mariya ти си просто кралица на веждите) много готино </p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @kris0301</span> аз поръчах в официалния онлайн магазин, изпратих линк на лични съобщения, точно сега има промоция. О, аз още купих и такива неща, които не позволват меката част на ухото да не се разтяга, когато носиш тежки обеци. Удобно нещо.</p>
+                                <p><strong> aniatkach</strong> Супер са тези вежди!<img src="img/img5.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p> <strong> polina17_11</strong> прекрасна както винаги, дай ми също линк, много интересно нещо</p>
+                                <p><strong> bajes_h73</strong> peauteful</p>
+                                <p><strong> solomina.lesya</strong> Красавице, веждите са супер.</p>
+                                <p><strong> silkforyou</strong> Неповторимо! Страхотно видео</p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @silkforyou</span> благодаря</p>
+                                <p> <strong> fetia_mariya</strong> всъщност много съм уморена от постоянното оформяне  на веждите, губя ценно време, но нещо много се съмнявам в този хвален продукт))</p>
+
+                                <p><strong> zhanna5569</strong> защо не, крайно време е да се улесни живота на жените с нещо такова.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="wraper bg-gradient-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <img src="img/box.png" class="box2">
+                </div>
+                <div class="col m6" align="center">
+                    <p> С този комплект имате неограничени възможности за творчество: експериментирайте, за да видите коя форма е идеална за вашите вежди. <strong> Сигурни сме, че резултатът ще ви хареса: просто като едно-две-три!</strong>
+                    </p>
+                    <div class="form-container">
+                        <div>
+                            <h2> Поръчайте сега!</h2>
+                            <div class="price">
+                                <span class="old-price">
+                                    <x-oldprice> 158</x-oldprice>
+                                    <x-currency> €</x-currency> лева</span>
+                                <x-newprice> 79</x-newprice>
+                                <x-currency> €</x-currency> лева</div>
+                        </div>
+                        <form action method="post" class="order-form">
+                            <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                            <input type="text" name="name" id="name" placeholder="Вашето име">
+                            <input type="text" name="phone" id="phone" placeholder="Вашия телефон">
+                            <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Заказать"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <center>
+            <p> BEAUT-E SHOP, ul. "Rodopski Izvor" 66В, Sofia, Bulgaria</p>
+            <p> undefined</p>
+            <a href="/privacypolicy" target="_blank"> Privacy policy</a>  <br>
+            <a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>  <br>
+            <a href="/legal-warning" target="_blank"> Legal warning</a>
+        </center>
+    </div>
+    <style>
+        .form-control {
+            width: 355px;
+            height: 50px;
+            padding: 0px 20px 0px 20px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: #E89395;
+            border: none;
+            margin: 20px 0 0 0;
+            font-size: 22px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+
+
+        $(document).on('click', 'form', function (e) {
+            if (!$(this).find('input[name=phone]').length) {
+                return;
+            }
+
+            if (window['yaCounter46830237'] && e.validator === window.orderValidator) {
+                window['yaCounter46830237'].reachGoal('FORMCLICK');
+            }
+        });
+
+
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(46830237, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+        if (yandex_metrika_postinit) {
+            yandex_metrika_postinit(ym);
+        }
+    </script>
+    <noscript><span data-translate="163"><span data-translate="174">
+            <div><img src="1" style="position:absolute; left:-9999px;" alt></div>
+        </span></span></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Rating Mail.ru counter -->
+    <script type="text/javascript">
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({ id: "2925504", type: "pageView", start: (new Date()).getTime() });
+        (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = "https://top-fwz1.mail.ru/js/code.js";
+            var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
+    </script><noscript><span data-translate="164"><span data-translate="175">
+            <div>
+                <img src="counter2" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+            </div>
+        </span></span></noscript>
+    <!-- //Rating Mail.ru counter -->
+
+
+
+</body></html>
