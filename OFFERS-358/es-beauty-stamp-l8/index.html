@@ -1,0 +1,460 @@
+<!DOCTYPE html><html><head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="Sun, 01 Jan 2019 07:01:00 GMT">
+    <title>Eyebrow Beauty Stamp</title>
+<meta property="og:title" content="Eyebrow Beauty Stamp"/>
+<meta property="og:description" content="¡Tus cejas perfectas en 3 segundos!"/>
+<meta property="og:image" content="https://i.imgur.com/pRKxLDM.jpg"/>
+<meta property="og:type" content="website"/>
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="css/css.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modal-close,.modal-overlay").click(function () {
+                $(".modal-overlay").css({ display: 'none' });
+                $(".modal").css({ display: 'none', opacity: '0', top: '4%' });
+            });
+
+            $(".order").click(function () {
+                $(".modal-overlay").css({ display: 'block' });
+                $(".modal").animate({ top: '10%', opacity: '1' });
+                $(".modal").css({ display: 'block', });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div class="modal-close">x</div>
+        <div class="form-container">
+            <div>
+                <h2> ¡Ordenar ahora!</h2>
+                <div class="price"><span class="old-price">
+                        <x-oldprice> 76</x-oldprice>
+                        <x-currency> €</x-currency></span>
+                    <x-newprice> 38</x-newprice>
+                    <x-currency> €</x-currency></div>
+            </div>
+            <form method="post" class="order-form">
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value="">
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+                <input type="text" required="" name="name" id="name" placeholder="Su nombre">
+                <input type="text" required="" name="phone" id="phone" placeholder="Su teléfono">
+                <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value="Ordenar"></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="top-col">
+                <div class="top-text-black"> ¡Tus cejas perfectas</div>
+                <div class="top-text-big text-pink"> en 3 segundos!</div>
+                <div class="top-text-p"> ¿Estás cansada de luchar con la imperfección de tus cejas todos los días? ¿Estás cansada de dibujar esquinas uniformes todas las mañanas una y otra vez? Ya no necesitas dedicar mucho tiempo a esto:<strong> ¡3 segundos y listo!</strong></div> <br>
+                <div class="product-img"><img src="img/product-img-mob.jpg"></div>
+                <br><br>
+
+                <div class="form-container" align="center">
+                    <div>
+                        <h2> ¡Ordenar ahora!</h2>
+                        <div class="price"><span class="old-price">
+                                <x-oldprice> 76</x-oldprice>
+                                <x-currency> €</x-currency></span>
+                            <x-newprice> 38</x-newprice>
+                            <x-currency> €</x-currency></div>
+                    </div>
+                    <form method="post" class="order-form">
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value="">
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+                        <input type="text" required="" name="name" id="name" placeholder="Su nombre">
+                        <input type="text" required="" name="phone" id="phone" placeholder="Su teléfono">
+                        <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value=" Ordenar"></div>
+                    </form>
+                </div>
+
+                <p>
+                    <strong> ¡Atención!</strong> ¡Oferta limitada! Este producto no se puede encontrar en la tienda: solo puede solicitarlo en el sitio web.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <div class="block1">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="space1">
+                        <h1> Presentamos a su atención sellos de cejas:</h1>
+                        <p> set compacto compuesto por polvos pigmentados y prácticos sellos.</p>
+                        <img src="img/product-img1.jpg" id="product-img1">
+                    </div>
+                </div>
+                <div class="col m6">
+                    <img src="img/box.png" class="box">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block_pink_gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <h1> ¿Por qué es el<br><span class="text-pink"> Eyebrow Beauty Stamp</span> <br> tan popular?</h1>
+                        <p> Tienen todo lo que buscas:</p>
+                    </center>
+                </div>
+                <center>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-shade"></i></div>
+                        <p class="circle-title"> sombra perfecta</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-closed-eyes-with-lashes-and-brows"></i></div>
+                        <p class="circle-title"> efecto ceja natural</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-raindrop"></i></div>
+                        <p class="circle-title"> resistente<br> al agua</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-time"></i></div>
+                        <p class="circle-title"> un dia de<br> duración</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-good"></i></div>
+                        <p class="circle-title"> aplicación sencilla e indolora</p>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <div class="float-box">
+                            <h3> Compre ahora el "Eyebrow Beauty Stamp" de forma rentable</h3>
+                        </div>
+                        <div class="float-box">
+                            <div class="btn order"><span> Ordenar</span></div>
+                        </div>
+                    </center>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> ¿Cómo usarlo?</h1>
+                    </center>
+                </div>
+
+                <div class="col m6">
+                    <img src="img/step1.jpg" class="step-img">
+                    <img src="img/step2.jpg" class="step-img">
+                    <img src="img/step3.jpg" class="step-img">
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> Incluso si nunca ha hecho esto, solo le tomará un momento aprender.</p>
+                    <p class="text-pink"> 1. Presione el sello en el polvo;<br> 2. Aplique un sello sobre su ceja;<br> 3. ¡Disfrute del resultado perfecto!</p>
+                </div>
+
+                <div class="col m6">
+                    <p class="text-white"><span class="text-pink"> Dos opciones de polvo te están esperando:</span> más oscuro para las morenas y más claro para el cabello rubio. Perfectamente combinados con cualquier tono de piel, los tonos se ven increíblemente naturales, ¡como si esas cejas de lujo fuesen naturales!</p>
+                </div>
+                <div class="col m6">
+                    <img src="img/product-img2.jpg" class="product-img2">
+                </div>
+
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Como funciona<span class="text-pink"> ¿"Eyebrow Beauty Stamp"?</span>
+                        </h1>
+                    </center>
+                </div>
+                <div class="col m6"><br><br>
+                    <img src="img/girl1.jpg" class="how-work-img">
+                    <img src="img/girl3.jpg" class="how-work-img girl3">
+                    <img src="img/girl2.jpg" class="how-work-img girl2">
+
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> • llena perfectamente todos los espacios entre los pelos;<br> • le permite obtener cejas absolutamente simétricas al instante;<br> • el resultado se mantiene por todo el día.</p>
+                    <p class="text-white">
+                        <span class="text-pink"> ¿Le preocupa que el kit no le funcione?</span> Especialmente para ti, se han desarrollado dos formas diferentes de sellos: redondos y más gráficos, con una esquina pronunciada. ¡Simplemente use la forma que más le convenga y vea el efecto perfecto!</p>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+
+            <div class="col s12">
+                <center>
+                    <div class="float-box">
+                        <h3> Comprar "Eyebrow Beauty Stamp"</h3>
+                    </div>
+                    <div class="float-box">
+                        <div class="btn order"><span> Ordenar</span></div>
+                    </div>
+                </center>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="wraper">
+        <div class="container">
+            <div class="row"><br><br>
+                <div class="col m6" align="center">
+                    <br><img src="img/logo.jpg" class="logo">
+                    <p> Que esta incluido en el kit<span class="text-pink"> Eyebrow Beauty Stamp</span></p>
+                    <img src="img/product-img3.jpg" class="product-img3">
+                    <p align="left"><span class="text-pink"> Lo que necesita saber sobre el "Eyebrow Beauty Stamp":</span><br><br> • el polvo se aplica sin esfuerzo, solo con ligeros toques delicados;<br><br> • el producto no daña las cejas naturales ni la piel <br><br> • los sellos están marcados con símbolos para que pueda distinguir fácilmente entre izquierda y derecha;<br><br> • el polvo está equipado con un espejo de mano compacto;<br> <br> • Las esponjas son fáciles de limpiar y se secan rápidamente.</p>
+                </div>
+
+                <div class="col m6">
+                    <p align="left"><span class="text-pink"> Secretos de belleza útiles:</span><br><br> • Puede hacer que sus cejas sean aún más nítidas simplemente corrigiendo la forma final con un hisopo de algodón;<br><br> • con la ayuda de un sello, también puede rellenar los molestos huecos entre los pelos sin afectar su forma; para hacer esto, simplemente páselo por toda la longitud de la ceja natural;<br><br> • Puede hacer que el color sea más saturado usando el sello en unos pocos pasos - ¡siga superponiendo las impresiones hasta que quede perfecto!</p><br><br>
+                    <img src="img/before-after.jpg" class="before-after"><br><br>
+                    <p align="left"><span class="text-pink"> ¿Cómo eliminar el polvo?</span> Solo usa tu desmaquillador favorito: te llevará unos segundos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wraper bg-black">
+        <div class="container">
+
+            <center>
+                <h1 class="text-pink"> Opiniones de los usuarios</h1>
+            </center> <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> BeautyStamp</strong>
+                                <span class="views"> Views: 1717</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> BeautyStamp</strong> Aprendiendo de<span class="text-pink"> @makeup_bymadison</span> cómo conseguir unas cejas impecables en un par de minutos.</p>
+                                <p><strong> Kristi.mua.h</strong> oh dios mio, cuanto tiempo he soñado con esto, ya lo he ordenado, tan cansada de dibujar durante media hora todas las mañanas</p>
+                                <p><strong> Ana_Paris01</strong> Recibí el pedido ayer, hay un montón de artículos útiles en la tienda y ahora con grandes descuentos. ¡Además de los sellos, habia la depiladora facial y el kit de laminación de pestañas y cejas!<img src="img/img1.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt>
+                                </p>
+
+                                <p><strong> Maa0950</strong> <span class="text-pink"> @ana.mua.h</span> Amiga no eres la única que por las cejas  tienes que llegar tarde constantemente, y con los sellos ahora 2 segundos y listo! Y por cierto, también saqué de esta tienda a la venta otro set para uñas con pintura y tiras blanqueadoras de dientes 3D white</p>
+                                <p><strong> Kari_99</strong> chicas que gran producto, dime cuanto cuesta? ¿Estará en la tienda?</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @Kari_99</span> Desafortunadamente, no habrá entregas a las tiendas en un futuro cercano, pero puede comprar nuestros productos en el sitio web oficial.</p>
+                                <p><strong> AnaSixty</strong> LO QUIEROOO!!! </p>
+                                <p><strong> Makeupmaster77</strong> Un amigo trajo este de los Estados Unidos, no me gustó, no entendí los trucos, tal vez valga la pena intentarlo yo mismo.</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Makeupmaster77</span> No dejes de probarlo, estamos seguros de que no te decepcionará.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> marywallerx3</strong>
+                                <span class="views"> Views: 13 854</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> marywallerx3</strong> ¡¿Maquilla tus cejas en segundos?! Esta es la parte más extensa de mi maquillaje diario y finalmente ha quedado en el pasado. También tienes un rodillo de jade para el rostro, a un precio muy razonable, en tiendas solo  desde 100 euros, y una mascara vintage para la barbilla sliming strap! ¡Muy feliz con todas las compras! Gracias<span class="text-pink"> @BeautyStamp</span>     <img src="img/img2.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> veronika_chachyna</strong> María, fantástica, corrí a ordenar</p>
+
+                                <p><strong> buket_online_com</strong> Hermosa!</p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> Me surgen algunas dudas sobre la facilidad de uso, probé los contornos de las cejas, no me gustó en absoluto, y ¿qué tipo de máscara es esa?</p>
+                                <p><strong> marywallerx3</strong> <span class="text-pink"> @zayasolga</span> estas son cosas completamente diferentes, también probé los contornos, no son muy convenientes de usar, pero aquí lo apliqué una vez y estuve feliz todo el día)) más un polvo de muy alta calidad, se puede decir un montón de soluciones en una botella ))) Una máscara para quitar el exceso de la barbilla, aquí hay una foto<img src="img/img3.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> zayasolga</strong> <span class="text-pink"> @marywallerx3</span> parece que habrá que probar, gracias Tanya, sabiendo que rara vez aconsejas cosas malas, y yo también compraré una máscara.</p>
+                                <p><strong> ami_mama</strong> Se obtienen cejas muy bonitas, ¡lo he estado usando durante un mes! ¡Y qué otro dispositivo para limpiar los poros les compré, simplemente genial, como Spotclean! así es como se ve</p>
+                                <p><strong> teta_alex</strong> ¡Resultó genial!</p>
+                                <p><strong> leg_spt</strong> Qué interesante, esta es la primera vez que veo esto, ¡debo intentarlo!</p>
+                                <p><strong> foxbeauty38</strong> no se ve muy bien! Me gustan mas tatuadas</p>
+                                <p> <strong> zhansaya_permanent</strong> <span class="text-pink"> @foxbeauty38</span> Totalmente de acuerdo los tatuajes son la mejor opción</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> Mariya_schastie99</strong>
+                                <span class="views"> Views: 12 595</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> Mariya_schastie99</strong> ¡Que locura lo acabo de recibir y me apresuro a compartir contigo!<span class="text-pink"> @BeautyStamp</span> Definitivamente es lo perfecto para el uso diario, especialmente cuando tenemos poco tiempo . Definitivamente estoy impresionada. Mira mi video, póntelo y no pierdas tiempo, ordena mientras haya promoción, y por cierto, también compré una máscara de pestañas super alargadora 4d y un medio para el crecimiento de pestañas para la promoción<img src="img/img4.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt> </p>
+                                <p><strong> mariia0684</strong> <span class="text-pink"> @Mariya_schastie99</span> la belleza está como siempre en la cima, y ​​como siempre encuentras grandes ofertas</p>
+                                <p><strong> dariondraten1</strong> Фотошоп</p>
+                                <p><strong> kris0301</strong> Mariya, eres LA REINA DE LAS CEJAS) </p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @kris0301</span> ordené en la tienda oficial en línea, les puse  el enlace en el PV, ahora hay una promoción</p>
+                                <p><strong> aniatkach</strong> ¡Qué estupendas quedan las cejas! Mariyatambien adquirí  Epilag, se depila perfectamente y no hay irritación, lo recomiendo.<img src="img/img5.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p> <strong> polina17_11</strong> como siempre hermosa, pásame el link tambien, está muy interesante</p>
+                                <p><strong> bajes_h73</strong> Linda</p>
+                                <p><strong> solomina.lesya</strong> Super belleza de cejas.</p>
+                                <p><strong> silkforyou</strong> ¡Irrepetible! Gran video</p>
+                                <p><strong> Mariya_schastie99</strong> <span class="text-pink"> @silkforyou</span> Gracias</p>
+                                <p> <strong> fetia_mariya</strong> de hecho, estoy muy cansada de pasar mucho tiempo en mis cejas constantemente, pero también dudo mucho de este producto MILAGROSO))</p>
+
+                                <p><strong> zhanna5569</strong> por qué no, ya es hora de hacer la vida más fácil a las mujeres con algo así</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="wraper bg-gradient-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <img src="img/box.png" class="box2">
+                </div>
+                <div class="col m6" align="center">
+                    <p> Este set te dará una creatividad ilimitada: experimenta para descubrir qué forma es perfecta para tus cejas.<strong> Estamos seguros de que le gustará el resultado: ¡tan simple como uno-dos-tres!</strong>
+                    </p>
+                    <div class="form-container">
+                        <div>
+                            <h2> ¡Ordenar ahora!</h2>
+                            <div class="price">
+                                <span class="old-price">
+                                    <x-oldprice> 76</x-oldprice>
+                                    <x-currency> €</x-currency></span>
+                                <x-newprice> 38</x-newprice>
+                                <x-currency> €</x-currency></div>
+                        </div>
+                        <form method="post" class="order-form">
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value="">
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+                            <input type="text" required="" name="name" id="name" placeholder="Su nombre">
+                            <input type="text" required="" name="phone" id="phone" placeholder="Su teléfono">
+                            <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value=" Ordenar"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <center>
+            <p> BEAUT-E SHOP, Calle Virgen del Espino, 17, 28027 Madrid, Spain</p>
+            <a href="/privacypolicy" target="_blank"> Privacy policy</a>  <br>
+            <a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>  <br>
+            <a href="/legal-warning" target="_blank"> Legal warning</a>
+        </center>
+    </div>
+    <style>
+        .form-control {
+            width: 355px;
+            height: 50px;
+            padding: 0px 20px 0px 20px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: #E89395;
+            border: none;
+            margin: 20px 0 0 0;
+            font-size: 22px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+
+
+<script type="text/javascript" src="/libs/js/common.js"></script>
+<script>
+    $(document).ready(function() {
+        $.init({
+
+            priceSelector: ".new-cost",
+            oldPriceSelector: ".old-cost",
+            reportFormSelector: ".report-abuse__form",
+            reportCallback: function (data) {
+                console.log('ReportCallback:', data);
+            },
+            callback: function() {
+                console.log("Do something after prices changing");
+
+            }
+        });
+    });
+</script>
+
+
+
+</body></html>

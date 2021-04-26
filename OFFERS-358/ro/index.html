@@ -1,0 +1,567 @@
+<!DOCTYPE html><html><head>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        function set_validator_errors() {
+            orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки';
+
+            orderValidator.errorNameField = 'Имя';
+            orderValidator.errorNameMess = 'Укажите своё имя';
+
+            orderValidator.errorPhoneField = 'Телефон для связи';
+            orderValidator.errorPhoneMess = 'Введите правильный телефон';
+
+            orderValidator.errorAddress = 'Введите правильный адрес';
+            orderValidator.errorRequired = 'обязательное поле';
+            orderValidator.errorMaxLength = 'допустимо максимум {1} символа';
+            orderValidator.errorMinLength = 'допустимо минимум {1} символа';
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'указан не корректный email';
+        }
+    </script>
+
+    <script>
+
+
+        window.app = {
+            timestamp: parseInt((new Date()).getTime() / 1000),
+            jq: jQuery,
+            formAction: window.location.href,
+            leadToken: '606ab9ad5a1822.23197968',
+            offers: { "19543": { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" } },
+            currentOffer: { "id": 19543, "country": { "code": "SA", "name": "\u0421\u0430\u0443\u0434\u043e\u0432\u0441\u043a\u0430\u044f \u0410\u0440\u0430\u0432\u0438\u044f" }, "price": "149", "price2": "298", "currency": { "code": "SAR", "name": "SAR" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" },
+            allowedCountries: ["SA"],
+            _setOfferId: false,
+
+            setOffer: function (offerId) {
+                if (offerId == this._setOfferId) {
+                    return;
+                }
+                this._setOfferId = offerId;
+                if (offerId) {
+                    var offer = app.offers[offerId];
+                    var previousOffer = app.currentOffer;
+                    app.currentOffer = offer;
+                    var event = this.jq.Event("offerchange");
+                    event.previousOffer = previousOffer;
+                    event.currentOffer = app.currentOffer;
+                    this.jq(document).trigger(event);
+                    this.updatePage(offer);
+                } else {
+                    $('input[name=country]').val('');
+                }
+            },
+
+            updatePage: function (offer) {
+                $('x-newprice').html(offer.price);
+                $('x-oldprice').html(offer.price2);
+                $('x-currency').html(offer.currency.name);
+                $('input[name=offer], select[name=offer]').val(offer.id);
+                $('input[name=country]').val(offer.country.code);
+            },
+
+            blockForm: function () {
+                // Блокируем кнопки при отправке формы
+                $('input[type=submit]', $(this)).prop('disabled', true).attr('disabled', true);
+                $('button', $(this)).prop('disabled', true).attr('disabled', true);
+                app.incompleteOrder.lock = true;
+                clearTimeout(app.incompleteOrder.timer);
+            },
+
+            unblockForm: function () {
+                $('input[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                $('button[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+                app.incompleteOrder.lock = false;
+                clearTimeout(app.incompleteOrder.timer);
+            }
+
+        };
+
+
+    </script>
+    <script src="js/form.validate.js"></script>
+    <script src="js/form.incomplete.js"></script>
+    <script src="js/main2.js"></script>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="Sun, 01 Jan 2019 07:01:00 GMT">
+    <title>Eyebrow Beauty Stamp</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link href="css/css.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modal-close,.modal-overlay").click(function () {
+                $(".modal-overlay").css({ display: 'none' });
+                $(".modal").css({ display: 'none', opacity: '0', top: '4%' });
+            });
+
+            $(".order").click(function () {
+                $(".modal-overlay").css({ display: 'block' });
+                $(".modal").animate({ top: '10%', opacity: '1' });
+                $(".modal").css({ display: 'block', });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div class="modal-close">x</div>
+        <div class="form-container">
+            <div>
+                <h2> Comanda acum!</h2>
+                <div class="price"><span class="old-price">
+                        <x-oldprice> 378</x-oldprice>
+                        <x-currency> €</x-currency> lei</span>
+                    <x-newprice> 189</x-newprice>
+                    <x-currency> €</x-currency> lei</div>
+            </div>
+            <form action method="post" class="order-form">
+                <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                <input type="text" name="name" id="name" placeholder="Numele dvs.">
+                <input type="text" name="phone" id="phone" placeholder="Numărul dvs. de telefon">
+                <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value=" Comanda"></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="top-col">
+                <div class="top-text-black"> Sprâncene perfecte</div>
+                <div class="top-text-big text-pink"> în 3 secunde!</div>
+                <div class="top-text-p"> Te-ai săturat să te lupți zilnic cu imperfecțiunea sprâncenelor? Te-ai obosit sa desenezi colțuri drepte din nou și din nou în fiecare dimineață? Acum nu va mai trebui să pierzi atâta timp:<strong> 3 secunde și ați rezolvat!</strong></div> <br>
+                <div class="product-img"><img src="img/product-img-mob.jpg"></div>
+                <br><br>
+
+                <div class="form-container" align="center">
+                    <div>
+                        <h2> Comanda acum!</h2>
+                        <div class="price"><span class="old-price">
+                                <x-oldprice> 378</x-oldprice>
+                                <x-currency> €</x-currency> lei</span>
+                            <x-newprice> 189</x-newprice>
+                            <x-currency> €</x-currency> lei</div>
+                    </div>
+                    <form action method="post" class="order-form">
+                        <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                        <input type="text" name="name" id="name" placeholder="Numele dvs.">
+                        <input type="text" name="phone" id="phone" placeholder="Numărul dvs. de telefon">
+                        <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value=" Comanda"></div>
+                    </form>
+                </div>
+
+                <p>
+                    <strong> Atenție!</strong> Oferta este limitată! Acest produs nu se găsește în magazin: îl puteți comanda doar pe site.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <div class="block1">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="space1">
+                        <h1> Vă prezentăm timbrele pentru sprâncene:</h1>
+                        <p> un set compact format din pudra pigmentată și ștampile convenabile.</p>
+                        <img src="img/product-img1.jpg" id="product-img1">
+                    </div>
+                </div>
+                <div class="col m6">
+                    <img src="img/box.png" class="box">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block_pink_gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <h1> De ce anume<br><span class="text-pink"> «Eyebrow Beauty Stamp»</span> <br> este atât de popular?</h1>
+                        <p> Are tot ceea de ce aveți nevoie:</p>
+                    </center>
+                </div>
+                <center>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-shade"></i></div>
+                        <p class="circle-title"> nuanța perfectă</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-closed-eyes-with-lashes-and-brows"></i></div>
+                        <p class="circle-title"> efectul sprâncenelor naturale</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-raindrop"></i></div>
+                        <p class="circle-title"> rezistent la apă<br> pudra</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-time"></i></div>
+                        <p class="circle-title"> durabilitate pentru întreaga<br> zi</p>
+                    </div>
+                    <div class="boxes">
+                        <div class="circle"><i class="icon-good"></i></div>
+                        <p class="circle-title"> aplicare nedureroasă și simplă</p>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <center>
+                        <div class="float-box">
+                            <h3> Este profitabil să cumpărați  «Eyebrow Beauty Stamp» chiar acum</h3>
+                        </div>
+                        <div class="float-box">
+                            <div class="btn order"><span> Comanda</span></div>
+                        </div>
+                    </center>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Cum să-l utilizați?</h1>
+                    </center>
+                </div>
+
+                <div class="col m6">
+                    <img src="img/step1.jpg" class="step-img">
+                    <img src="img/step2.jpg" class="step-img">
+                    <img src="img/step3.jpg" class="step-img">
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> Chiar dacă nu ați făcut-o niciodată, vă dura doar un minut pentru a va învăța.</p>
+                    <p class="text-pink"> 1. Imprimați ștampila în pudra;<br> 2. Aplicați ștampila peste sprâncene;<br> 3. Bucurați-vă de rezultatul perfect!</p>
+                </div>
+
+                <div class="col m6">
+                    <p class="text-white"><span class="text-pink"> Veți primi două variante de pudra:</span> o nuanța închisa pentru brunete și una mai deschisa pentru cei cu păr deschis. Nuanțele se potrivesc perfect pentru orice culoare a pielii: arată incredibil de natural, ca și cum aceste sprâncene luxoase ar fi naturale!</p>
+                </div>
+                <div class="col m6">
+                    <img src="img/product-img2.jpg" class="product-img2">
+                </div>
+
+                <div class="col s12"><br><br>
+                    <center>
+                        <h1 class="text-white"> Cum funcționează<span class="text-pink"> «Eyebrow Beauty Stamp»?</span>
+                        </h1>
+                    </center>
+                </div>
+                <div class="col m6"><br><br>
+                    <img src="img/girl1.jpg" class="how-work-img">
+                    <img src="img/girl3.jpg" class="how-work-img girl3">
+                    <img src="img/girl2.jpg" class="how-work-img girl2">
+
+                </div>
+                <div class="col m6">
+                    <p class="text-white"> * umple perfect toate golurile dintre firele de păr;<br> * vă permite să obțineți instantaneu sprâncene perfect simetrice;<br> * menține rezultatul pentru întreaga zi.</p>
+                    <p class="text-white">
+                        <span class="text-pink"> Vă faceți griji că setul nu vi se va potrivi?</span> Două forme diferite de stampile au fost dezvoltate special pentru dvs.: rotunjite și mai grafice, cu un colț pronunțat. Utilizați doar forma care vi se potrivește cel mai bine și bucurați-vă de efectul excelent!</p>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="bg-pink">
+        <div class="container">
+
+            <div class="col s12">
+                <center>
+                    <div class="float-box">
+                        <h3> Cumpara «Eyebrow Beauty Stamp»</h3>
+                    </div>
+                    <div class="float-box">
+                        <div class="btn order"><span> Comanda</span></div>
+                    </div>
+                </center>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    <div class="wraper">
+        <div class="container">
+            <div class="row"><br><br>
+                <div class="col m6" align="center">
+                    <br><img src="img/logo.jpg" class="logo">
+                    <p> Ce este inclus în<span class="text-pink"> «Eyebrow Beauty Stamp»</span></p>
+                    <img src="img/product-img3.jpg" class="product-img3">
+                    <p align="left"><span class="text-pink"> Ce trebuie să știți despre «Eyebrow Beauty Stamp»:</span><br><br> * pudra se aplică fără efort, doar o atingere ușoară, delicată;<br><br> * produsul nu dăunează sprâncenelor sau pielii naturale;<br><br> * ștampilele sunt marcate cu simboluri, astfel încât să puteți distinge cu ușurință între stânga și dreapta;<br><br> * pudra este echipată cu o oglindă compactă și convenabilă;<br> <br> * bureții sunt ușor de curățat și uscat rapid.</p>
+                </div>
+
+                <div class="col m6">
+                    <p align="left"><span class="text-pink"> Secrete de frumusețe utile:</span><br><br> * puteți face cu ușurință sprâncenele chiar mai îngrijite prin simpla ajustare a formei finale cu un tampon de bumbac;<br><br> • cu ștampila, puteți completa, de asemenea, golurile enervante dintre firele de păr fără a afecta forma lor; pentru a face acest lucru, pur și simplu rulați-l pe întreaga lungime a sprâncenelor naturale;<br><br> • puteți face culoarea mai intensă dacă utilizați ștampila în mai mulți pași – continuați să stratificați amprentele până când atingeți idealul!.</p><br><br>
+                    <img src="img/before-after.jpg" class="before-after"><br><br>
+                    <p align="left"><span class="text-pink"> Cum să eliminați pudra?</span> Utilizați doar demachiantul preferat: va dura câteva secunde.</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wraper bg-black">
+        <div class="container">
+
+            <center>
+                <h1 class="text-pink"> Recenziile utilizatorilor</h1>
+            </center> <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> BeautyStamp</strong>
+                                <span class="views"> Vizualizări: 1,717</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> BeautyStamp</strong> Învățam de la<span class="text-pink"> @ makeup_bymadison</span> cum să obțineți sprâncenele perfecte în câteva minute.</p>
+                                <p><strong> Cleopat.Ra</strong> Oh, Doamne, cât timp am visat la asta, am comandat-o deja, m-am săturat să desenez cu orele în fiecare dimineață</p>
+                                <p><strong> Anak1N</strong> Am primit comanda ieri, sunt o mulțime de lucruri utile în magazin și cu reduceri uriașe acum. În plus pe langa ștampile, am comandat un epilator pentru față, foarte convenabil și pentru putini bani!<img src="img/img1.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt>
+                                </p>
+
+                                <p><strong> Maa0950</strong> <span class="text-pink"> @Anak1N</span> eu la fel, din cauza sprâncenelor mereu întârziam, iar acum cu ștampilele în 2 secunde sunt gata! Și apropo, am luat, de asemenea, în acest magazin benzi pentru albirea dinților și un rimel excelent. Ambele produse sunt foarte calitative.</p>
+                                <p><strong> Perla_99</strong> fetelor, mi se pare superb, spuneți-mi cât costă? Pot cumpăra în magazin?</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Perla_99</span> din păcate, nu vor exista livrări către magazine în viitorul apropiat, dar puteți cumpăra produsele noastre pe site-ul oficial</p>
+                                <p><strong> AnaSixty</strong> VREAUUUU!!</p>
+                                <p><strong> Makeupmaster77</strong> O prietena mi-a adus un set de asta din state, nu mi-a plăcut, nu prea am înțeles care este magia, dar poate merită să mai încerc</p>
+                                <p><strong> BeautyStamp</strong> <span class="text-pink"> @ Makeupmaster77</span> Cu siguranta mai încercați, suntem siguri că nu veți fi dezamăgita</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> maria_dream3</strong>
+                                <span class="views"> Vizualizări: 13,854</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> maria_dream3</strong> Vopsiți sprâncenele în câteva secunde?! Aceasta este cea mai lungă parte a machiajului meu zilnic, iar acum deja este în trecut. De asemenea, am cumpărat un cadou pentru sora mea mai mică, un inel și un pandantiv original, dacă direcționați lumina în piatra principală, o proiecție a expresiei "te iubesc" va apărea în 100 de limbi ale lumii! Sunt foarte mulțumit de toate achizițiile mele! mulțumesc<span class="text-pink"> @BeautyStamp</span>     <img src="img/img2.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> monica_xoxo</strong> Maria, fantastic, am plasat și eu o comandă și pentru set, foarte original!</p>
+
+                                <p><strong> buchet_online_com</strong> wooooow!</p>
+                                <p><strong> DauMagie</strong> <span class="text-pink"> @ maria_dream3</span> am ceva îndoieli cu privire la gradul de utilizare, am încercat pentru contururile sprâncenelor, nu mi-a plăcut prea mult</p>
+                                <p><strong> maria_dream3</strong> <span class="text-pink"> @ DauMagie</span> acestea sunt lucruri complet diferite, am încercat și eu contururi, nu sunt foarte ușor de manevrat,  acestea în schimb le-am aplicat o dată și  sunt fericita toată ziua)) plus o pudra de foarte înaltă calitate, primiți o grămadă de produse într-o singură comanda)))<img src="img/img3.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p><strong> @ maria_dream3</strong> <span class="text-pink"> @ maria_dream3</span> se pare că va fi necesar să mai încerc, vă mulțumesc, va urmăresc de mult timp și știu ca sfătuiți lucruri bune și voi comanda și eu un set, mersi</p>
+                                <p><strong> ami_mama</strong> Se primesc sprâncene foarte frumoase, le folosesc de o lună!</p>
+                                <p><strong> tetra_alexandra</strong> Sunt grozave!</p>
+                                <p><strong> ana_maria</strong> Cât de interesant, prima dată văd asa ceva, trebuie să încerc!</p>
+                                <p><strong> foxbeauty38</strong> nu arată prea bine! Eu prefer tatuajul</p>
+                                <p> <strong> for_you</strong> <span class="text-pink"> @ foxbeauty38</span> Susțin, tatuajul e mult mai superb</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonials-box">
+
+                        <div class="testimonials">
+                            <div class="info-block">
+                                <strong> Oana_dream99</strong>
+                                <span class="views"> Vizualizări: 12,595</span>
+                                <p></p>
+                                <hr style="height:1px; background-color:#f2a3b8; border:0;">
+                            </div>
+                            <div class="scroll">
+                                <p><strong> Oana_dream99</strong> Este ceva uimitor ceea ce tocmai am primit și vreau să ma împărtășesc cu voi!<span class="text-pink"> @BeautyStamp</span> acesta este cu siguranță un lucrul perfect pentru utilizarea zilnică, mai ales atunci când timpul este limitat. Sunt foarte impresionata. Priviți videoclipul meu, nu pierdeți timpul, comandați cât mai este promoția!<img src="img/img4.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt> </p>
+                                <p><strong> mariia0684</strong> <span class="text-pink"> @ Oana_dream99</span> frumusețea este întotdeauna pe primul loc, și ca întotdeauna veți găsi oferte bune</p>
+                                <p><strong> silviasensual1</strong> Photoshop</p>
+                                <p><strong> cris0301</strong> Oana ești o REGINA A SPRÂNCENELOR) mișto</p>
+                                <p><strong> Oana_dream99</strong> <span class="text-pink"> @ kris0301</span> am comandat în magazinul oficial online, și am primit un link cu diferite promoții</p>
+                                <p><strong> annasimion</strong> Super fain aceste sprâncene! Am găsit încă un dispozitiv în acest magazin pentru lobul urechii atunci când purtați cercei grei, foarte convenabil, vă recomand<img src="img/img5.jpg" style="max-width: 200px; width: 100%; display: block; margin-top: 10px;" alt></p>
+                                <p> <strong> paula17_11</strong> ca întotdeauna, frumos dami și mie link-ul te rog, mi se pare foarte interesant</p>
+                                <p><strong> regina_h73</strong> frumos</p>
+                                <p><strong> solomon.Alina</strong> Frumoaso, ai sprâncene super.</p>
+                                <p><strong> daydream</strong> Misto! Video foarte frumos</p>
+                                <p><strong> Oana_dream99</strong> <span class="text-pink"> @ daydream</span> multumesc</p>
+                                <p> <strong> zana_maria</strong> sincer, sunt foarte obosita să cheltui mult timp pe sprâncene, dar mă îndoiesc foarte mult de acest produs ))</p>
+
+                                <p><strong> ioana5569</strong> ba nu, demult era timpul să ușurăm viața femeilor cu așa ceva</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="wraper bg-gradient-pink">
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <img src="img/box.png" class="box2">
+                </div>
+                <div class="col m6" align="center">
+                    <p> Acest set vă va oferi spațiu nelimitat pentru creativitate: experimentați pentru a afla ce formă va fi perfectă pentru sprâncene.<strong> Suntem siguri că vă va plăcea rezultatul: simplu, ca doar unul-doi-trei!</strong>
+                    </p>
+                    <div class="form-container">
+                        <div>
+                            <h2> Comanda acum!</h2>
+                            <div class="price">
+                                <span class="old-price">
+                                    <x-oldprice> 378</x-oldprice>
+                                    <x-currency> €</x-currency> lei</span>
+                                <x-newprice> 189</x-newprice>
+                                <x-currency> €</x-currency> lei</div>
+                        </div>
+                        <form action method="post" class="order-form">
+                            <input name="csrf_token" type="hidden" value="3abec9c331a3896679203f85419a606b:1617607085">
+
+
+                            <input type="text" name="name" id="name" placeholder="Numele dvs.">
+                            <input type="text" name="phone" id="phone" placeholder="Numărul dvs. de telefon">
+                            <div class="btn"><input type="submit" class="button" name="order" id="order-btn" value=" Comanda"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <center>
+            <p> BEAUT-E SHOP,</p>
+            <p> Bulevardul Gloriei 15, București, România</p>
+            <a href="/privacypolicy" target="_blank"> Politica de confidențialitate</a>  <br>
+            <a href="/general-conditions-of-sale" target="_blank"> Condiții generale de vânzare</a>  <br>
+            <a href="/legal-warning" target="_blank"> Avertisment juridic</a>
+        </center>
+    </div>
+    <style>
+        .form-control {
+            width: 355px;
+            height: 50px;
+            padding: 0px 20px 0px 20px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: #E89395;
+            border: none;
+            margin: 20px 0 0 0;
+            font-size: 22px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+
+
+        $(document).on('click', 'form', function (e) {
+            if (!$(this).find('input[name=phone]').length) {
+                return;
+            }
+
+            if (window['yaCounter46830237'] && e.validator === window.orderValidator) {
+                window['yaCounter46830237'].reachGoal('FORMCLICK');
+            }
+        });
+
+
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(46830237, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+        if (yandex_metrika_postinit) {
+            yandex_metrika_postinit(ym);
+        }
+    </script>
+    <noscript><span data-translate="163"><span data-translate="174">
+            <div><img src="1" style="position:absolute; left:-9999px;" alt></div>
+        </span></span></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Rating Mail.ru counter -->
+    <script type="text/javascript">
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({ id: "2925504", type: "pageView", start: (new Date()).getTime() });
+        (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = "https://top-fwz1.mail.ru/js/code.js";
+            var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
+    </script><noscript><span data-translate="164"><span data-translate="175">
+            <div>
+                <img src="counter2" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+            </div>
+        </span></span></noscript>
+    <!-- //Rating Mail.ru counter -->
+
+
+
+</body></html>
