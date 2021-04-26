@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/errors/404_astronaut/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body class="bg-purple">
+
+<div class="stars">
+
+    <!--<div class="custom-navbar">-->
+    <!--<div class="brand-logo">-->
+    <!--<img src="img/logo.svg" width="80px">-->
+    <!--</div>-->
+    <!--<div class="navbar-links">-->
+    <!--<ul>-->
+    <!--<li><a href="#">Home</a></li>-->
+    <!--<li><a href="#">About</a></li>-->
+    <!--<li><a href="#">Features</a></li>-->
+    <!--<li><a href="#" class="btn-request">Request A Demo</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="central-body">
+        <img class="image-404" src="/errors/404_astronaut/img/404.svg" width="300px">
+        <a href="#" class="btn-go-home" onclick="window.history.back()">GO BACK HOME</a>
+    </div>
+    <div class="objects">
+        <img class="object_rocket" src="/errors/404_astronaut/img/rocket.svg" width="40px">
+        <div class="earth-moon">
+            <img class="object_earth" src="/errors/404_astronaut/img/earth.svg" width="100px">
+            <img class="object_moon" src="/errors/404_astronaut/img/moon.svg" width="80px">
+        </div>
+        <div class="box_astronaut">
+            <img class="object_astronaut" src="/errors/404_astronaut/img/astronaut.svg" width="140px">
+        </div>
+    </div>
+    <div class="glowing_stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

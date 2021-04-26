@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>MagicBax</title>
+<meta property="og:title" content="MagicBax">
+<meta property="og:description" content="Корректор мочки уха из ювелирной стали">
+<meta property="og:image" content="https://i.imgur.com/T4DDxQC.jpg">
+<meta property="og:type" content="website">
+    <link rel="icon" href="fav.ico" type="image/vnd.microsoft.icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head><body> <style> 
+  .menulog {
+    display: none
+}
+  .menu {
+    text-align: center;padding: 8px 0;background: #ececec;
+	
+}
+
+.menu__links-item img {
+    vertical-align: middle;
+}
+
+.menu__icon {
+   display: none;
+   width: 45px;
+   height: 35px;
+   position: relative;
+   cursor: pointer;
+}
+
+.menu__icon span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: #333333;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.menu__icon span:nth-child(1) {
+  top: 0px;
+}
+
+.menu__icon span:nth-child(2), .menu__icon span:nth-child(3) {
+  top: 13px;
+}
+
+.menu__icon span:nth-child(4) {
+  top: 26px;
+ }
+
+.menu__links-item {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu__links-item:hover {
+    text-decoration: underline;
+}
+
+.menu.menu_state_open .menu__icon span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu.menu_state_open .menu__icon span:nth-child(2) {
+  transform: rotate(45deg);    background: #fff;
+}
+
+.menu.menu_state_open  .menu__icon span:nth-child(3) {
+  transform: rotate(-45deg);    background: #fff;
+}
+
+.menu.menu_state_open  .menu__icon span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu.menu_state_open .menu__links {
+  display: block;  
+}
+
+@media screen and (max-width: 999px) {
+	  .menulog {
+		  width: 100%; max-width: 55px; margin-left: 8px;margin-top: 0px;
+    display: block
+}
+  .menu {
+    text-align: right;
+padding-top: 10px;
+padding-right: 15px;
+display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  .menu__icon{
+    display: inline-block; z-index: 900;
+  }
+  
+  .menu__links {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    left: 0;
+	    height: 100%;
+        padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+    overflow: auto;
+  }
+  
+  .menu__links-item {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    color: #ffffff;font-size: 24px;
+    line-height: 45px;
+  }  
+  
+  .menu__links-item-mob {
+    display: none;
+  }
+  
+}
+  </style> 
+  
+
+  <script>(function($){
+  $(function() {
+    $('.menu__icon').on('click', function() {
+      $(this).closest('.menu').toggleClass('menu_state_open');
+    });
+  });
+})(jQuery);</script>
+
+
+
+ 
+ 
+
+    <header>
+      <div class="header-cont"><img class="logo" src="images/logo.png" alt><a class="header__link" href="#form-link"> Ordina</a></div>
+    </header>
+    <main>
+      <section class="wellcome">
+        <h1><span> Correttore per il lobo dell'orecchio</span><br><span> in acciaio per gioielli </span></h1>
+        <div class="content-center">
+          <p class="two-colors"> ~ <span>2</span> colori ~ </p>
+        </div>
+        <ul class="check">
+          <li> <span> Ripristina l'aspetto naturale<br> di lobo allungato </span></li>
+          <li><span> Impedirà l'allungamento<br> de lobo dell'orecchio</span></li>
+          <li><span> Adatto a tutti i tipi<br> di orecchini</span></li>
+        </ul>
+      </section>
+      <div class="price-cont">
+        <div class="old-price-cont">
+          <p class="old-price__desc"> Prezzo di listino</p>
+          <div class="old-price-wrapper"><span class="price-value"> 38</span>€</div>
+        </div>
+        <div class="new-price-cont">
+          <p class="new-price__desc"> Prezzo promozionale</p>
+          <div class="price-wrapper"><span class="price-value"> 19</span>€</div>
+        </div>
+      </div>
+      <section class="form">
+        <h2 class="form__title"> Prenota ora <br> e ottieni<b> il 50% di sconto</b></h2>
+        <p class="limited"> Promozione a un numero limitato</p>
+        <form method="post">          
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value>
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+          <div class="ico-cont-name">
+            <input class="form__input" required type="text" name="name" placeholder="Nome">
+          </div>
+          <div class="ico-cont-tel">
+            <input class="form__input input-tel" required type="tel" name="phone" placeholder="Telefono">
+          </div>
+          <button class="link-button" type="submit"> Ordina con sconto</button>
+
+        </form>
+      </section>
+      <div class="gray"></div>
+      <div class="header-line">       </div>
+      <div class="video">
+         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline controls autoplay="autoplay">
+<source src="media/1.mp4" type="video/mp4">
+<source src="media/1.webm" type="video/webm">
+</video>
+      </div>
+      <div class="header-line"></div>
+      <div class="pic-and-text">
+        <p> Si tratta di due punte speciali<br> per orecchini </p>
+      </div>
+      <section class="big-check">
+        <ul class="big-check__ul">
+          <li>
+            <h3> I lobi delle orecchie sembreranno<br> naturali e non tesi</h3>
+            <p> Il correttore può tenere gli orecchini più pesanti nella giusta posizione</p>
+          </li>
+          <li>
+            <h3> Ripristina l'aspetto<br> dei lobi delle orecchie strappati, <br> danneggiati e allungati</h3>
+            <p> Grazie alla sua forma speciale,<br> si adatta perfettamente al lobo,<br> sollevandolo e ripristinando<br> il suo aspetto naturale</p>
+          </li>
+          <li>
+            <h3> Previene <br> allungamento del lobo</h3>
+            <p> Assicura una corretta<br> distribuzione del peso dei gioielli, <br> proteggendo la pelle<br> da cedimenti non belli.</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <div class="pic-and-text pic-and-text-2">
+        <p> Si tratta di due punte speciali<br> per orecchini </p>
+      </div>
+      <section class="small-check">
+        <ul class="small-check__ul">
+          <li><img src="images/min-chk.png" alt>
+            <p> Aiuta ad avere un aspetto spettacolare<br> e attraente</p>
+          </li>
+          <li><img src="images/min-chk.png" alt>
+            <p> È un'eccellente prevenzione del dolore dovuto all'uso di bigiotteria di grandi dimensioni</p>
+          </li>
+          <li><img src="images/min-chk.png" alt>
+            <p> Il correttore per lobi è assolutamente universale e adatto a tutte le età</p>
+          </li>
+          <li><img src="images/min-chk.png" alt>
+            <p> Adatto per uso quotidiano, si può usare in qualsiasi situazione</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <h2 class="pic-block__title"> Il tuo accessorio<br> essenziale </h2><img src="images/pic-1.jpg" alt>
+      <section class="nat">
+        <ul class="nat__ul">
+          <li><img src="images/nat-1.png" alt>
+            <h3> Fabbricato <br> in acciaio inossidabile.</h3>
+            <p> In questo metallo sono fatti gli strumenti medici. Resistente fisicamente e alla corrosione </p>
+          </li>
+          <li><img src="images/nat-2.png" alt>
+            <h3> Ha un design <br> raffinato</h3>
+            <p> Permette anche agli orecchini più ingombranti di avere un look bello e curato.</p>
+          </li>
+          <li><img src="images/nat-3.png" alt>
+            <h3> Praticamente invisibile</h3>
+            <p> Il fermo è leggero, compatto e facile nell' uso </p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <h2 class="pic-block__title title-line"> Adatto a coloro che hanno</h2>
+      <div class="colors">
+        <div class="color"><img src="images/white.png" alt>
+          <p> Brutti <br> piercing</p>
+        </div>
+        <div class="color"><img src="images/blue.png" alt>
+          <p> Orecchini <br> pesanti</p>
+        </div>
+        <div class="color"><img src="images/gray.png" alt>
+          <p> Lobi delle orecchie<br> allungati</p>
+        </div>
+        <div class="color"><img src="images/pink.png" alt>
+          <p> Il fastidio degli orecchini<br> pesanti</p>
+        </div>
+      </div>
+      <div class="gray"></div>
+      <h2 class="pic-block__title"> Il tuo accessorio<br> essenziale </h2><img src="images/pic-2.jpg" alt>
+      <section class="small-check">
+        <ul class="small-check__ul">
+          <li><img src="images/min-chk.png" alt>
+            <p> Una varietà di colori rende il morsetto un'opzione universale.</p>
+          </li>
+          <li><img src="images/min-chk.png" alt>
+            <p> Ottimo come regalo</p>
+          </li>
+        </ul>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="images/per-1.png" alt></div>
+      <div class="header-line"></div>
+      <div class="video">
+         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline autoplay="autoplay" controls>
+<source src="media/2.mp4" type="video/mp4">
+<source src="media/2.webm" type="video/webm">
+</video>
+      </div>
+      <div class="header-line"></div>
+      <section class="post"> <img src="images/post-top.png" alt>
+        <div class="post__like"> Mi piace: <b> 2 511</b></div>
+        <div class="post__desc"> Elegante correttore - una buona scelta per le donne di qualsiasi età</div>
+        <ul class="post__ul no-padding">
+          <li><img class="emoji-first" src="images/diamond.jpg" alt><span> Ha un aspetto elegante e raffinato, si fonde perfettamente con gioielli in metalli preziosi, diversi tipi di bigiotteria </span></li>
+          <li><img class="emoji-first" src="images/post-heart.png" alt><span> Il proprietario di questo accessorio acquisterà fiducia </span></li>
+          <li><img class="emoji-first" src="images/diamond.jpg" alt><span><b> Il meccanismo di chiusura sicuro previene la perdita di orecchini costosi</b></span></li>
+          <li><img class="emoji-first" src="images/post-check.png" alt><span> L'accessorio impedirà la perdita nella presentazione degli orecchini da una caduta improvvisa</span></li>
+        </ul>
+        <p class="post-time"> 19 ore fa</p>
+      </section>
+      <div class="line-gray"></div>
+      <div class="gray"></div>
+      <div class="per"><img src="images/per-2.png" alt></div><img src="images/pic-3.jpg" alt>
+      <section class="post"><img src="images/post-top.png" alt>
+        <div class="post__like no-pb"> Mi piace: <b> 4 952</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span><b> Amate gli orecchini imponenti, come me?<br> Ecco il mio piccolo consiglio di stile per te</b></span><img src="images/post-smile.png" alt><br></li>
+          <li><span> Sono molto sorpresa che alcuni non conoscano ancora il correttore per lobi, perciò condivido la mia esperienza con voi!</span><img src="images/post-heart.png" alt><span> Sembra poco curato, ti fa sentire a disagio e insicura.</span></li>
+          <li> <span> Una vera salvezza per me è stato il Magic Bax! Rimette gli orecchini nella giusta posizione con un solo movimento!</span><img src="images/post-like.png" alt></li>
+          <li> <span> Ora posso indossare qualsiasi tipo di gioiello senza alcun disagio</span><img src="images/magic.png" alt><span> Inoltre, niente più paura di perdere i miei orecchini preferiti. È un must-have per ogni donna!</span></li>
+        </ul>
+        <p class="post-time"> 2 giorni fa</p>
+      </section>
+      <div class="line-gray"></div>
+      <section class="mini-rev">
+        <p class="mini-rev__desc"><b> Fidal_36</b> La mia amica mi ha parlato di loro, li indosso da molto tempo. Sono d'accordo con te, sono fantastici.</p>
+        <div class="mini-rev__tech-cont">
+          <p class="mini-rev__time"> 2 giorni fa</p>
+          <p class="mini-rev__like"> 3 "Mi piace".</p>
+        </div><span class="mini-rev__desc"><b> Kirochkatt</b> Interessante, dovrò ordinarlo.</span><img src="images/post-heart.png" alt><img src="images/post-heart.png" alt><img src="images/post-heart.png" alt>
+        <div class="mini-rev__tech-cont">
+          <p class="mini-rev__time"> 23 ore.</p>
+          <p class="mini-rev__like"> 6 "Mi piace".</p>
+        </div>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="images/per-3.png" alt></div><img src="images/pic-4.jpg" alt>
+      <section class="post"><img src="images/post-top.png" alt>
+        <div class="post__like no-pb"> Mi piace: <b> 361</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span> Ricevuto il pacco un paio di mesi fa, molto felice! </span><img src="images/sml.png" alt><br><span> Ho deciso di comprarli dopo aver perso i miei costosi orecchini d'oro. Ora posso indossare qualsiasi orecchino e non ho paura per loro. Il fermo è poco costoso, ma i benefici sono grandi! Le mie orecchie sono molto belle ora. Cinque stelle! Raccomandato!</span><img src="images/sml.png" alt></li>
+        </ul>
+        <p class="post-time"> 3 giorni fa</p>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="images/per-4.png" alt></div>
+      <div class="reviews__slick-2"><img src="images/sl-1.jpg" alt><img src="images/sl-2.jpg" alt></div>
+      <section class="post"><img src="images/post-top.png" alt>
+        <div class="post__like no-pb"> Mi piace: <b> 986</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span> Voglio condividere! Forse aiuterà qualcuno come ha aiutato me! </span><br><br><span> Per lungo tempo ho portato orecchini pesanti e con il tempo il mio lobo si è allungato. Pensavo di aver bisogno di un'operazione di correzione del lobo! Il problema si è risolto con il correttore del lobo dell'orecchio</span><br><br><span> Ora posso indossare gioielli con pietre grandi, orecchini di metalli pesanti e avere un aspetto impeccabile allo stesso tempo! Prendetelo, non ve ne pentirete!</span></li>
+        </ul>
+        <p class="post-time"> 4 giorni fa</p>
+      </section>
+      <div class="gray"></div>
+      <div class="per"><img src="images/per-5.png" alt></div>
+      <div class="reviews__slick-2"><img src="images/sl-3.jpg" alt><img src="images/sl-4.jpg" alt><img src="images/sl-5.jpg" alt><img src="images/sl-6.jpg" alt></div>
+      <section class="post"><img src="images/post-top.png" alt>
+        <div class="post__like no-pb"> Mi piace: <b> 2 334</b>       </div>
+        <ul class="post__ul no-padding">
+          <li>            <span> Non potevo indossare uno dei miei orecchini preferiti per molto tempo, essi sono molto pesanti e mi fanno male alle orecchie</span><br><br><span> Problema risolta con MagicBax!</span><br><br><span> Ha un design particolare che distribuisce il carico su tutta l'area del lobo, così anche gli orecchini da cento grammi non si sentiranno sulle orecchie!</span><img src="images/sml.png" alt></li>
+        </ul>
+        <p class="post-time"> 4 giorni fa</p>
+      </section>
+      <div class="gray"></div>
+      <section class="delivery">
+        <h2> Consegna e pagamento</h2>
+        <div class="delivery__item"><img src="images/deliv-1.png" alt>
+          <h3> Consegna</h3>
+          <p> Consegniamo con corriere entro 1-3 giorni</p>
+        </div>
+        <div class="delivery__item"><img src="images/deliv-3.png" alt>
+          <h3> Pagamento</h3>
+          <p> Il pagamento viene effettuato<br> al ricevimento della merce</p>
+        </div>
+      </section>
+      <section class="wellcome">
+        <h1><span> Correttore per il lobo dell'orecchio</span><br><span> in acciaio per gioielli </span></h1>
+        <div class="content-center">
+          <p class="two-colors"> ~ <span>2</span> colori ~ </p>
+        </div>
+        <ul class="check">
+          <li> <span> Ripristina l'aspetto naturale<br> di lobo allungato </span></li>
+          <li><span> Impedirà l'allungamento<br> de lobo dell'orecchio</span></li>
+          <li><span> Adatto a tutti i tipi<br> di orecchini</span></li>
+        </ul>
+      </section>
+      <div class="price-cont">
+        <div class="old-price-cont" id="form-link">
+          <p class="old-price__desc"> Prezzo di listino</p>
+          <div class="old-price-wrapper"><span class="price-value"> 38</span>€</div>
+        </div>
+        <div class="new-price-cont">
+          <p class="new-price__desc"> Prezzo promozionale</p>
+          <div class="price-wrapper"><span class="price-value"> 19</span>€</div>
+        </div>
+      </div>
+      <section class="form">
+        <h2 class="form__title"> Prenota ora <br> e ottieni<b> il 50% di sconto</b></h2>
+        <p class="limited"> Promozione a un numero limitato</p>
+        <form method="post">     
+<input name="offer_id" type="hidden" value="{offer_id}">
+<input name="geo" type="hidden" value>
+<input name="web_id" type="hidden" value="{web_id}">
+<input name="click_id" type="hidden" value="{click_id}">
+<input name="time_zone" type="hidden" value="+3">
+<input name="lang" type="hidden" value="RU">
+          <div class="ico-cont-name">
+            <input class="form__input" required type="text" name="name" placeholder="Nome">
+          </div>
+          <div class="ico-cont-tel">
+            <input class="form__input input-tel" required type="tel" name="phone" placeholder="Telefono">
+          </div>
+          <button class="link-button" type="submit"> Ordina con sconto</button>
+
+        </form>
+      </section>
+      <div class="gray"></div> 
+ 
+    </main>
+    <footer id="footer-link">
+  <div style="text-align: center;margin: 10px auto;display: block;font-size: 14px;line-height: 26px;"> BEAUT-E SHOP, Piazza Augusto Imperatore, 19, 00186 Roma RM, Italy<br> 
+<a href="/privacypolicy" target="_blank"> Privacy policy</a>
+<a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>
+<a href="/legal-warning" target="_blank"> Legal warning</a>
+</div>    
+</footer>
+    <div id="details-wrapper"></div>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+  
+<script type="text/javascript" src="/libs/js/common.js"></script>
+<script>
+    $(document).ready(function() {
+        $.init({
+
+            priceSelector: ".new-cost",
+            oldPriceSelector: ".old-cost",
+            reportFormSelector: ".report-abuse__form",
+            reportCallback: function (data) {
+                console.log('ReportCallback:', data);
+            },
+            callback: function() {
+                console.log("Do something after prices changing");
+
+            }
+        });
+    });
+</script>
+   
+
+</body></html>
