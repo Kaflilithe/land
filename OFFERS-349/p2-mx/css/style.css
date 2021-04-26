@@ -602,9 +602,6 @@ hr {
        border-image: none
 }
 
-#main p {
-    line-height: 150%
-}
 
 .fletter::first-letter,
 .letter {
