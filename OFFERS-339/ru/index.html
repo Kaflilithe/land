@@ -1,95 +1,97 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
+
 <head>
 
-<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 
-    <script>
-    function set_validator_errors(){
-        orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки'; 
+	<script>
+		function set_validator_errors() {
+			orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки';
 
-        orderValidator.errorNameField = 'Имя'; 
-        orderValidator.errorNameMess = 'Укажите своё имя'; 
-        
-        orderValidator.errorPhoneField = 'Телефон для связи'; 
-        orderValidator.errorPhoneMess = 'Введите правильный телефон'; 
-        
-        orderValidator.errorAddress = 'Введите правильный адрес'; 
-        orderValidator.errorRequired = 'обязательное поле'; 
-        orderValidator.errorMaxLength = 'допустимо максимум {1} символа'; 
-        orderValidator.errorMinLength = 'допустимо минимум {1} символа'; 
-        orderValidator.errorEmailField = 'E-mail';
-        orderValidator.errorEmail = 'указан не корректный email';
-        }
-    </script>
-    
-<script>
+			orderValidator.errorNameField = 'Имя';
+			orderValidator.errorNameMess = 'Укажите своё имя';
 
+			orderValidator.errorPhoneField = 'Телефон для связи';
+			orderValidator.errorPhoneMess = 'Введите правильный телефон';
 
-window.app = {
-    timestamp: parseInt((new Date()).getTime() / 1000),
-    jq: jQuery,
-    formAction: window.location.href,
-    leadToken: '607589b8c3d8c2.30899614',
-    offers: {"22668":{"id":22668,"country":{"code":"RU","name":"\u0420\u043e\u0441\u0441\u0438\u044f"},"price":"1690","price2":"3600","currency":{"code":"RUB","name":"\u0440\u0443\u0431"},"discount":"53","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
-    currentOffer: {"id":22668,"country":{"code":"RU","name":"\u0420\u043e\u0441\u0441\u0438\u044f"},"price":"1690","price2":"3600","currency":{"code":"RUB","name":"\u0440\u0443\u0431"},"discount":"53","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
-    allowedCountries: ["RU"],
-    _setOfferId: false,
-    //streamHid: <?//= $stream_hid ?>//,
-    
-    setOffer: function (offerId) {
-        if (offerId == this._setOfferId) {
-            return ;
-        }
-        this._setOfferId = offerId;
-        if (offerId) {
-            var offer = app.offers[offerId];
-            var previousOffer = app.currentOffer;
-            app.currentOffer = offer;
-            var event = this.jq.Event("offerchange");
-            event.previousOffer = previousOffer;
-            event.currentOffer = app.currentOffer;
-            this.jq(document).trigger(event);
-            this.updatePage(offer);
-        } else {
-            $('input[name=country]').val('');
-        }
-    },
-    
-    updatePage: function(offer) {
-        $('x-newprice').html(offer.price);
-        $('x-oldprice').html(offer.price2);
-        $('x-currency').html(offer.currency.name);
-        $('input[name=offer], select[name=offer]').val(offer.id);
-        $('input[name=country]').val(offer.country.code);
-    },
+			orderValidator.errorAddress = 'Введите правильный адрес';
+			orderValidator.errorRequired = 'обязательное поле';
+			orderValidator.errorMaxLength = 'допустимо максимум {1} символа';
+			orderValidator.errorMinLength = 'допустимо минимум {1} символа';
+			orderValidator.errorEmailField = 'E-mail';
+			orderValidator.errorEmail = 'указан не корректный email';
+		}
+	</script>
 
-    blockForm: function() {
-        // Блокируем кнопки при отправке формы
-        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
-        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
-        app.incompleteOrder.lock = true;
-        clearTimeout(app.incompleteOrder.timer);
-    },
-
-    unblockForm: function() {
-        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
-        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
-        app.incompleteOrder.lock = false;
-        clearTimeout(app.incompleteOrder.timer);
-    }
-
-};
+	<script>
 
 
-</script><script src="js/form.validate.js"></script>
-<script src="js/form.incomplete.js"></script>
-<script src="js/main2.js"></script>
+		window.app = {
+			timestamp: parseInt((new Date()).getTime() / 1000),
+			jq: jQuery,
+			formAction: window.location.href,
+			leadToken: '607589b8c3d8c2.30899614',
+			offers: { "22668": { "id": 22668, "country": { "code": "RU", "name": "\u0420\u043e\u0441\u0441\u0438\u044f" }, "price": "49", "price2": "98", "currency": { "code": "RUB", "name": "\u0440\u0443\u0431" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" } },
+			currentOffer: { "id": 22668, "country": { "code": "RU", "name": "\u0420\u043e\u0441\u0441\u0438\u044f" }, "price": "49", "price2": "98", "currency": { "code": "RUB", "name": "\u0440\u0443\u0431" }, "discount": "50", "delivery_price": "", "link": "", "product_sku": "", "prepaid_info_html": "" },
+			allowedCountries: ["RU"],
+			_setOfferId: false,
+			//streamHid: <?//= $stream_hid ?>//,
+
+			setOffer: function (offerId) {
+				if (offerId == this._setOfferId) {
+					return;
+				}
+				this._setOfferId = offerId;
+				if (offerId) {
+					var offer = app.offers[offerId];
+					var previousOffer = app.currentOffer;
+					app.currentOffer = offer;
+					var event = this.jq.Event("offerchange");
+					event.previousOffer = previousOffer;
+					event.currentOffer = app.currentOffer;
+					this.jq(document).trigger(event);
+					this.updatePage(offer);
+				} else {
+					$('input[name=country]').val('');
+				}
+			},
+
+			updatePage: function (offer) {
+				$('x-newprice').html(offer.price);
+				$('x-oldprice').html(offer.price2);
+				$('x-currency').html(offer.currency.name);
+				$('input[name=offer], select[name=offer]').val(offer.id);
+				$('input[name=country]').val(offer.country.code);
+			},
+
+			blockForm: function () {
+				// Блокируем кнопки при отправке формы
+				$('input[type=submit]', $(this)).prop('disabled', true).attr('disabled', true);
+				$('button', $(this)).prop('disabled', true).attr('disabled', true);
+				app.incompleteOrder.lock = true;
+				clearTimeout(app.incompleteOrder.timer);
+			},
+
+			unblockForm: function () {
+				$('input[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+				$('button[type=submit]', $(this)).prop('disabled', false).attr('disabled', false);
+				app.incompleteOrder.lock = false;
+				clearTimeout(app.incompleteOrder.timer);
+			}
+
+		};
+
+
+	</script>
+	<script src="js/form.validate.js"></script>
+	<script src="js/form.incomplete.js"></script>
+	<script src="js/main2.js"></script>
 
 
 
 	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>Hot Shapers - ваша идеальная фигура без тренировок и диет</title>
+	<title>Hot Shapers - ваша идеальная фигура без тренировок и диет</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content>
@@ -99,11 +101,13 @@ window.app = {
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Витрина HotShapers">
-<meta property="og:description" content="Лучшие продукты от Hot Shapers собраны в одном магазине. С нами вы легко и просто приведете в порядок свои проблемные зоны за кратчайший срок. Наши товары изготовлены из инновационного материала, который стимулирует потоотделение и при этом, впитывает влагу, не пропуская ее наружу.">
-<meta property="og:url" content>
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Витрина HotShapers">
+	<meta property="og:description"
+		content="Лучшие продукты от Hot Shapers собраны в одном магазине. С нами вы легко и просто приведете в порядок свои проблемные зоны за кратчайший срок. Наши товары изготовлены из инновационного материала, который стимулирует потоотделение и при этом, впитывает влагу, не пропуская ее наружу.">
+	<meta property="og:url" content>
 </head>
+
 <body>
 	<section class="top_menu">
 		<div class="logo"><img src="img/logo.png" alt></div>
@@ -111,27 +115,32 @@ window.app = {
 			<li><a href="#desc">Описание</a></li>
 			<li><a href="#reviews">отзывы</a></li>
 			<li><a href="#result">Результаты</a></li>
-			<li><a href="#order">Доставка / оплата</a></li>
+			<li><a href="#order">Доставка / -50%</a></li>
 		</ul>
 		<a href="#catalog" class="button order">В каталог</a>
 	</section>
 	<section class="offer">
 		<img src="img/offer_mob.jpg" alt class="mob">
 		<div class="wrapper content">
-			<h1 class="main_title"><span>Носи и худей!</span> Идеальная фигура</h1>
+			<h1 class="main_title"><span>ГОТОВИМСЯ К ПЛЯЖНОМУ СЕЗОНУ!</span> ЛУЧШИЕ ТОВАРЫ ДЛЯ
+			</h1>
 			<h2 class="main_subtitle">
-				<span>Без тренировок и диет</span> 
+				<span>ИДЕАЛЬНОЙ КОЖИ</span>
 				<small>скидка на весь ассортимент</small>
 			</h2>
 			<div class="sale_line">
-				<div class="sale_panorama"><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span></div>
-				<div class="sale_panorama"><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span><span>-53%</span></div>
+				<div class="sale_panorama">
+					<span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span>
+				</div>
+				<div class="sale_panorama">
+					<span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span><span>-50%</span>
+				</div>
 			</div>
 		</div>
 	</section>
 	<section class="sect2" id="catalog">
 		<div class="wrapper">
-			<h2 class="title">Витрина товаров HotShapers</h2>
+			<h2 class="title">ВИТРИНА ТОВАРОВ ДЛЯ ИДЕАЛЬНОЙ КОЖИ</h2>
 			<div class="catalog_list">
 				<!-- item -->
 				<div class="prod_item">
@@ -141,13 +150,51 @@ window.app = {
 					</div>
 					<div class="description">
 						<div class="text">
-							<p class="prod_name">Майка</p>
+							<p class="prod_name">УНИВЕРСАЛЬНЫЙ ЭПИЛЯТОР <br>
+								FLAWLESS LEGS
+							</p>
 							<div class="price">
-								<div class="old"><span><x-oldprice>3600</x-oldprice></span><small><x-currency>руб</x-currency></small></div>
-								<div class="new"><span><x-newprice>1690</x-newprice></span><small><x-currency>руб</x-currency></small></div>
+								<div class="old"><span>
+										<x-oldprice>98</x-oldprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+								<div class="new"><span>
+										<x-newprice>49</x-newprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+							</div>
+							<div class="prod_description">
+								Эпилятор Flawless Legs – это уникальный прибор, который безопасно и безболезненно удалит
+								нежелательные волосы на теле. Он подходит для использования в домашних условиях, при
+								этом эффект будет таким же, как после посещения салона красоты. Устройство полностью
+								удаляет волоски, поэтому кожа остается гладкой в течение долгого времени. Его
+								разрешается использовать даже для интимных зон, где кожа нежная и требует особого ухода.
+								Flawless Legs не повреждает кожу и не оставляет волосков на теле, поэтому данный
+								эпилятор понравится каждой женщине.
+								<br> <br>
+								Основные достоинства:
+								<ul>
+									<li>1. Безопасная и эффективная эпиляция в любое время суток</li>
+									<li>
+										2. Обеспечивает полное отсутствие раздражения на коже благодаря золотым
+										плавающим
+										головкам
+									</li>
+									<li>3. Наличие подсветки </li>
+									<li>4. Современный дизайн</li>
+									<li>5. Компактный размер</li>
+									<li>6. Наличие зарядного устройства</li>
+									<li>7. Подходит для любых зон тела</li>
+									<li>8. Подходит для людей, которые проводят много времени за пределами дома</li>
+								</ul>
+
 							</div>
 						</div>
-						<a data-fancybox class="button" href="#order_form">Заказать</a>
+						<a data-fancybox class="button" href="#order_form">ПОДРОБНЕЕ</a>
 					</div>
 				</div>
 				<!-- /item -->
@@ -159,13 +206,46 @@ window.app = {
 					</div>
 					<div class="description">
 						<div class="text">
-							<p class="prod_name">Пояс</p>
+							<p class="prod_name">ТОНАЛЬНЫЙ КРЕМ <br> DERMACOL
+							</p>
 							<div class="price">
-								<div class="old"><span><x-oldprice>3600</x-oldprice></span><small><x-currency>руб</x-currency></small></div>
-								<div class="new"><span><x-newprice>1690</x-newprice></span><small><x-currency>руб</x-currency></small></div>
+								<div class="old"><span>
+										<x-oldprice>98</x-oldprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+								<div class="new"><span>
+										<x-newprice>49</x-newprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+							</div>
+							<div class="prod_description">
+								Dermacol – профессиональная тональная основа, гарантия безупречного макияжа и
+								восхитительного образа от известного бренда, которым пользуются даже голливудские
+								звёзды. Продукт является маскирующим тональным средством, прошедшим клинические
+								тестирования и получившим сертификат качества. С его помощью можно замаскировать любые
+								недостатки кожи, такие как темные круги под глазами, нежелательную пигментацию,
+								лопнувшие капилляры, шрамы и воспаления. 50% состава тональной основы составляют
+								пигменты, позволяющие даже в минимальном количестве надежно спрятать недостатки, сделав
+								тон лица ровным и совершенным. Применять тональный крем можно не только на лицо, но и на
+								всё тело, корректируя цвет, делая его более светлым или наоборот, загоревшим.
+								<br>
+								<ul>
+									<li>1. Водостойкий
+									<li>
+										2. Гипоаллергеннен
+									</li>
+									<li>3. Для всех типов кожи</li>
+									<li>4. SPF 30</li>
+									<li>5. Без консервантов</li>
+								</ul>
+
 							</div>
 						</div>
-						<a data-fancybox class="button order" href="#order_form">Заказать</a>
+						<a data-fancybox class="button order" href="#order_form">ПОДРОБНЕЕ</a>
 					</div>
 				</div>
 				<!-- /item -->
@@ -177,13 +257,36 @@ window.app = {
 					</div>
 					<div class="description">
 						<div class="text">
-							<p class="prod_name">Шорты</p>
+							<p class="prod_name">РАЗОГРЕВАЮЩИЙ КРЕМ</p>
 							<div class="price">
-								<div class="old"><span><x-oldprice>3600</x-oldprice></span><small><x-currency>руб</x-currency></small></div>
-								<div class="new"><span><x-newprice>1690</x-newprice></span><small><x-currency>руб</x-currency></small></div>
+								<div class="old"><span>
+										<x-oldprice>98</x-oldprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+								<div class="new"><span>
+										<x-newprice>49</x-newprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+							</div>
+							<div class="prod_description">
+								Преимуществ у данного средства множество, он идеально подходит для мужчин и женщин, которые мечтают избавиться от лишних отложений  в проблемных зонах. Активное воздействие крема начинается сразу же после нанесения. В составе крема присутствуют только натуральные компоненты в концентрированном виде, что гарантирует быстрый результат. Объем талии, апельсиновая корка, отложения на ягодицах и животе исчезают уже через несколько дней. Кожа становится гладкой, эластичной. Присутствие перца не вызывает раздражения и жжения.<br>
+								<ul>
+									<li>1.Уменьшает объемы тела
+									<li>
+										2.Эффективно тонизирует и укрепляет кожу, делает ее гладкой и упругой
+
+									</li>
+									<li>3.Подтягивает кожу</li>
+									<li>4.Не вызывает аллергию</li>
+								</ul>
+
 							</div>
 						</div>
-						<a data-fancybox class="button order" href="#order_form">Заказать</a>
+						<a data-fancybox class="button order" href="#order_form">ПОДРОБНЕЕ</a>
 					</div>
 				</div>
 				<!-- /item -->
@@ -195,27 +298,63 @@ window.app = {
 					</div>
 					<div class="description">
 						<div class="text">
-							<p class="prod_name">Нарукавники</p>
+							<p class="prod_name">
+								EPILAGE - СРЕДСТВО ДЛЯ ДЕПИЛЯЦИИ
+								</p>
 							<div class="price">
-								<div class="old"><span><x-oldprice>3600</x-oldprice></span><small><x-currency>руб</x-currency></small></div>
-								<div class="new"><span><x-newprice>1690</x-newprice></span><small><x-currency>руб</x-currency></small> </div>
+								<div class="old"><span>
+										<x-oldprice>98</x-oldprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small></div>
+								<div class="new"><span>
+										<x-newprice>49</x-newprice>
+									</span><small>
+										<x-currency>€
+										</x-currency>
+									</small> </div>
+							</div>
+							<div class="prod_description">
+								Epilage – обладает массой преимуществ перед подобными ему методами шугаринга и ваксинга. Epilage не только удаляет волоски, а также способствует замедлению фазы роста волоса. Средство избавляет от растительности почти безболезненно, не провоцирует появление вросших волосков. А также, Epilage подходит для любого типа кожи. Не вызывает раздражений и травм во время его использования.<br>
+								<ul>
+									<li>1.Не вызывает аллергических реакций;
+									<li>
+										2.Подходит для всех типов кожи;
+
+									</li>
+									<li>3.Процедура совершенно безболезненна;</li>
+									<li>4.Кожа становится увлажненной;</li>
+									<li>5.Подходит для удаления мельчайших волосков;
+									</li>
+									<li>6.Противопоказания отсутствуют;</li>
+									<li>7.Процесс роста волос значительно замедляется.</li>
+								</ul>
+
 							</div>
 						</div>
-						<a data-fancybox class="button order" href="#order_form">Заказать</a>
+						<a data-fancybox class="button order" href="#order_form">ПОДРОБНЕЕ</a>
 					</div>
 				</div>
 				<!-- /item -->
 			</div>
-			<a class="button order1" href="#size_table" data-fancybox>Размерная сетка</a>
+			<!-- <a class="button order1" href="#size_table" data-fancybox>Размерная сетка</a> -->
 		</div>
 	</section>
 	<section class="action_block">
 		<div class="wrapper">
 			<div class="column2">
 				<div class="left">
-					<h2 class="title">Худейте в 2-3 раза эффективнее!</h2>
+					<h2 class="title">ИДЕАЛЬНАЯ КОЖА К ПЛЯЖНОМУ СЕЗОНУ!
+					</h2>
 					<div class="action_text">
-						<span>Дополнительная скидка</span> на вторую и третью вещь
+						<span>ДОПОЛНИТЕЛЬНАЯ СКИДКА </span> 
+					</div>
+					<div class="action_text">
+						<span>ТРЕТИЙ ПРОДУКТ ВСЕГО ЗА 20 €</span>
+					</div>
+					<div class="action_text">
+						<span>ЧЕТВЕРТЫЙ В ПОДАРОК</span>
 					</div>
 					<div class="action_timer">
 						Поторопитесь! До конца акции осталось:
@@ -229,75 +368,61 @@ window.app = {
 				<div class="right">
 					<ul class="action_benef">
 						<li>
-							<small>При покупке двух товаров</small>
-							<span>1490р</span>
-							<p>за второй товар</p>
+							<small>ПРИ ПОКУПКИ ДВУХ ТОВАРОВ
+							</small>
+							<span>20 €</span>
+							<p>ЗА ТРЕТИЙ ТОВАР</p>
 						</li>
 						<li>
-							<small>При покупке трех товаров</small>
-							<span>1290р</span>
-							<p>за второй и третий товар</p>
+							<small>ПРИ ПОКУПКИ ТРЕХ ТОВАРОВ</small>
+							<span>БЕСПЛАТНО</span>
+							<p>ЧЕТВЕРТЫЙ В ПОДАРОК</p>
 						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="sect3 color_theme" id="desc">
-		<div class="wrapper">
-			<div class="column2">
-				<div class="left">
-					<div class="video_block">
-					<iframe width="560" height="315" src="wTsO3Vjah8s.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div class="right">
-					<h2 class="title">с применением технологии умной ткани Neotex</h2>
-					<p>Которая повышает внутреннюю температуру и помогает вашему телу, когда вы носите ее, занимаясь своими повседневными делами.</p>
-					<ul class="list1">
-						<li>Ускоряет теплообмен в организме на 47%</li>
-						<li>Выводит лишнюю жидкость из организма в 4 раза быстрее</li>
-						<li>Сжигает на 72% больше жира во время активных тренировок</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
 	<section class="sect4" id="reviews">
-		<h2 class="title">Почему наши покупатели выбирают HotShapers</h2>
+		<h2 class="title">ОТЗЫВЫ НАШИХ ПОКУПАТЕЛЕЙ</h2>
 		<div class="reviews owl-carousel">
 			<div class="rev_item clearfix">
-				<img src="img/rev3.jpg" alt>
+				<img src="img/rev3.jpg" alt class="img-wid">
 				<div class="text">
-					<span>@CHRISTINLEE</span>
-					<p>Меня все пугали, что похудеть сложно и что без больших усилий это невозможно. Но я решила, что отыщу способ, и я его нашла — пояс Hot Shapers, который стимулирует сжигание жиров и прокачку пресса. В поясе очень удобно заниматься, эффект при этом больше в разы! Теперь у меня прокачанный пресс, от жира на животе ничего не осталось, хотя несколько лет не могла от него избавиться.</p>
+					<span>@ANABLUEBERRY
+					</span>
+					<p>Супер магазин. Отличный товар и скидки. Заказала
+						сразу всё, получилось очень дешево, качество отличное. Epilag использую уже давно, но в этом магазине гораздо дешевле и товар оригинальный, эпилятор удобный и не вызывает раздражения от слова совсем, крем пока не пробовала, но буду когда на тренировку пойду, в подарок получила тональный крем, он просто отличный, даже татуировку замазал. Большое спасибо!
+						</p>
 				</div>
 			</div>
 			<div class="rev_item clearfix">
-				<img src="img/rev1.jpg" alt>
+				<img src="img/rev1.jpg" alt class="img-wid">
 				<div class="text">
 					<span>@RBF.JULIE</span>
-					<p>Живот всегда был моей проблемной частью, сколько бы ни занималась спортом, все равно никак не могла добиться пресса. Майка помогла мне справиться с этой проблемой: стала носить её и уже через неделю заметила, что стал проявляться пресс)</p>
+					<p>Заказала всё сразу и ещё набор для быстрого наращивания ногтей, всё супер. Доставка быстрая, после заказа привезли на второй день прямо домой. Больше всего понравился эпилятор, удобно и быстро, без раздражения. советую магазин!
+					</p>
 				</div>
 			</div>
 			<div class="rev_item clearfix">
-				<img src="img/rev2.jpg" alt>
+				<img src="img/rev2.jpg" alt class="img-wid">
 				<div class="text">
-					<span>@GORBANENKO77</span>
-					<p>Самое главное – бриджи работают! Бёдра у меня не похудели (это мне не требуется), зато целлюлит уменьшился.</p>
-					<p>Я занимаюсь интервальным бегом уже… 2 года, с бриджами – месяц. Бег уменьшает жировую прослойку, но не целлюлит. Это теперь делают бриджи Hot shapers. Задняя поверхность ног стала разглаживаться, кожа подтянулась. На самих ягодицах ещё есть проблема, но не всё сразу, забо́рем и это.</p>
+					<span>@MARIBRIDE</span>
+					<p>Я в полном восторге от этого магазина, постоянные скидки, выгодные предложения, доставка быстрая, качество великолепное. Крем очень хороший, помог подготовить фигуру к лету, после зимы, эпилятор хороший. тональный крем ещё не пользовалась, ещё тут купила штампы для бровей, тоже со скидкой. Вы лучшие!
+					</p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<section class="sect5" id="result">
-		<h2 class="title separ">Вы только посмотрите<br> на эти ошеломляющие результаты!</h2>
+		<h2 class="title separ">ФОТОГАЛЕРЕЯ
+		</h2>
 		<div class="result_list owl-carousel">
-			<img src="img/result1.jpg" alt>
-			<img src="img/result2.jpg" alt>
-			<img src="img/result3.jpg" alt>
-			<img src="img/result4.jpg" alt>
-			<img src="img/result5.jpg" alt>
+			<img src="img/result1.jpg" alt class="img-wid">
+			<img src="img/result2.jpg" alt class="img-wid">
+			<img src="img/result3.jpg" alt class="img-wid">
+			<img src="img/result4.jpg" alt class="img-wid">
+			<img src="img/result5.jpg" alt class="img-wid">
 		</div>
 	</section>
 	<section class="sect6" id="order">
@@ -305,62 +430,74 @@ window.app = {
 			<ul class="order_list">
 				<li>
 					<img src="img/order1.png" alt>
-					<p>Быстрая <br>доставка</p>
+					<p>ДОСТАВКА <br> 1-3 ДНЯ</p>
 				</li>
 				<li>
 					<img src="img/order2.png" alt>
-					<p>Оплата при<br> получении</p>
+					<p>ОПЛАТА <br> ПРИ ПОЛУЧЕНИИ</p>
 				</li>
 			</ul>
-			<a href="#catalog" class="button order">В каталог</a>
+			<a href="#catalog" class="button order">В КАТАЛОГ</a>
 		</div>
 	</section>
 	<footer class="footer_section">
 		<center style="color: white">
-			<p>ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "РК-ТРЕЙД" ОГРН: 1215200002918 ИНН: 5260476009 КПП: 525801001</p>
-<p>603140, Нижегородская область, г. Нижний Новгород, пер. Мотальный, д. 4, офис 301</p> 
+			<p>ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "РК-ТРЕЙД" ОГРН: 1215200002918 ИНН: 5260476009 КПП: 525801001
+			</p>
+			<p>603140, Нижегородская область, г. Нижний Новгород, пер. Мотальный, д. 4, офис 301</p>
 
-  
-    
-    
-            <p class="conf-link doclinks">
-        <a class="nav-link" href onclick="window.open('/policy2.php'); return false;">Политика конфиденциальности </a>
-      </p>
-      
-<!--       <p class="policy-link doclinks"> -->
-<!--         <a class="nav-link"  href="" onclick="window.open('/policy2.php'); return false;">Условия оформления заказа</a> -->
-<!--       </p> -->
 
-    
+
+
+			<p class="conf-link doclinks">
+				<a class="nav-link" href onclick="window.open('/policy2.php'); return false;">Политика
+					конфиденциальности </a>
+			</p>
+
+			<!--       <p class="policy-link doclinks"> -->
+			<!--         <a class="nav-link"  href="" onclick="window.open('/policy2.php'); return false;">Условия оформления заказа</a> -->
+			<!--       </p> -->
+
+
 
 		</center>
 	</footer>
 
 	<div id="order_form" class="popup" data-selectable="true">
-		<img src="img/prod1_1.jpg" alt>
-		<div class="text">
-			<div class="desc">
-				<p class="prod_name">Заказать "<span>Майка</span>"</p>
+		<div class="flex">
+			<div class="left"><img src="img/prod1_1.jpg" alt>
+				<p class="prod_name"><span>Майка</span></p>
 				<div class="price">
-					<div class="old"><span><x-oldprice>3600</x-oldprice></span><small><x-currency>руб</x-currency></small> </div>
-					<div class="new"><span><x-newprice>1690</x-newprice></span><small><x-currency>руб</x-currency></small></div>
+					<div class="old"><span>
+							<x-oldprice>98</x-oldprice>
+						</span><small>
+							<x-currency>€
+							</x-currency>
+						</small> </div>
+					<div class="new"><span>
+							<x-newprice>49</x-newprice>
+						</span><small>
+							<x-currency>€
+							</x-currency>
+						</small></div>
 				</div>
+				<form class="main-order-form form" action method="post">
+					<input type="text" name="name" placeholder="Введите имя" required>
+					<input type="tel" name="phone" placeholder="Введите телефон" required>
+					<input type="hidden" name="comments">
+					<button class="button">Сделать заказ</button>
+				</form>
 			</div>
-			<form class="main-order-form form" action method="post">
-				    <input name="csrf_token" type="hidden" value="c0587f36d3912846a1070aabb4a96e71:1618315704">
-    <select name="offer" class="form-control country_chang">
-                <option data-country-code="RU" selected="selected" value="22668">
-            Россия        </option>
-            </select>
-     
-				<input type="text" name="name" placeholder="Введите имя" required>
-				<input type="tel" name="phone" placeholder="Введите телефон" required>
-				<input type="hidden" name="comments">
-				<button class="button">Сделать заказ</button>
-</form>
+			<div class="text">
+				<div class="desc">
+
+					<p class="prod_description"></p>
+				</div>
+
+			</div>
 		</div>
 	</div>
-	<div id="size_table" class="size_table" data-selectable="true">
+	<!-- <div id="size_table" class="size_table" data-selectable="true">
 		<h2 class="size_title">Размеры шорт и&nbsp;пояса:</h2>
 		<div class="hint"><img src="img/hand.svg" alt></div>
 		<div class="size_scroll">
@@ -368,44 +505,44 @@ window.app = {
 				<tbody>
 					<tr>
 						<th>RUS</th>
-						<th>EUR</th> 
+						<th>EUR</th>
 						<th>Обхват талии, см</th>
 						<th>Обхват бедёр, см</th>
 					</tr>
 					<tr>
 						<td>42-46</td>
 						<td>S</td>
-						<td>65-69</td> 
+						<td>65-69</td>
 						<td>92-96</td>
 					</tr>
 					<tr>
 						<td>46-48</td>
 						<td>M</td>
-						<td>70-74</td> 
+						<td>70-74</td>
 						<td>97-101</td>
 					</tr>
 					<tr>
 						<td>48-50</td>
 						<td>L</td>
-						<td>75-78</td> 
+						<td>75-78</td>
 						<td>102-104</td>
 					</tr>
 					<tr>
 						<td>50-52</td>
 						<td>XL</td>
-						<td>79-83</td> 
+						<td>79-83</td>
 						<td>105-108</td>
 					</tr>
 					<tr>
 						<td>52-56</td>
 						<td>XXL</td>
-						<td>84-91</td> 
+						<td>84-91</td>
 						<td>109-116</td>
 					</tr>
 					<tr>
 						<td>56-60</td>
 						<td>XXXL</td>
-						<td>92-99</td> 
+						<td>92-99</td>
 						<td>117-124</td>
 					</tr>
 				</tbody>
@@ -418,64 +555,66 @@ window.app = {
 				<tbody>
 					<tr>
 						<th>RUS</th>
-						<th>EUR</th> 
+						<th>EUR</th>
 						<th>Обхват талии, см</th>
 						<th>Обхват бюст, см</th>
 					</tr>
 					<tr>
 						<td>42-46</td>
 						<td>S</td>
-						<td>64-68</td> 
+						<td>64-68</td>
 						<td>70-74</td>
 					</tr>
 					<tr>
 						<td>46-48</td>
 						<td>M</td>
-						<td>69-72</td> 
+						<td>69-72</td>
 						<td>75-77</td>
 					</tr>
 					<tr>
 						<td>48-50</td>
 						<td>L</td>
-						<td>73-76</td> 
+						<td>73-76</td>
 						<td>78-80</td>
 					</tr>
 					<tr>
 						<td>50-52</td>
 						<td>XL</td>
-						<td>74-80</td> 
+						<td>74-80</td>
 						<td>81-84</td>
 					</tr>
 					<tr>
 						<td>52-56</td>
 						<td>XXL</td>
-						<td>81-88</td> 
+						<td>81-88</td>
 						<td>85-89</td>
 					</tr>
 					<tr>
 						<td>56-60</td>
 						<td>XXXL</td>
-						<td>89-97</td> 
+						<td>89-97</td>
 						<td>90-95</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-		<div class="alert"><span>Сомневаетесь с выбором?</span> Оставьте заявку сейчас и наш консультант поможет вам подобрать размер.</div>
+		<div class="alert"><span>Сомневаетесь с выбором?</span> Оставьте заявку сейчас и наш консультант поможет вам
+			подобрать размер.</div>
 		<a href="#catalog" class="button order close_popup">В каталог</a>
-	</div>
+	</div> -->
 	<!-- scripts -->
-<link type="text/css" rel="stylesheet" href="css/roboto.css">
+	<link type="text/css" rel="stylesheet" href="css/roboto.css">
 	<script src="js/previewYouTube.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.fancybox.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<script>
 		$('.order').click(function (e) {
-    var articul = $(this).parent().find('.prod_name').text(); //получаем название товара
-    $("input[name='comments']").val(articul); // вставляем название в input
-});
+			var articul = $(this).parent().find('.prod_name').text(); //получаем название товара
+			$("input[name='comments']").val(articul); // вставляем название в input
+		});
 	</script>
 	<!-- /scripts -->
 </body>
+
 </html>

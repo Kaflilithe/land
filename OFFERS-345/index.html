@@ -1,0 +1,603 @@
+
+ <!DOCTYPE html>
+ <html lang="ru-RU">
+ <head>
+ <base href="">
+ <script src="/shared/jquery.min.js"></script>
+ 
+     <script>
+     function set_validator_errors(){
+         orderValidator.errorTitle = 'Пожалуйста, исправьте следующие ошибки'; 
+ 
+         orderValidator.errorNameField = 'Имя'; 
+         orderValidator.errorNameMess = 'Укажите своё имя'; 
+         
+         orderValidator.errorPhoneField = 'Телефон для связи'; 
+         orderValidator.errorPhoneMess = 'Введите правильный телефон'; 
+         
+         orderValidator.errorAddress = 'Введите правильный адрес'; 
+         orderValidator.errorRequired = 'обязательное поле'; 
+         orderValidator.errorMaxLength = 'допустимо максимум {1} символа'; 
+         orderValidator.errorMinLength = 'допустимо минимум {1} символа'; 
+         orderValidator.errorEmailField = 'E-mail';
+         orderValidator.errorEmail = 'указан не корректный email';
+         }
+     </script>
+     
+ <script>
+ 
+ 
+ window.app = {
+     timestamp: parseInt((new Date()).getTime() / 1000),
+     jq: jQuery,
+     formAction: window.location.href,
+     leadToken: '6087d214872671.97804990',
+     offers: {"19282":{"id":19282,"country":{"code":"UA","name":"\u0423\u043a\u0440\u0430\u0438\u043d\u0430"},"price":"435","price2":"925","currency":{"code":"UAH","name":"\u0433\u0440\u043d"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
+     currentOffer: {"id":19282,"country":{"code":"UA","name":"\u0423\u043a\u0440\u0430\u0438\u043d\u0430"},"price":"435","price2":"925","currency":{"code":"UAH","name":"\u0433\u0440\u043d"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
+     allowedCountries: ["UA"],
+     _setOfferId: false,
+     streamHid: '',
+     
+     setOffer: function (offerId) {
+         if (offerId == this._setOfferId) {
+             return ;
+         }
+         this._setOfferId = offerId;
+         if (offerId) {
+             var offer = app.offers[offerId];
+             var previousOffer = app.currentOffer;
+             app.currentOffer = offer;
+             var event = this.jq.Event("offerchange");
+             event.previousOffer = previousOffer;
+             event.currentOffer = app.currentOffer;
+             this.jq(document).trigger(event);
+             this.updatePage(offer);
+         } else {
+             $('input[name=country]').val('');
+         }
+     },
+     
+     updatePage: function(offer) {
+         $('x-newprice').html(offer.price);
+         $('x-oldprice').html(offer.price2);
+         $('x-currency').html(offer.currency.name);
+         $('input[name=offer], select[name=offer]').val(offer.id);
+         $('input[name=country]').val(offer.country.code);
+     },
+ 
+     blockForm: function() {
+         // Блокируем кнопки при отправке формы
+         $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+         $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+         app.incompleteOrder.lock = true;
+         clearTimeout(app.incompleteOrder.timer);
+     },
+ 
+     unblockForm: function() {
+         $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+         $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+         app.incompleteOrder.lock = false;
+         clearTimeout(app.incompleteOrder.timer);
+     }
+ 
+ };
+ 
+ 
+ </script><script src="/shared/form.validate.js?12"></script>
+ <script src="/shared/form.incomplete.js?10"></script>
+ <script src="/shared/main2.js?14"></script>
+ 
+ 
+ 
+     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <title>Reclaire cosmetics – украинский  бренд натуральной антицеллюлитной косметики. </title>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width">
+     <link rel="icon" type="image/png" href="favicon.png">
+     <link rel="stylesheet" href="assets_pages/land/js/slider/owlCarousel-2.2.1/owl.carousel.min.css">
+     <link rel="stylesheet" href="css/magnific-popup.css">
+     <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/popup.css">
+     <link rel="stylesheet" href="css/jquery.fancybox.css">
+ 
+     <style>	
+ .flag:after {
+     background-size: cover;
+ }
+ .catalog_section .owl-item {
+     height: 100%;
+     max-height: 370px;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     min-height: 370px!important;
+ }
+ .owl-carousel .owl-item img {
+     max-height: 390px;
+ }
+ .gallery img {
+     max-width: 280px;
+ }
+ .catalog_section .product_item .price_item.new {
+     font-size: 26px;
+     font-weight: bold;
+ }
+ .order_info_section .product {
+     display: none;
+ }
+ /*.review_item.gkhkuito img {*/
+     /*border-radius: 50%;*/
+     /*max-width: 130px;*/
+     /*margin: 0 auto 20px;*/
+ /*}*/
+ .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+     display: block;
+ }
+ .reviews_section .owl-prev, .reviews_section .owl-next {
+     background-color: rgb(236 236 236 / 95%);
+     top: 50%;
+ }
+ .product_item-img img {
+     width: 100%;
+ }
+ .product_item-img {
+     height: 290px;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+ }
+ .ofr_bull>li {
+     font-size: 19px;
+ }
+ .header_section .content_block .info_block {
+     padding: 30px 0 0;
+ }
+ @media screen and (max-width: 659px) {
+     .gallery-mob-none {
+         display: none;
+     }
+     #carouselExampleIndicators{
+         display: block!important;
+         margin-bottom: 30px;
+     }
+ }
+ </style>
+ </head>
+ <body>
+     <!-- header -->
+     <header class="header_section">
+         <div class="title_block">
+             <div class="wrapper">
+                 <h1 class="flag">Reclaire cosmetics – украинский  бренд натуральной антицеллюлитной косметики </h1>
+                 
+             </div>	
+         </div>
+         <div class="content_block">
+             <div class="wrapper">
+                 <div class="info_block">
+                     <div class="logo">
+                         <img src="images/download.jpg" alt="product" style="max-width: 160px;">
+                         <p>Reclaire cosmetics
+                         </p>	
+                     </div>
+                     <ul class="ofr_bull">
+                         <li>гладкие, подтянутые и упругие ноги без целлюлита</li>
+                         <li>одной баночки хватает на весь курс применения</li>
+                         <li>просто в домашнем применение и главное эффективно</li>
+                     </ul>	<a href="#catalog" class="button toform">Перейти в каталог</a>
+                     
+                 </div>
+                 <div class="sale">
+                     <p><span>-53%</span> на весь каталог
+                     </p>
+                 </div>	
+             </div>	
+         </div>
+     </header>
+     <!-- /header -->
+     <!-- catalog -->
+     <section class="catalog_section">
+         <div class="wrapper">
+             <div class="gallery gallery-mob-none">
+                 <img src="images/new/IMG_1528.jpg" alt="product">
+                 <img src="images/new/photo_2020-09-18_10-34-30.jpg" alt="product">
+                 <img src="images/new/photo_2020-09-18_10-50-22.jpg" alt="product">
+                 <img src="images/new/photo_2020-09-18_10-50-28.jpg" alt="product">
+             </div>
+             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="display: none;">
+                 <ol class="carousel-indicators">
+                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                 </ol>
+                 <div class="carousel-inner">
+                     <div class="carousel-item active">
+                         <img src="images/new/IMG_1528.jpg" class="d-block w-100" alt="product">
+                     </div>
+                     <div class="carousel-item">
+                         <img src="images/new/photo_2020-09-18_10-34-30.jpg" class="d-block w-100" alt="product">
+                     </div>
+                     <div class="carousel-item">
+                         <img src="images/new/photo_2020-09-18_10-50-22.jpg" class="d-block w-100" alt="product">
+                     </div>
+                     <div class="carousel-item">
+                         <img src="images/new/photo_2020-09-18_10-50-28.jpg" class="d-block w-100" alt="product">
+                     </div>
+                 </div>
+                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                 </a>
+                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                 </a>
+             </div>
+             <h2 id="catalog">Каталог</h2>
+             <div class="products_list clearfix">
+                 <div class="product_item">
+                     <div class="product_item-img">
+                         <img src="images/new/1.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Горячее антицеллюлитное масло Reclaire Миндаль - Апельсин
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+                 <div class="product_item">
+                     <div class="product_item-img ">
+                         <img src="images/new/2.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Горячее обертывание Reclaire Грейпфрут-Чили
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+                 <div class="product_item">
+                     <div class="product_item-img ">
+                         <img src="images/new/3.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Скраб антицеллюлитный Reclaire Кокос-ваниль
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+                 <div class="product_item">
+                     <div class="product_item-img ">
+                         <img src="images/new/4.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Скраб антицеллюлитный Reclaire Кофе-Апельсин
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+                 <div class="product_item">
+                     <div class="product_item-img ">
+                         <img src="images/new/5.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Холодное антицеллюлитное масло Reclaire Лимон - Мелисса
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+                 <div class="product_item">
+                     <div class="product_item-img ">
+                         <img src="images/new/6.jpg" alt="product">
+                     </div>
+                     <div class="discount">-53%
+                     </div>
+                     <div class="vendor_code">Холодное обертывание <br> Reclaire Лайм-мята
+                     </div>
+                     <div class="price_block clearfix">
+                         <div class="price_item old"><x-oldprice>925</x-oldprice> <x-currency>грн</x-currency>						</div>
+                         <div class="price_item new"><x-newprice>435</x-newprice> <x-currency>грн</x-currency>						</div>
+                     </div>
+                     <a href="#popup-content" class="button popup-btn">Заказать по акции</a>
+                 </div>
+ 
+              
+             </div>	
+         </div>
+     </section>
+     <!-- /catalog -->
+     <section style="padding: 0 0 50px; text-align: center;">
+         <div class="wrapper">
+             <p style="margin-bottom: 15px;">Продукция разработана профессиональными технологами, отвечает всем требованиям и имеет сертификаты качества и гигиенические заключения.</p>
+             <p style="margin-bottom: 15px;">Рецептура имеет натуральный безопасный состав для человека и окружающей среды.</p>
+             <p style="margin-bottom: 15px;">При изготовлении  используются только натуральные компоненты, эфирные масла и экстракты растений.</p>
+             <p style="margin-bottom: 15px;">Косметика Reclaire – это идеальный домашний антицеллюлитный уход, который дает результат уже после первого применения.</p>
+             <p>Наша основная задача - помогать девушкам, делать лучшую версию себя.</p>
+ 
+             <br>
+             <b style="color: #cf0074; font-size: 24px; display: block;">* При покупке масла <b style="color: red; ">в подарок</b> баночка для вакуумного массажа</b>
+             <br>
+             <b style="color: #cf0074; font-size: 24px; display: block;">** От 1000 <x-currency>грн</x-currency> бесплатная доставка</b>
+         </div>
+     </section>
+     <!-- order info -->
+     <section class="order_info_section">
+         <div class="wrapper">
+             <h2>Доставка и гарантия</h2>
+ 
+             <div class="info_list">
+                 <div class="info_item">
+                     <div class="icon_block">
+                         <img src="images/order_info__info1_icon.png" alt="product">	
+                     </div>
+                     <p>Доставка Новой почтой в течение 1‑2 дней. Бесплатная доставка от 1000 <x-currency>грн</x-currency>
+                     </p>	
+                 </div>
+                 <div class="info_item">
+                     <div class="icon_block">
+                         <img src="images/order_info__info2_icon.png" alt="product">	
+                     </div>
+                     <p>Оплата заказов осуществляется по факту получения товара
+                     </p>	
+                 </div>
+                 <div class="info_item">
+                     <div class="icon_block">
+                         <img src="images/order_info__info3_icon.png" alt="product">	
+                     </div>
+                     <p>Весь товар проходят проверку
+                     </p>	
+                 </div>	
+             </div>	
+         </div>
+     </section>
+     <!-- /order info -->
+     <!-- reviews -->
+     <section class="reviews_section">
+         <div class="wrapper">
+             <h2>Отзывы покупателей</h2>
+             <p class="description">Более <span>95,4%</span> покупателей рекомендуют наш магазин
+             </p>
+             <div class="rate">Средняя оценка товара
+             </div>
+             <div class="reviews_list owl-carousel">
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9500.JPG" alt="">
+ 
+                     </div>	
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9501.JPG" alt="">
+ 
+                     </div>	
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9502.JPG" alt="">
+ 
+                     </div>	
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9503.JPG" alt="">
+ 
+                     </div>	
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9504.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9505.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9506.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9507.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9508.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9509.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9510.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9511.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9512.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9513.JPG" alt="">
+ 
+                     </div>
+                 </div>
+                 <div class="review_item gkhkuito">
+                     <div class="text_block">
+                         <img src="images/rewiews/IMG_9514.JPG" alt="">
+ 
+                     </div>
+                 </div>
+             </div>	
+         </div>
+     </section>
+     <!-- /reviews -->
+     <section class="header_section order_section">
+         <div class="title_block">
+             <div class="wrapper">
+                 <h1>Закажите сейчас и <span>сэкономьте.</span></h1>
+             </div>	
+         </div>
+         <div class="content_block">
+             <div class="wrapper">
+                 <div class="info_block">
+                     <div class="logo">
+                         <img src="images/download.jpg" alt="product" style="max-width: 160px;">
+                     </div>
+                     <div class="action">
+                         <span>Сомневаетесь с выбором?</span>
+                         <p>Оставьте заявку сейчас и получите <span>индивидуальное предложение</span> от нашего интернет-магазина!
+                         </p>	
+                     </div>
+                     <form class="main-order-form order_form" action="" method="post">
+                         <input name="csrf_token" type="hidden" value="89ed65f9c7d28abb61c5221203a59928:1619513876" />
+     <select name="offer" class="form-control country_chang">
+                 <option 
+             data-country-code="UA"
+                         selected="selected"
+                         value="19282"
+         >
+             Украина        </option>
+             </select>
+                             <input class="input" type="text" name="name" placeholder="Введите ваше имя" required="">
+                         <input class="input" type="tel" name="phone" placeholder="Введите ваш телефон" required="">
+                         <input type="hidden" name="comments" value="">
+                         <button class="button">Заказать со скидкой</button>
+                     </form>	
+                 </div>
+                 <div class="sale">
+                     <p><span>-53%</span> на весь каталог
+                     </p>
+                 </div>	
+             </div>	
+         </div>
+     </section>
+     <!-- footer -->
+     <footer class="footer_section">
+         <p>ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "НЭРО ТРЕЙД" ОГРН: 1194704008289 ИНН: 4703163221 КПП: 470301001</p>
+ <p>188640, Ленинградская область, Всеволжский проспект, д. 107, лиетр А, помещение 3</p> 
+ 
+   
+     
+     
+             <p class="conf-link doclinks">
+         <a class="nav-link"  href="" onclick="window.open('/policy2.php'); return false;">Политика конфиденциальности </a>
+       </p>
+       
+ <!--       <p class="policy-link doclinks"> -->
+ <!--         <a class="nav-link"  href="" onclick="window.open('/policy2.php'); return false;">Условия оформления заказа</a> -->
+ <!--       </p> -->
+ 
+     
+     </footer>
+     <!-- /footer -->
+     <!-- popup -->
+     <div class="hidden">
+         <div class="popup-content" id="popup-content">
+             <div class="content_block">
+                 <h4>Заказать</h4>
+                 <h3>Модель 1</h3>
+                 <form id="order_form" class="main-order-form order_form" action="" method="post">
+     <input name="csrf_token" type="hidden" value="89ed65f9c7d28abb61c5221203a59928:1619513876" />
+     <select name="offer" class="form-control country_chang">
+                 <option 
+             data-country-code="UA"
+                         selected="selected"
+                         value="19282"
+         >
+             Украина        </option>
+             </select>
+     
+                     <input class="input" type="text" name="name" placeholder="Введите ваше имя" required="">
+                     <input class="input" type="tel" name="phone" placeholder="Введите ваш телефон" required="">
+                     <input type="hidden" name="comments" value="">
+                     <button class="button">Заказать со скидкой</button>
+                 </form>	
+             </div>	
+         </div>	
+     </div>
+ 
+     <!-- scripts -->
+ 
+     <script src="js/lazyload.min.js"></script>
+     <script src="assets_pages/land/js/slider/owlCarousel-2.2.1/owl.carousel.min.js"></script>
+     <script src="js/jquery.magnific-popup.min.js"></script>
+     <script src="js/scripts.js"></script>
+     <!-- /scripts -->
+ 
+ 
+     <script>
+         $(document).ready(function(){
+             $(".reviews_list").owlCarousel({
+                 loop: true,
+                 mouseDrag: true
+             });
+         });
+ 
+     </script>
+     <style>
+     .form-control  {
+             display: block;
+     margin: 0 auto 10px;
+     padding: 0 20px;
+     width: 300px;
+     height: 50px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fff;
+     font-family: 'MuseoSansCyrl', sans-serif;
+     font-weight: 300;
+     font-size: 16px;
+     color: #222;
+     text-align: center;
+     -ms-text-align-last: center;
+     -moz-text-align-last: center;
+     text-align-last: center;
+     }
+     </style>
+     
+ </body>
+ 
+ </html>

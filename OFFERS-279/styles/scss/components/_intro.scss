@@ -4,8 +4,9 @@
     background: #001127;
     background-image: url(./../../img/intro-bg.jpg);
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    @include media-big {
+    @include media-phone-med {
         background-image: url(./../../img/intro-bg-mb.jpg);
     }
     &__main {
