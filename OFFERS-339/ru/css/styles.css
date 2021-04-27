@@ -711,6 +711,7 @@ section {
 }
 .popup > img {
 	display: block;
+	
 	margin: 0 auto;
 }
 .popup .text {
