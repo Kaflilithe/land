@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="RU">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width">
+    <title>Гороскоп от Хаяла Алекперова</title>
+    <link rel="stylesheet" href="css/generator.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/jquery.min.js"></script>
+	
+</head>
+
+<body>
+
+    <!--<script src="assets/counter.js"></script>-->
+    <div class="wrap" id="screenFirst">
+
+        <div class="chat show-chat zoomIn animated">
+
+            <div class="chat show-chat zoomIn animated">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-header-container down">
+                            <div class="chat-header-container-wrapper">
+                                <div class="chat-header-container-image-left">
+                                    <div class="chat-header-container-image">
+                                        <img src="img/avatar.png" alt>
+                                    </div>
+                                    <div class="chat-header-container-image">
+                                        <img src="img/message-icon.png" alt>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="chat-content">
+                        <div class="chat-content-container">
+                            <div class="chat-content-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="send2.php" id="cont_form" class="form-order" method="post">
+                <div class="form_block">
+                    <div class="prices_block">Форма заказа
+                        оберега за 199 грн.
+					</div>
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Введите имя" class="form-control input-lg" value required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" placeholder="Введите телефон" class="form-control input-lg" value required>
+                    </div>
+					<input type="hidden" name="sub_id" value="2d8j8qo215cs">
+					<input type="hidden" name="offerId" value="3011">
+					<input type="hidden" name="payout" value="10">
+					<input type="hidden" name="price" value="199">
+					<input type="hidden" name="name-ext" value="hayalchat">
+					<input type="hidden" name="subid" value="2d8j8qo215cs">
+					<input type="hidden" name="aak" value="0">
+					<input type="hidden" name="pixel" value="0000">
+					<input type="hidden" name="web" value="-">
+					<input type="hidden" name="comments">
+                    <input type="hidden" name="birthday" id="birthday" value>
+                    <input type="submit" value="Получить" class="btn-primary">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/typed.js"></script>
+
+    <script src="js/generator.js"></script>
+    <div class="demon_popup">
+        <div class="demon_overflow"></div>
+        <div class="demon_popup_body">
+            <span class="demon_close"></span>
+            <h4 class="demon_popup_title">Вы из города <span class="user-city">Киев</span>? Подождите!</h4>
+            <img src="img/popup_amu.png" alt style="width:28%">
+            <p>Для Вас ещё действует специальное ограниченное предложение</p>
+            <p>Успейте принять участие в программе и получите индивидуальный оберег за <span style="color:#de455c; font-size: 34px;">199 грн</span><span style="color:#fff !important">!</span></p>
+            <a href="landbmini.php" class="popup_btn">Узнать подробнее</a>
+        </div>
+    </div>
+
+    <select name="country" id="select_city"></select>
+    <b class="country_action" style="opacity: 0"></b>
+    <span class="new_price_val" style="opacity: 0"></span>
+    <span class="new_price_cur" style="opacity: 0"></span>
+    <script src="js/jquery.cookie.min.js"></script>
+    <script src="js/purl.min.js"></script>
+    <script src="js/jquery.inputmask.bundle.min.js"></script>
+
+    <!-- leadprofit.js - скрипт подключения к пп 
+    <script src="assets/leadprofit.js"></script>
+
+    <script type="text/javascript">
+
+        let userSex;
+        let selectedDay;
+        let selectedMonth;
+        let selectedYear;
+        let zodiac;
+        let selectedInfo;
+
+        $(document).delegate('.chooseGender', 'click', function () {
+            userSex = $(this).data("type");
+            if (userSex == "m") {
+                userSex = "мужчина";
+                console.log(userSex);
+            } if (userSex == "w") {
+                userSex = "женщина";
+                console.log(userSex);
+            }
+
+        });
+
+
+        $(document).delegate('.select-day', 'change', function () {
+            selectedDay = $(this).children(".select-day option:selected").val();
+        });
+
+        $(document).delegate('.select-month', 'change', function () {
+            selectedMonth = $(this).children(".select-month option:selected").text();
+        });
+
+        $(document).delegate('.select-year', 'change', function () {
+            selectedYear = $(this).children(".select-year option:selected").text();
+        });
+
+
+        // console.log(userSex);
+
+
+        jQuery(document).ready(function () {
+            //  если вас перекидыает не на тот ленд, то удалите скрипт ниже (начало)
+
+            // (конец)
+
+            // скрипт для передачи лида в пп
+            setTimeout(function () {
+                $("form").leadprofit({
+                    hash: "e6533df1-74ac-4cca-a8ed-85d9b84681d1"
+                }).leadprofitSubmit({
+                    runSr: false,
+                    confirmUrl: 'confirm.html', // при необходимости удалить слеши и точки перед confirm.html (../../) и скачать файл confirm.html 
+                    counterParams: {
+                        country: "{country}",
+                        version: document.location.pathname.replace(/\/+/g, '').replace(
+                            'landings', '').replace('index.html', '').replace('index2.html',
+                                '').replace('confirm.html', '')
+                    }
+                });
+            }, 1)
+
+            $(function () {
+                var obj = {};
+                $('form').on('submit', function (e) {
+
+                    zodiac = $(".hidden-zodie").text();
+
+                    selectedInfo = selectedDay + "/" + selectedMonth + "/" + selectedYear;
+                    $('input[name=comments]').val("" + userSex + ", " + selectedInfo + ", " + zodiac);
+
+
+                });
+            });
+
+
+        });
+    </script>-->
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/price.js"></script>
+    <span class="new_price_val"></span>
+    <script>
+        setInterval(function () {
+            let name_city = $('#new_price_val').text();
+            $('.new_price_val').text(name_city);
+            $('.new_price_cur').text($('#new_price_cur').text());
+        }, 300)
+    </script>
+</body>
+
+</html>
