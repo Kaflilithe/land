@@ -493,12 +493,6 @@ a .content::after {
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(204, 204, 204);
 }
-
-@media (max-width: 1280px) {
-    .content__inner_wide,
-    .content__inner_search {}
-}
-
 @media (max-width: 1024px) {
     .content__inner_wide,
     .content__inner_search {
@@ -978,20 +972,6 @@ a .content::after {
     }
 }
 
-@media (max-width: 1024px) {
-    .countdown-time {
-        
-        
-    }
-}
-
-@media (max-width: 330px) {
-    .countdown-time {
-        
-        
-    }
-}
-
 @media (max-width: 1398px) {
     .countdown-time img.big-pic {
         display: block;
@@ -1183,7 +1163,7 @@ a .content::after {
 }
 
 .soc-buttons_vk {
-    f background-position: 0px 0px;
+     background-position: 0px 0px;
 }
 
 .soc-buttons_vk:hover {
@@ -1699,10 +1679,6 @@ a .content::after {
     }
 }
 
-.share .ya-share2__container .ya-share2__link:hover .ya-share2__counter::before {
-    
-    
-}
 
 .share .ya-share2__container .ya-share2__item_service_twitter .ya-share2__icon::before {
     position: absolute;
@@ -1744,10 +1720,6 @@ a .content::after {
     border-color: rgb(0, 0, 0);
 }
 
-.share .ya-share2__container .ya-share2__item_service_twitter:hover .ya-share2__icon::after {
-    
-    
-}
 
 .share .ya-share2__container .whatsapp-link::before {
     position: absolute;
@@ -2860,7 +2832,6 @@ td {
     margin: 0px 20px 0px 0px;
 }
 
-.comment-block p {}
 
 .comment-user:last-child {
     border-bottom: medium none;
