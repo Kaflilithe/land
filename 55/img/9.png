@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+<script type="text/javascript">
+window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(23),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(24),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){j++,L=y.hash,this[u]=x.now()}function o(){j--,y.hash!==L&&i(0,!0);var t=x.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=x.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,x=t("loader");if(w[v]&&x.xhrWrappable){var g=t(10),b=t(11),E=t(8),R=t(6),O=t(13),C=t(7),P=t(14),T=t(9),N=t("ee"),S=N.get("tracer");t(16),x.features.spa=!0;var L,j=0;N.on(u,r),N.on(p,r),N.on(d,o),N.on(l,o),N.buffer([u,d,"xhr-done","xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),P.buffer([u,"new-xhr","send-xhr"+s]),C.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),g.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),T.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(P,"send-xhr"+s),a(N,"xhr-resolved"),a(N,"xhr-done"),a(C,m+s),a(C,m+"-done"),a(T,"new-jsonp"),a(T,"jsonp-end"),a(T,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,j>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",y="pushState",x=t("loader");x.features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=x.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,x.now()])}),a.on(m,function(t,e,n){this.bstStart=x.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),this.bstType])}),s.on(m,function(){this.bstStart=x.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),"requestAnimationFrame"])}),o.on(y+l,function(t){this.time=x.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(26)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(23);e.exports=o;var a=window,s="fetch-",c=s+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,p=a.fetch,l="prototype";u&&d&&p&&(i(f,function(t,e){r(u[l],e,c),r(d[l],e,c)}),r(a,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(26)(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],p),c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t(26)(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?f.inPlace(Node.prototype,l,"dom-"):(f.inPlace(HTMLElement.prototype,l,"dom-"),f.inPlace(HTMLHeadElement.prototype,l,"dom-"),f.inPlace(HTMLBodyElement.prototype,l,"dom-")),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(26)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(26),a=t("ee").get("promise"),s=i(a),c=t(23),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(26)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(26)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),h&&(b?b.then(a):v?v(a):(E=-E,R.data=E))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(26)(u),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new l(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(l,g),g.prototype=l.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(){var t=window.NREUM,e=t.info.accountID||null,n=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!e||!n||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:e,ap:n,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&e!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(21);e.exports={generateTraceHeader:r}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(p[r],this.listener,!1);e.aborted||(n.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):a(this,t),n.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return v(r)}function i(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}function a(t,e){t.params.status=e.status;var n=o(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(17),u=t(15).generateTraceHeader,d=t("ee"),p=["load","error","abort","timeout"],l=p.length,h=t("id"),m=t(20),v=t(19),w=window.XMLHttpRequest;s.features.xhr=!0,t(14),d.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){a(e,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=!!NREUM.init.distributed_tracing.enabled),n&&this.sameOrigin){var r=u();r&&e.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=v(r);i&&(n.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{d.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<l;a++)e.addEventListener(p[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),d.on("xhr-load-added",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],e)}),d.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],e)}),d.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,e){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,e],e)})}},{}],17:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],18:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(23),s=t(24),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,e])}},{}],19:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],20:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(e=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}e.exports={generateUuid:r,generateCatId:o}},{}],22:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],26:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(24),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[x[n]];return d&&d.push([g,n,r,a]),a}}function l(t,e){y[t]=m(t).concat(e)}function h(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",x[n]=e,e in u||(u[e]=[])})}var y={},x={},g={on:l,addEventListener:l,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var s="nr@context",c=t("gos"),f=t(23),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+b.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(23),u=t("ee"),d=t(22),p=window,l=p.document,h="addEventListener",m="attachEvent",v=p.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:v,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1130.min.js"},g=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:g,userAgent:d};t(18),l[h]?(l[h]("DOMContentLoaded",i,!1),p[h]("load",r,!1)):(l[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(25)},{}]},{},["loader",2,16,5,3,4]);
+;NREUM.loader_config={accountID:"2420843",trustKey:"2420843",agentID:"582566107",licenseKey:"ae648b7581",applicationID:"582560613"}
+;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"ae648b7581",applicationID:"582560613",sa:1}
+</script>
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Casa Editorial El Tiempo">
+<meta name="genre" content="News">
+<meta name="geo.placename" content="Colombia">
+<meta name="geo.position" content="4.570868;-74.297333">
+<meta name="geo.region" content="CO">
+<meta name="google" content="notranslate">
+<meta name="ICBM" content="4.570868, -74.297333">
+<meta name="language" content="spanish">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ELTIEMPO">
+<meta name="twitter:creator" content="@ELTIEMPO">
+<meta name="twitter:title" content="Noticias Principales de Colombia y el Mundo - El Tiempo">
+<meta name="twitter:description" content="Noticias Principales de Colombia y El Mundo: Últimas noticias en deportes, economía, política y tecnología. Manténgase informado sobre las noticias de Colombia en EL TIEMPO.COM.">
+<meta name="twitter:image" content="/images/compartir.jpg?2104301040">
+<meta name="twitter:title" content="Página de Error">
+<meta name="twitter:description" content="Página de Error">
+<link href="/images/compartir.jpg?2104301040" rel="image_src">
+<link href="https://m.eltiempo.com/images/clima/icons-desktop/9.png" rel="canonical">
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement":
+[
+{
+"@type": "ListItem",
+"position": 1,
+"item":
+{
+"@id": "https://wwweltiempo.com/",
+"name": "Inicio"
+}
+}
+]
+}
+</script>
+<meta name="keywords" content="Página de Error">
+<meta name="description" content="Página de Error">
+<meta name="robots" content="index">
+<meta property="og:title" content="Página de Error">
+<meta property="og:description" content="Página de Error">
+<meta property="og:url" content="https://m.eltiempo.com/images/clima/icons-desktop/9.png">
+<meta property="og:type" content="website">
+<meta property="og:image" content="compartir_1.jpg">
+<meta property="og:site_name" content="El Tiempo">
+<meta property="fb:admins" content="100002279652972">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="es_CO">
+<title>Página de Error</title>
+<link rel="stylesheet" href="../css/nmobile.css" media="screen">
+<link rel="preload" href="/css/fonts/open_sans/OpenSans-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/open_sans/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/open_sans/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/et-icon/et-icon-141020.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/roboto_slab/robotoslab-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/roboto_slab/robotoslab-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/open_sans/OpenSans-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/et_icon_2019/icon-et-2019.woff2" as="font" type="font/woff2" crossorigin>
+<script type="text/javascript">
+var sas_siteId = 51874
+var sas = sas || {};
+sas.cmd = sas.cmd || [];
+sas.cmd.push(function() {
+sas.setup({ networkid: 484, domain: "//ads.eltiempo.co", async: true });
+});
+</script>
+<script src="../js/mobilelib.js" type="text/javascript"></script>
+<script type="text/javascript">
+var textChars = 'Por favor no ingreses más de {0} caracteres.';
+var textSpecialChars = 'No se permiten caracteres especiales.';
+var textSpecialChars2 = 'Solo se permiten letras, números, comas, puntos y espacios en blanco.';
+var textCharacters = 'Solo se permiten números.';
+var textNumbers = 'No se permiten números.';
+var textEmail = 'Este no es un correo electrónico válido.';
+var textStartsWithZero = 'El número no puede empezar con cero.';
+var textOnlyLettersAndNumbersNotWhiteSpaces = 'Solo se permiten letras y números sin espacios en blanco.';
+var textOnlyLettersAndNumbersWithWhiteSpaces = 'Solo se permiten letras y números con espacios en blanco.';
+var nameRules = {"required":true,"minlength":1,"maxlength":100,"onlyLettersAndNumbersWithWhiteSpaces":true};
+var userRules = {"required":true,"noCharacters":true,"minlength":6,"maxlength":20};
+var emailRules = {"required":true,"email":true,"noEmail":true,"minlength":1,"maxlength":100};
+var phoneNumberRules = {"required":true,"noCharacters":true,"maxlength":10,"minlength":7,"noStartsWithZero":true};
+var messageRules = {"noSpecialChars2":true,"required":true,"minlength":10,"maxlength":1000};
+var privacyRules = {"required":true};
+var privacyPolicyRules = {"required":true};
+var messageRules2 = {"required":false,"maxlength":150};
+var nameMessage = {"required":"Debes ingresar tu nombre. Recuerda que \u00e9ste no puede tener n\u00fameros o caracteres especiales.","minlength":"\u00a1Al menos debes ingresar {0} caracteres!"};
+var emailMessage = {"required":"Ingresa tu correo electr\u00f3nico para continuar. Recuerda que debe estar bien escrito para poder continuar.","email":"Tu correo electr\u00f3nico debe tener un formato como nombre@dominio.com"};
+var messageMessage = {"required":"Escribe ac\u00e1 el error que encontraste para que podamos revisarlo. Gracias.","maxlength":"Por favor no ingreses m\u00e1s de {0} caracteres.","minlength":"Por favor ingresa m\u00e1s de {0} caracteres."};
+var nc = '4563da6f176be58ebd5c29ac27bdefe6';
+var s_account="eltiempoiomovil";
+var wf_public_url = "https://www.eltiempo.com";
+var pautasSmart = {"desktop":{"recurso":{"push_down":21675,"barra_flotante":8941,"pre_home":29221,"robapagina_superior":9346,"film_strip":32365,"in_read":9343,"cuarto_robapagina":9608,"solapa":9639},"recurso_patrocinado":{"push_down":8932,"barra_flotante":17232,"pre_home":"","robapagina_superior":9344,"film_strip":39297,"in_read":9601,"cuarto_robapagina":44664,"solapa":9643}},"tablet":{"recurso":{"push_down":21675,"barra_flotante":8941,"pre_home":29221,"robapagina_superior":9346,"film_strip":32365,"in_read":9343,"cuarto_robapagina":9608,"solapa":9639},"recurso_patrocinado":{"push_down":8932,"barra_flotante":17232,"pre_home":"","robapagina_superior":9344,"film_strip":39297,"in_read":9601,"cuarto_robapagina":44664,"solapa":9643}},"mobile":{"recurso":{"catfish":8941,"robapagina_superior":9346,"in_read":9343,"banner_superior":21675,"pre_home":31430},"recurso_patrocinado":{"catfish":17232,"robapagina_superior":9344,"in_read":9601,"banner_superior":8932,"pre_home":""}}};
+if (!("sas_pageId" in window)) {
+sas_pageId = '';
+}
+if (!("sas_target" in window)) {
+sas_target = 'home';
+}
+var ssoClient = 'eltiempodigital';
+var ssoMiSuscripcionPath = 'https://m.eltiempo.com/zona-usuario/mi-suscripcion';
+var ssoSuscribirmePath = 'https://seg.eltiempo.com/suscripciones/impreso/eltiempodigital?cid=AUT_PRP_-SUS-boton_header_etcommovil';
+//var ssoSuscribirmePath = 'https://seg.eltiempo.com/suscripciones'
+var ssoSuscribirmeDigitalPath = 'https://m.eltiempo.com/suscripcion-digital';
+var ssoPortal = 'seg.eltiempo.com';
+var ssoProtocol = 'https';
+var ssoVerify = 'server/verify-login/';
+var ssoVerifyComplement = '/code/basic/';
+var liftigniter_number = '8';
+var deviceXalok = 'mobile';
+var dmpCampaigns = {"segmento1":{"audiencia":355201,"campana":304555,"numero_campana":1,"hash":"m0O17EYlmvtLVkrr9JF66xSzYq31w1eDH89Aw8csM3Y%3D","secciones":["justicia","politica","bogota","opinion","colombia","tecnosfera"]},"segmento2":{"audiencia":355204,"campana":304557,"numero_campana":2,"hash":"AK7RMco2SrecmO%2FszgcKaoZbwxLnptsgtOPqWrwsbjY%3D","secciones":["politica","vida","justicia","economia","mundo","deportes"]},"segmento3":{"audiencia":355210,"campana":304558,"numero_campana":3,"hash":"QD%2BiIN48yHok9IuRG5EqEfuF9fgBhd2OkWQAYEN8v8A%3D","secciones":["justicia","economia","vida","politica","colombia","tecnosfera"]},"segmento4":{"audiencia":361203,"campana":304560,"numero_campana":4,"hash":"qcN%2FWFYcn47zoAiNnCbIEgVFBjejnwepigVetv6g4H8%3D","secciones":["economia","tecnosfera","vida","bogota","deportes","colombia"]},"segmento5":{"audiencia":428587,"campana":350483,"numero_campana":5,"hash":"Z4Lzm8NgVsYDnxtiC2YTGYs6DdS4WLmBIPiHD%2F2Kuw8%3D","secciones":["economia","tecnosfera","politica","justicia"]},"segmento6":{"audiencia":428909,"campana":362238,"numero_campana":6,"hash":"MBy3Ks6dLaQI5AxMkwn9fZd4yFWXD5w1zZ3c2rJlmE0%3D","secciones":["opinion"]},"segmento7":{"audiencia":428906,"campana":362237,"numero_campana":7,"hash":"%2Fim6k3vqRhcciGuGPEAYAqa2z3AZEScTL2X3NagwRNM%3D","secciones":["deportes"]},"segmento8":{"audiencia":428907,"campana":362236,"numero_campana":8,"hash":"e%2BJsjjtaMLQzrj%2BsGci12aYf5Y5IosdxvK89gVidtIs%3D","secciones":["tecnosfera"]}};
+var dmpArticleNumber = 13;
+//variables para profiling
+var profiling = {"coachmark":{"time":1543594585,"name":"coachmark_time_et"},"feed":{"section":"\/var\/www\/eltiempo\/app\/public\/..\/..\/web\/files\/sections.json","content":"\/var\/www\/eltiempo\/app\/public\/..\/..\/web\/files\/content_feed.json"},"sidebar":{"sidebar_automation_time":60000,"sidebar_automation_enable":0}};
+var profilingApiKey = '0f269180c539c7efa10633cda8a79cbb';
+var contentProfilingUrl = 'https://servicios.eltiempo.com/content-profiling-api/v1'
+var tokenSession = getTokenSession();
+var profiling_special_section= ["revistas","bocas","carrusel","bogota","lecturas"];
+var profiling_coachmark_status = 'inactive'
+var profilingQuantityResources = 70 //variable encargada de lamacenar la maxima cantidad de noticias a presentar
+var profilingQuantityPerSection = 70 //variable encargada de almacenar la cantidad de secciones seguidas
+var profilingQuantityResourcesHome = 6 //variable encargada de lamacenar la maxima cantidad de noticias a presentar en el home
+// OneSignal
+var notifyButtonEnable = false;
+var oneSignalAppId = "d8e81a0b-276a-4763-8cef-bcd5df9a51a5";
+var oneSignalSafariAppId = "web.onesignal.auto.47a2f439-afd3-4bb7-8cdd-92cc4f5ee46c";
+// lazyload
+var lazyloadDefault = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAEklEQVR42mP8/vYtDwMUMCJzAGRcBb2SHTFTAAAAAElFTkSuQmCC'
+//google analitycs
+var google_analitycs_ua = 'UA-118090425-1'
+// tipos de suscripcion
+var suscription_types = {"IG":"suscriptor-impreso","DS":"suscriptor-digital"}
+</script>
+<script defer="defer" src="../js/global_mobile.js" type="text/javascript"></script>
+<script>
+var digitalData = digitalData || {};
+digitalData = {
+page: {
+pageName: pageName(),
+channel: channel(),
+day: day(),
+hour: hour(),
+section: section(),
+subsection: subsection(),
+referrer: referrer(),
+contentType: contentType(),
+userName: getUserName(),
+weekday: weekday()
+}
+};
+</script>
+<!-- Google Analytic (gtm.js) -->
+<script>
+(function(w,d,s,l,i){
+w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WG4KTGL');
+</script>
+<script type="text/javascript">
+/** CONFIGURATION CHARTBEAT **/
+var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
+_sf_async_config.uid = 50648; //CHANGE THIS
+_sf_async_config.domain = 'eltiempo.com'; //CHANGE THIS
+_sf_async_config.useCanonical = true;
+_sf_async_config.lazyLoadSrcsetAttribute = 'data-original';
+_sf_async_config.flickerControl = false;
+</script>
+<script async src="../js/chartbeat_mab.js"></script>
+<script>
+//variable con url para motor de recomendacion
+var recomendationUrl = 'https://recomendador.eltiempo.com/recommendation'
+</script>
+<script>
+//base
+(function(src) {
+var a = document.createElement("script");
+a.type = "text/javascript";
+a.async = true;
+a.src = src;
+var b= document.getElementsByTagName('script')[0];
+b.parentNode.insertBefore(a,b)
+})('//experience.tinypass.com/xbuilder/experience/load?aid=3ST2fSyHpu')
+//inicializacion de variable de piano
+tp = window["tp"] || [];
+</script>
+<script>
+//esp
+document.cookie = "__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+var setNptTechAdblockerCookie = function(adblocker) {
+var d = new Date(); d.setTime(d.getTime() + 60 * 5 * 1000);
+document.cookie = "__adblocker=" + (adblocker ? "true" : "false") + "; expires=" + d.toUTCString() + "; path=/";
+};
+var script = document.createElement("script");
+script.setAttribute("async", true);
+script.setAttribute("src", "//www.npttech.com/advertising.js");
+script.setAttribute("onerror", "setNptTechAdblockerCookie(true);");
+document.getElementsByTagName("head")[0].appendChild(script);
+</script>
+<link rel="shortcut icon" href="favicon/favicon_1.ico">
+</head>
+<body class="section-home">
+<div class="banner-android" style="display:none">
+<a class="cerrar" id="cerrarBanner" href="javascript:void(0)"></a>
+<img src="icon-eltiempo.png" alt>
+<div>
+<h1>Periódico EL TIEMPO - Noticias</h1>
+<p>Abre la app</p>
+</div>
+<a href="https://eltiempo.page.link/bannermobile" class="ver">Instalar</a>
+</div>
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<div id="main-container" class="main-container">
+<noscript><iframe src="../ns.html" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<esi:include src="https://m.eltiempo.com/page/body-html.html" onerror="continue" alt="/page_error/body-html">
+<esi:include src="https://m.eltiempo.com/page/mobile-home-header.html" onerror="continue" alt="/page_error/mobile-home-header">
+<div class="ad-unit" id="sas_20592"><script type="text/javascript">sas.cmd.push(function() { sas.call("std", { siteId: sas_siteId, pageId: sas_pageId, formatId: 20592, target: sas_target });});</script></div>
+<esi:include src="https://m.eltiempo.com/page/ads-before-header-mobile.html" onerror="continue" alt="/page_error/ads-before-header-mobile">
+<esi:include src="https://m.eltiempo.com/page/module-machine-learning.html" onerror="continue" alt="/page_error/module-machine-learning">
+<esi:include src="https://m.eltiempo.com/page/modulos-de-reconsumo.html" onerror="continue" alt="/page_error/modulos-de-reconsumo">
+<esi:include src="https://m.eltiempo.com/page/enabled-user-bar.html" onerror="continue" alt="/page_error/enabled-user-bar">
+<esi:include src="https://m.eltiempo.com/page/module-profiling.html" onerror="continue" alt="/page_error/module-profiling">
+<header class>
+<nav class="header_mobile">
+<div class="secciones"></div>
+<div class="nivel-logo2">
+<a href="/">
+<figure class="logo">
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 83" style="margin: 0 auto;text-align: center;width: 98px;" xml:space="preserve">
+<style type="text/css">
+.st0{fill:#0E65A5;}
+</style>
+<title>SVG - Logo</title>
+<desc>Created with Sketch.</desc>
+<g id="Logo-ET---Azul" transform="translate(5.000000, 10.000000)">
+<polyline id="Fill-1" class="st0" points="142.9,1 173.3,1 173.3,8.6 155,8.6 155,18.7 168.5,18.7 168.5,25.3 155,25.3 155,52
+173.3,52 173.3,58.9 142.9,58.9 142.9,1 "/>
+<polyline id="Fill-2" class="st0" points="82.5,1 121,1 121,9 108.6,9 108.6,58.9 95.6,58.9 95.6,8.7 82.5,8.7 82.5,1 "/>
+<polyline id="Fill-3" class="st0" points="37,1 49.3,1 49.3,52 67,52 67,58.9 37,58.9 37,1 "/>
+<polyline id="Fill-4" class="st0" points="0.8,1 31.2,1 31.2,8.6 13.1,8.6 13.1,18.3 26.4,18.3 26.4,25.3 13.1,25.3 13.1,52
+31.2,52 31.2,58.9 0.8,58.9 0.8,1 "/>
+<path id="Fill-5" class="st0" d="M304.6,30c0,12.4-2.9,22.3-6.6,24.1c-0.4,0.2-0.7,0.7-1.1,0.7c-4.3,0-7.7-11.1-7.7-24.8
+c0-13.7,3.5-24.8,7.7-24.8C301.1,5.2,304.6,16.3,304.6,30 M320.5,30c0-16.2-10.6-29.2-23.7-29.2c-13.1,0-23.7,13.1-23.7,29.2
+c0,16.2,10.6,29.2,23.7,29.2C309.9,59.2,320.5,46.1,320.5,30"/>
+<path id="Fill-6" class="st0" d="M243.2,29.4h8.6c3.5,0,6.2-5.3,6.2-10.5c0-4.9-3.3-9.8-7.2-9.8h-7.6L243.2,29.4L243.2,29.4z
+M243.2,37.9v21h-13.5V1h24.8c9,0,14.8,8.9,14.8,19.3c0,10.2-7.9,17.5-13.8,17.5L243.2,37.9L243.2,37.9z"/>
+<polyline id="Fill-7" class="st0" points="188.1,58.9 179.8,58.9 179.8,1 188.1,1 201.8,29.4 212.2,1 224.9,1 224.9,58.9
+211.5,58.9 211.5,28.4 200.8,58.9 199.1,58.9 188.1,30.2 188.1,58.9 "/>
+<polygon id="Fill-8" class="st0" points="125,1 137,1 137,58.9 125,58.9 "/>
+</g>
+</svg>
+</figure>
+</a>
+</div>
+<div class="cuenta noUser menu-button" data-menu="menu_noUser"></div>
+<div class="cuenta activeUser menu-button" data-menu="menu_user"></div>
+<!-- <div class="reloj-alerta vacio">
+<a href="/ultimas-noticias"></a>
+</div>-->
+<div class="mis-noticias-mobile abrir-noticias dtm-profiling-header top-header">
+</div>
+<div class="tooltip-home-mobile go-home-landing-profiling" style="display: none">
+<div class="texto-tooltip">
+Haz clic aquí para ver todas las noticias
+</div>
+<span class="cerrar-icon"></span>
+</div>
+<div class="header_modulo_suscripcion">
+<p>
+<span class="fecha_suscripcion">LUNES, 03 MAY. 2021 </span>
+<a href="/suscripcion-digital" class="btn_suscribirme">Suscríbete x $900 <span class="texto-light">1er mes</span></a>
+</p>
+</div>
+</nav>
+<div class="menu_noUser toggable-menu m-registro-login">
+<p class="subscription-bar">
+Suscríbete y disfruta más de 3.500 contenidos nuevos con información confiable, relevante y útil
+<a href="/suscripcion-digital" class="btn_subscription" target="_blank">Suscríbete x $900 <span class="texto-light">1er mes</span></a>
+</p>
+<p class="login-bar">
+Ingresa con tu correo electrónico y contraseña o tus redes sociales
+<a href="/login" class="btn_login">INICIAR SESIÓN</a>
+</p>
+</div>
+<div class="menu_user toggable-menu user-bar" data-src="/zona-usuario/configurar-mis-datos">
+<div class="user-welcome">Hola, <span class="username"></span></div>
+<ul class="dropdown">
+<li class="ico-configurar">
+<a href="/zona-usuario/configurar-mis-datos">
+Configurar mis datos
+</a>
+</li>
+<li class="icon-activar-suscripcion">
+<a href="/zona-usuario/activar">
+Activar Acceso Digital
+</a>
+</li>
+<li class="ico-suscripcion" id="suscribirme-path">
+<!--<a href="">-->
+<a href="/suscripcion-digital">
+Suscríbete x $900 <span class="texto-light">1er mes</span>
+</a>
+</li>
+<li class="ico-suscripcion" id="mi-suscripcion-path">
+<a href="/zona-usuario/mi-suscripcion">
+Mi suscripción
+</a>
+</li>
+<li class="ico-impreso">
+<a href="/zona-usuario/version-impresa">
+Versión impresa
+</a>
+</li>
+<li class="ico-guardado">
+<a href="/zona-usuario/articulos-guardados">
+Artículos guardados
+</a>
+</li>
+<li class="ico-boletines">
+<a href="/zona-usuario/boletines">
+Boletines
+</a>
+</li>
+<li class="ico-vivamos">
+<a href="/zona-usuario/club-vivamos">
+Club vivamos El Tiempo
+</a>
+</li>
+<li class="ico-preguntas">
+<a href="/preguntas-frecuentes">
+Preguntas frecuentes
+</a>
+</li>
+<li class="ico-cerrar">
+<a class="cierre_sesion" data-src="https://seg.eltiempo.com/server/logout/eltiempodigital" data-href="/sesion/logout/eltiempodigital">
+Cerrar sesión
+</a>
+</li>
+</ul> </div>
+<div class="menu_mobile">
+<div class="buscar-grupoMobile">
+<form class="buscador-form" action="/buscar" method="get">
+<span class="buscador-icon"></span>
+<input class="bloque" type="text" name="q" placeholder="BUSCAR" autocomplete="off">
+</form>
+</div>
+<nav class="default" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+<esi:include src="/menu/mobile?renderer=wf_renderer" onerror="continue"> </esi:include></nav>
+<a href="/?stopapp=true" class="btn_desktop page-link">
+Versión para computadores
+<span class="icono-desktop"></span>
+</a>
+</div>
+</header>
+<div class="alertaBoletin registro-alerta">
+<div class="barra contenidoAlerta" style="display: none;" id="barraActivacionHeader">
+<div class="texto">¡Hola
+<span class="username"></span>!, Tu correo ha sido verificado. Ahora puedes elegir los
+<a class="alerta-subrayar" href="/zona-usuario/boletines">Boletines</a>
+que quiera recibir con la mejor información.
+</div>
+<div class="content_accion">
+<a class="cerrar-icon cerrarBarra" onclick="javascript:$('#barraVerificacionHeader').remove();"></a>
+</div>
+</div>
+</div>
+<div class="alertaGeneral registro-alerta">
+<div class="barra contenidoAlerta" style="display: none;" id="first-login-message">
+<div class="texto">Bienvenido
+<span class="username"></span>
+has creado tu cuenta en EL TIEMPO. Conoce y personaliza tu perfil.
+<div class="content_accion">
+<a class="cerrar-icon cerrarBarra" onclick="javascript:$('#barraVerificacionHeader').remove();"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="alertaGeneral registro-alerta" id="welcome-bar-message">
+</div>
+<div class="alertaCuentaError">
+<div class="barra verificacion contenidoAlerta" id="barraVerificacionHeader" style="display: none">
+<div class="texto">Hola
+<span class="username"></span>
+el correo
+<span class="useremail"></span>
+no ha sido verificado.
+</div>
+<div class="texto-dos">
+<a href="javascript:void(0)" onclick="javascript:checkEmail();" class="verificacorreo">
+Verificar correo.
+</a>
+ó
+<a href="/zona-usuario/actualizar-email">cambiar correo.</a>
+</div>
+<div class="content_accion">
+<a class="cerrar-icon cerrarBarra" onclick="javascript:$('#barraVerificacionHeader').remove();"></a>
+</div>
+</div>
+</div>
+<section class="m-alert-2 m-alert alertaVerificaCorreo" id="enviar-correo-verificacion" style="display: none;">
+<span class="ico-alert"></span>
+<div class="txt-5">El correo electrónico de verificación se enviará a</div>
+<div class="txt-6 useremail"></div>
+<p class="txt-5"><br>Revisa tu bandeja de entrada y si no, en tu carpeta de correo no deseado.</p>
+<a href="/zona-usuario/actualizar-email" class="btn-1 btn-verifica regresa">
+NO, CAMBIAR CORREO
+</a>
+<br><br>
+<a href="javascript:void(0)" class="btn-2 btn-verifica">
+SI, ENVIAR
+</a>
+<a class="cerrarBarra cerrar-icon" onclick="javascript:$('#barraVerificacionHeader').remove();"></a>
+<span class="loader-icon" style="display: none"></span>
+</section>
+<!-- Barra de personalizacion-->
+<div class="barra-mobile-personalizacion" style="display:none">
+<div class="header-side-mobile">
+<a href="/"><span class="header-logo"></span></a>
+<a class="header-cerrar dtm-profiling-close" data-dtm="sidebar"></a>
+</div>
+<div class="header-barra-mobile">
+</div>
+<div class="cuerpo-barra-mobile">
+<div class="contenido-barra-mobile" style="display: block">
+<p class="titulo-texto upper-text">mis noticias</p>
+<div class="imagen-barra-mobile"></div>
+<p class="texto1-barra-mobile">Queremos que encuentres las noticias que más te interesan</p>
+<p class="texto2-barra-mobile">Sigue tus temas favoritos en un lugar exclusivo para ti.</p>
+<a class="contenedor-boton upper-text login-favoritos-sidebar dtm-profiling-start" href="/mis-noticias" data-dtm="sidebar">¡elígelos!</a>
+</div>
+<div class="contenido-barra-mobile" style="display: none">
+<div class="contenido-barra-lateral-noticias">
+<span class="titulo-contenido-noticias">¡elígelos!</span>
+<div class="noticias-aqui"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="tema-añadido" class="tooltip-misnoticias" style="display:none;">
+<p class="texto-informativo">Acá encontrarás tus noticias de <span class="negrilla" id="tema-nuevo"></span></p>
+</div>
+<!-- Coachmark mobile-->
+<div class="contenedor-coachmark-pers" style="display:none">
+<div class="filtro-coachmark-1"></div>
+<div class="filtro-coachmark"></div>
+<span class="cerrar-coachmark dtm-profiling-cmark-close" data-dtm="couchmark"></span>
+<div class="contenedor-coachmark-pers-1">
+<!-- user anonimo -->
+<div class="contenedor-datos-anonimo" style="display:none">
+<p class="titulo-coachmark upper-text">Descubre<br> "mis noticias"</p>
+<p class="texto-coachmark">Un lugar exclusivo,<br> donde podrás seguir tus<br> <strong>temas favoritos </strong>.</p>
+<div class="imagen-coachmark-mobile"></div>
+<a href="/mis-noticias" class="boton-coachmark upper-text login-favoritos-coachmark dtm-profiling-start" data-dtm="couchmark">¡elígelos!</a>
+<p href="#" class="despues-coachmark dtm-profiling-cmark-skip" data-dtm="omitir"><u>Lo haré después</u></p>
+</div>
+<!-- user App -->
+<div class="contenedor-datos-app" style="display:none">
+<p class="titulo-coachmark upper-text titulo-app">¡hola!</p>
+<div class="bxslider-per">
+<div class="contenedor-pasos">
+<p class="texto-introduccion">Aquí también puedes<br>encontrar <strong>"Mis Noticias"</strong> <br>y seguir los temas que<br> elegiste en la APP.</p>
+<p class="texto-descubre">¡Descubre cómo funciona!</p>
+<div class="imagen-paso-2">
+<div class="caja-texto-paso">
+<p class="encabezado-paso upper-text">editar favoritos</p>
+<p class="introduccion-paso">Cuando quieras cambia los temas que elegiste.</p>
+</div>
+</div>
+</div>
+<div class="contenedor-pasos">
+<p class="texto-introduccion">Aquí también puedes<br>encontrar <strong>"Mis Noticias"</strong> <br>y seguir los temas que<br> elegiste en la APP.</p>
+<p class="texto-descubre">¡Descubre cómo funciona!</p>
+<div class="imagen-paso-1">
+<div class="caja-texto-paso">
+<p class="encabezado-paso upper-text">Mis noticias</p>
+<p class="introduccion-paso">Una seccion exlusiva donde podra seguir tus temas.</p>
+</div>
+</div>
+</div>
+</div>
+<a href="/mis-noticias" class="boton-coachmark upper-text dtm-profiling-cmark-start" data-dtm="couchmark">Ir a mis noticias</a>
+<p href="#" class="despues-coachmark dtm-profiling-cmark-skip" data-dtm="lo hare despues"><u>Omitir</u></p>
+</div>
+</div>
+</div>
+<!-- Coachmark tras personalización-->
+<div class="contenedor-coachmark-tras bk_coachmark_save_personalization" style="display:none;">
+<div class="contenedor-datos-tras">
+<p class="titulo-coachmark">Tus temas favoritos <br> han sido guardados</p>
+<p class="texto-siguiendo">Ahora estas siguiendo</p>
+<p class="caracteristicas-temas"><span></span> TEMAS</p>
+<div class="bxslider2">
+<div class="contenedor-pasos">
+<div class="imagen-paso-1">
+<div class="caja-texto-paso">
+<p class="encabezado-paso upper-text">Mis noticias</p>
+<p class="introduccion-paso">Una seccion exlusiva donde podra seguir tus temas.</p>
+</div>
+</div>
+</div>
+<div class="contenedor-pasos">
+<div class="imagen-paso-2">
+<div class="caja-texto-paso">
+<p class="encabezado-paso upper-text">editar favoritos</p>
+<p class="introduccion-paso">Cuando quieras cambia los temas que elegiste.</p>
+</div>
+</div>
+</div>
+</div>
+<a href="/mis-noticias" class="boton-coachmark upper-text">ver mis noticias</a>
+<a href="/"><p class="despues-coachmark-onboarding dtm-profiling-cmark-skip"><u>Lo haré después</u></p></a>
+</div>
+</div>
+<div class="main-mobile-container">
+<article class="content_grid ayuda">
+<div class="content_grid_margin">
+<h1 class="titular oculto">Página de Error</h1>
+<div class="error-404">
+<div class="mensaje">
+<p class="contenido">Tu vida es una, aprovecha <b>EL TIEMPO</b> leyendo nuestros recomendados.</p>
+<span class="aqui">Encuéntralos <a href="/">aquí</a></span>
+</div>
+<figure class="error-img">
+<img src="ayuda-error-404.jpg">
+</figure>
+</div>
+</div>
+</article>
+</div>
+<esi:include src="https://m.eltiempo.com/footer/" onerror="continue">
+<div class="dictum-box" id="dictum-box"></div>
+</esi:include></esi:include></esi:include></esi:include></esi:include></esi:include></esi:include></esi:include></div>
+<script defer="defer" type="text/javascript" src="../js/pages.js"></script>
+<script defer="defer" src="../js/smart.js" type="text/javascript"></script>
+<script type="text/javascript">
+/** CONFIGURATION START **/
+_sf_async_config.sections = 'home'; //CHANGE THIS
+_sf_async_config.authors = ''; //CHANGE THIS
+var _cbq = window._cbq = (window._cbq || []);
+if(getUserName()){
+if(getCmsCookie('suscriptor') == "true"){
+_cbq.push(['_acct', 'paid']);
+}else
+_cbq.push(['_acct', 'lgdin']);
+}
+else{
+_cbq.push(['_acct', 'anon']);
+}
+/** CONFIGURATION END **/
+(function() {
+function loadChartbeat() {
+var e = document.createElement('script');
+var n = document.getElementsByTagName('script')[0];
+e.type = 'text/javascript';
+e.async = true;
+e.src = '//static.chartbeat.com/js/chartbeat.js';
+n.parentNode.insertBefore(e, n);
+}
+loadChartbeat();
+})();
+</script>
+<!-- begin Convert Experiences code-->
+<!-- <script defer="defer" type="text/javascript" src="//cdn-3.convertexperiments.com/js/10022306-10021161.js"></script>-->
+<!-- end Convert Experiences code -->
+<script src="../js/OneSignalSDK.js" defer="defer"></script>
+<script async type="text/javascript" src="../_Incapsula_Resource_6"></script>
+</body>
+</html>

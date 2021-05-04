@@ -1,25 +1,39 @@
 .sect1 {
-    background-image: url(./../../img/sect1_bg_dc.jpg);
     &__main {
+        padding: 62px 0;
+    }
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 35px;
+        margin-top: 0;
+        color: #183F4E;
+    }
+    &__grid {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 82px 0;
-        color: #fff;
-        img {
+        flex-wrap: wrap;
+    }
+    &__item {
+        max-width: 305px;
+        margin: 80px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+        color: #000;
+        img{
+            max-width: 270px;
             width: 100%;
         }
-        @include media-lg-tablet {
-            flex-direction: column;
-            padding: 70px 30px;
-            padding-bottom: 30px;
+        b {
+            font-size: 21px;
+            margin: 0 auto;
+            margin-top: 10px;
+            display: inline-block;
         }
-    }
-    &__triger {
-        background: #ffd704;
-        border-radius: 20px;
-        padding: 20px 30px;
-        color: #000;
     }
 }

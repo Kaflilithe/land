@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>contact-icon-time</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="et-servicio-al-cliente-validaciones-moviles" transform="translate(-20.000000, -1688.000000)" fill="#393939" fill-rule="nonzero">
+            <g id="contact-icon-time" transform="translate(20.000000, 1688.000000)">
+                <path d="M17.5,35 C7.83501688,35 0,27.1649831 0,17.5 C0,7.83501688 7.83501688,0 17.5,0 C27.1649831,0 35,7.83501688 35,17.5 C35,27.1649831 27.1649831,35 17.5,35 Z M17.5,33 C26.0604136,33 33,26.0604136 33,17.5 C33,8.93958638 26.0604136,2 17.5,2 C8.93958638,2 2,8.93958638 2,17.5 C2,26.0604136 8.93958638,33 17.5,33 Z" id="Oval"></path>
+                <polygon id="Line-2" points="26.2741699 23.3085938 25.2107773 25 15.8333333 19.7324466 15.8333333 6.66666667 18.0546875 6.66666667 18.0546875 18.7883301"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
