@@ -9,11 +9,11 @@
 .main {
   display: grid;
   width: 100%;
-  grid-template-columns: minmax(100px, 1fr) minmax(100px, 300px);
-  max-width: $content__width;
+  grid-template-columns:minmax(50px, 175px) minmax(100px, 1fr) minmax(100px, 355px);
+  max-width: 1231px;
   margin: 0 auto;
   position: relative;
-  @media (max-width: 900px) {
+  @include media-lg-tablet{
     display: block;
   }
 }
@@ -31,11 +31,25 @@
     @include flex(row, flex-start, center);
     margin-bottom: 1rem;
 
-    .get-date {
-      font-size: 14px;
-      margin-left: 10px;
-      line-height: 36px;
-      color: #bbbbbb;
+    a {
+      color: #898989;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 0 10px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      &.acctive{
+        color: #000;
+        padding-left: 0;
+      }
+    }
+    span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 100%;
+      background-color: #898989;
     }
   }
 }

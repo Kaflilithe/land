@@ -1,30 +1,43 @@
 .navbar {
-  padding: 3rem 0;
-  padding-left: 0.6rem;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  bottom: 0;
-  background-color: #fff;
-  padding: 2rem 1rem;
-  transform: translateX(-100%);
-  width: 240px;
-  @include transition;
-  z-index: 2;
-  &.active {
-    transform: translateX(0);
+  margin-top: 210px;
+  @include media-lg-tablet {
+    display: none;
   }
-  &__nav {
-    @include flex(column);
-      font-size: 16px;
-    text-transform: uppercase;
-
-    a {
-      color: #808080;
-      margin-bottom: 19px;
+  &__author {
+    background: #efefef;
+    padding: 24px 18px;
+    margin: auto;
+    margin-bottom: 15px;
+    &--name{
+      margin-top: 0;
+      font-size: 15px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    &--span{
+      color: #717171;
+      font-weight: 300;
+font-size: 12px;
+display: block;
+line-height: 1;
+    }
+    &--nickname{
+      margin-top: 5px;
+      display: block;
+      color: #216087;
+      font-size: 12px;
       text-decoration: none;
     }
-
+    p{
+      font-size: 12px;
+      margin-top: 5px;
+      span{
+        display: block;
+      }
+    }
+  }
+  img{
+    display: block;
+    margin: 0 auto;
   }
 }
