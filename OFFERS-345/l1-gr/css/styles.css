@@ -277,8 +277,6 @@ h2 {
 	color: #cf0074;
 }
 
-
-
 .header_section .content_block {
 	height: 574px;
 	background: #0d0d0d url(../img/desctop__header_bg.jpg) center top no-repeat;
@@ -370,6 +368,7 @@ h2 {
 	padding-top: 38px;
 	font-size: 12px;
 	line-height: 1.2em;
+	
 }
 .sale:before {
 	content: "";
@@ -392,7 +391,6 @@ h2 {
 	font-size: 53px;
 	line-height: 50px;
 }
-
 .header_section .content_block .button,
 .size-table .button {
 	display: block;
@@ -1258,11 +1256,11 @@ h2 {
 		left: 3px;
 	}
 	.sale > p > span {
-		font-size: 28px;
+		font-size: 26px;
 		line-height: 34px;
 	}
 	.sale > p {
-		font-size: 14px;
+		font-size: 10px;
 		line-height: 1.1em;
 	}
 
@@ -1437,6 +1435,9 @@ h2 {
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
 	opacity: 0;
 }
-select{
+select {
+	overflow: hidden;
+}
+select option {
 	overflow: hidden;
 }
