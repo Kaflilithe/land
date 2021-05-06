@@ -49,6 +49,7 @@ h1 {
   text-align: center;
   background: #216087;
   color: #fff;
+  text-transform: uppercase;
   height: 50px;
   max-width: 160px;
   @include flex(row, center, center);
@@ -61,6 +62,10 @@ border: none;
   &:hover {
     opacity: 0.8;
   }
+  @include media-phone-med {
+    font-size: 12px;
+    max-width: 120px;
+  }
 }
 
 .img {
@@ -70,15 +75,7 @@ border: none;
     margin: 0.8rem auto;
   }
 
-  span{
-    color: #686868;
-    font-size: 1.1rem;
-    margin: 0 auto;
-    margin-bottom: 0;
-    margin-top: 1rem;
-    max-width: 390px;
-    text-align: left;
-  }
+ 
 }
 
 .overlay {
@@ -114,3 +111,14 @@ ul {
     font-style: italic;
   }
 }
+ h4{
+   a{
+     color: #000;
+   }
+ }
+ a{
+   color: #216087;
+   b{
+     color: #000;
+   }
+ }

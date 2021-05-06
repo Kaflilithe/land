@@ -1,6 +1,6 @@
 .navbar {
   margin-top: 210px;
-  @include media-lg-tablet {
+  @include media-large{
     display: none;
   }
   &__author {
