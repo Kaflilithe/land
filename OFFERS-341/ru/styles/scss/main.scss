@@ -544,7 +544,7 @@
     border: 1px solid #cdcdcd;
     box-sizing: border-box;
     @include flex(row, space-between, center);
-    
+
     .box {
       padding-left: 20px;
     }
@@ -573,24 +573,20 @@
       margin: 0;
     }
   }
+
 }
 
 .comment {
   margin-bottom: 2rem;
+  background: #F5F5F5;
+  padding: 8px 11px;
   @include flex(row, flex-start, flex-start);
+ 
   p {
-    margin-bottom: 2px;
-  }
-  a {
-    text-decoration: none;
-    width: 100%;
-    text-align: right;
-    display: inline-block;
-    color: #4492e0;
-    margin-top: 3px;
+    margin: 2px 0;
   }
   img {
-    max-width: 70px;
+    max-width: 44px;
     width: 100%;
     @media (max-width: 600px) {
       max-width: 50px;
@@ -625,13 +621,21 @@
     }
   }
   &.right {
-    padding-left: 3rem;
+    margin-left: 3rem;
   }
   .text {
     margin-left: 15px;
 
     width: 100%;
-    border-bottom: 1px solid #e4e4e4;
+  }
+  &__btn{
+    display: block;
+    img{
+      width: 16px;
+      opacity: 1;
+      margin-top: 10px;
+      height: 18px;
+    }
   }
 }
 .calculator {

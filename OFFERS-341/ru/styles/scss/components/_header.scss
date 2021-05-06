@@ -175,10 +175,12 @@
   }
 
   &__mob {
+   
     button {
       border: none;
       background-color: transparent;
       cursor: pointer;
+      outline: none;
     }
 
     display: none;
