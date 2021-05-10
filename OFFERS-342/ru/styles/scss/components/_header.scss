@@ -1,7 +1,7 @@
 .header {
   @include flex(column, center);
   position: relative;
-  background-image: url(../../../img/header.jpg);
+  background-image: url(../../img/header.jpg);
   background-size: cover;
   background-position: center;
   max-width: 1919px;
@@ -17,9 +17,10 @@
     }
   }
   &__wrap {
-    @include flex(row, space-between, center);
+    @include flex(row, space-between);
     max-width: $content__width;
     padding: 0 2rem;
+    height: 317px;
     position: relative;
     margin: 0 auto;
     width: 100%;
@@ -28,6 +29,7 @@
     }
     &--main{
       padding: 20px 10px;
+      padding-bottom: 0;
       flex-direction: column;
       @include media-tablet{
         flex-direction: row;
@@ -96,19 +98,26 @@
     }
   }
   &__logo {
-    img {
+   
+      max-width: 330px;
+      width: 100%;
       @media (max-width: 400px) {
         max-width: 140px;
       }
-    }
   }
   &__loop {
     width: 25px;
   }
   &__menu {
     @include flex(row, space-between, center);
-    max-width: 905px;
+    
+    background: rgba(255, 255, 255, 0.7);
     width: 100%;
+    margin: 0 auto;
+    &__nav{
+      max-width: 905px;
+      width: 100%;
+    }
     @include media-tablet{
       max-width: min-content
     }
