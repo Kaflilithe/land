@@ -1,0 +1,124 @@
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  height: 100%;
+
+  @media (max-width: 460px) {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  font-size: 16px;
+  background: #E5E5E5;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  @include content();
+  @media (max-width: 400px) {
+    padding: 0 0.6rem;
+  }
+}
+
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.25;
+
+  & a {
+    color: #000;
+  }
+    @media (max-width: 600px) {
+  font-size: 24px;
+  }
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  background: #216087;
+  color: #fff;
+  text-transform: uppercase;
+  height: 50px;
+  max-width: 160px;
+  @include flex(row, center, center);
+  margin: 1rem auto;
+  font-size: 14px;
+border: none;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.4s ease all;
+  &:hover {
+    opacity: 0.8;
+  }
+  @include media-phone-med {
+    font-size: 12px;
+    max-width: 120px;
+  }
+}
+
+.img {
+  position: relative;
+  @include flex(column, center, center);
+  &.center {
+    margin: 0.8rem auto;
+  }
+
+ 
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: none;
+  animation: show 0.4s ease;
+
+  &.active {
+    display: block;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+ul {
+  margin: 0;
+  padding-left: 1rem;
+
+  li {
+    font-style: italic;
+  }
+}
+ h4{
+   a{
+     color: #000;
+   }
+ }
+ a{
+   color: #216087;
+   b{
+     color: #000;
+   }
+ }
