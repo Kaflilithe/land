@@ -641,10 +641,17 @@ a{
 
 .comment {
   margin-bottom: 2rem;
-  background: #f5f5f5;
+  background: #fff;
   padding: 8px 11px;
   @include flex(row, flex-start, flex-start);
-
+span{
+  color: #C5C5C5;
+  margin-left: 10px;
+  font-size: 12px;
+}
+a{
+  text-decoration: none;
+}
   p {
     margin: 2px 0;
   }
@@ -659,30 +666,7 @@ a{
     max-width: 100%;
     margin: 10px 0;
   }
-  .date {
-    @include flex(row, space-between, center);
-    max-width: 104px;
-    width: 100%;
-    margin-top: 10px;
-    span {
-      font-size: 14px;
-      color: #bbbbbb;
-    }
-    img {
-      max-width: 18px;
-      width: 100%;
-    }
-    .img {
-      max-width: 100%;
-    }
-    @media (max-width: 600px) {
-      max-width: 87px;
-      margin-top: 5px;
-      img {
-        max-width: 10px;
-      }
-    }
-  }
+
   &.right {
     margin-left: 3rem;
   }
@@ -693,11 +677,22 @@ a{
   }
   &__btn {
     display: block;
+    margin-top: 10px;
+    @include flex (row,flex-start,center);
+    span{
+      font-size: 16px;
+      margin-left: 0;
+    }
     img {
       width: 16px;
-      opacity: 1;
-      margin-top: 10px;
+     margin-left: 27px;
+     margin-right: 10px;
       height: 18px;
+    }
+    b{
+      color: #57B05F;
+      font-weight: 600;
+font-size: 12px;
     }
   }
 }

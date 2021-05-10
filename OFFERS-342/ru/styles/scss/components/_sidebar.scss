@@ -5,20 +5,12 @@
   padding: 3rem 0.4rem;
 
   &__top {
-    background: #f3f3f3;
-    padding: 18px 40px;
-    padding-bottom: 36px;
-    .btn {
-      max-width: 200px;
-      img {
-        margin-left: 10px;
-      }
-    }
-    p {
-      text-align: center;
-      font-weight: bold;
-      font-size: 14px;
-    }
+    background: #1970B3;;
+    padding: 4px 18px;
+    max-width: 175px;
+    color: #FFFFFF;
+  
+
   }
   @include media-large {
     display: none;
