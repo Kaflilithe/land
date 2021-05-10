@@ -1,0 +1,43 @@
+.navbar {
+  margin-top: 52px;
+  @include media-large{
+    display: none;
+  }
+  &__author {
+    background:  #FFFFFF;
+    padding: 24px 18px;
+    margin: auto;
+    margin-bottom: 15px;
+    &--name{
+      margin-top: 0;
+      font-size: 15px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    &--span{
+      color: #717171;
+      font-weight: 300;
+font-size: 12px;
+display: block;
+line-height: 1;
+    }
+    &--nickname{
+      margin-top: 5px;
+      display: block;
+      color: #216087;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    p{
+      font-size: 12px;
+      margin-top: 5px;
+      span{
+        display: block;
+      }
+    }
+  }
+  img{
+    display: block;
+    margin: 0 auto;
+  }
+}

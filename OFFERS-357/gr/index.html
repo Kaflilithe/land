@@ -1,459 +1,516 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/main.css">
-    <title>MagicBax</title>
-<meta property="og:title" content="MagicBax">
-<meta property="og:description" content="Корректор мочки уха из ювелирной стали">
-<meta property="og:image" content="https://i.imgur.com/T4DDxQC.jpg">
-<meta property="og:type" content="website">
-    <link rel="icon" href="fav.ico" type="image/vnd.microsoft.icon">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-</head><body> <style> 
-  .menulog {
-    display: none
-}
-  .menu {
-    text-align: center;padding: 8px 0;background: #ececec;
-	
-}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>MagicBax</title>
+  <meta property="og:title" content="MagicBax">
+  <meta property="og:description" content="Корректор мочки уха из ювелирной стали">
+  <meta property="og:image" content="https://i.imgur.com/T4DDxQC.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="fav.ico" type="image/vnd.microsoft.icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-.menu__links-item img {
-    vertical-align: middle;
-}
+</head>
 
-.menu__icon {
-   display: none;
-   width: 45px;
-   height: 35px;
-   position: relative;
-   cursor: pointer;
-}
+<body>
+  <style>
+    .menulog {
+      display: none
+    }
 
-.menu__icon span {
-  display: block;
-  position: absolute;
-  height: 5px;
-  width: 100%;
-  background: #333333;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: .25s ease-in-out;
-}
+    .menu {
+      text-align: center;
+      padding: 8px 0;
+      background: #ececec;
 
-.menu__icon span:nth-child(1) {
-  top: 0px;
-}
+    }
 
-.menu__icon span:nth-child(2), .menu__icon span:nth-child(3) {
-  top: 13px;
-}
+    .menu__links-item img {
+      vertical-align: middle;
+    }
 
-.menu__icon span:nth-child(4) {
-  top: 26px;
- }
+    .menu__icon {
+      display: none;
+      width: 45px;
+      height: 35px;
+      position: relative;
+      cursor: pointer;
+    }
 
-.menu__links-item {
-    display: inline-block;
-    color: #333333;
-    font-family: Arial;
-    font-size: 14px;
-    line-height: 30px;
-    padding: 0 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-}
+    .menu__icon span {
+      display: block;
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background: #333333;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+    }
 
-.menu__links-item:hover {
-    text-decoration: underline;
-}
+    .menu__icon span:nth-child(1) {
+      top: 0px;
+    }
 
-.menu.menu_state_open .menu__icon span:nth-child(1) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
+    .menu__icon span:nth-child(2),
+    .menu__icon span:nth-child(3) {
+      top: 13px;
+    }
 
-.menu.menu_state_open .menu__icon span:nth-child(2) {
-  transform: rotate(45deg);    background: #fff;
-}
+    .menu__icon span:nth-child(4) {
+      top: 26px;
+    }
 
-.menu.menu_state_open  .menu__icon span:nth-child(3) {
-  transform: rotate(-45deg);    background: #fff;
-}
+    .menu__links-item {
+      display: inline-block;
+      color: #333333;
+      font-family: Arial;
+      font-size: 14px;
+      line-height: 30px;
+      padding: 0 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
 
-.menu.menu_state_open  .menu__icon span:nth-child(4) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
+    .menu__links-item:hover {
+      text-decoration: underline;
+    }
 
-.menu.menu_state_open .menu__links {
-  display: block;  
-}
+    .menu.menu_state_open .menu__icon span:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
 
-@media screen and (max-width: 999px) {
-	  .menulog {
-		  width: 100%; max-width: 55px; margin-left: 8px;margin-top: 0px;
-    display: block
-}
-  .menu {
-    text-align: right;
-padding-top: 10px;
-padding-right: 15px;
-display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-  .menu__icon{
-    display: inline-block; z-index: 900;
-  }
-  
-  .menu__links {
-    position: fixed;
-    display: none;
-    top: 0;
-    right: 0;
-    left: 0;
-	    height: 100%;
+    .menu.menu_state_open .menu__icon span:nth-child(2) {
+      transform: rotate(45deg);
+      background: #fff;
+    }
+
+    .menu.menu_state_open .menu__icon span:nth-child(3) {
+      transform: rotate(-45deg);
+      background: #fff;
+    }
+
+    .menu.menu_state_open .menu__icon span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+
+    .menu.menu_state_open .menu__links {
+      display: block;
+    }
+
+    @media screen and (max-width: 999px) {
+      .menulog {
+        width: 100%;
+        max-width: 55px;
+        margin-left: 8px;
+        margin-top: 0px;
+        display: block
+      }
+
+      .menu {
+        text-align: right;
+        padding-top: 10px;
+        padding-right: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .menu__icon {
+        display: inline-block;
+        z-index: 900;
+      }
+
+      .menu__links {
+        position: fixed;
+        display: none;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
         padding-top: 50px;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 100;
-    overflow: auto;
-  }
-  
-  .menu__links-item {
-    display: block;
-    padding: 10px 0;
-    text-align: center;
-    color: #ffffff;font-size: 24px;
-    line-height: 45px;
-  }  
-  
-  .menu__links-item-mob {
-    display: none;
-  }
-  
-}
-  </style> 
-  
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 100;
+        overflow: auto;
+      }
 
-  <script>(function($){
-  $(function() {
-    $('.menu__icon').on('click', function() {
-      $(this).closest('.menu').toggleClass('menu_state_open');
-    });
-  });
-})(jQuery);</script>
+      .menu__links-item {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: #ffffff;
+        font-size: 24px;
+        line-height: 45px;
+      }
+
+      .menu__links-item-mob {
+        display: none;
+      }
+
+    }
+  </style>
 
 
-
- 
- 
-
-    <header>
-      <div class="header-cont"><img class="logo" src="images/logo.png" alt><a class="header__link" href="#form-link"> Παραγγελία</a></div>
-    </header>
-    <main>
-      <section class="wellcome">
-        <h1><span> Για ασφαλές κούμπωμα στους λοβούς των αυτιών</span><br><span> Κατασκευασμένο από χάλυβα</span></h1>
-        <div class="content-center">
-          <p class="two-colors"> ~<span>2</span> χρώματα ~</p>
-        </div>
-        <ul class="check">
-          <li> <span> Επαναφέρει την φυσιολογική<br> εμφάνιση των τεντωμένων λοβών</span></li>
-          <li><span> Αποτρέπει το τέντωμα<br> των λοβών από τα βαριά σκουλαρίκια</span></li>
-          <li><span> Κατάλληλο για όλους τους τύπους<br> σκουλαρικιών</span></li>
-        </ul>
-      </section>
-      <div class="price-cont">
-        <div class="old-price-cont">
-          <p class="old-price__desc"> Αρχική τιμή</p>
-          <div class="old-price-wrapper"><span class="price-value"> 38</span>€</div>
-        </div>
-        <div class="new-price-cont">
-          <p class="new-price__desc"> Τιμή σε προσφορά</p>
-          <div class="price-wrapper"><span class="price-value"> 19</span>€</div>
-        </div>
-      </div>
-      <section class="form">
-        <h2 class="form__title"> Συμπληρώστε μια αίτηση τώρα<br> και κερδίστε<b> 50% έκπτωση</b></h2>
-        <p class="limited"> Η συγκεκριμένη προσφορά είναι περιορισμένη</p>
-        <form method="post">          
-<input name="offer_id" type="hidden" value="{offer_id}">
-<input name="geo" type="hidden" value>
-<input name="web_id" type="hidden" value="{web_id}">
-<input name="click_id" type="hidden" value="{click_id}">
-<input name="time_zone" type="hidden" value="+3">
-<input name="lang" type="hidden" value="RU">
-          <div class="ico-cont-name">
-            <input class="form__input" required type="text" name="name" placeholder="Εισάγεται Ονοματεπώνυμο">
-          </div>
-          <div class="ico-cont-tel">
-            <input class="form__input input-tel" required type="tel" name="phone" placeholder="Εισάγεται Τηλέφωνο">
-          </div>
-          <button class="link-button" type="submit"> Παραγγελία με έκπτωση</button>
-
-        </form>
-      </section>
-      <div class="gray"></div>
-      <div class="header-line">       </div>
-      <div class="video">
-         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline controls autoplay="autoplay">
-<source src="media/1.mp4" type="video/mp4">
-<source src="media/1.webm" type="video/webm">
-</video>
-      </div>
-      <div class="header-line"></div>
-      <div class="pic-and-text">
-        <p> Παρέχονται δύο κουμπώματα<br> για τα σκουλαρίκια</p>
-      </div>
-      <section class="big-check">
-        <ul class="big-check__ul">
-          <li>
-            <h3> Οι λοβοί των αυτιών θα<br> φαίνονται φυσιολογικοί</h3>
-            <p> Το κούμπωμα των λοβών κρατάει το βάρος των σκουλαρικιών στη σωστή θέση</p>
-          </li>
-          <li>
-            <h3> Επαναφέρει την εμφάνιση<br> των τραυματισμένων<br> και τεντωμένων λοβών</h3>
-            <p> Λόγω του ειδικού σχήματος<br> ταιριάζει άνετα<br> στους λοβούς, ανυψώνοντας τους<br> και επανέρχονται στην<br> φυσιολογική τους εμφάνιση</p>
-          </li>
-          <li>
-            <h3> Αποτρέπει<br> το κρέμασμα των λοβών</h3>
-            <p> Παρέχει τη σωστή<br> κατανομή βάρους<br> των σκουλαρικιών προστατεύοντας<br> τους λοβούς των αυτιών από το<br> κρέμασμα</p>
-          </li>
-        </ul>
-      </section>
-      <div class="gray"></div>
-      <div class="pic-and-text pic-and-text-2">
-        <p> Παρέχονται δύο κουμπώματα<br> για τα σκουλαρίκια</p>
-      </div>
-      <section class="small-check">
-        <ul class="small-check__ul">
-          <li><img src="images/min-chk.png" alt>
-            <p> Σας βοηθά να φαίνεστε υπέροχοι<br> και ελκυστικοί</p>
-          </li>
-          <li><img src="images/min-chk.png" alt>
-            <p> Είναι μια εξαιρετική ευκαιρία κατα τους πόνους από τη χρήση μεγάλων σκουλαρικιών</p>
-          </li>
-          <li><img src="images/min-chk.png" alt>
-            <p> Το κούμπωμα στους λοβούς των αυτιών είναι απολύτως καθολικός και ταιριάζει σε όλες τις ηλικίες</p>
-          </li>
-          <li><img src="images/min-chk.png" alt>
-            <p> Κατάλληλο για καθημερινή χρήση, μπορεί να χρησιμοποιηθεί σε κάθε περίπτωση</p>
-          </li>
-        </ul>
-      </section>
-      <div class="gray"></div>
-      <h2 class="pic-block__title"> Θα γίνει αναντικατάστατο<br> αξεσουάρ</h2><img src="images/pic-1.jpg" alt>
-      <section class="nat">
-        <ul class="nat__ul">
-          <li><img src="images/nat-1.png" alt>
-            <h3> Κατασκευασμένο<br> από<br> Χάλυβα</h3>
-            <p> Αυτό το μέταλλο (ιατρικός χρυσός) χρησιμοποιείται για την κατασκευή ιατρικών οργάνων. Είναι ανθεκτικό και δεν σκουριάζει</p>
-          </li>
-          <li><img src="images/nat-2.png" alt>
-            <h3> Εχει<br> κομψό<br> design</h3>
-            <p> Σας επιτρέπει να δημιουργήσετε μια όμορφη και ευπρεπή εμφάνιση ακόμα και με τα πιο ογκώδη σκουλαρίκια</p>
-          </li>
-          <li><img src="images/nat-3.png" alt>
-            <h3> Σχεδόν αόρατο</h3>
-            <p> Το κούμπωμα είναι ελαφρύ, συμπαγές και εύκολο στη χρήση του</p>
-          </li>
-        </ul>
-      </section>
-      <div class="gray"></div>
-      <h2 class="pic-block__title title-line"> Κατάλληλο για όσους έχουν</h2>
-      <div class="colors">
-        <div class="color"><img src="images/white.png" alt>
-          <p> Σχεδόν κλειστεί<br> τρύπα</p>
-        </div>
-        <div class="color"><img src="images/blue.png" alt>
-          <p> Βαριά<br> σκουλαρίκια</p>
-        </div>
-        <div class="color"><img src="images/gray.png" alt>
-          <p> Τεντωμένους<br> λοβούς αυτιών</p>
-        </div>
-        <div class="color"><img src="images/pink.png" alt>
-          <p> Δυσφορία<br> από βαριά σκουλαρίκια</p>
-        </div>
-      </div>
-      <div class="gray"></div>
-      <h2 class="pic-block__title"> Το αναντικατάστατό σας<br> αξεσουάρ</h2><img src="images/pic-2.jpg" alt>
-      <section class="small-check">
-        <ul class="small-check__ul">
-          <li><img src="images/min-chk.png" alt>
-            <p> Διάφορα χρώματα καθιστούν το κούμπωμα μοναδική επιλογή</p>
-          </li>
-          <li><img src="images/min-chk.png" alt>
-            <p> Τέλειο ως δώρο</p>
-          </li>
-        </ul>
-      </section>
-      <div class="gray"></div>
-      <div class="per"><img src="images/per-1.png" alt></div>
-      <div class="header-line"></div>
-      <div class="video">
-         <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline webkit-playsinline autoplay="autoplay" controls>
-<source src="media/2.mp4" type="video/mp4">
-<source src="media/2.webm" type="video/webm">
-</video>
-      </div>
-      <div class="header-line"></div>
-      <section class="post"> <img src="images/post-top.png" alt>
-        <div class="post__like"> Αρέσει:<b> 2511</b></div>
-        <div class="post__desc"> Το κομψό κούμπωμα είναι μια καλή επιλογή για γυναίκες κάθε ηλικίας</div>
-        <ul class="post__ul no-padding">
-          <li><img class="emoji-first" src="images/diamond.jpg" alt><span> Φαίνεται λακωνικό και ακριβό, σε απόλυτη αρμονία με τα σκουλαρίκια κατασκευασμένα απο πολύτιμα μέταλλα, κοσμήματα διαφορετικών τύπων</span></li>
-          <li><img class="emoji-first" src="images/post-heart.png" alt><span> Οι κοπέλες του καινοτόμου αξεσουάρ θα αποκτήσουν αυτοπεποίθηση</span></li>
-          <li><img class="emoji-first" src="images/diamond.jpg" alt><span><b> Η ασφαλής στερέωση του κουμπώματος αποτρέπει την απώλεια των ακριβών σκουλαρικιών</b></span></li>
-          <li><img class="emoji-first" src="images/post-check.png" alt><span> Με αυτό το αξεσουάρ θα είναι δύσκολο να χάσετε τα πολύτιμα σας σκουλαρίκια από μία τυχόν ξαφνική πτώση τους.</span></li>
-        </ul>
-        <p class="post-time"> ΠΡΙΝ ΑΠΟ 3 ΜΕΡΕΣ</p>
-      </section>
-      <div class="line-gray"></div>
-      <div class="gray"></div>
-      <div class="per"><img src="images/per-2.png" alt></div><img src="images/pic-3.jpg" alt>
-      <section class="post"><img src="images/post-top.png" alt>
-        <div class="post__like no-pb"> Αρέσει:<b> 4952</b>       </div>
-        <ul class="post__ul no-padding">
-          <li>            <span><b> Λατρεύετε τα ογκώδης σκουλαρίκια<br> όπως και εγώ? Το μικρό μυστικό της ομορφιάς μου</b></span><img src="images/post-smile.png" alt><br></li>
-          <li><span> Μένω έκπληκτη από το γεγονός ότι ορισμένα άτομα εξακολουθούν να μην γνωρίζουν για το υπέροχο κούμπωμα των λοβών, γι 'αυτό μοιράζομαι την εμπειρία μου μαζί σας!</span><img src="images/post-heart.png" alt><span> Η εμφάνισης του είναι υπέροχη, σε κάνει να νιώθεις άνετα και με ασφάλεια.</span></li>
-          <li> <span> Το αξεσουάρ στερέωσης έχει γίνει πραγματική σωτηρία για μένα! Επιστρέφει τα σκουλαρίκια στην επιθυμητή θέση με μία κίνηση!</span><img src="images/post-like.png" alt></li>
-          <li> <span> Τώρα φοράω οποιουδήποτε βάρους σκουλαρίκια χωρίς καμία ενόχληση</span><img src="images/magic.png" alt><span> Εκτός αυτού, δεν φοβάμαι πλέον να χάσω τα αγαπημένα μου σκουλαρίκια. Αυτό είναι απαραίτητο για κάθε γυναίκα!</span></li>
-        </ul>
-        <p class="post-time"> ΠΡΙΝ ΑΠΟ 2 ΜΕΡΕΣ</p>
-      </section>
-      <div class="line-gray"></div>
-      <section class="mini-rev">
-        <p class="mini-rev__desc"><b> Fidal_36</b> Η φίλη μου είπε για αυτό το αξεσουάρ τα καλύτερα λόγια. Θα συμφωνήσω και εγώ μαζί της είναι υπέροχο</p>
-        <div class="mini-rev__tech-cont">
-          <p class="mini-rev__time"> Πριν απο 2 μέρες</p>
-          <p class="mini-rev__like"> Αρέσει</p>
-        </div><span class="mini-rev__desc"><b> Χριστίνα</b> Τι ενδιαφέρον που είναι, πρέπει να τα παραγγείλω</span><img src="images/post-heart.png" alt><img src="images/post-heart.png" alt><img src="images/post-heart.png" alt>
-        <div class="mini-rev__tech-cont">
-          <p class="mini-rev__time"> Πριν απο 23 ώρες</p>
-          <p class="mini-rev__like"> Αρέσει</p>
-        </div>
-      </section>
-      <div class="gray"></div>
-      <div class="per"><img src="images/per-3.png" alt></div><img src="images/pic-4.jpg" alt>
-      <section class="post"><img src="images/post-top.png" alt>
-        <div class="post__like no-pb"> Αρέσει:<b> 361</b>       </div>
-        <ul class="post__ul no-padding">
-          <li>            <span> Έλαβα την παραγγελία πριν από μερικούς μήνες, είμαι πολύ χαρούμενη για το αποτέλεσμα!</span><img src="images/sml.png" alt><br><span> Αποφάσισα να παραγγείλω αφού έχασα τα ακριβά χρυσά μου σκουλαρίκια. Τώρα φοράω σκουλαρίκια και δεν φοβάμαι τίποτα. Το κούμπωμα είναι οικονομικό στην τιμή και τα πλεονεκτήματα του πολλά! Και τα αυτιά μου τώρα δεν με πονάνε πια. Απίστευτο αξεσουάρ! Το συμβουλεύω!</span><img src="images/sml.png" alt></li>
-        </ul>
-        <p class="post-time"> ΠΡΙΝ ΑΠΟ 3 ΜΕΡΕΣ</p>
-      </section>
-      <div class="gray"></div>
-      <div class="per"><img src="images/per-4.png" alt></div>
-      <div class="reviews__slick-2"><img src="images/sl-1.jpg" alt><img src="images/sl-2.jpg" alt></div>
-      <section class="post"><img src="images/post-top.png" alt>
-        <div class="post__like no-pb"> Αρέσει:<b> 986</b>       </div>
-        <ul class="post__ul no-padding">
-          <li>            <span> Θέλω να το μοιραστώ! Ίσως θα βοηθήσω κάποια κοπέλα, όπως με βοήθησαν και μένα!</span><br><br><span> Φορούσα μεγάλα σκουλαρίκια για πολύ καιρό και με την πάροδο του χρόνου οι λοβοί των αυτιών μου τεντώθηκαν και άρχιζαν να κρέμονται τα σκουλαρίκια και φαινόταν άσχημα ... Νόμιζα ότι χρειαζόμουν εγχείρηση για να διορθώσω τους λοβούς των αυτιών μου! Αποδείχθηκε ότι αυτό το πρόβλημα λύθηκε χάρη σε αυτό το αξεσουάρ.</span><br><br><span> Τώρα μπορώ να φοράω το αξεσουάρ με μεγάλες πέτρες, βαριά σκουλαρίκια και να φαίνονται ακαταμάχητα! Παραγγείλτε το και δεν θα το μετανιώσετε!</span></li>
-        </ul>
-        <p class="post-time"> ΠΡΙΝ ΑΠΟ 4 ΜΕΡΕΣ</p>
-      </section>
-      <div class="gray"></div>
-      <div class="per"><img src="images/per-5.png" alt></div>
-      <div class="reviews__slick-2"><img src="images/sl-3.jpg" alt><img src="images/sl-4.jpg" alt><img src="images/sl-5.jpg" alt><img src="images/sl-6.jpg" alt></div>
-      <section class="post"><img src="images/post-top.png" alt>
-        <div class="post__like no-pb"> Αρέσει:<b> 2334</b>       </div>
-        <ul class="post__ul no-padding">
-          <li>            <span> Για πολύ καιρό δεν μπορούσα να φορέσω ένα από τα αγαπημένα μου σκουλαρίκια, διότι ήταν πολύ βαρύ και τα αυτιά μου άρχιζαν γρήγορα να πονάνε.</span><br><br><span> Το θαυματουργό κούμπωμα μου έλυσε το πρόβλημα!</span><br><br><span> Είναι ένας μοναδικός σχεδιασμός που κατανέμει το βάρος σε ολόκληρη την περιοχή του λοβού, έτσι ώστε ακόμη και τα σκουλαρίκια των εκατό γραμμαρίων δεν γίνονται αισθητά στα αυτιά!Τέλειο!</span><img src="images/sml.png" alt></li>
-        </ul>
-        <p class="post-time"> ΠΡΙΝ ΑΠΟ 4 ΜΕΡΕΣ</p>
-      </section>
-      <div class="gray"></div>
-      <section class="delivery">
-        <h2> Αποστολή και πληρωμή</h2>
-        <div class="delivery__item"><img src="images/deliv-1.png" alt>
-          <h3> Παράδοση</h3>
-          <p> "Παραδίδουμε μέσω courier εντός 1-3 ημερών ημερών</p>
-        </div>
-        <div class="delivery__item"><img src="images/deliv-3.png" alt>
-          <h3> "</h3>
-          <p> Πληρωμή κατά την παράδοση<br> Η πληρωμή πραγματοποιείται</p>
-        </div>
-      </section>
-      <section class="wellcome">
-        <h1><span> κατά την παραλαβή της παραγγελίας</span><br><span> Για ασφαλές κούμπωμα στους λοβούς των αυτιών</span></h1>
-        <div class="content-center">
-          <p class="two-colors"> Κατασκευασμένο από χάλυβα<span>2</span> ~</p>
-        </div>
-        <ul class="check">
-          <li> <span> χρώματα ~<br> Επαναφέρει την φυσιολογική</span></li>
-          <li><span> εμφάνιση των τεντωμένων λοβών<br> Αποτρέπει το τέντωμα</span></li>
-          <li><span> των λοβών από τα βαριά σκουλαρίκια<br> Κατάλληλο για όλους τους τύπους</span></li>
-        </ul>
-      </section>
-      <div class="price-cont">
-        <div class="old-price-cont" id="form-link">
-          <p class="old-price__desc"> σκουλαρικιών</p>
-          <div class="old-price-wrapper"><span class="price-value"> Αρχική τιμή</span>€</div>
-        </div>
-        <div class="new-price-cont">
-          <p class="new-price__desc"> 38</p>
-          <div class="price-wrapper"><span class="price-value"> Τιμή σε προσφορά</span>€</div>
-        </div>
-      </div>
-      <section class="form">
-        <h2 class="form__title"> 19<br> Συμπληρώστε μια αίτηση τώρα<b> και κερδίστε</b></h2>
-        <p class="limited"> 50% έκπτωση</p>
-        <form method="post">     
-<input name="offer_id" type="hidden" value="{offer_id}">
-<input name="geo" type="hidden" value>
-<input name="web_id" type="hidden" value="{web_id}">
-<input name="click_id" type="hidden" value="{click_id}">
-<input name="time_zone" type="hidden" value="+3">
-<input name="lang" type="hidden" value="RU">
-          <div class="ico-cont-name">
-            <input class="form__input" required type="text" name="name" placeholder="Εισάγεται Ονοματεπώνυμο">
-          </div>
-          <div class="ico-cont-tel">
-            <input class="form__input input-tel" required type="tel" name="phone" placeholder="Εισάγεται Τηλέφωνο">
-          </div>
-          <button class="link-button" type="submit"> Η προσφορά είναι περιορισμένη</button>
-
-        </form>
-      </section>
-      <div class="gray"></div> 
- 
-    </main>
-    <footer id="footer-link">
-  <div style="text-align: center;margin: 10px auto;display: block;font-size: 14px;line-height: 26px;"> BEAUT-E SHOP, 26th Oktovriou, 546 27, Thessaloniki, Greece<br> 
-<a href="/privacypolicy" target="_blank"> Privacy policy</a>
-<a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>
-<a href="/legal-warning" target="_blank"> Legal warning</a>
-</div>    
-</footer>
-    <div id="details-wrapper"></div>
-    <script src="js/slick.min.js"></script>
-    <script src="js/main.js"></script>
-  
-<script type="text/javascript" src="/libs/js/common.js"></script>
-<script>
-    $(document).ready(function() {
-        $.init({
-
-            priceSelector: ".new-cost",
-            oldPriceSelector: ".old-cost",
-            reportFormSelector: ".report-abuse__form",
-            reportCallback: function (data) {
-                console.log('ReportCallback:', data);
-            },
-            callback: function() {
-                console.log("Do something after prices changing");
-
-            }
+  <script>(function ($) {
+      $(function () {
+        $('.menu__icon').on('click', function () {
+          $(this).closest('.menu').toggleClass('menu_state_open');
         });
-    });
-</script>
-   
+      });
+    })(jQuery);</script>
 
-</body></html>
+
+
+
+
+
+  <header>
+    <div class="header-cont"><img class="logo" src="images/logo.png" alt><a class="header__link" href="#form-link">
+        Παραγγελία</a></div>
+  </header>
+  <main>
+    <section class="wellcome">
+      <h1><span> Για ασφαλές κούμπωμα στους λοβούς των αυτιών</span><br><span> Κατασκευασμένο από ανοξείδωτο
+          ατσάλι</span></h1>
+      <div class="content-center">
+        <p class="two-colors"> ~<span>2</span> χρώματα ~</p>
+      </div>
+      <ul class="check">
+        <li> <span> Επαναφέρει την φυσιολογική<br> εμφάνιση στους τεντωμένους λοβούς </span></li>
+        <li><span> Αποτρέπει το τέντωμα<br> των λοβών από τα βαριά σκουλαρίκια</span></li>
+        <li><span> Κατάλληλο για όλους τους τύπους<br> σκουλαρικιών</span></li>
+      </ul>
+    </section>
+    <div class="price-cont">
+      <div class="old-price-cont">
+        <p class="old-price__desc"> Αρχική τιμή</p>
+        <div class="old-price-wrapper"><span class="price-value"> 38</span>€</div>
+      </div>
+      <div class="new-price-cont">
+        <p class="new-price__desc"> Τιμή σε προσφορά</p>
+        <div class="price-wrapper"><span class="price-value"> 19</span>€</div>
+      </div>
+    </div>
+    <section class="form">
+      <h2 class="form__title"> Συμπληρώστε μια αίτηση τώρα<br> και κερδίστε<b> 50% έκπτωση</b></h2>
+      <p class="limited"> Η συγκεκριμένη προσφορά είναι περιορισμένη</p>
+      <form method="post">
+        <input name="offer_id" type="hidden" value="{offer_id}">
+        <input name="geo" type="hidden" value>
+        <input name="web_id" type="hidden" value="{web_id}">
+        <input name="click_id" type="hidden" value="{click_id}">
+        <input name="time_zone" type="hidden" value="+3">
+        <input name="lang" type="hidden" value="RU">
+        <div class="ico-cont-name">
+          <input class="form__input" required type="text" name="name" placeholder="Εισάγεται Ονοματεπώνυμο">
+        </div>
+        <div class="ico-cont-tel">
+          <input class="form__input input-tel" required type="tel" name="phone" placeholder="Εισάγεται Τηλέφωνο">
+        </div>
+        <button class="link-button" type="submit"> Παραγγελία με έκπτωση</button>
+
+      </form>
+    </section>
+    <div class="gray"></div>
+    <div class="header-line"> </div>
+    <div class="video">
+      <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline
+        webkit-playsinline controls autoplay="autoplay">
+        <source src="media/1.mp4" type="video/mp4">
+        <source src="media/1.webm" type="video/webm">
+      </video>
+    </div>
+    <div class="header-line"></div>
+    <div class="pic-and-text">
+      <p> Παρέχονται δύο κουμπώματα<br> για τα σκουλαρίκια</p>
+    </div>
+    <section class="big-check">
+      <ul class="big-check__ul">
+        <li>
+          <h3> Οι λοβοί των αυτιών θα<br> φαίνονται φυσιολογικοί</h3>
+          <p> Το κούμπωμα των λοβών κρατάει το βάρος των σκουλαρικιών στη σωστή θέση</p>
+        </li>
+        <li>
+          <h3> Επαναφέρει την εμφάνιση<br> των τραυματισμένων<br> και τεντωμένων λοβών</h3>
+          <p> Λόγω του ειδικού σχήματος<br> ταιριάζει άνετα<br> στους λοβούς, ανυψώνοντας τους<br> και επαναφέροντας
+            τους στην <br> φυσιολογική τους εμφάνιση</p>
+        </li>
+        <li>
+          <h3> Αποτρέπει<br> το κρέμασμα των λοβών</h3>
+          <p> Παρέχει τη σωστή<br> κατανομή βάρους<br> των σκουλαρικιών προστατεύοντας<br> τους λοβούς των αυτιών από
+            το<br> κρέμασμα</p>
+        </li>
+      </ul>
+    </section>
+    <div class="gray"></div>
+    <div class="pic-and-text pic-and-text-2">
+      <p> Παρέχονται δύο κουμπώματα<br> για τα σκουλαρίκια</p>
+    </div>
+    <section class="small-check">
+      <ul class="small-check__ul">
+        <li><img src="images/min-chk.png" alt>
+          <p> Τελειοποιούν την υπέροχη <br> ελκυστική εμφάνιση σας</p>
+        </li>
+        <li><img src="images/min-chk.png" alt>
+          <p> Είναι μια εξαιρετική λύση για τους πόνους από τη χρήση μεγάλων σκουλαρικιών</p>
+        </li>
+        <li><img src="images/min-chk.png" alt>
+          <p> Το κούμπωμα στους λοβούς των αυτιών ταιριάζει σε όλες τις ηλικίες</p>
+        </li>
+        <li><img src="images/min-chk.png" alt>
+          <p> Κατάλληλο για καθημερινή χρήση, μπορεί να χρησιμοποιηθεί για κάθε περίσταση </p>
+        </li>
+      </ul>
+    </section>
+    <div class="gray"></div>
+    <h2 class="pic-block__title"> Θα γίνει αναντικατάστατο<br> αξεσουάρ</h2><img src="images/pic-1.jpg" alt>
+    <section class="nat">
+      <ul class="nat__ul">
+        <li><img src="images/nat-1.png" alt>
+          <h3> Κατασκευασμένο<br> από<br> ανοξείδωτο ατσάλι</h3>
+          <p> Το μέταλλο αυτό (χειρουργικό ατσάλι) χρησιμοποιείται στην κατασκευή ιατρικών οργάνων. Είναι ανθεκτικό και
+            δεν σκουριάζει</p>
+        </li>
+        <li><img src="images/nat-2.png" alt>
+          <h3> Εχει<br> κομψό<br> design</h3>
+          <p> Σας επιτρέπει να δημιουργήσετε μια όμορφη και ευπρεπή εμφάνιση ακόμα και με τα πιο ογκώδη σκουλαρίκια</p>
+        </li>
+        <li><img src="images/nat-3.png" alt>
+          <h3> Σχεδόν αόρατο</h3>
+          <p> Το κούμπωμα είναι ελαφρύ, συμπαγές και εύκολο στη χρήση του</p>
+        </li>
+      </ul>
+    </section>
+    <div class="gray"></div>
+    <h2 class="pic-block__title title-line"> Κατάλληλο για όσους έχουν</h2>
+    <div class="colors">
+      <div class="color"><img src="images/white.png" alt>
+        <p> Αποτυχημένο <br> πίρσινγκ</p>
+      </div>
+      <div class="color"><img src="images/blue.png" alt>
+        <p> Βαριά<br> σκουλαρίκια</p>
+      </div>
+      <div class="color"><img src="images/gray.png" alt>
+        <p> Τεντωμένους<br> λοβούς αυτιών</p>
+      </div>
+      <div class="color"><img src="images/pink.png" alt>
+        <p> Δυσφορία<br> από βαριά σκουλαρίκια</p>
+      </div>
+    </div>
+    <div class="gray"></div>
+    <h2 class="pic-block__title"> Το αναντικατάστατο<br> αξεσουάρ</h2><img src="images/pic-2.jpg" alt>
+    <section class="small-check">
+      <ul class="small-check__ul">
+        <li><img src="images/min-chk.png" alt>
+          <p> Διάφορα χρώματα καθιστούν το κούμπωμα μοναδική επιλογή</p>
+        </li>
+        <li><img src="images/min-chk.png" alt>
+          <p> Τέλειο ως δώρο</p>
+        </li>
+      </ul>
+    </section>
+    <div class="gray"></div>
+    <div class="per"><img src="images/per-1.png" alt></div>
+    <div class="header-line"></div>
+    <div class="video">
+      <video muted="muted" id="video" width="100%" height="auto" loop="loop" preload="auto" playsinline
+        webkit-playsinline autoplay="autoplay" controls>
+        <source src="media/2.mp4" type="video/mp4">
+        <source src="media/2.webm" type="video/webm">
+      </video>
+    </div>
+    <div class="header-line"></div>
+    <section class="post"> <img src="images/post-top.png" alt>
+      <div class="post__like"> Αρέσει:<b> 2511</b></div>
+      <div class="post__desc"> Το κομψό κούμπωμα είναι μια καλή επιλογή για γυναίκες κάθε ηλικίας</div>
+      <ul class="post__ul no-padding">
+        <li><img class="emoji-first" src="images/diamond.jpg" alt><span> Φαίνεται λακωνικό και ακριβό, σε απόλυτη
+            αρμονία με τα σκουλαρίκια κατασκευασμένα απο πολύτιμα μέταλλα, κοσμήματα διαφορετικών τύπων</span></li>
+        <li><img class="emoji-first" src="images/post-heart.png" alt><span> Οι κοπέλες του καινοτόμου αξεσουάρ θα
+            αποκτήσουν αυτοπεποίθηση</span></li>
+        <li><img class="emoji-first" src="images/diamond.jpg" alt><span><b> Η ασφαλής στερέωση του κουμπώματος αποτρέπει
+              την απώλεια των ακριβών σκουλαρικιών</b></span></li>
+        <li><img class="emoji-first" src="images/post-check.png" alt><span> Με αυτό το αξεσουάρ θα είναι δύσκολο να
+            χάσετε τα πολύτιμα σας σκουλαρίκια από μία τυχόν ξαφνική πτώση τους.</span></li>
+      </ul>
+      <p class="post-time"> ΠΡΙΝ ΑΠΟ 3 ΜΕΡΕΣ</p>
+    </section>
+    <div class="line-gray"></div>
+    <div class="gray"></div>
+    <div class="per"><img src="images/per-2.png" alt></div><img src="images/pic-3.jpg" alt>
+    <section class="post"><img src="images/post-top.png" alt>
+      <div class="post__like no-pb"> Αρέσει:<b> 4952</b> </div>
+      <ul class="post__ul no-padding">
+        <li> <span><b> Λατρεύετε τα ογκώδης σκουλαρίκια<br> όπως και εγώ? Το μικρό μυστικό της ομορφιάς
+              μου</b></span><img src="images/post-smile.png" alt><br></li>
+        <li><span> Μένω έκπληκτη από το γεγονός ότι ορισμένα άτομα εξακολουθούν να μην γνωρίζουν για το υπέροχο κούμπωμα
+            των λοβών, γι 'αυτό μοιράζομαι την εμπειρία μου μαζί σας!</span><img src="images/post-heart.png" alt><span>
+            Η εμφάνισης του είναι υπέροχη, σε κάνει να νιώθεις άνετα και με ασφάλεια.</span></li>
+        <li> <span> Το αξεσουάρ στερέωσης έχει γίνει πραγματική σωτηρία για μένα! Επιστρέφει τα σκουλαρίκια στην
+            επιθυμητή θέση με μία κίνηση!</span><img src="images/post-like.png" alt></li>
+        <li> <span> Τώρα φοράω οποιουδήποτε βάρους σκουλαρίκια χωρίς καμία ενόχληση</span><img src="images/magic.png"
+            alt><span> Εκτός αυτού, δεν φοβάμαι πλέον να χάσω τα αγαπημένα μου σκουλαρίκια. Αυτό είναι απαραίτητο για
+            κάθε γυναίκα!</span></li>
+      </ul>
+      <p class="post-time"> ΠΡΙΝ ΑΠΟ 2 ΜΕΡΕΣ</p>
+    </section>
+    <div class="line-gray"></div>
+    <section class="mini-rev">
+      <p class="mini-rev__desc"><b> Fidal_36</b> Η φίλη μου είπε για αυτό το αξεσουάρ τα καλύτερα λόγια. Θα συμφωνήσω
+        και εγώ μαζί της είναι υπέροχο</p>
+      <div class="mini-rev__tech-cont">
+        <p class="mini-rev__time"> Πριν απο 2 μέρες</p>
+        <p class="mini-rev__like"> Αρέσει</p>
+      </div><span class="mini-rev__desc"><b> Χριστίνα</b> Ενδιαφέρον, πρέπει να τα παραγγείλω</span><img
+        src="images/post-heart.png" alt><img src="images/post-heart.png" alt><img src="images/post-heart.png" alt>
+      <div class="mini-rev__tech-cont">
+        <p class="mini-rev__time"> Πριν απο 23 ώρες</p>
+        <p class="mini-rev__like"> Αρέσει</p>
+      </div>
+    </section>
+    <div class="gray"></div>
+    <div class="per"><img src="images/per-3.png" alt></div><img src="images/pic-4.jpg" alt>
+    <section class="post"><img src="images/post-top.png" alt>
+      <div class="post__like no-pb"> Αρέσει:<b> 361</b> </div>
+      <ul class="post__ul no-padding">
+        <li> <span> Έλαβα την παραγγελία πριν από μερικούς μήνες, είμαι πολύ χαρούμενη για το αποτέλεσμα!</span><img
+            src="images/sml.png" alt><br><span> Αποφάσισα να παραγγείλω αφού έχασα τα ακριβά χρυσά μου σκουλαρίκια. Τώρα
+            φοράω σκουλαρίκια και δεν φοβάμαι τίποτα. Το κούμπωμα είναι οικονομικό στην τιμή και τα πλεονεκτήματα του
+            πολλά! Και τα αυτιά μου τώρα δεν με πονάνε πια. Απίστευτο αξεσουάρ! Το συμβουλεύω!</span><img
+            src="images/sml.png" alt></li>
+      </ul>
+      <p class="post-time"> ΠΡΙΝ ΑΠΟ 3 ΜΕΡΕΣ</p>
+    </section>
+    <div class="gray"></div>
+    <div class="per"><img src="images/per-4.png" alt></div>
+    <div class="reviews__slick-2"><img src="images/sl-1.jpg" alt><img src="images/sl-2.jpg" alt></div>
+    <section class="post"><img src="images/post-top.png" alt>
+      <div class="post__like no-pb"> Αρέσει:<b> 986</b> </div>
+      <ul class="post__ul no-padding">
+        <li> <span> Θέλω να το μοιραστώ μαζί σας! Ίσως θα βοηθήσω κάποια κοπέλα, όπως με βοήθησαν και
+            μένα!</span><br><br><span> Φορούσα μεγάλα σκουλαρίκια για πολύ καιρό και με την πάροδο του χρόνου οι λοβοί
+            των αυτιών μου τεντώθηκαν και άρχιζαν να κρέμονται τα σκουλαρίκια και φαινόταν άσχημα ... Νόμιζα ότι
+            χρειαζόμουν εγχείρηση για να διορθώσω τους λοβούς των αυτιών μου! Αποδείχθηκε ότι αυτό το πρόβλημα λύθηκε
+            χάρη σε αυτό το αξεσουάρ.</span><br><br><span> Τώρα μπορώ να φοράω το αξεσουάρ με μεγάλες πέτρες, βαριά
+            σκουλαρίκια και να φαίνονται ακαταμάχητα! Παραγγείλτε το και δεν θα το μετανιώσετε!</span></li>
+      </ul>
+      <p class="post-time"> ΠΡΙΝ ΑΠΟ 4 ΜΕΡΕΣ</p>
+    </section>
+    <div class="gray"></div>
+    <div class="per"><img src="images/per-5.png" alt></div>
+    <div class="reviews__slick-2"><img src="images/sl-3.jpg" alt><img src="images/sl-4.jpg" alt><img
+        src="images/sl-5.jpg" alt><img src="images/sl-6.jpg" alt></div>
+    <section class="post"><img src="images/post-top.png" alt>
+      <div class="post__like no-pb"> Αρέσει:<b> 2334</b> </div>
+      <ul class="post__ul no-padding">
+        <li> <span> Για πολύ καιρό δεν μπορούσα να φορέσω τα αγαπημένα μου σκουλαρίκια, διότι ήταν πολύ βαριά και τα
+            αυτιά μου άρχιζαν γρήγορα να πονάνε.</span><br><br><span> Το θαυματουργό κούμπωμα μου έλυσε το
+            πρόβλημα!</span><br><br><span> Είναι ένας μοναδικός σχεδιασμός που κατανέμει το βάρος σε ολόκληρη την
+            περιοχή του λοβού, έτσι ώστε ακόμη και τα σκουλαρίκια των εκατό γραμμαρίων δεν γίνονται αισθητά στα
+            αυτιά!Τέλειο!</span><img src="images/sml.png" alt></li>
+      </ul>
+      <p class="post-time"> ΠΡΙΝ ΑΠΟ 4 ΜΕΡΕΣ</p>
+    </section>
+    <div class="gray"></div>
+    <section class="delivery">
+      <h2> Αποστολή και πληρωμή</h2>
+      <div class="delivery__item"><img src="images/deliv-1.png" alt>
+        <h3> Παράδοση</h3>
+        <p> Παραδίδουμε μέσω courier εντός 1-3 ημερών ημερών</p>
+      </div>
+      <div class="delivery__item"><img src="images/deliv-3.png" alt>
+        <h3> Αποστολή</h3>
+        <p> Πληρωμή κατά την παράδοση<br> Η πληρωμή πραγματοποιείται κατά την παραλαβή της παραγγελίας</p>
+      </div>
+    </section>
+    <section class="wellcome">
+      <h1><span> Για ασφαλές κούμπωμα στους λοβούς των αυτιών </span><br><span> Κατασκευασμένο από ανοξείδωτο
+          ατσάλι</span></h1>
+      <div class="content-center">
+        <p class="two-colors"> ~<span>2 </span> χρώματα ~</p>
+      </div>
+      <ul class="check">
+        <li> <span> <br> Επαναφέρει την φυσιολογική</span></li>
+        <li><span> εμφάνιση στους τεντωμένους λοβούς <br> Αποτρέπει το τέντωμα</span></li>
+        <li><span> των λοβών από τα βαριά σκουλαρίκια<br> Κατάλληλο για όλους τους τύπους σκουλαρικιών</span></li>
+      </ul>
+    </section>
+    <div class="price-cont">
+      <div class="old-price-cont">
+        <p class="old-price__desc"> Αρχική τιμή</p>
+        <div class="old-price-wrapper"><span class="price-value"> 38</span>€</div>
+      </div>
+      <div class="new-price-cont">
+        <p class="new-price__desc"> Τιμή σε προσφορά</p>
+        <div class="price-wrapper"><span class="price-value"> 19</span>€</div>
+      </div>
+    </div>
+    <section class="form">
+      <h2 class="form__title">Συμπληρώστε μια αίτηση τώρα
+        και κερδίστε<br><b>50% έκπτωση</b></h2>
+      <p class="limited">Η συγκεκριμένη προσφορά είναι περιορισμένη</p>
+      <form method="post">
+        <input name="offer_id" type="hidden" value="{offer_id}">
+        <input name="geo" type="hidden" value>
+        <input name="web_id" type="hidden" value="{web_id}">
+        <input name="click_id" type="hidden" value="{click_id}">
+        <input name="time_zone" type="hidden" value="+3">
+        <input name="lang" type="hidden" value="RU">
+        <div class="ico-cont-name">
+          <input class="form__input" required type="text" name="name" placeholder="Εισάγεται Ονοματεπώνυμο">
+        </div>
+        <div class="ico-cont-tel">
+          <input class="form__input input-tel" required type="tel" name="phone" placeholder="Εισάγεται Τηλέφωνο">
+        </div>
+        <button class="link-button" type="submit"> Παραγγελία με έκπτωση</button>
+
+      </form>
+    </section>
+    <div class="gray"></div>
+
+  </main>
+  <footer id="footer-link">
+    <div style="text-align: center;margin: 10px auto;display: block;font-size: 14px;line-height: 26px;"> BEAUT-E SHOP,
+      26th Oktovriou, 546 27, Thessaloniki, Greece<br>
+      <a href="/privacypolicy" target="_blank"> Privacy policy</a>
+      <a href="/general-conditions-of-sale" target="_blank"> General conditions of sale</a>
+      <a href="/legal-warning" target="_blank"> Legal warning</a>
+    </div>
+  </footer>
+  <div id="details-wrapper"></div>
+  <script src="js/slick.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript" src="/libs/js/common.js"></script>
+  <script>
+    $(document).ready(function () {
+      $.init({
+
+        priceSelector: ".new-cost",
+        oldPriceSelector: ".old-cost",
+        reportFormSelector: ".report-abuse__form",
+        reportCallback: function (data) {
+          console.log('ReportCallback:', data);
+        },
+        callback: function () {
+          console.log("Do something after prices changing");
+
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
