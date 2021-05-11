@@ -24,7 +24,6 @@
 padding: 0 52px;
   max-width: 976px;
   width: 100%;
-
   margin: 0 auto;
   @media (max-width: 460px) {
     padding: 3rem 1rem;
@@ -464,6 +463,16 @@ padding: 0 52px;
     }
     @include media-lg-tablet {
       display: none;
+    }
+  }
+  .bagr{
+    background-image: url(../../img/blog.jpg);
+    height: 445px;
+    padding-top: 26px;
+    position: relative;
+    p{
+position: absolute;
+bottom: 0;
     }
   }
 }

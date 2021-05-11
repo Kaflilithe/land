@@ -3,15 +3,16 @@
   position: relative;
   top: 0;
   z-index: 1;
-  .container{
+  .container {
     max-width: $content__width;
     margin: 0 auto;
+    width: 100%;
   }
-  .min{
+  .min {
     display: none;
-    @include media-tablet{
-    display: block;
-    opacity: 0;
+    @include media-tablet {
+      display: block;
+      opacity: 0;
     }
   }
   &__wrap {
@@ -24,61 +25,28 @@
     @media (max-width: 500px) {
       padding: 0;
     }
-    &--main{
+    &--main {
       padding: 20px 10px;
       flex-direction: column;
-      @include media-tablet{
+      @include media-tablet {
         flex-direction: row;
         justify-content: center;
       }
     }
   }
-  &__main{
+  &__top {
+    background: #dc513a;
 
-    .top{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 10px;
-      .get-date {
-        color: #fff;
-      }
-      .user{
-        color: #fff;
-        font-size: 12px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        a{
-          color: #fff;
-          text-decoration: none;
-          padding: 0 5px;
-          display: block;
-          height: auto;
-          box-sizing: border-box;
-        }
-        .loop{
-          width: 12px;
-        }
-        .account{
-          width: 16px;
-        }
-      }
-      @include media-tablet {
-        display: none;
-      }
+    .container {
+      @include flex(row, flex-start, center);
+      position: relative;
+    }
+    img {
+      display: block;
     }
   }
-  &__top {
-    background: #f3f3f3;
-    padding: 6px 0;
-  }
-  &__main{
-    background: #216087;
-  }
   &__logo {
+    margin-left: 46px;
     img {
       @media (max-width: 400px) {
         max-width: 140px;
@@ -87,28 +55,39 @@
   }
   &__loop {
     width: 25px;
+    position: absolute;
+    right: 0;
+    top: auto;
   }
   &__menu {
     @include flex(row, space-between, center);
-    max-width: 905px;
     width: 100%;
-    @include media-tablet{
-      max-width: min-content
+    margin: 10px 0;
+    @include media-tablet {
+      max-width: min-content;
+    }
+    .container {
+      background: #f9f7f7;
+      border: 1px solid #5e5e5e;
+      box-sizing: border-box;
+    }
+    @include media-tablet {
+      display: none;
     }
   }
   &__nav {
     @include flex(row, space-between, center);
     width: 100%;
-    padding-top: 20px;
-    font-size: 14px;
-    text-transform: uppercase;
+    padding: 20px 10px;
+    font-size: 20px;
 
     a {
-      color: #fff;
+      color: #b1b1b1;
       text-decoration: none;
-    }
-    @include media-tablet {
-      display: none;
+      &.active {
+        font-weight: bold;
+        color: #000;
+      }
     }
   }
   &__search {
@@ -161,20 +140,11 @@
   }
 
   &__mob {
-   
     button {
       border: none;
       background-color: transparent;
       cursor: pointer;
       outline: none;
-    }
-
-    display: none;
-    @include media-tablet { 
-      display: block;
-      position: absolute;
-      top: auto;
-      right:0;
     }
     @media (max-width: 400px) {
       img {
