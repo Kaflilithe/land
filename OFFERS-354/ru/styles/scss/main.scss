@@ -10,7 +10,7 @@
   display: grid;
   width: 100%;
   grid-template-columns: minmax(100px, 1fr) minmax(100px, 300px);
-  max-width:  $content__width;
+  max-width: $content__width;
   margin: 0 auto;
   background-color: #fff;
   padding-top: 32px;
@@ -21,7 +21,7 @@
 }
 
 .content {
-padding: 0 52px;
+  padding: 0 52px;
   max-width: 976px;
   width: 100%;
   margin: 0 auto;
@@ -413,7 +413,7 @@ padding: 0 52px;
     grid-column-gap: 10px;
     grid-row-gap: 30px;
     grid-template-columns: repeat(2, 1fr);
-    @include media-sm-tablet{
+    @include media-sm-tablet {
       grid-template-columns: repeat(1, 1fr);
     }
     &__item {
@@ -424,7 +424,7 @@ padding: 0 52px;
       flex-direction: row;
       justify-content: flex-start;
       max-width: 100% !important;
-      @include media-sm-tablet{
+      @include media-sm-tablet {
         justify-content: flex-start;
       }
       img {
@@ -437,19 +437,18 @@ padding: 0 52px;
         margin: 0;
         margin-left: 20px;
         width: 100%;
-        @include media-sm-tablet{
+        @include media-sm-tablet {
           margin-left: 15px;
           max-width: 100%;
         }
-      } 
+      }
     }
-  
   }
   .advertising {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
-    img{
+    img {
       display: block;
       width: 100%;
     }
@@ -465,14 +464,39 @@ padding: 0 52px;
       display: none;
     }
   }
-  .bagr{
+  .bagr {
     background-image: url(../../img/blog.jpg);
     height: 445px;
     padding-top: 26px;
+    background-size: cover;
+    background-position: center;
+    padding: 26px 22px;
     position: relative;
-    p{
-position: absolute;
-bottom: 0;
+   
+    p {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-left: 8px solid #dc0000;
+      color: #ffffff;
+      padding-left: 10px;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 18px;
+      margin-left: 30px;
+      margin-right: 20px;
+    }
+    @include media-lg-tablet{
+      height: 300px;
+      P{
+        font-size: 15px;
+      }
+    }
+    @include media-phone-med {
+      p{
+        margin-left: 20px;
+        font-size: 12px;
+      }
     }
   }
 }
@@ -584,15 +608,14 @@ bottom: 0;
       margin: 0;
     }
   }
-
 }
 
 .comment {
   margin-bottom: 2rem;
-  background: #F5F5F5;
+  background: #f5f5f5;
   padding: 8px 11px;
   @include flex(row, flex-start, flex-start);
- 
+
   p {
     margin: 2px 0;
   }
@@ -639,9 +662,9 @@ bottom: 0;
 
     width: 100%;
   }
-  &__btn{
+  &__btn {
     display: block;
-    img{
+    img {
       width: 16px;
       opacity: 1;
       margin-top: 10px;
