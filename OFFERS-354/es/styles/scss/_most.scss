@@ -3,6 +3,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   height: 100%;
+  background: #E5E5E5;
   @media (max-width: 460px) {
     font-size: 14px;
   }
@@ -116,14 +117,8 @@ ul {
    }
  }
  a{
-  color: #874B4B;
+   color: #DC0000;
    b{
      color: #000;
-   }
-   h2{
-    color: #0095DA;
-    text-align: center;
-    text-decoration: none;
-    text-decoration-line: underline;
    }
  }
