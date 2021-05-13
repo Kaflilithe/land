@@ -35,18 +35,32 @@
     }
   }
   &__top {
-    background: #dc513a;
+    background: #424040;
 
     .container {
-      @include flex(row, flex-start, center);
+      @include flex(row, space-between, center);
       position: relative;
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
-    img {
-      display: block;
+   
+    a.weather{
+      @include flex(row, flex-end, center);
+      text-decoration: none;
+      img{
+        display: block;
+        margin-right: 10px;
+      }
+      span{
+        color: #fff;
+      }
+    }
+    .get-date{
+      color: #fff;
     }
   }
   &__logo {
-    margin-left: 46px;
+    margin-left: 10px;
     img {
       @media (max-width: 400px) {
         max-width: 140px;
@@ -55,34 +69,35 @@
   }
   &__loop {
     width: 25px;
-    position: absolute;
-    right: 0;
-    top: auto;
   }
   &__menu {
-    @include flex(row, space-between, center);
+   
     width: 100%;
-    margin: 10px 0;
-    @include media-tablet {
-      max-width: min-content;
+    .box{
+      @include flex(row, flex-start, center);
+      width: 100%;
     }
     .container {
-      background: #f9f7f7;
-      border: 1px solid #5e5e5e;
+      background: #0095DA;
       box-sizing: border-box;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @include flex(row, space-between, center);
     }
-    @include media-tablet {
-      display: none;
-    }
+   
   }
   &__nav {
     @include flex(row, space-between, center);
     width: 100%;
-    padding: 20px 10px;
+    max-width: 300px;
+    padding: 0 10px;
+    margin-left: 30px;
     font-size: 20px;
-
+    @include media-tablet {
+      display: none;
+    }
     a {
-      color: #b1b1b1;
+      color: #fff;
       text-decoration: none;
       &.active {
         font-weight: bold;
