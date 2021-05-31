@@ -1,0 +1,563 @@
+:focus::-webkit-input-placeholder { color:transparent; }
+:focus::-moz-placeholder { color:transparent; }
+:focus::placeholder { color:transparent; }
+
+/** ----1 forma---- **/
+.vendor_description{
+    display: none;
+}
+
+#popupform
+{
+    display: none;
+}
+
+#popupform .error {
+    color: #c00000;
+}
+
+#popupform h2 {
+    color: #353535;
+    font-family: "RobotoBold";
+    font-size:26px;
+    margin-bottom: 20px;
+}
+
+#popupform .comment {
+    color: #717171;
+    font-family: "RobotoRegular";
+    margin-bottom: 20px;
+    font-size:14px;
+}
+
+#popupform label {
+    display: block;
+    padding: 16px 0 4px;
+}
+
+#popupform .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 35px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/user.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+#popupform .input_text2 {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 17px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/tel.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+
+#popupform .input_text:focus {
+    border-color:#449b2f;
+}
+
+#popupform .input_text2:focus {
+    border-color:#449b2f;
+}
+
+#popupform .button_green {
+    border: 3px solid #b7b7b7;
+   padding: 15px 40px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+    background-color:#18a333;
+   color: #fff;
+   font-size: 21px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   letter-spacing: 2px;
+    cursor:pointer;
+    margin:30px 0 0 10px;
+   }
+
+#popupform .button_green:hover {
+    background-color: #117e26;
+
+}
+
+/** ----2 forma----- **/
+
+#popupform2
+{
+    display: none;
+}
+
+#popupform2 .error {
+    color: #c00000;
+}
+#popupform2 h2 {
+    color: #353535;
+    font-family: "RobotoBold";
+    font-size:26px;
+    margin-bottom: 20px;
+}
+#popupform2 .comment {
+    color: #717171;
+    font-family: "RobotoRegular";
+    margin-bottom: 20px;
+    font-size:14px;
+}
+#popupform2 label {
+    display: block;
+    padding: 16px 0 4px;
+}
+
+#popupform2 .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 35px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/user.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+#popupform2 .input_text2 {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 17px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/tel.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+#popupform2 .input_text:focus {
+    border-color:#449b2f;
+}
+
+#popupform2 .input_text2:focus {
+    border-color:#449b2f;
+}
+
+#popupform2 .button_green {
+    border: 3px solid #b7b7b7;
+   padding: 15px 40px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+    background-color:#18a333;
+   color: #fff;
+   font-size: 21px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   letter-spacing: 2px;
+    cursor:pointer;
+    margin:30px 0 0 10px;
+   }
+
+#popupform2 .button_green:hover {
+    background-color: #117e26;
+
+}
+
+/** ---3 forma----  **/
+
+
+#popupform3
+{
+    display: none;
+}
+
+#popupform3 .error {
+    color: #c00000;
+}
+#popupform3 h2 {
+    color: #353535;
+    font-family: "RobotoBold";
+    font-size:26px;
+    margin-bottom: 20px;
+}
+#popupform3 .comment {
+    color: #717171;
+    font-family: "RobotoRegular";
+    margin-bottom: 20px;
+    font-size:14px;
+}
+#popupform3 label {
+    display: block;
+    padding: 16px 0 4px;
+}
+
+#popupform3 .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 35px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/user.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+#popupform3 .input_text2 {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 17px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/tel.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+#popupform3 .input_text:focus {
+    border-color:#449b2f;
+}
+
+#popupform3 .input_text2:focus {
+    border-color:#449b2f;
+}
+
+#popupform3 .button_green {
+    border: 3px solid #b7b7b7;
+   padding: 15px 40px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+    background-color:#18a333;
+   color: #fff;
+   font-size: 21px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   letter-spacing: 2px;
+    cursor:pointer;
+    margin:30px 0 0 10px;
+   }
+
+#popupform3 .button_green:hover {
+    background-color: #117e26;
+}
+
+
+
+/** ---4 forma----  **/
+
+
+#popupform4
+{
+    display: none;
+}
+
+#popupform4 .error {
+    color: #c00000;
+}
+#popupform4 h2 {
+    color: #353535;
+    font-family: "RobotoBold";
+    font-size:26px;
+    margin-bottom: 20px;
+}
+#popupform4 .comment {
+    color: #717171;
+    font-family: "RobotoRegular";
+    margin-bottom: 20px;
+    font-size:14px;
+}
+#popupform4 label {
+    display: block;
+    padding: 16px 0 4px;
+}
+#popupform4 .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 35px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/user.png);
+    background-repeat: no-repeat;
+    background-position: left center 
+}
+
+#popupform4 .input_text2 {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 17px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/tel.png);
+    background-repeat: no-repeat;
+    background-position: left center 
+}
+
+#popupform4 .input_text:focus {
+    border-color:#449b2f;
+}
+
+#popupform4 .input_text2:focus {
+    border-color:#449b2f;
+}
+
+#popupform4 .button_green {
+    border: 3px solid #b7b7b7;
+   padding: 15px 40px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+    background-color:#18a333;
+   color: #fff;
+   font-size: 21px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   letter-spacing: 2px;
+    cursor:pointer;
+    margin:30px 0 0 10px;
+   }
+
+#popupform4 .button_green:hover {
+    background-color: #117e26;
+}
+
+
+
+/** ---4 forma zvonok----  **/
+
+
+#popupform5
+{
+    display: none;
+}
+
+#popupform5 .error {
+    color: #c00000;
+}
+#popupform5 h2 {
+    color: #353535;
+    font-family: "RobotoBold";
+    font-size:26px;
+    margin-bottom: 20px;
+}
+#popupform5 .comment {
+    color: #717171;
+    font-family: "RobotoRegular";
+    margin-bottom: 20px;
+    font-size:14px;
+}
+#popupform5 label {
+    display: block;
+    padding: 16px 0 4px;
+}
+#popupform5 .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 35px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/user.png);
+    background-repeat: no-repeat;
+    background-position: left center 
+}
+
+#popupform5 .input_text2 {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 28px;
+    margin: 17px 6px 0 0;
+    padding: 1% 1% 1% 9%;
+    letter-spacing: 1px;
+    width: 88%;
+    background-image:url(../img/tel.png);
+    background-repeat: no-repeat;
+    background-position: left center 
+}
+
+#popupform5 .input_text:focus {
+    border-color:#449b2f;
+}
+
+#popupform5 .input_text2:focus {
+    border-color:#449b2f;
+}
+
+#popupform5 .button_green {
+    border: 3px solid #b7b7b7;
+   padding: 15px 40px;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+    background-color:#18a333;
+   color: #fff;
+   font-size: 21px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   letter-spacing: 2px;
+    cursor:pointer;
+    margin:30px 0 0 2px;
+   }
+
+#popupform5 .button_green:hover {
+    background-color: #117e26;
+}
+
+
+/** drugie formu **/
+
+#politika
+{
+    display: none;
+}
+
+#politika p.zagolovok {
+    font-size:18px;
+    margin:15px 0;
+}
+
+
+#garantiya
+{
+    display: none;
+}
+
+#garantiya p.zagolovok {
+    font-size:18px;
+    margin:15px 0;
+}
+
+#garantiya p {
+    margin-bottom:15px;
+}
+
+
+#moreinfo
+{
+    display: none;
+}
+
+#moreinfo h3 {
+    font-size:33px;
+    color:#A9BF04;
+}
+
+#moreinfo h4 {
+    font-size:24px;
+    border-bottom:1px solid #E5E5E5;
+    padding-bottom:5px;
+    margin:20px 0;
+}
+
+.block_harakteristik {
+    width:100%;
+    overflow: hidden;
+}
+
+.block_harakteristik_left {
+    width:70%;
+    float:left;
+}
+
+.block_harakteristik_right {
+    width:30%;
+    float:right;
+}
+
+.block_harakteristik p {
+    margin-bottom:8px;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  height: 70px;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+select {
+  outline: none;
+
+}
+.select{
+    width: 100%;
+    border-radius: 0.25em;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1.1;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #eee;
+}
