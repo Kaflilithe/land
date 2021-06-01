@@ -8,7 +8,7 @@ $(document).ready(function() {
 	//модель в форму
 	$('.product_item .button').on('click', function(){
 		var prodName = $(this).siblings('.vendor_code').text();
-		var proddescription = $(this).siblings('.vendor_description').text();
+		var proddescription = $(this).siblings('.vendor_description').html();
 		$("h3").text(prodName);
 		$(".description").html(proddescription);
 	});
