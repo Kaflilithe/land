@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var rev = $(".reviews").owlCarousel({
+ $(".reviews").owlCarousel({
     margin: 20,
     items: 1,
     dots: true,
@@ -19,4 +19,30 @@ $(document).ready(function () {
     }
   });
 
+  accordion($('.accordion'))
 });
+
+function accordion(ref$) {
+  const header = ref$.find('.accordion__title')
+  const body = ref$.find('.accordion__description')
+
+  closeAll()
+
+  header.each((i, item) => {
+    $(item).on('click', () => {
+      const trigger = $(item).find('.triger')
+      toggleClass(trigger)
+      $(body.get(i)).slideToggle(300)
+    })
+  })
+
+  function closeAll() {
+    body.slideUp(300)
+  }
+
+  function toggleClass(ref$) {
+    return ref$.hasClass('open')
+      ? ref$.removeClass('open')
+      : ref$.addClass('open')
+  }
+}
