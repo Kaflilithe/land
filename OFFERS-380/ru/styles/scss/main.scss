@@ -511,14 +511,14 @@
       }
       p {
         margin: 0;
-        @include media-phone-med{
+        @include media-phone-med {
           font-size: 14px;
         }
       }
       img {
         width: 41px;
         margin-right: 24px;
-        @include media-phone-med{
+        @include media-phone-med {
           margin-right: 18px;
         }
       }
@@ -643,4 +643,36 @@
       }
     }
   }
+}
+.footer {
+  background: #fff;
+ 
+  h2 {
+    font-size: 30px;
+    margin-bottom: 0;
+    @include media-phone {
+      font-size: 25px;
+    }
+    @include media-phone-med {
+      font-size: 20px;
+    }
+  }
+  .btn {
+    margin: 10px auto;
+    margin-top: 40px;
+    font-size: 28px;
+    padding: 26px 60px;
+    @include media-phone{
+      font-size: 24px;
+      padding: 20px 30px;
+    }
+    @include media-phone-med{
+      font-size: 22px;
+    }
+  }
+  .container {
+    padding: 30px;
+   
+  }
+
 }
