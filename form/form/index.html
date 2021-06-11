@@ -170,10 +170,7 @@
 
 
 
-  <div class="sweet-text-hidden ">
-    <div class="sweet-title">спасибо за отправку,мы свяжемся с вами в ближайшее время</div>
-
-  </div>
+ 
   <script>
 
     $("#form").on("submit", (e) => {
@@ -183,7 +180,7 @@
         method: 'post',
         dataType: 'html',
 
-        success: showmain()
+      
 
       });
       $.ajax({
@@ -194,12 +191,7 @@
 
       });
     });
-    $(".sweet-text-hidden ").hide()
-    function showmain() {
-      $(".sweet-text-hidden ").slideDown()
-      $(".main").slideUp()
-
-    }
+  
   </script>
 
 </body>
