@@ -48,8 +48,10 @@ $(document).ready(function() {
 		var prod_name = $(this).siblings(".text").children(".prod_name").text();
 		var prod_img = $(this).parent().siblings(".img").find("img:first-child").attr("src");
 		var prod_description = $(this).siblings(".text").children(".prod_description").html();
+		var prod_price = $(this).siblings(".text").children(".price").html();
 		$(".popup .prod_name span").text(prod_name);
 		$(".popup .prod_description").html(prod_description);
+		$(".popup .prod_price").html(prod_price);
 		$(".popup img").attr("src", prod_img);
 		$("input[name=comment]").val(prod_name);
 	});

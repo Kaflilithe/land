@@ -375,17 +375,17 @@ section {
 	text-transform: uppercase;
 }
 
-.price {
+.price, .prod_price {
 	display: flex;
 	font-weight: 500;
 }
-.price small {
+.price small, .prod_price small  {
 	font-size: 0.8em;
 }
-.price .old span {
+.price .old span, .prod_price .old span {
 	text-decoration: line-through;
 }
-.price .new {
+.price .new , .prod_price .new {
 	color: #ff3975;
 	font-weight: 700;
 	font-size: 21px;
